@@ -25,7 +25,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
@@ -301,7 +301,6 @@
   <a href="home.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html" class="active">Our Products</a></li>
-    <li><a href="estimate.html">Get Estimate</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
@@ -314,7 +313,6 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
   <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
@@ -832,7 +830,6 @@
           Book a Free Visit
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="estimate.html" class="btn-outline">Get an Estimate</a>
       </div>
     </div>
   </div>
@@ -869,7 +866,6 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="help.html">Help &amp; FAQs</a></li>
           <li><a href="book.html">Book a Free Visit</a></li>
         </ul>

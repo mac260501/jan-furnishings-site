@@ -1,1 +1,1 @@
-# jan-furnishings-site
+# jan-furnishings

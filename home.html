@@ -26,7 +26,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--charcoal);
@@ -508,66 +508,6 @@
     }
     .google-badge strong { color: var(--text); }
 
-    /* ─── ESTIMATE CTA ───────────────────────────────── */
-    #estimate-cta {
-      padding: 120px 0;
-      background: var(--charcoal-2);
-      position: relative; overflow: hidden;
-    }
-    .estimate-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-    .estimate-text h2 { font-size: clamp(36px, 3.5vw, 52px); margin: 16px 0 24px; }
-    .estimate-text p { color: var(--text-muted); line-height: 1.8; font-size: 16px; margin-bottom: 40px; }
-    .estimate-perks { display: flex; flex-direction: column; gap: 16px; }
-    .estimate-perk {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .perk-icon {
-      width: 36px; height: 36px; background: rgba(201,169,110,0.1);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: var(--gold); font-size: 16px;
-    }
-    .perk-info strong { display: block; font-size: 14px; font-weight: 500; margin-bottom: 2px; }
-    .perk-info span { font-size: 13px; color: var(--text-muted); }
-
-    /* Quick estimator widget */
-    .estimator-widget {
-      background: var(--charcoal-3);
-      padding: 40px;
-    }
-    .estimator-widget h3 {
-      font-size: 28px; margin-bottom: 8px;
-    }
-    .estimator-widget .sub { font-size: 13px; color: var(--text-muted); margin-bottom: 32px; }
-    .est-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-    .est-field label {
-      display: block; font-size: 10px; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;
-    }
-    .est-field input, .est-field select {
-      width: 100%; background: var(--charcoal-2); border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text); padding: 12px 16px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px;
-      outline: none; transition: border 0.3s;
-      appearance: none;
-    }
-    .est-field input:focus, .est-field select:focus { border-color: var(--gold); }
-    .est-field select option { background: var(--charcoal-2); }
-    .est-result {
-      background: var(--charcoal-2);
-      padding: 20px 24px; margin: 20px 0;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .est-result-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
-    .est-result-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px; color: var(--gold); line-height: 1;
-    }
-    .est-note { font-size: 11px; color: var(--text-muted); margin-top: 8px; line-height: 1.6; }
-
     /* ─── ABOUT SNIPPET ──────────────────────────────── */
     #about-snap { padding: 120px 0; background: var(--charcoal); }
     .about-inner {
@@ -692,7 +632,7 @@
       .hero-content { padding: 80px 20px 48px; min-height: auto; justify-content: flex-start; }
       .hero-stats { display: none; }
       .hero-scroll { display: none; }
-      .intro-inner, .motorized-inner, .estimate-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-inner, .motorized-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .intro-img-accent { bottom: -24px; right: -16px; }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .products-grid { grid-template-columns: 1fr 1fr; }
@@ -703,7 +643,6 @@
       .coverage-inner { flex-direction: column; align-items: flex-start; }
       .coverage-cities { flex-wrap: wrap; }
       .about-badge { right: -16px; }
-      .estimate-inner { gap: 48px; }
       .motorized-price-badge { left: 0; }
       .products-intro { flex-direction: column; align-items: flex-start; }
       .products-intro p { text-align: left; }
@@ -727,7 +666,6 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="estimate.html">Get Estimate</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
@@ -740,7 +678,6 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
   <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
@@ -765,7 +702,6 @@
         Book a Free Visit
         <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-      <a href="estimate.html" class="btn-outline">Get an Estimate</a>
     </div>
   </div>
 
@@ -1161,82 +1097,6 @@
   </div>
 </section>
 
-<!-- ── ESTIMATE CTA ────────────────────────────────────── -->
-<section id="estimate-cta">
-  <div class="container">
-    <div class="estimate-inner">
-      <div class="estimate-text" data-aos="fade-right">
-        <div class="tag">Transparent Pricing</div>
-        <h2>Get an instant estimate in under a minute.</h2>
-        <p>No phone calls. No waiting. Enter your window dimensions, choose your product, and see an upfront price immediately. Every quote reflects our actual pricing — no hidden fees, ever.</p>
-        <div class="estimate-perks">
-          <div class="estimate-perk">
-            <div class="perk-icon">📐</div>
-            <div class="perk-info">
-              <strong>Price by your exact dimensions</strong>
-              <span>Our estimator calculates based on your actual window width and height.</span>
-            </div>
-          </div>
-          <div class="estimate-perk">
-            <div class="perk-icon">💳</div>
-            <div class="perk-info">
-              <strong>Pay upfront or in installments</strong>
-              <span>Same price either way. Split into 3 easy payments at no extra cost.</span>
-            </div>
-          </div>
-          <div class="estimate-perk">
-            <div class="perk-icon">🎯</div>
-            <div class="perk-info">
-              <strong>No obligation</strong>
-              <span>Getting an estimate doesn't commit you to anything. Book a visit when you're ready.</span>
-            </div>
-          </div>
-        </div>
-        <a href="estimate.html" class="btn-primary" style="margin-top:32px;">
-          Try the Estimator
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-
-      <!-- Quick estimator widget -->
-      <div class="estimator-widget" data-aos="fade-left" data-aos-delay="100">
-        <h3>Quick Estimate</h3>
-        <p class="sub">Enter your window size and product to get started.</p>
-        <div class="est-row">
-          <div class="est-field">
-            <label>Width (cm)</label>
-            <input type="number" id="estWidth" placeholder="200" min="50" max="500" value="200" oninput="calcEstimate()" />
-          </div>
-          <div class="est-field">
-            <label>Height (cm)</label>
-            <input type="number" id="estHeight" placeholder="300" min="50" max="500" value="300" oninput="calcEstimate()" />
-          </div>
-        </div>
-        <div class="est-field" style="margin-bottom:0;">
-          <label>Product</label>
-          <select id="estProduct" onchange="calcEstimate()">
-            <option value="sheer">Sheer Curtains</option>
-            <option value="blackout">Blackout Curtains</option>
-            <option value="combo" selected>Sheer & Blackout Combo</option>
-            <option value="roller">Roller Blinds</option>
-            <option value="wooden">Wooden Blinds</option>
-            <option value="motorized">Motorized Curtains</option>
-          </select>
-        </div>
-        <div class="est-result">
-          <div class="est-result-label">Estimated Price</div>
-          <div class="est-result-price" id="estPrice">AED 999</div>
-        </div>
-        <p class="est-note">* Base price for standard window. Upgrades (premium fabrics, wave style, motorization) may vary. Book a free visit for an exact quote.</p>
-        <a href="book.html" class="btn-primary" style="margin-top:20px;width:100%;justify-content:center;">
-          Book a Free Visit
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── ABOUT SNIPPET ───────────────────────────────────── -->
 <section id="about-snap">
   <div class="container">
@@ -1328,7 +1188,6 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="help.html">Help & FAQs</a></li>
           <li><a href="book.html">Book a Free Visit</a></li>
         </ul>
@@ -1377,34 +1236,6 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // ── Quick Estimator ──────────────────────────────────
-  // Base price per sqm for each product (AED)
-  const BASE_RATES = {
-    sheer:      { base: 533,  rate: 88  },
-    blackout:   { base: 599,  rate: 100 },
-    combo:      { base: 999,  rate: 165 },
-    roller:     { base: 393,  rate: 130 },
-    wooden:     { base: 499,  rate: 166 },
-    motorized:  { base: 1299, rate: 216 },
-  };
-
-  function calcEstimate() {
-    const w = parseFloat(document.getElementById('estWidth').value) || 200;
-    const h = parseFloat(document.getElementById('estHeight').value) || 300;
-    const product = document.getElementById('estProduct').value;
-    const { base, rate } = BASE_RATES[product];
-
-    // Standard window = 2m × 3m = 6 sqm → base price
-    const stdSqm = 2 * 3;
-    const actualSqm = (w / 100) * (h / 100);
-    const estimated = Math.round(base * (actualSqm / stdSqm));
-    const final = Math.max(estimated, Math.round(base * 0.6)); // min 60% of base
-
-    document.getElementById('estPrice').textContent = 'AED ' + final.toLocaleString();
-  }
-
-  // Run on load
-  calcEstimate();
 </script>
 
 </body>
