@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jan Furnishings — Custom Curtains & Blinds in Dubai</title>
+  <meta name="description" content="Premium custom curtains and blinds in Dubai. Free home visit, same-week installation, 500+ windows fitted. Book your free consultation today." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ─────────────────────────────── */
+    :root {
+      --charcoal:   #1A1A1A;
+      --charcoal-2: #232323;
+      --charcoal-3: #2B2B2B;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5B0;
+      --gold-dim:   #D4B882;
+      --text:       #F0EDE8;
+      --text-muted: #9A9590;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--charcoal);
+      color: var(--text);
+      overflow-x: hidden;
+      font-weight: 300;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 { font-size: clamp(36px, 4vw, 52px); margin-top: 16px; color: var(--text); }
+    .section-header p { margin-top: 16px; color: var(--text-muted); font-size: 16px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+    /* ─── Buttons ───────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--charcoal);
+      padding: 16px 32px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-primary .arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--gold);
+      padding: 14px 28px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1.5px solid var(--gold); cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.4s ease;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 40px rgba(0,0,0,0.25);
+    }
+    nav.scrolled {
+      background: rgba(26,26,26,0.97);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 500; letter-spacing: 0.05em;
+      color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    nav.scrolled .nav-logo { color: var(--gold); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold); color: var(--charcoal);
+      padding: 10px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .nav-cta:hover { background: var(--white); }
+
+    /* Mobile nav */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 1.5px; background: var(--white);
+      transition: all 0.3s ease;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--charcoal); z-index: 99; padding: 100px 32px 48px;
+      flex-direction: column; align-items: flex-start; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300;
+      color: var(--text); letter-spacing: 0.02em;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta {
+      margin-top: 16px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold); color: var(--charcoal);
+      padding: 14px 28px;
+    }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh; min-height: 680px;
+      display: flex; align-items: stretch;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('assets/images/deconovo-uKBSq6O1BMw-unsplash.jpg') center/cover no-repeat;
+      animation: heroZoom 10s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1); }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(26,26,26,0.6) 0%,
+        rgba(26,26,26,0.15) 50%,
+        rgba(26,26,26,0.0) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 100px 32px 80px;
+      max-width: 680px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    /* Glass panel wrapping headline + sub + actions */
+    .hero-text-glass {
+      background: rgba(26,26,26,0.52);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 44px 52px 48px;
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .hero-text-glass { padding: 28px 24px 32px; }
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards;
+    }
+    .hero-tag::before {
+      content: ''; display: block;
+      width: 32px; height: 1px; background: var(--gold);
+    }
+    .hero-title {
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300; line-height: 1.0;
+      color: var(--white);
+      opacity: 0; animation: fadeUp 0.9s 0.6s ease forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 16px; font-weight: 300; line-height: 1.7;
+      color: rgba(255,255,255,0.7); max-width: 480px;
+      opacity: 0; animation: fadeUp 0.9s 0.8s ease forwards;
+    }
+    .hero-actions {
+      margin-top: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.9s 1.0s ease forwards;
+    }
+    .hero-scroll {
+      position: absolute; right: 32px; bottom: 48px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fadeIn 1s 1.6s ease forwards;
+    }
+    .hero-scroll span {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); writing-mode: vertical-rl;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 48px; background: rgba(201,169,110,0.4);
+      animation: scrollDown 1.6s 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0%, 100% { transform: scaleY(1); transform-origin: top; }
+      50% { transform: scaleY(0.3); transform-origin: top; }
+    }
+
+    /* Hero stats bar */
+    .hero-stats {
+      position: absolute; bottom: 0; right: 0; z-index: 2;
+      display: flex;
+      opacity: 0; animation: fadeIn 1s 1.3s ease forwards;
+    }
+    .hero-stat {
+      padding: 20px 28px;
+      background: rgba(26,26,26,0.85);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(201,169,110,0.2);
+      border-left: 1px solid rgba(201,169,110,0.1);
+      text-align: center;
+      min-width: 120px;
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; color: var(--gold); line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 4px;
+    }
+
+    /* ─── MARQUEE ────────────────────────────────────── */
+    #marquee {
+      background: var(--gold);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 30s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 0 32px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--charcoal);
+      flex-shrink: 0;
+    }
+    .marquee-dot { width: 4px; height: 4px; background: var(--charcoal); border-radius: 50%; opacity: 0.4; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── INTRO / WHY US ─────────────────────────────── */
+    #intro { padding: 120px 0; background: var(--charcoal); }
+    .intro-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .intro-images { position: relative; }
+    .intro-img-main {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+    }
+    .intro-img-accent {
+      position: absolute; bottom: -40px; right: -40px;
+      width: 55%; aspect-ratio: 1/1; object-fit: cover;
+      border: 4px solid var(--charcoal);
+    }
+    .intro-text { padding-left: 20px; }
+    .intro-text h2 { font-size: clamp(36px, 3.5vw, 52px); margin: 16px 0 24px; }
+    .intro-text p { color: var(--text-muted); line-height: 1.8; font-size: 16px; margin-bottom: 24px; }
+    .intro-pillars { margin: 40px 0; display: flex; flex-direction: column; gap: 0; }
+    .intro-pillar {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .intro-pillar:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+    .pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; color: var(--gold); letter-spacing: 0.1em;
+      min-width: 28px; margin-top: 2px;
+    }
+    .pillar-text strong { display: block; font-weight: 500; font-size: 15px; margin-bottom: 4px; }
+    .pillar-text span { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── HOW IT WORKS ───────────────────────────────── */
+    #process { padding: 120px 0; background: var(--charcoal-2); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+      margin-top: 64px;
+    }
+    .step-card {
+      background: var(--charcoal-3);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+    .step-card:hover { background: #303030; }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px; font-weight: 300; line-height: 1;
+      color: rgba(201,169,110,0.15);
+      margin-bottom: 24px;
+    }
+    .step-icon {
+      width: 40px; height: 40px; margin-bottom: 20px;
+      color: var(--gold);
+    }
+    .step-card h3 { font-size: 22px; margin-bottom: 12px; }
+    .step-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .step-connector {
+      position: absolute; top: 50px; right: -1px;
+      width: 2px; height: 40px; background: var(--gold); opacity: 0.3;
+    }
+    .step-card:last-child .step-connector { display: none; }
+
+    /* ─── PRODUCTS ───────────────────────────────────── */
+    #products { padding: 120px 0; background: var(--charcoal); }
+    .products-intro {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 64px; gap: 32px;
+    }
+    .products-intro h2 { font-size: clamp(36px, 3.5vw, 52px); max-width: 480px; }
+    .products-intro p { color: var(--text-muted); font-size: 14px; max-width: 280px; text-align: right; line-height: 1.7; }
+
+    .products-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    }
+    .product-card {
+      background: var(--charcoal-3);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-img { height: 260px; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .product-card:hover .product-img img { transform: scale(1.06); }
+    .product-info { padding: 24px; }
+    .product-name { font-size: 20px; margin-bottom: 8px; }
+    .product-size { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; color: var(--gold-light);
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px;
+    }
+    .product-price del { font-size: 14px; color: #888; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
+    .product-price strong { font-size: 22px; color: var(--gold); }
+    .product-price span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--text-muted); }
+    .product-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); transition: gap 0.2s ease;
+    }
+    .product-link:hover { gap: 10px; }
+
+    .products-footer { margin-top: 48px; text-align: center; }
+
+    /* Wide product card (spans 2 cols) */
+    .product-card.wide { grid-column: span 2; }
+    .product-card.wide .product-img { height: 320px; }
+    .product-card.product-cta-card .product-img { height: 100%; min-height: 320px; }
+    .product-card.product-cta-card { min-height: 320px; }
+
+    /* ─── PARTNERS ───────────────────────────────────── */
+    #partners { padding: 80px 0; background: var(--charcoal-2); border-top: 1px solid rgba(201,169,110,0.1); }
+    .partners-label {
+      text-align: center;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 40px;
+    }
+    .partners-track {
+      display: flex; gap: 0; overflow: hidden;
+    }
+    .partners-inner {
+      display: flex; align-items: center; gap: 0;
+      animation: marquee 25s linear infinite;
+      flex-shrink: 0;
+    }
+    .partner-logo {
+      height: 72px; width: 160px;
+      object-fit: contain; filter: brightness(0.5) grayscale(1);
+      transition: filter 0.3s ease;
+      flex-shrink: 0; padding: 0 24px;
+    }
+    .partner-logo:hover { filter: brightness(0.8) grayscale(0); }
+
+    /* ─── MOTORIZED BANNER ───────────────────────────── */
+    #motorized {
+      padding: 120px 0;
+      background: var(--charcoal-3);
+      position: relative; overflow: hidden;
+    }
+    .motorized-bg {
+      position: absolute; inset: 0;
+      background: url('assets/images/download-9.webp') center/cover no-repeat;
+      opacity: 0.12;
+    }
+    .motorized-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .motorized-text h2 { font-size: clamp(36px, 3.5vw, 52px); margin: 16px 0 24px; }
+    .motorized-text p { color: var(--text-muted); line-height: 1.8; font-size: 16px; margin-bottom: 32px; }
+    .motorized-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+    .motorized-feature {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .motorized-feature::before {
+      content: ''; width: 5px; height: 5px; background: var(--gold);
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .motorized-img { position: relative; }
+    .motorized-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .motorized-price-badge {
+      position: absolute; bottom: 32px; left: -24px;
+      background: var(--gold); color: var(--charcoal);
+      padding: 20px 28px;
+    }
+    .motorized-price-badge .badge-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+    .motorized-price-badge .badge-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 400; line-height: 1;
+      margin-top: 4px;
+    }
+
+    /* ─── REVIEWS ────────────────────────────────────── */
+    #reviews { padding: 120px 0; background: var(--charcoal); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      margin-top: 64px;
+    }
+    .review-card {
+      background: var(--charcoal-3); padding: 40px;
+    }
+    .review-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300; font-style: italic;
+      line-height: 1.6; color: var(--text);
+      margin-bottom: 24px;
+    }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--charcoal-2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 500; }
+    .review-loc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .review-source {
+      margin-top: 4px; font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold); opacity: 0.7;
+    }
+    .reviews-cta { text-align: center; margin-top: 48px; }
+    .google-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--charcoal-3); padding: 12px 20px;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .google-badge strong { color: var(--text); }
+
+    /* ─── ESTIMATE CTA ───────────────────────────────── */
+    #estimate-cta {
+      padding: 120px 0;
+      background: var(--charcoal-2);
+      position: relative; overflow: hidden;
+    }
+    .estimate-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .estimate-text h2 { font-size: clamp(36px, 3.5vw, 52px); margin: 16px 0 24px; }
+    .estimate-text p { color: var(--text-muted); line-height: 1.8; font-size: 16px; margin-bottom: 40px; }
+    .estimate-perks { display: flex; flex-direction: column; gap: 16px; }
+    .estimate-perk {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .perk-icon {
+      width: 36px; height: 36px; background: rgba(201,169,110,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--gold); font-size: 16px;
+    }
+    .perk-info strong { display: block; font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .perk-info span { font-size: 13px; color: var(--text-muted); }
+
+    /* Quick estimator widget */
+    .estimator-widget {
+      background: var(--charcoal-3);
+      padding: 40px;
+    }
+    .estimator-widget h3 {
+      font-size: 28px; margin-bottom: 8px;
+    }
+    .estimator-widget .sub { font-size: 13px; color: var(--text-muted); margin-bottom: 32px; }
+    .est-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .est-field label {
+      display: block; font-size: 10px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;
+    }
+    .est-field input, .est-field select {
+      width: 100%; background: var(--charcoal-2); border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text); padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      outline: none; transition: border 0.3s;
+      appearance: none;
+    }
+    .est-field input:focus, .est-field select:focus { border-color: var(--gold); }
+    .est-field select option { background: var(--charcoal-2); }
+    .est-result {
+      background: var(--charcoal-2);
+      padding: 20px 24px; margin: 20px 0;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .est-result-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .est-result-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; color: var(--gold); line-height: 1;
+    }
+    .est-note { font-size: 11px; color: var(--text-muted); margin-top: 8px; line-height: 1.6; }
+
+    /* ─── ABOUT SNIPPET ──────────────────────────────── */
+    #about-snap { padding: 120px 0; background: var(--charcoal); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img-main { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+    .about-badge {
+      position: absolute; top: 40px; right: -32px;
+      background: var(--gold); color: var(--charcoal);
+      padding: 24px 28px; width: 160px;
+    }
+    .about-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; line-height: 1;
+    }
+    .about-badge-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; margin-top: 4px; }
+    .about-text { padding-left: 20px; }
+    .about-text h2 { font-size: clamp(36px, 3.5vw, 52px); margin: 16px 0 24px; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
+    .about-values { display: flex; gap: 24px; margin: 32px 0 40px; flex-wrap: wrap; }
+    .about-value {
+      flex: 1; min-width: 120px;
+      padding: 20px; background: var(--charcoal-3);
+      border-left: 2px solid var(--gold);
+    }
+    .about-value strong { display: block; font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .about-value span { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── COVERAGE AREAS ─────────────────────────────── */
+    #coverage {
+      padding: 80px 0;
+      background: var(--gold);
+    }
+    .coverage-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .coverage-text h2 { font-size: clamp(28px, 3vw, 40px); color: var(--charcoal); }
+    .coverage-text p { font-size: 14px; color: rgba(26,26,26,0.65); margin-top: 8px; }
+    .coverage-cities {
+      display: flex; gap: 2px;
+    }
+    .coverage-city {
+      background: rgba(26,26,26,0.12); color: var(--charcoal);
+      padding: 16px 28px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.3s;
+    }
+    .coverage-city:hover { background: rgba(26,26,26,0.22); }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--charcoal-2);
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(201,169,110,0.1);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .f-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; color: var(--gold); margin-bottom: 16px;
+    }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); transition: all 0.3s;
+      font-size: 14px;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px; font-family: 'DM Sans', sans-serif; font-weight: 500;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ─── WhatsApp Float ─────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0; animation: fadeIn 1s 1.5s ease forwards;
+    }
+    .wa-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+    .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ─── Keyframes ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { padding: 80px 20px 48px; min-height: auto; justify-content: flex-start; }
+      .hero-stats { display: none; }
+      .hero-scroll { display: none; }
+      .intro-inner, .motorized-inner, .estimate-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-img-accent { bottom: -24px; right: -16px; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .product-card.wide { grid-column: span 1; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+      .coverage-inner { flex-direction: column; align-items: flex-start; }
+      .coverage-cities { flex-wrap: wrap; }
+      .about-badge { right: -16px; }
+      .estimate-inner { gap: 48px; }
+      .motorized-price-badge { left: 0; }
+      .products-intro { flex-direction: column; align-items: flex-start; }
+      .products-intro p { text-align: left; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 20px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .est-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .hero-title { font-size: 48px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Jan Furnishings</a>
+  <ul class="nav-links">
+    <li><a href="products.html">Our Products</a></li>
+    <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="help.html">Help</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Free Visit</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="help.html" onclick="toggleMenu()">Help</a>
+  <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-text-glass">
+    <div class="hero-tag">Dubai's Curtain & Blinds Specialists</div>
+    <h1 class="hero-title">
+      Beautiful windows,<br><em>effortlessly done.</em>
+    </h1>
+    <p class="hero-sub">
+      Custom-made curtains and blinds, measured and installed in your home. Free consultation, same-week turnaround, zero stress.
+    </p>
+    <div class="hero-actions">
+      <a href="book.html" class="btn-primary">
+        Book a Free Visit
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="estimate.html" class="btn-outline">Get an Estimate</a>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">500+</div>
+      <div class="hero-stat-label">Windows Fitted</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">48hr</div>
+      <div class="hero-stat-label">Avg. Turnaround</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5★</div>
+      <div class="hero-stat-label">Google Rated</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100+</div>
+      <div class="hero-stat-label">Fabric Options</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ─────────────────────────────────────────── -->
+<div id="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- duplicated for seamless loop -->
+    <span class="marquee-item">Custom Made to Measure <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Free Home Visit <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Same-Week Installation <span class="marquee-dot"></span></span>
+    <span class="marquee-item">5★ Google Rated <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Dubai — All Areas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Motorized Options Available <span class="marquee-dot"></span></span>
+    <span class="marquee-item">12-Month Warranty <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Custom Made to Measure <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Free Home Visit <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Same-Week Installation <span class="marquee-dot"></span></span>
+    <span class="marquee-item">5★ Google Rated <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Dubai — All Areas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Motorized Options Available <span class="marquee-dot"></span></span>
+    <span class="marquee-item">12-Month Warranty <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ── INTRO / WHY US ──────────────────────────────────── -->
+<section id="intro">
+  <div class="container">
+    <div class="intro-inner">
+      <div class="intro-images" data-aos="fade-right">
+        <img class="intro-img-main" src="assets/images/pexels-artbovich-7214461.jpg" alt="Elegant sheer curtains in a modern Dubai living room" />
+        <img class="intro-img-accent" src="assets/images/vitalijs-barilo-azMZaQCUyV8-unsplash.jpg" alt="Premium fabric collection" />
+      </div>
+      <div class="intro-text" data-aos="fade-left" data-aos-delay="100">
+        <div class="tag">Why Jan Furnishings</div>
+        <h2>The curtain experience you actually deserve.</h2>
+        <p>Most people dread the process — vague quotes, unreliable timelines, and installers who don't show up. We built Jan Furnishings to be different. Everything is transparent, everything is on time, and every window gets our full attention.</p>
+        <div class="intro-pillars">
+          <div class="intro-pillar">
+            <div class="pillar-num">01</div>
+            <div class="pillar-text">
+              <strong>Free Home Visit, No Obligation</strong>
+              <span>We come to you with fabric samples, take precise measurements, and give you a full quote — all at no cost.</span>
+            </div>
+          </div>
+          <div class="intro-pillar">
+            <div class="pillar-num">02</div>
+            <div class="pillar-text">
+              <strong>Transparent, Fixed Pricing</strong>
+              <span>No surprise charges. The price you see is the price you pay — whether you pay upfront or in installments.</span>
+            </div>
+          </div>
+          <div class="intro-pillar">
+            <div class="pillar-num">03</div>
+            <div class="pillar-text">
+              <strong>Custom-Made, Professionally Installed</strong>
+              <span>Every curtain and blind is made to your exact window dimensions. Our team installs everything — you don't lift a finger.</span>
+            </div>
+          </div>
+          <div class="intro-pillar">
+            <div class="pillar-num">04</div>
+            <div class="pillar-text">
+              <strong>12-Month Warranty</strong>
+              <span>All fabrics and rails are covered against manufacturing defects for a full year. We stand behind our work.</span>
+            </div>
+          </div>
+        </div>
+        <a href="book.html" class="btn-primary">
+          Book a Free Visit
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ────────────────────────────────────── -->
+<section id="process">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <div class="tag">Simple Process</div>
+      <h2>From booking to beautiful windows.</h2>
+      <p>Four steps. No complexity. No surprises.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-num">01</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <h3>Book Online</h3>
+        <p>Pick a date and time that works for you — including evenings. Takes under two minutes. No phone call needed.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-num">02</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/><circle cx="8" cy="12" r="2" fill="currentColor"/></svg>
+        <h3>Free Home Visit</h3>
+        <p>Our expert arrives with fabric samples and a measuring tape. We advise, measure, and quote — all in one appointment.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-num">03</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Custom Manufacturing</h3>
+        <p>Your curtains or blinds are made to your exact measurements. We use quality fabrics built to last in UAE conditions.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-num">04</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        <h3>Installation Done</h3>
+        <p>We return to install everything professionally. Most installations are completed the same day, within a few hours.</p>
+        <div class="step-connector"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ────────────────────────────────────────── -->
+<section id="products">
+  <div class="container">
+    <div class="products-intro" data-aos="fade-up">
+      <h2>Our bestselling products.</h2>
+      <p>Prices shown for standard 2m × 3m windows. All custom-made to your exact size.</p>
+    </div>
+    <div class="products-grid">
+
+      <!-- Wide card: Sheer & Blackout Combo -->
+      <div class="product-card wide" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-img">
+          <img src="assets/images/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp" alt="Sheer and Blackout Curtain Combo" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sheer & Blackout Combo</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-price">
+            <del>AED 1,244</del>
+            <strong>AED 999</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="products.html#combo" class="product-link">
+            View Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sheer Curtains -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-img">
+          <img src="assets/images/download-3.webp" alt="Sheer Curtains Dubai" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sheer Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-price">
+            <del>AED 600</del>
+            <strong>AED 533</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="products.html#sheer" class="product-link">
+            View Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blackout Curtains -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-img">
+          <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Blackout Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-price">
+            <del>AED 826</del>
+            <strong>AED 599</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="products.html#blackout" class="product-link">
+            View Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Roller Blinds -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-img">
+          <img src="assets/images/download-8.webp" alt="Roller Blinds Dubai" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Roller Blinds</div>
+          <div class="product-size">1.5m × 2m window</div>
+          <div class="product-price">
+            <del>AED 500</del>
+            <strong>AED 393</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="products.html#roller" class="product-link">
+            View Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Wooden Blinds -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-img">
+          <img src="assets/images/download-11-1.webp" alt="Wooden Blinds Dubai" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Wooden Blinds</div>
+          <div class="product-size">1.5m × 2m window</div>
+          <div class="product-price">
+            <del>AED 816</del>
+            <strong>AED 499</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="products.html#wooden" class="product-link">
+            View Details
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Wide CTA card — fills the bottom-right 2 cols -->
+      <div class="product-card wide product-cta-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-img" style="position:relative;">
+          <img src="assets/images/pexels-artbovich-5998127.jpg" alt="Book a free curtain consultation in Dubai" />
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,0.82) 0%,rgba(26,26,26,0.45) 100%);"></div>
+          <div style="position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;">
+            <div class="tag" style="margin-bottom:16px;align-self:flex-start;">Free · No Obligation</div>
+            <h3 style="font-size:clamp(24px,2.5vw,36px);color:var(--white);margin-bottom:12px;line-height:1.15;">Not sure what you need? We'll help you choose.</h3>
+            <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px;max-width:380px;">Our expert visits your home with fabric samples, takes measurements, and gives you honest advice — all for free, with no commitment.</p>
+            <a href="book.html" class="btn-primary" style="align-self:flex-start;">
+              Book a Free Visit
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="products-footer" data-aos="fade-up">
+      <a href="products.html" class="btn-outline">
+        View All Products
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ────────────────────────────────────────── -->
+<section id="partners">
+  <div class="container">
+    <p class="partners-label">Trusted by Dubai's leading property developers & managers</p>
+    <div class="partners-track">
+      <div class="partners-inner">
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.35.08-1-e1770799671771.png" alt="Partner" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.41.11-1-e1770799708585.jpeg" alt="Partner" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.44.58-1.jpeg" alt="Partner" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.48.15-1.jpeg" alt="Partner" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.49.35-1.jpeg" alt="Partner" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/1000087227.jpg" alt="Partner" />
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="partners-inner" aria-hidden="true">
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.35.08-1-e1770799671771.png" alt="" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.41.11-1-e1770799708585.jpeg" alt="" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.44.58-1.jpeg" alt="" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.48.15-1.jpeg" alt="" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.49.35-1.jpeg" alt="" />
+        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/1000087227.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MOTORIZED BANNER ────────────────────────────────── -->
+<section id="motorized">
+  <div class="motorized-bg"></div>
+  <div class="container">
+    <div class="motorized-inner">
+      <div class="motorized-text" data-aos="fade-right">
+        <div class="tag">Smart Living</div>
+        <h2>Motorized curtains and blinds, starting from AED 1,000.</h2>
+        <p>Control your light, privacy, and ambiance with a single tap. Compatible with Alexa, Google Home, and Apple HomeKit — or use the included remote.</p>
+        <div class="motorized-features">
+          <div class="motorized-feature">Voice control via Alexa, Google Home & Apple HomeKit</div>
+          <div class="motorized-feature">App, remote, or wall switch control</div>
+          <div class="motorized-feature">Works with curtains, roller blinds, and zebra blinds</div>
+          <div class="motorized-feature">5-year motor warranty (Motion & Somfy)</div>
+          <div class="motorized-feature">Professionally installed by certified technicians</div>
+        </div>
+        <a href="products.html#motorized" class="btn-primary">
+          Explore Motorized Options
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="motorized-img" data-aos="fade-left" data-aos-delay="100">
+        <img src="assets/images/download-9.webp" alt="Motorized curtain remote control" />
+        <div class="motorized-price-badge">
+          <div class="badge-label">Starting from</div>
+          <div class="badge-price">AED 1,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ─────────────────────────────────────────── -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <div class="tag">Customer Reviews</div>
+      <h2>What our customers say.</h2>
+      <p>Real reviews from real homes across Dubai and the UAE.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Got my curtains done for my kids' bedroom and master suite. The quality is fantastic — I'm genuinely impressed, from the initial consultation through to the final installation."</div>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Mohammad Chaudhry</div>
+            <div class="review-loc">Dubai</div>
+            <div class="review-source">via Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Got curtains done for my villa in Jumeirah — excellent experience from start to finish. Very professional, great fabric advice, and the pricing was very reasonable for the quality. Installation was fast, neat, and on time. Didn't have to step out of my home once."</div>
+        <div class="review-author">
+          <div class="review-avatar">U</div>
+          <div>
+            <div class="review-name">Usman Khawar</div>
+            <div class="review-loc">Jumeirah, Dubai</div>
+            <div class="review-source">via Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Professional, personalized service. Easy to reach for any questions, and they were punctual throughout. Honestly one of the smoothest home service experiences I've had in Dubai."</div>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Andrea Torres</div>
+            <div class="review-loc">Dubai</div>
+            <div class="review-source">via Google</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="reviews-cta" data-aos="fade-up">
+      <a href="https://www.google.com/search?q=Jan+Furnishings+Reviews" target="_blank" rel="noopener" class="google-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span><strong>5★ rated</strong> on Google — leave us a review</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ESTIMATE CTA ────────────────────────────────────── -->
+<section id="estimate-cta">
+  <div class="container">
+    <div class="estimate-inner">
+      <div class="estimate-text" data-aos="fade-right">
+        <div class="tag">Transparent Pricing</div>
+        <h2>Get an instant estimate in under a minute.</h2>
+        <p>No phone calls. No waiting. Enter your window dimensions, choose your product, and see an upfront price immediately. Every quote reflects our actual pricing — no hidden fees, ever.</p>
+        <div class="estimate-perks">
+          <div class="estimate-perk">
+            <div class="perk-icon">📐</div>
+            <div class="perk-info">
+              <strong>Price by your exact dimensions</strong>
+              <span>Our estimator calculates based on your actual window width and height.</span>
+            </div>
+          </div>
+          <div class="estimate-perk">
+            <div class="perk-icon">💳</div>
+            <div class="perk-info">
+              <strong>Pay upfront or in installments</strong>
+              <span>Same price either way. Split into 3 easy payments at no extra cost.</span>
+            </div>
+          </div>
+          <div class="estimate-perk">
+            <div class="perk-icon">🎯</div>
+            <div class="perk-info">
+              <strong>No obligation</strong>
+              <span>Getting an estimate doesn't commit you to anything. Book a visit when you're ready.</span>
+            </div>
+          </div>
+        </div>
+        <a href="estimate.html" class="btn-primary" style="margin-top:32px;">
+          Try the Estimator
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Quick estimator widget -->
+      <div class="estimator-widget" data-aos="fade-left" data-aos-delay="100">
+        <h3>Quick Estimate</h3>
+        <p class="sub">Enter your window size and product to get started.</p>
+        <div class="est-row">
+          <div class="est-field">
+            <label>Width (cm)</label>
+            <input type="number" id="estWidth" placeholder="200" min="50" max="500" value="200" oninput="calcEstimate()" />
+          </div>
+          <div class="est-field">
+            <label>Height (cm)</label>
+            <input type="number" id="estHeight" placeholder="300" min="50" max="500" value="300" oninput="calcEstimate()" />
+          </div>
+        </div>
+        <div class="est-field" style="margin-bottom:0;">
+          <label>Product</label>
+          <select id="estProduct" onchange="calcEstimate()">
+            <option value="sheer">Sheer Curtains</option>
+            <option value="blackout">Blackout Curtains</option>
+            <option value="combo" selected>Sheer & Blackout Combo</option>
+            <option value="roller">Roller Blinds</option>
+            <option value="wooden">Wooden Blinds</option>
+            <option value="motorized">Motorized Curtains</option>
+          </select>
+        </div>
+        <div class="est-result">
+          <div class="est-result-label">Estimated Price</div>
+          <div class="est-result-price" id="estPrice">AED 999</div>
+        </div>
+        <p class="est-note">* Base price for standard window. Upgrades (premium fabrics, wave style, motorization) may vary. Book a free visit for an exact quote.</p>
+        <a href="book.html" class="btn-primary" style="margin-top:20px;width:100%;justify-content:center;">
+          Book a Free Visit
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT SNIPPET ───────────────────────────────────── -->
+<section id="about-snap">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap" data-aos="fade-right">
+        <img class="about-img-main" src="assets/images/pexels-artbovich-5998120.jpg" alt="Elegant curtains in a Dubai villa" />
+        <div class="about-badge">
+          <div class="about-badge-num">500+</div>
+          <div class="about-badge-label">Windows Fitted</div>
+        </div>
+      </div>
+      <div class="about-text" data-aos="fade-left" data-aos-delay="100">
+        <div class="tag">Our Story</div>
+        <h2>Built for people who just want it done right.</h2>
+        <p>Jan Furnishings was born from a simple frustration — finding good curtains in Dubai shouldn't require three separate visits, unclear pricing, and crossed fingers. We set out to create a service that's clear, reliable, and actually enjoyable to use.</p>
+        <p>We're a sister company of Al Hadeeqa, a UAE furnishing company founded in 2021. The same values run through everything we do: keep it simple, keep it elegant, and always respect your time.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <strong>Simple</strong>
+            <span>Clear choices, honest advice, no jargon.</span>
+          </div>
+          <div class="about-value">
+            <strong>Elegant</strong>
+            <span>Designs made for modern UAE living.</span>
+          </div>
+          <div class="about-value">
+            <strong>Reliable</strong>
+            <span>We show up, on time, every time.</span>
+          </div>
+        </div>
+        <a href="about.html" class="btn-outline">
+          Our Full Story
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COVERAGE AREAS ──────────────────────────────────── -->
+<section id="coverage">
+  <div class="container">
+    <div class="coverage-inner">
+      <div class="coverage-text">
+        <h2>Based in Dubai. Serving all of Dubai.</h2>
+        <p>From Downtown to JBR, Jumeirah to Dubai Hills — we come to you, wherever you are in the city.</p>
+      </div>
+      <div class="coverage-cities">
+        <div class="coverage-city">Downtown</div>
+        <div class="coverage-city">Jumeirah</div>
+        <div class="coverage-city">Dubai Hills</div>
+        <div class="coverage-city">JBR & Marina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains and blinds, made and installed across the UAE. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains & Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds & Shades</a></li>
+          <li><a href="products.html#motorized">Motorized</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="help.html">Help & FAQs</a></li>
+          <li><a href="book.html">Book a Free Visit</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ──────────────────────────────────── -->
+<a href="https://wa.me/971508806292" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp Us
+</a>
+
+<!-- ── SCRIPTS ──────────────────────────────────────────── -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Nav scroll behaviour
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── Quick Estimator ──────────────────────────────────
+  // Base price per sqm for each product (AED)
+  const BASE_RATES = {
+    sheer:      { base: 533,  rate: 88  },
+    blackout:   { base: 599,  rate: 100 },
+    combo:      { base: 999,  rate: 165 },
+    roller:     { base: 393,  rate: 130 },
+    wooden:     { base: 499,  rate: 166 },
+    motorized:  { base: 1299, rate: 216 },
+  };
+
+  function calcEstimate() {
+    const w = parseFloat(document.getElementById('estWidth').value) || 200;
+    const h = parseFloat(document.getElementById('estHeight').value) || 300;
+    const product = document.getElementById('estProduct').value;
+    const { base, rate } = BASE_RATES[product];
+
+    // Standard window = 2m × 3m = 6 sqm → base price
+    const stdSqm = 2 * 3;
+    const actualSqm = (w / 100) * (h / 100);
+    const estimated = Math.round(base * (actualSqm / stdSqm));
+    const final = Math.max(estimated, Math.round(base * 0.6)); // min 60% of base
+
+    document.getElementById('estPrice').textContent = 'AED ' + final.toLocaleString();
+  }
+
+  // Run on load
+  calcEstimate();
+</script>
+
+</body>
+</html>

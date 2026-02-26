@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & FAQs — Jan Furnishings Dubai</title>
+  <meta name="description" content="Answers to common questions about Jan Furnishings curtains and blinds in Dubai — bookings, products, installation, pricing, warranty, and motorization." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal:   #1A1A1A;
+      --charcoal-2: #232323;
+      --charcoal-3: #2B2B2B;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5B0;
+      --text:       #F0EDE8;
+      --text-muted: #9A9590;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 6px 14px; border-radius: 100px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--charcoal); padding: 16px 32px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-primary .arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--gold); padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid var(--gold); cursor: pointer; transition: all 0.3s ease; }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
+    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: #fff; transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    nav.scrolled .nav-logo { color: var(--gold); text-shadow: none; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
+    .nav-cta:hover { background: #fff; }
+    nav.scrolled .nav-cta { background: var(--gold); }
+    nav.scrolled .nav-cta:hover { background: #fff; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: #fff; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--charcoal); z-index: 99; padding: 100px 32px 48px; flex-direction: column; align-items: flex-start; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--text); transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta { margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--charcoal); padding: 14px 28px; }
+
+    /* ─── PAGE HERO ─────────────────────────────────── */
+    #page-hero {
+      min-height: 56vh;
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: heroZoom 10s ease-out forwards; }
+    .hero-bg-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,26,26,0.1) 0%, rgba(26,26,26,0.65) 100%); }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding: 0 32px 60px; max-width: 1264px; margin: 0 auto; }
+    .hero-glass { display: inline-block; background: rgba(26,26,26,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); padding: 40px 52px; max-width: 640px; }
+    .hero-glass h1 { font-size: clamp(36px, 4.5vw, 60px); margin: 14px 0 16px; }
+    .hero-glass p { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+    @keyframes heroZoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+    /* ─── SEARCH BAR ────────────────────────────────── */
+    #search-bar { padding: 40px 0; background: var(--charcoal-2); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .search-wrap { position: relative; max-width: 600px; margin: 0 auto; }
+    .search-input {
+      width: 100%; padding: 18px 56px 18px 24px;
+      background: var(--charcoal-3); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300;
+      outline: none; transition: border-color 0.3s;
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-input:focus { border-color: var(--gold); }
+    .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+    .search-count { text-align: center; margin-top: 12px; font-size: 12px; color: var(--text-muted); min-height: 18px; }
+
+    /* ─── MAIN LAYOUT ───────────────────────────────── */
+    #faq-main { padding: 80px 0 100px; }
+    .faq-layout { display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start; }
+
+    /* ─── CATEGORY NAV (sticky) ─────────────────────── */
+    .cat-nav { position: sticky; top: 80px; }
+    .cat-nav-title { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cat-nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .cat-nav-item a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 16px;
+      font-size: 13px; color: var(--text-muted);
+      background: transparent; border-left: 2px solid transparent;
+      transition: all 0.25s;
+    }
+    .cat-nav-item a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+    .cat-nav-item a.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,169,110,0.05); }
+    .cat-count { margin-left: auto; font-size: 10px; color: var(--text-muted); background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 10px; }
+    .cat-nav-item a.active .cat-count { background: rgba(201,169,110,0.15); color: var(--gold); }
+
+    /* Contact card below nav */
+    .help-contact-card { margin-top: 32px; background: var(--charcoal-3); padding: 24px; border: 1px solid rgba(255,255,255,0.06); }
+    .help-contact-card h4 { font-size: 16px; margin-bottom: 10px; }
+    .help-contact-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .wa-contact { display: flex; align-items: center; gap: 8px; background: #25D366; color: #fff; padding: 12px 16px; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; font-family: 'DM Sans', sans-serif; transition: background 0.3s; }
+    .wa-contact:hover { background: #1fba58; }
+    .wa-contact svg { width: 16px; height: 16px; }
+
+    /* ─── FAQ CONTENT ───────────────────────────────── */
+    .faq-content { }
+    .faq-section { margin-bottom: 64px; }
+    .faq-section:last-child { margin-bottom: 0; }
+    .section-head {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px; padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-head-icon { color: var(--gold); flex-shrink: 0; }
+    .section-head h2 { font-size: 28px; }
+    .section-head-count { margin-left: auto; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+
+    /* FAQ items */
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .faq-item.hidden { display: none; }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 20px 0; cursor: pointer;
+      font-size: 15px; font-weight: 400; color: var(--text);
+      transition: color 0.3s; user-select: none;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-q.open { color: var(--gold); }
+    .faq-icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--gold); transition: transform 0.3s; }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 14px; color: var(--text-muted); line-height: 1.85;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-a.open { max-height: 500px; padding-bottom: 20px; }
+    .faq-a ul { padding-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+    .faq-a ul li { color: var(--text-muted); }
+    .faq-a a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* No results message */
+    #no-results { display: none; text-align: center; padding: 80px 0; color: var(--text-muted); font-size: 16px; }
+    #no-results strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--text); font-weight: 400; margin-bottom: 8px; }
+
+    /* ─── BOTTOM CTA ────────────────────────────────── */
+    #bottom-cta { padding: 100px 0; background: var(--charcoal-2); }
+    .bottom-cta-inner { text-align: center; max-width: 600px; margin: 0 auto; }
+    .bottom-cta-inner h2 { font-size: clamp(32px, 4vw, 52px); margin: 16px 0 20px; }
+    .bottom-cta-inner p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 40px; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: #fff; display: flex; align-items: center; gap: 10px; padding: 14px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s ease; }
+    .wa-float:hover { transform: translateY(-2px); }
+    .wa-float svg { width: 20px; height: 20px; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .faq-layout { grid-template-columns: 1fr; }
+      .cat-nav { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 40px; }
+      .cat-nav-title { display: none; }
+      .cat-nav-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+      .cat-nav-item a { padding: 8px 14px; border-left: none; border: 1px solid rgba(255,255,255,0.1); font-size: 12px; }
+      .cat-nav-item a.active { border-color: var(--gold); }
+      .help-contact-card { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 20px; }
+      .hero-glass { padding: 32px 24px; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="home.html" class="nav-logo">Jan Furnishings</a>
+  <ul class="nav-links">
+    <li><a href="products.html">Our Products</a></li>
+    <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="help.html" class="active">Help</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Free Visit</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="help.html" onclick="toggleMenu()">Help</a>
+  <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
+</div>
+
+<!-- ── PAGE HERO ───────────────────────────────────────── -->
+<section id="page-hero">
+  <img class="hero-bg-img" src="assets/images/kimberley-alpuerto-gYCj5LrI9wI-unsplash.jpg" alt="Help and FAQs" />
+  <div class="hero-bg-grad"></div>
+  <div class="hero-inner">
+    <div class="hero-glass" data-aos="fade-up">
+      <div class="tag">Help &amp; FAQs</div>
+      <h1>Questions? We have answers.</h1>
+      <p>Everything you need to know about our products, process, pricing, and aftercare — all in one place. Can't find what you need? WhatsApp us directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SEARCH ──────────────────────────────────────────── -->
+<div id="search-bar">
+  <div class="container">
+    <div class="search-wrap">
+      <input class="search-input" id="search-input" type="text" placeholder="Search questions… e.g. 'warranty', 'motorized', 'installation'" oninput="searchFAQ(this.value)" />
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+    <div class="search-count" id="search-count"></div>
+  </div>
+</div>
+
+<!-- ── MAIN ────────────────────────────────────────────── -->
+<section id="faq-main">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Sticky category nav -->
+      <aside class="cat-nav">
+        <div class="cat-nav-title">Categories</div>
+        <ul class="cat-nav-list" id="cat-nav-list">
+          <li class="cat-nav-item"><a href="#general" onclick="setActiveNav(this)">General <span class="cat-count">8</span></a></li>
+          <li class="cat-nav-item"><a href="#bookings" onclick="setActiveNav(this)">Bookings &amp; Orders <span class="cat-count">5</span></a></li>
+          <li class="cat-nav-item"><a href="#products" onclick="setActiveNav(this)">About Products <span class="cat-count">6</span></a></li>
+          <li class="cat-nav-item"><a href="#installation" onclick="setActiveNav(this)">Installation <span class="cat-count">4</span></a></li>
+          <li class="cat-nav-item"><a href="#pricing" onclick="setActiveNav(this)">Pricing &amp; Payment <span class="cat-count">4</span></a></li>
+          <li class="cat-nav-item"><a href="#warranty" onclick="setActiveNav(this)">Warranty &amp; Refunds <span class="cat-count">4</span></a></li>
+          <li class="cat-nav-item"><a href="#motorized" onclick="setActiveNav(this)">Motorization <span class="cat-count">5</span></a></li>
+        </ul>
+
+        <div class="help-contact-card">
+          <h4>Still need help?</h4>
+          <p>Our team typically responds within an hour on WhatsApp, seven days a week.</p>
+          <a href="https://wa.me/971508806292" target="_blank" class="wa-contact">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </aside>
+
+      <!-- FAQ content -->
+      <div class="faq-content" id="faq-content">
+
+        <!-- ── GENERAL ─────────────────────────────── -->
+        <div class="faq-section" id="general" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <h2>General</h2>
+            <span class="section-head-count">8 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Who is behind Jan Furnishings?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We are a team of furnishing enthusiasts who launched Al Hadeeqa in 2021 in the UAE — a furnishing service designed to help you furnish your home without hassle. After recognising the challenges with curtain installations, we launched Jan Furnishings as a sister company of Al Hadeeqa to offer a seamless, transparent, and stress-free curtains and blinds experience. <a href="about.html">Read our full story here.</a></div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you have a showroom?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We don't operate a physical showroom — but that's intentional. We bring the showroom to you. Book a free home visit and our expert will arrive with fabric samples, swatches, and style options. You get to see everything in your own space, with your own light and furniture, before committing to anything.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What areas do you cover?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We service all areas across Dubai — from Downtown and Jumeirah to Dubai Hills, JBR, Marina, Mirdif, Deira, and beyond. If you're unsure whether we cover your area, just WhatsApp us and we'll confirm straight away.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens during the measurement visit?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Our team member will visit your home to take precise window measurements, present curated fabric and style options, and help you finalise your preferences. It usually takes 30–45 minutes depending on the number of windows. There's no obligation to purchase at this stage.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does it take to receive a price quote?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">You'll receive a detailed price quote within 1 hour of the measurement visit. For simple orders, we can often quote on the spot during the visit itself.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I make changes to my order after receiving the quote?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes — you can adjust your product selection freely before making payment. Once payment is made, you have a 24-hour window to request changes. After that, your order enters production and changes may not be possible.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is installation included in the price?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes, absolutely. Installation is included in every order — no extra charges, no surprise fees. Our team measures, manufactures, delivers, and installs. You don't lift a finger.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How soon can my curtains or blinds be installed?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Installation is typically scheduled within 2–5 working days after payment and order confirmation. Our average turnaround is 48 hours. We'll confirm the exact date with you once your order is placed.</div></div>
+        </div>
+
+        <!-- ── BOOKINGS & ORDERS ───────────────────── -->
+        <div class="faq-section" id="bookings" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h2>Bookings &amp; Orders</h2>
+            <span class="section-head-count">5 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I book a measurement visit?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Book directly on our website — it takes under a minute. Choose your preferred date and time, enter your contact details, and you're done. You'll receive a confirmation once a team member verifies your booking. You can also reach us via WhatsApp if you prefer to book manually.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">When is my booking confirmed?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Your booking is confirmed once you receive a call or message from our team. We'll confirm the date, time, and any details we need before the visit.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I confirm my order?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">An order is confirmed once payment has been made — either full payment upfront or a 50% advance. Once payment is received, we begin production.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel or modify my order after payment?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes — you have a 24-hour window after payment to cancel or modify your order. After this period, your order enters production and cannot be changed or refunded, except in cases of a manufacturing defect.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I book by WhatsApp instead of the website?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. While the fastest way is through our website, you're welcome to reach us on WhatsApp at +971 50 880 6292 and we'll assist with the booking manually.</div></div>
+        </div>
+
+        <!-- ── ABOUT PRODUCTS ─────────────────────── -->
+        <div class="faq-section" id="products" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h2>About Products</h2>
+            <span class="section-head-count">6 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What types of curtains do you offer?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We offer sheer curtains (allow soft, filtered light), blackout curtains (block light completely), and sheer & blackout combination sets. These are available in multiple heading styles including wave, eyelet, American pleat, and ring style. <a href="products.html">Browse all curtains.</a></div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What types of blinds do you offer?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We offer roller blinds, roman blinds (sheer and blackout), wooden blinds, aluminium venetian blinds, fabric vertical blinds, and zebra blinds. All are custom-made to your exact window dimensions. <a href="products.html#blinds">Browse all blinds.</a></div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do curtains come with accessories?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Curtains include the necessary tracks, rails, and fixing hardware. Optional accessories such as tie-backs, pelmet boxes, and moving sticks are available and can be discussed during your home visit.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long do your curtains and blinds last?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">With proper care, our curtains and blinds are built to last several years. We select fabrics for durability and UAE climate resilience. Direct, intense sunlight over many years may cause some gradual fading — our team can advise on the best fabrics for sun-facing windows during your visit.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many fabric options are available?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We carry 100+ fabric options across our curtain and blind range — varying in colour, texture, opacity, and material. Your consultant will bring a curated selection to your home visit based on your space and preferences.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are child safety features available?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. We offer motorized systems and pull-cord solutions designed with child safety in mind. Ask your consultant during the visit and they'll show you the options available.</div></div>
+        </div>
+
+        <!-- ── INSTALLATION ───────────────────────── -->
+        <div class="faq-section" id="installation" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+            <h2>Installation</h2>
+            <span class="section-head-count">4 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What should I prepare before installation?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Please make sure the following are in place before your installation appointment:<ul><li>A work permit, if required by your building management</li><li>Drilling authorisation confirmed for the scheduled timeslot</li><li>Electricity connected at the property</li><li>Installation date confirmed with Jan Furnishings</li></ul>If you're unsure about any of these, contact us in advance and we'll help you sort it out.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need to be home during installation?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">It's preferred, but if you can't be there, you can appoint a trusted person to be present during the installation on your behalf.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does installation take?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Most installations are completed within a few hours, depending on the number of windows and type of product. A single room typically takes 45–90 minutes. Larger whole-home installs may take a full day.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you remove my old curtains or blinds?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Just let us know in advance when you confirm your order, and we'll arrange removal of your existing curtains or blinds as part of the installation visit.</div></div>
+        </div>
+
+        <!-- ── PRICING & PAYMENT ───────────────────── -->
+        <div class="faq-section" id="pricing" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+            <h2>Pricing &amp; Payment</h2>
+            <span class="section-head-count">4 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are there any hidden costs?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">No. Our quotations are completely transparent. The price you're quoted includes product, delivery, and installation. There are no add-ons, no surprise charges, and no difference between what you're quoted and what you pay.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you offer discounts for large orders?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Volume discounts are available depending on order size. Contact us or mention it during your home visit and we'll work out the best pricing for your order.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We accept bank transfer and cash. Bank transfer is available for upfront payments. Cash payment can be made during the visit or at our office.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I pay a deposit instead of the full amount upfront?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. You can pay 50% upfront to confirm your order. The remaining balance is due the day after successful installation.</div></div>
+        </div>
+
+        <!-- ── WARRANTY & REFUNDS ─────────────────── -->
+        <div class="faq-section" id="warranty" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h2>Warranty &amp; Refunds</h2>
+            <span class="section-head-count">4 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What does the warranty cover?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">All products come with a 12-month warranty covering manufacturing defects on fabrics and rails. The warranty does not cover accessories, misuse, improper cleaning, or normal wear and tear.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I request warranty service?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Contact our support team via email at janfurniture.ae@gmail.com or WhatsApp at +971 50 880 6292. Include your order details, photos of the issue, and a brief description. We'll arrange an inspection and resolve the issue as quickly as possible.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I cancel my order and get a refund?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">You can cancel and receive a full refund within 24 hours of payment. After 24 hours, your order enters production and refunds are no longer available — unless the product is defective or incorrectly manufactured, in which case we will make it right.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens if I don't pay the balance after installation?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Unpaid balances may be referred to a debt collection agency and could be subject to legal action. Any associated fees will be the responsibility of the customer.</div></div>
+        </div>
+
+        <!-- ── MOTORIZATION ───────────────────────── -->
+        <div class="faq-section" id="motorized" data-aos="fade-up">
+          <div class="section-head">
+            <div class="section-head-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg></div>
+            <h2>Motorization</h2>
+            <span class="section-head-count">5 questions</span>
+          </div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I motorize my curtains or blinds?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. We offer motorized options for both curtains and blinds. Motorized curtains start from AED 1,299 and motorized blinds from AED 1,392. All systems can be controlled via remote, app, or smart home integration. <a href="products.html#motorized-highlight">See motorized options.</a></div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What motor brands do you use?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We use Motion Motors (compatible with Alexa, Google Home, and Apple HomeKit), Somfy Motors (integrated via TaHoma Switch), and Eve Motors (Apple HomeKit only). Your consultant will recommend the best system based on your smart home setup.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I control motorized curtains with my phone?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Motorized systems can be controlled via dedicated apps, voice commands (Alexa, Google Assistant, Siri), or remote controls. You can also set schedules — for example, opening automatically at sunrise or closing at sunset.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does motorized installation require a professional?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. All motorized installations are handled by our trained technicians to ensure the system is perfectly fitted, configured, and connected to your smart home or app before we leave.</div></div>
+
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the warranty on motorized systems?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Motion Motors and Somfy Motors both come with a 5-year warranty covering manufacturing defects. This is in addition to the standard 12-month warranty on fabrics and installation.</div></div>
+        </div>
+
+        <!-- No results -->
+        <div id="no-results">
+          <strong>No results found.</strong>
+          Try a different search term, or <a href="https://wa.me/971508806292" style="color:var(--gold);">ask us on WhatsApp.</a>
+        </div>
+
+      </div><!-- /faq-content -->
+    </div><!-- /faq-layout -->
+  </div>
+</section>
+
+<!-- ── BOTTOM CTA ──────────────────────────────────────── -->
+<section id="bottom-cta">
+  <div class="container">
+    <div class="bottom-cta-inner" data-aos="fade-up">
+      <div class="tag">Still Need Help?</div>
+      <h2>We're a WhatsApp message away.</h2>
+      <p>Our team responds within the hour, seven days a week. Whether you have a quick question or want to talk through your whole project, we're happy to help.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/971508806292" target="_blank" class="btn-primary">
+          Chat on WhatsApp
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="book.html" class="btn-outline">Book a Free Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
+          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
+          <li><a href="book.html">Book a Free Visit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/971508806292" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp Us
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+  /* ── FAQ accordion ──────────────────────────────────── */
+  function toggleFaq(qEl) {
+    const aEl = qEl.nextElementSibling;
+    const isOpen = qEl.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      qEl.classList.add('open');
+      aEl.classList.add('open');
+    }
+  }
+
+  /* ── Search ─────────────────────────────────────────── */
+  function searchFAQ(query) {
+    const q = query.trim().toLowerCase();
+    const items = document.querySelectorAll('.faq-item');
+    const sections = document.querySelectorAll('.faq-section');
+    let visibleCount = 0;
+
+    if (!q) {
+      items.forEach(i => i.classList.remove('hidden'));
+      sections.forEach(s => s.style.display = '');
+      document.getElementById('no-results').style.display = 'none';
+      document.getElementById('search-count').textContent = '';
+      return;
+    }
+
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(q)) {
+        item.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        item.classList.add('hidden');
+        // Close if hidden
+        const qEl = item.querySelector('.faq-q');
+        if (qEl) { qEl.classList.remove('open'); item.querySelector('.faq-a').classList.remove('open'); }
+      }
+    });
+
+    // Hide sections with no visible items, show section heads always when searching
+    sections.forEach(section => {
+      const visible = section.querySelectorAll('.faq-item:not(.hidden)').length;
+      section.style.display = visible === 0 ? 'none' : '';
+    });
+
+    document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+    document.getElementById('search-count').textContent = visibleCount > 0 ? `${visibleCount} result${visibleCount !== 1 ? 's' : ''} found` : '';
+  }
+
+  /* ── Active category nav on scroll ─────────────────── */
+  function setActiveNav(el) {
+    document.querySelectorAll('.cat-nav-item a').forEach(a => a.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  const sectionIds = ['general','bookings','products','installation','pricing','warranty','motorized'];
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 120;
+    let current = sectionIds[0];
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('.cat-nav-item a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

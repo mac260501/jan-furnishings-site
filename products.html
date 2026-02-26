@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Products — Jan Furnishings Dubai</title>
+  <meta name="description" content="Custom curtains and blinds in Dubai. Sheer, blackout, roller, wooden, motorized and more — all made to measure and professionally installed." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ─────────────────────────────── */
+    :root {
+      --charcoal:   #1A1A1A;
+      --charcoal-2: #232323;
+      --charcoal-3: #2B2B2B;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5B0;
+      --text:       #F0EDE8;
+      --text-muted: #9A9590;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 6px 14px; border-radius: 100px; }
+
+    /* ─── Buttons ───────────────────────────────────── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--charcoal); padding: 16px 32px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-primary .arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--gold); padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid var(--gold); cursor: pointer; transition: all 0.3s ease; }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
+    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    nav.scrolled .nav-logo { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
+    .nav-cta:hover { background: var(--white); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--charcoal); z-index: 99; padding: 100px 32px 48px; flex-direction: column; align-items: flex-start; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--text); letter-spacing: 0.02em; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta { margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--charcoal); padding: 14px 28px; }
+
+    /* ─── PAGE HERO ─────────────────────────────────── */
+    #page-hero {
+      min-height: 70vh;
+      background: var(--charcoal-2);
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+      padding-bottom: 0;
+    }
+    /* Full-bleed background image — no dim */
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://thejanfurniture.com/wp-content/uploads/2026/01/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp') center/cover;
+      opacity: 1;
+    }
+    /* Subtle bottom gradient so filter bar reads cleanly */
+    .page-hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.0) 40%, rgba(26,26,26,0.55) 100%);
+    }
+    .page-hero-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+      width: 100%; padding: 80px 32px 56px;
+      max-width: 1264px; margin: 0 auto;
+    }
+    /* Glassmorphism text panel */
+    .page-hero-text {
+      max-width: 560px;
+      background: rgba(26,26,26,0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 36px 40px;
+    }
+    .page-hero-text h1 { font-size: clamp(36px, 5vw, 64px); margin: 16px 0 16px; }
+    .page-hero-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 440px; }
+    .page-hero-stats { display: flex; gap: 2px; flex-shrink: 0; }
+    .ph-stat { padding: 20px 28px; background: rgba(26,26,26,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); text-align: center; min-width: 110px; }
+    .ph-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); }
+    .ph-stat-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(240,237,232,0.7); margin-top: 4px; }
+
+    /* ─── CATEGORY FILTER ───────────────────────────── */
+    #filter-bar {
+      position: sticky; top: 60px; z-index: 80;
+      background: var(--charcoal);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0;
+    }
+    .filter-inner {
+      display: flex; align-items: center; gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 18px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent; border: none; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--text); }
+    .filter-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .filter-count {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(201,169,110,0.15); color: var(--gold);
+      font-size: 9px; margin-left: 6px;
+    }
+
+    /* ─── PRODUCT SECTIONS ──────────────────────────── */
+    .products-section { padding: 80px 0; }
+    .products-section + .products-section { padding-top: 0; }
+
+    .section-label {
+      display: flex; align-items: center; gap: 20px;
+      margin-bottom: 48px;
+    }
+    .section-label h2 { font-size: clamp(28px, 3vw, 40px); }
+    .section-label p { font-size: 14px; color: var(--text-muted); max-width: 380px; line-height: 1.7; margin-top: 8px; }
+    .section-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+
+    /* Product grid — 4 cols */
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+
+    .product-card {
+      background: var(--charcoal-3);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex; flex-direction: column;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card.hidden { display: none; }
+
+    .product-thumb { height: 240px; overflow: hidden; position: relative; }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .product-card:hover .product-thumb img { transform: scale(1.06); }
+
+    /* Category badge on image */
+    .product-badge {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      background: rgba(26,26,26,0.8); color: var(--gold);
+      padding: 4px 10px; backdrop-filter: blur(4px);
+    }
+    .product-badge.motorized { background: rgba(201,169,110,0.9); color: var(--charcoal); }
+
+    .product-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .product-name { font-size: 20px; margin-bottom: 6px; line-height: 1.2; }
+    .product-size { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .product-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; flex: 1; }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold-light);
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin-bottom: 16px;
+    }
+    .product-price del { font-size: 13px; color: #777; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
+    .product-price strong { font-size: 22px; color: var(--gold); }
+    .product-price span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--text-muted); }
+    .product-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); transition: gap 0.2s ease;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .product-cta:hover { gap: 12px; }
+
+    /* Wide featured card */
+    .product-card.featured {
+      grid-column: span 2;
+    }
+    .product-card.featured .product-thumb { height: 300px; }
+
+    /* ─── CATEGORY DIVIDER ──────────────────────────── */
+    .cat-divider {
+      padding: 0 0 64px;
+    }
+    .cat-divider-inner {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 64px;
+    }
+
+    /* ─── MOTORIZED HIGHLIGHT ───────────────────────── */
+    #motorized-highlight {
+      background: var(--charcoal-2);
+      padding: 80px 0;
+    }
+    .motor-banner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      background: var(--charcoal-3);
+      overflow: hidden;
+    }
+    .motor-banner-img { position: relative; min-height: 400px; }
+    .motor-banner-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .motor-banner-text {
+      padding: 60px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .motor-banner-text h2 { font-size: clamp(28px, 3vw, 42px); margin: 16px 0 20px; }
+    .motor-banner-text p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 32px; }
+    .motor-compat {
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px;
+    }
+    .motor-compat-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .motor-compat-item::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── BOTTOM CTA STRIP ──────────────────────────── */
+    #bottom-cta { padding: 100px 0; background: var(--charcoal); }
+    .bottom-cta-inner { text-align: center; max-width: 600px; margin: 0 auto; }
+    .bottom-cta-inner h2 { font-size: clamp(32px, 4vw, 52px); margin: 16px 0 20px; }
+    .bottom-cta-inner p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 40px; }
+    .bottom-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ─── WhatsApp Float ────────────────────────────── */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: #fff; display: flex; align-items: center; gap: 10px; padding: 14px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .wa-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+    .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ─── Keyframes ──────────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .product-card.featured { grid-column: span 2; }
+      .page-hero-stats { display: none; }
+      .motor-banner { grid-template-columns: 1fr; }
+      .motor-banner-img { min-height: 280px; }
+      .motor-banner-text { padding: 40px 32px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 20px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-card.featured { grid-column: span 1; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .bottom-cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="home.html" class="nav-logo">Jan Furnishings</a>
+  <ul class="nav-links">
+    <li><a href="products.html" class="active">Our Products</a></li>
+    <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="help.html">Help</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Free Visit</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="help.html" onclick="toggleMenu()">Help</a>
+  <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
+</div>
+
+<!-- ── PAGE HERO ───────────────────────────────────────── -->
+<section id="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-text" data-aos="fade-up">
+        <div class="tag">Our Products</div>
+        <h1>Curtains &amp; blinds for every space.</h1>
+        <p>17 products across three categories, all custom-made to your exact window size and professionally installed in your home.</p>
+      </div>
+      <div class="page-hero-stats" data-aos="fade-up" data-aos-delay="100">
+        <div class="ph-stat">
+          <div class="ph-stat-num">17</div>
+          <div class="ph-stat-label">Products</div>
+        </div>
+        <div class="ph-stat">
+          <div class="ph-stat-num">100+</div>
+          <div class="ph-stat-label">Fabric Options</div>
+        </div>
+        <div class="ph-stat">
+          <div class="ph-stat-num">48hr</div>
+          <div class="ph-stat-label">Turnaround</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FILTER BAR ──────────────────────────────────────── -->
+<div id="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all" onclick="filterProducts('all', this)">
+        All Products <span class="filter-count">17</span>
+      </button>
+      <button class="filter-btn" data-filter="curtains" onclick="filterProducts('curtains', this)">
+        Curtains &amp; Drapes <span class="filter-count">9</span>
+      </button>
+      <button class="filter-btn" data-filter="blinds" onclick="filterProducts('blinds', this)">
+        Blinds &amp; Shades <span class="filter-count">6</span>
+      </button>
+      <button class="filter-btn" data-filter="motorized" onclick="filterProducts('motorized', this)">
+        Motorized <span class="filter-count">2</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CURTAINS SECTION ────────────────────────────────── -->
+<section class="products-section" id="curtains">
+  <div class="container">
+
+    <div class="section-label" data-aos="fade-up">
+      <div>
+        <div class="tag" style="margin-bottom:12px;">Curtains &amp; Drapes</div>
+        <h2>Soft, elegant, made to measure.</h2>
+        <p>From breezy sheers to full blackout, every curtain is custom-made to fit your windows exactly — and hung by our team.</p>
+      </div>
+      <div class="section-label-line"></div>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Sheer Curtains — FEATURED -->
+      <div class="product-card featured" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-3.webp" alt="Sheer Curtains Dubai" loading="lazy" />
+          <div class="product-badge">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sheer Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Light, airy, and effortlessly elegant. Sheer curtains don't block the sun — they shape it, softening harsh Dubai light into something warm and liveable. Perfect for living rooms and any space where you want the view without the glare.</div>
+          <div class="product-price">
+            <del>AED 600</del>
+            <strong>AED 533</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blackout Curtains -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" loading="lazy" />
+          <div class="product-badge">Popular</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Blackout Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">A Dubai essential. Block morning light, cut the afternoon heat, and sleep through any hour. Made from dense, light-stopping fabric that also provides an extra layer of insulation.</div>
+          <div class="product-price">
+            <del>AED 826</del>
+            <strong>AED 599</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sheer & Blackout Combo -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-4.webp" alt="Sheer and Blackout Combo Curtains" loading="lazy" />
+          <div class="product-badge">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sheer &amp; Blackout Combo</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">The best of both. Pull the sheers for soft daytime light, close the blackouts at night for full privacy. Two layers, one track, complete control over your space at any hour.</div>
+          <div class="product-price">
+            <del>AED 1,244</del>
+            <strong>AED 999</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Wave Style Sheer & Blackout -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-77.webp" alt="Wave Style Sheer and Blackout Curtains" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Wave Style Sheer &amp; Blackout</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">The sheer and blackout combo, elevated. Wave-style heading creates continuous, uniform folds that look high-end in any room. Soft light by day, full darkness by night.</div>
+          <div class="product-price">
+            <strong>AED 1,855</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Wave Style Blackout -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/Blackout-curtains-e1707219010700.webp" alt="Wave Style Blackout Curtains" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Wave Style Blackout</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Full blackout performance with a designer finish. The wave heading gives your curtains a sculptural quality — clean, cascading folds that make the room look intentional, not just furnished.</div>
+          <div class="product-price">
+            <strong>AED 1,162</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Wave Style Sheer -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/image-17.webp" alt="Wave Style Sheer Curtains" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Wave Style Sheer</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Soft light, beautiful movement, effortless style. Wave-style sheer curtains hang in perfectly even ripples, creating a calm, airy atmosphere that feels more considered than standard sheers.</div>
+          <div class="product-price">
+            <strong>AED 752</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sheer Eyelet -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-11-1.webp" alt="Sheer Eyelet Curtains Dubai" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sheer Eyelet Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Simple, modern, and easy to use. Eyelet curtains thread directly onto the rod, making them smooth to open and close. A clean choice for rooms that need light without any visual clutter.</div>
+          <div class="product-price">
+            <strong>AED 617</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blackout Eyelet -->
+      <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-15.webp" alt="Blackout Eyelet Curtains Dubai" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Blackout Eyelet Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Full blackout in a fuss-free format. The eyelet heading keeps things unfussy — no hooks, no pleat calculations, just a clean slide that pulls your room into total darkness on demand.</div>
+          <div class="product-price">
+            <strong>AED 890</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /product-grid curtains -->
+  </div>
+</section>
+
+<!-- ── BLINDS SECTION ──────────────────────────────────── -->
+<section class="products-section cat-divider" id="blinds">
+  <div class="container">
+    <div class="cat-divider-inner">
+
+      <div class="section-label" data-aos="fade-up">
+        <div>
+          <div class="tag" style="margin-bottom:12px;">Blinds &amp; Shades</div>
+          <h2>Clean, minimal, always in control.</h2>
+          <p>Roller, roman, wooden, or venetian — blinds give you precise light control with a sleek, built-in look.</p>
+        </div>
+        <div class="section-label-line"></div>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- Blackout Roller Blinds — FEATURED -->
+        <div class="product-card featured" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-5.webp" alt="Blackout Roller Blinds Dubai" loading="lazy" />
+            <div class="product-badge">Bestseller</div>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Blackout Roller Blinds</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Low-maintenance, high-performance. Roller blinds are built for busy Dubai lives — dust-resistant, easy to wipe down, and highly effective at blocking both light and heat. When pulled down, they're completely opaque. When rolled up, they disappear entirely.</div>
+            <div class="product-price">
+              <del>AED 500</del>
+              <strong>AED 393</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Roller Blinds Premium -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-6.webp" alt="Roller Blinds Premium Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Roller Blinds Premium</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Everything you love about roller blinds, upgraded. Premium fabric, smoother operation, and a more refined finish — ideal for living areas and rooms where the details matter.</div>
+            <div class="product-price">
+              <strong>AED 561</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Wooden Blinds -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-10.webp" alt="Wooden Blinds Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Wooden Blinds</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Warm, natural, and quietly luxurious. Wooden blinds bring texture and richness to any room. Twist the slats to filter light or tilt them open for privacy with airflow — perfect for studies, bedrooms, and villa living areas.</div>
+            <div class="product-price">
+              <del>AED 816</del>
+              <strong>AED 499</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Zebra Blinds -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp" alt="Zebra Blinds Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Zebra Blinds</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">The best of roller blinds and sheer curtains, combined. Alternating sheer and solid bands let you dial in exactly how much light and privacy you want — a favourite for living rooms and open-plan spaces.</div>
+            <div class="product-price">
+              <strong>AED 1,104</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Roman Blinds Sheer -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-12.webp" alt="Roman Blinds Sheer Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Roman Blinds — Sheer</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">The elegance of a curtain, the precision of a blind. Sheer roman blinds fold up into neat horizontal pleats when raised, and hang flat and soft when lowered — bringing a quiet sophistication to any window.</div>
+            <div class="product-price">
+              <strong>AED 513</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Roman Blinds Blackout -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-11.webp" alt="Roman Blinds Blackout Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Roman Blinds — Blackout</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Structured, stylish, and fully light-blocking. Blackout roman blinds look far more considered than standard roller blinds — a great choice for bedrooms where you want both darkness and a refined aesthetic.</div>
+            <div class="product-price">
+              <strong>AED 627</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Aluminum Venetian -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-13.webp" alt="Aluminum Venetian Blind Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Aluminium Venetian Blinds</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Install once, forget about it. Aluminium venetian blinds are incredibly durable, moisture-resistant, and easy to clean — ideal for kitchens, bathrooms, and any room that takes on humidity and heat.</div>
+            <div class="product-price">
+              <strong>AED 513</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Fabric Vertical Blinds -->
+        <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-thumb">
+            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-14.webp" alt="Fabric Vertical Blinds Dubai" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Fabric Vertical Blinds</div>
+            <div class="product-size">1.5m × 2m window</div>
+            <div class="product-desc">Underrated and underused. Fabric vertical blinds are a practical, cost-effective choice for large windows and sliding doors — giving you smooth control over light and privacy without dominating the room.</div>
+            <div class="product-price">
+              <strong>AED 576</strong>
+              <span>/ standard window</span>
+            </div>
+            <a href="book.html" class="product-cta">
+              Book a Free Visit
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /product-grid blinds -->
+    </div>
+  </div>
+</section>
+
+<!-- ── MOTORIZED SECTION ───────────────────────────────── -->
+<section id="motorized-highlight">
+  <div class="container">
+
+    <div class="section-label" data-aos="fade-up" style="margin-bottom:48px;">
+      <div>
+        <div class="tag" style="margin-bottom:12px;">Motorized</div>
+        <h2>Control at your fingertips.</h2>
+        <p>Voice control, app control, or remote — motorized curtains and blinds work the way you do.</p>
+      </div>
+      <div class="section-label-line"></div>
+    </div>
+
+    <!-- Smart home banner -->
+    <div class="motor-banner" data-aos="fade-up">
+      <div class="motor-banner-img">
+        <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
+      </div>
+      <div class="motor-banner-text">
+        <div class="tag">Smart Living</div>
+        <h2>Works with the smart home systems you already use.</h2>
+        <p>All our motorized systems are compatible with the leading smart home platforms, so you can control your curtains and blinds from your phone, your voice, or a wall switch.</p>
+        <div class="motor-compat">
+          <div class="motor-compat-item">Amazon Alexa</div>
+          <div class="motor-compat-item">Google Home</div>
+          <div class="motor-compat-item">Apple HomeKit</div>
+          <div class="motor-compat-item">Somfy TaHoma (Motion Motors)</div>
+          <div class="motor-compat-item">Remote control &amp; wall switch included</div>
+        </div>
+        <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">5-year motor warranty</div>
+      </div>
+    </div>
+
+    <!-- 2 motorized product cards -->
+    <div class="product-grid" style="margin-top:2px;">
+
+      <!-- Motorized Curtains -->
+      <div class="product-card featured" data-category="motorized" data-aos="fade-up" data-aos-delay="0">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
+          <div class="product-badge motorized">Motorized</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Motorized Curtains</div>
+          <div class="product-size">2m × 3m window</div>
+          <div class="product-desc">Once you have motorized curtains, you won't go back. Open them with a voice command when you wake up. Close them automatically at sunset. Control every window in your home from your phone. Available in sheer, blackout, or combo configurations — custom-made to your windows and your lifestyle.</div>
+          <div class="product-price">
+            <del>AED 2,085</del>
+            <strong>AED 1,299</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Motorized Blinds -->
+      <div class="product-card featured" data-category="motorized" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-thumb">
+          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-9.webp" alt="Motorized Blinds Dubai" loading="lazy" />
+          <div class="product-badge motorized">Motorized</div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Motorized Blinds</div>
+          <div class="product-size">1.5m × 2m window</div>
+          <div class="product-desc">All the precision of roller blinds, now fully automated. Schedule them to raise at sunrise, lower during peak afternoon heat, and close at night — automatically, without lifting a finger. Works with roller blinds, zebra blinds, and roman blinds.</div>
+          <div class="product-price">
+            <strong>AED 1,392</strong>
+            <span>/ standard window</span>
+          </div>
+          <a href="book.html" class="product-cta">
+            Book a Free Visit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BOTTOM CTA ──────────────────────────────────────── -->
+<section id="bottom-cta">
+  <div class="container">
+    <div class="bottom-cta-inner" data-aos="fade-up">
+      <div class="tag">Free Consultation</div>
+      <h2>Not sure which product is right for you?</h2>
+      <p>Our team visits your home with fabric samples and gives you honest advice based on your space, light conditions, and budget. No commitment required.</p>
+      <div class="bottom-cta-actions">
+        <a href="book.html" class="btn-primary">
+          Book a Free Visit
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="estimate.html" class="btn-outline">Get an Estimate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
+          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
+          <li><a href="book.html">Book a Free Visit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ──────────────────────────────────── -->
+<a href="https://wa.me/971508806292" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp Us
+</a>
+
+<!-- ── SCRIPTS ──────────────────────────────────────────── -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── Category Filter ──────────────────────────────────
+  function filterProducts(category, btn) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.product-card[data-category]');
+
+    if (category === 'all') {
+      cards.forEach(card => {
+        card.classList.remove('hidden');
+        card.style.animation = 'none';
+      });
+      // Show all section headers
+      document.querySelectorAll('.products-section, .cat-divider, #motorized-highlight').forEach(s => s.style.display = '');
+    } else {
+      // Show only matching cards, hide non-matching
+      cards.forEach(card => {
+        if (card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Show/hide sections based on filter
+      const sections = {
+        curtains: ['curtains'],
+        blinds: ['blinds'],
+        motorized: ['motorized-highlight']
+      };
+
+      // Curtains section
+      document.getElementById('curtains').style.display = category === 'curtains' || category === 'all' ? '' : 'none';
+      // Blinds section
+      document.getElementById('blinds').style.display = category === 'blinds' || category === 'all' ? '' : 'none';
+      // Motorized section
+      document.getElementById('motorized-highlight').style.display = category === 'motorized' || category === 'all' ? '' : 'none';
+    }
+
+    // Scroll to first visible section
+    const targets = { all: 'curtains', curtains: 'curtains', blinds: 'blinds', motorized: 'motorized-highlight' };
+    const target = document.getElementById(targets[category]);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+  }
+
+  // Hash-based deep linking (e.g. products.html#motorized)
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    const validFilters = { curtains: 'curtains', blinds: 'blinds', 'motorized-highlight': 'motorized', motorized: 'motorized' };
+    if (hash && validFilters[hash]) {
+      const filterName = validFilters[hash];
+      const btn = document.querySelector(`[data-filter="${filterName}"]`);
+      if (btn) filterProducts(filterName, btn);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Free Visit | Jan Furnishings</title>
+  <meta name="description" content="Request a free Jan Furnishings home visit for curtain and blind measurement, consultation, and quotation." />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body data-page="booking">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Jan Furnishings<small>Custom Curtains and Blinds</small></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" data-page="home">Home</a>
+        <a href="our-products.html" data-page="products">Our Products</a>
+        <a href="get-estimate.html" data-page="estimate">Get Estimate</a>
+        <a href="about-us.html" data-page="about">About Us</a>
+        <a href="help.html" data-page="help">Help</a>
+        <a class="btn btn-primary" href="book-a-free-visit.html">Book a Free Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Book a Free Visit</span>
+        <h1>Request your visit in less than 2 minutes.</h1>
+        <p>To avoid scheduling conflicts, we collect your preferred date and time windows first, then confirm the final slot with you directly on WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="visual-banner">
+          <img src="https://images.pexels.com/photos/6492384/pexels-photo-6492384.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Bedroom setup with blackout curtains and soft daylight" loading="lazy" />
+          <div class="overlay">
+            <div class="overlay-copy">
+              <span class="kicker">Before we visit</span>
+              <h2>Tell us your style and timing preferences</h2>
+              <p>The more context you share, the better we prepare fabric and blind options for your consultation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <div class="section-heading">
+            <span class="kicker">What is included</span>
+            <h2>Your free visit covers everything needed to decide confidently.</h2>
+          </div>
+          <ul class="feature-list">
+            <li>Accurate measurement of each requested window</li>
+            <li>Fabric and blind style recommendations for your space</li>
+            <li>Advice on privacy, light control, and maintenance</li>
+            <li>Clear quotation shared shortly after the visit</li>
+            <li>No obligation to proceed</li>
+          </ul>
+
+          <div class="card" style="margin-top:16px;">
+            <h3>Scheduling policy</h3>
+            <p>We do not auto-confirm calendar slots. This prevents double-booking and gives us room to accommodate urgent requests when possible.</p>
+          </div>
+
+          <div class="split-visual" style="margin-top:16px;">
+            <img src="https://images.pexels.com/photos/7614530/pexels-photo-7614530.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Living room curtain styling with neutral tones" loading="lazy" />
+            <img src="https://images.pexels.com/photos/5998132/pexels-photo-5998132.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Blinds and curtain textures close-up" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="form-shell">
+          <form class="form-grid js-whatsapp-form" data-intent="booking" data-success-id="bookingSuccess">
+            <div class="form-group">
+              <label for="visit-first-name">First Name</label>
+              <input id="visit-first-name" name="first_name" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-last-name">Last Name</label>
+              <input id="visit-last-name" name="last_name" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-phone">Phone / WhatsApp</label>
+              <input id="visit-phone" name="phone" type="tel" placeholder="+971 50 000 0000" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-email">Email</label>
+              <input id="visit-email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-city">City</label>
+              <select id="visit-city" name="city" required>
+                <option value="">Select city</option>
+                <option>Dubai</option>
+                <option>Abu Dhabi</option>
+                <option>Sharjah</option>
+                <option>Ajman</option>
+                <option>Other UAE City</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="visit-area">Area / Community</label>
+              <input id="visit-area" name="area" type="text" placeholder="JVC, Marina, Al Nahda..." required />
+            </div>
+            <div class="form-group full">
+              <label for="visit-address">Address (Building and unit)</label>
+              <input id="visit-address" name="address" type="text" placeholder="Tower name, flat number, gate" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-property-type">Property Type</label>
+              <select id="visit-property-type" name="property_type" required>
+                <option value="">Select type</option>
+                <option>Apartment</option>
+                <option>Villa</option>
+                <option>Office</option>
+                <option>Holiday Rental</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="visit-windows">Estimated Number of Windows</label>
+              <input id="visit-windows" name="windows" type="number" min="1" placeholder="4" />
+            </div>
+            <div class="form-group full">
+              <label for="visit-service">Main Service Interest</label>
+              <select id="visit-service" name="service_interest" required>
+                <option value="">Select service</option>
+                <option>Sheer Curtains</option>
+                <option>Blackout Curtains</option>
+                <option>Sheer and Blackout Curtains</option>
+                <option>Roller Blinds</option>
+                <option>Zebra or Wooden Blinds</option>
+                <option>Motorized Curtains or Blinds</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="visit-primary-date">Preferred Date</label>
+              <input id="visit-primary-date" name="preferred_date" type="date" required />
+            </div>
+            <div class="form-group">
+              <label for="visit-backup-date">Second Date Option</label>
+              <input id="visit-backup-date" name="backup_date" type="date" required />
+            </div>
+            <div class="form-group full">
+              <label for="visit-time-window">Preferred Time Window</label>
+              <select id="visit-time-window" name="preferred_time" required>
+                <option value="">Select time</option>
+                <option>9:00 AM - 12:00 PM</option>
+                <option>12:00 PM - 3:00 PM</option>
+                <option>3:00 PM - 6:00 PM</option>
+                <option>6:00 PM - 9:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="visit-notes">Notes (Optional)</label>
+              <textarea id="visit-notes" name="notes" placeholder="Any access details or special requests"></textarea>
+            </div>
+            <div class="form-group full">
+              <button class="btn btn-primary" type="submit">Send Visit Request</button>
+              <p class="form-note">Once submitted, a WhatsApp chat opens with your details so we can confirm the final appointment.</p>
+              <div id="bookingSuccess" class="success">Your request is ready. Please send the opened WhatsApp message and we will confirm your slot.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">Jan Furnishings<small>Custom Curtains and Blinds</small></a>
+        <p style="margin-top:10px;">Book once, coordinate smoothly, and get expert support from measurement to installation.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="footer-links">
+          <a href="our-products.html">Our Products</a>
+          <a href="get-estimate.html">Get Estimate</a>
+          <a href="book-a-free-visit.html">Book a Free Visit</a>
+          <a href="help.html">Help</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="footer-links">
+          <a href="https://wa.me/971508806292" target="_blank" rel="noopener noreferrer">WhatsApp: +971 50 880 6292</a>
+          <a href="mailto:support@thejanfurniture.com">support@thejanfurniture.com</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <p style="margin-top:8px;font-size:13px;">&copy; <span data-year></span> Jan Furnishings. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971508806292" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

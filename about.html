@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Jan Furnishings Dubai</title>
+  <meta name="description" content="Jan Furnishings was built to make curtains and blinds in Dubai simple, transparent, and stress-free. Learn our story." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal:   #1A1A1A;
+      --charcoal-2: #232323;
+      --charcoal-3: #2B2B2B;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5B0;
+      --text:       #F0EDE8;
+      --text-muted: #9A9590;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 6px 14px; border-radius: 100px; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--charcoal); padding: 16px 32px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-primary .arrow { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--gold); padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid var(--gold); cursor: pointer; transition: all 0.3s ease; }
+    .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
+    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    nav.scrolled .nav-logo { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
+    .nav-cta:hover { background: var(--white); }
+    nav.scrolled .nav-cta { background: var(--gold); color: var(--charcoal); }
+    nav.scrolled .nav-cta:hover { background: var(--white); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--charcoal); z-index: 99; padding: 100px 32px 48px; flex-direction: column; align-items: flex-start; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--text); transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta { margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--charcoal); padding: 14px 28px; }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    /* Full-bleed background image — no dim */
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      animation: heroZoom 10s ease-out forwards;
+      z-index: 0;
+    }
+    /* Remove old hero-left / hero-right split */
+    .hero-left {
+      position: relative; z-index: 2;
+      width: 100%; padding: 0 60px 72px;
+      display: flex; align-items: flex-end;
+      background: none;
+    }
+    .hero-left::before { display: none; }
+    .hero-left::after { display: none; }
+    /* Large editorial number watermark */
+    .hero-watermark {
+      position: absolute; top: 60px; right: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 220px; font-weight: 300; line-height: 1;
+      color: rgba(201,169,110,0.05);
+      pointer-events: none; user-select: none; z-index: 1;
+      opacity: 0; animation: fadeIn 1.2s 0.2s ease forwards;
+    }
+    .hero-left-content {
+      position: relative; z-index: 2;
+      max-width: 560px;
+      background: rgba(26,26,26,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 48px 52px;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards;
+    }
+    .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+    .hero-h1 {
+      font-size: clamp(40px, 4.5vw, 64px);
+      font-weight: 300; line-height: 1.05;
+      color: var(--white);
+      opacity: 0; animation: fadeUp 0.9s 0.5s ease forwards;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); display: block; }
+    .hero-divider {
+      width: 60px; height: 1px; background: rgba(201,169,110,0.4);
+      margin: 32px 0;
+      opacity: 0; animation: fadeIn 0.8s 0.8s ease forwards;
+    }
+    .hero-sub {
+      font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.6);
+      max-width: 380px;
+      opacity: 0; animation: fadeUp 0.9s 0.9s ease forwards;
+    }
+    .hero-founded {
+      margin-top: 48px;
+      display: flex; align-items: center; gap: 24px;
+      opacity: 0; animation: fadeUp 0.9s 1.1s ease forwards;
+    }
+    .hero-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; color: var(--gold); line-height: 1;
+    }
+    .hero-founded-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .hero-founded-text strong { display: block; color: var(--text); font-weight: 400; margin-bottom: 2px; }
+
+    .hero-right { display: none; }
+    .hero-quote {
+      position: relative;
+      margin-top: 32px;
+      border-left: 3px solid rgba(201,169,110,0.6);
+      padding: 0 0 0 20px;
+      opacity: 0; animation: fadeUp 1s 1.3s ease forwards;
+    }
+    .hero-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; font-style: italic; font-weight: 300;
+      line-height: 1.6; color: rgba(240,237,232,0.7);
+    }
+    .hero-quote cite {
+      display: block; margin-top: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-style: normal; color: var(--gold); opacity: 0.8;
+    }
+
+    @keyframes heroZoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ─── ORIGIN STORY ──────────────────────────────── */
+    #story { padding: 140px 0; background: var(--charcoal); }
+    .story-inner {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    }
+    .story-aside { position: relative; }
+    .story-aside-img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      position: sticky; top: 100px;
+    }
+    .story-aside-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,26,26,0.9), transparent);
+      padding: 40px 24px 24px;
+    }
+    .story-aside-caption span {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .story-body { }
+    .story-chapter {
+      margin-bottom: 80px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .story-chapter:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .chapter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; letter-spacing: 0.2em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .story-chapter h2 {
+      font-size: clamp(32px, 3.5vw, 48px);
+      margin-bottom: 28px;
+      line-height: 1.15;
+    }
+    .story-chapter h2 em { font-style: italic; color: var(--gold); }
+    .story-chapter p {
+      font-size: 17px; line-height: 1.9;
+      color: rgba(240,237,232,0.75);
+      margin-bottom: 20px;
+    }
+    .story-chapter p:last-child { margin-bottom: 0; }
+    /* Pull quote */
+    .pull-quote {
+      margin: 40px 0;
+      padding: 32px 40px;
+      border-left: 3px solid var(--gold);
+      background: rgba(201,169,110,0.04);
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-style: italic; font-weight: 300;
+      color: var(--text); line-height: 1.5;
+      margin-bottom: 0 !important;
+    }
+
+    /* ─── VALUES ────────────────────────────────────── */
+    #values {
+      padding: 0 0 140px;
+      background: var(--charcoal);
+    }
+    .values-header {
+      text-align: center;
+      padding: 0 32px 80px;
+    }
+    .values-header h2 { font-size: clamp(36px, 4vw, 56px); margin-top: 16px; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    }
+    .value-card {
+      background: var(--charcoal-3);
+      padding: 52px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .value-card:hover { background: #2f2f2f; }
+    .value-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .value-card:hover::before { transform: scaleX(1); }
+    .value-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px; font-weight: 300; line-height: 1;
+      color: rgba(201,169,110,0.08);
+      position: absolute; top: 20px; right: 24px;
+    }
+    .value-icon { color: var(--gold); margin-bottom: 24px; }
+    .value-card h3 { font-size: 28px; margin-bottom: 16px; }
+    .value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+    /* ─── TEAM / COMPANY ────────────────────────────── */
+    #company {
+      background: var(--charcoal-2);
+      padding: 140px 0;
+    }
+    .company-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      overflow: hidden;
+    }
+    .company-img-panel { position: relative; min-height: 560px; }
+    .company-img-panel img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .company-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, transparent 50%);
+    }
+    .company-img-stats {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: rgba(201,169,110,0.1);
+    }
+    .img-stat {
+      background: rgba(26,26,26,0.85);
+      backdrop-filter: blur(8px);
+      padding: 24px 28px;
+    }
+    .img-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; color: var(--gold); line-height: 1;
+    }
+    .img-stat-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 4px;
+    }
+    .company-text-panel {
+      background: var(--charcoal-3);
+      padding: 80px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .company-text-panel h2 { font-size: clamp(32px, 3vw, 44px); margin: 16px 0 24px; }
+    .company-text-panel p { font-size: 15px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; }
+    .company-links { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+    .company-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px; color: var(--text-muted);
+      transition: color 0.3s;
+      cursor: default;
+    }
+    .company-link:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+    .company-link-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+
+    /* ─── PROMISE ───────────────────────────────────── */
+    #promise {
+      padding: 140px 0;
+      background: var(--charcoal);
+      position: relative; overflow: hidden;
+    }
+    .promise-bg {
+      position: absolute; inset: 0;
+      background: url('assets/images/lowell-so-Bn8eOJmZXtc-unsplash.jpg') center/cover;
+      opacity: 0.07;
+    }
+    .promise-inner {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .promise-inner h2 {
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 300; line-height: 1.1;
+      margin: 20px 0 32px;
+    }
+    .promise-inner h2 em { font-style: italic; color: var(--gold); }
+    .promise-inner p {
+      font-size: 17px; color: var(--text-muted); line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .promise-inner .cta-group { margin-top: 48px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: #fff; display: flex; align-items: center; gap: 10px; padding: 14px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .wa-float:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+    .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .company-text-panel { padding: 60px 40px; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      #hero { min-height: 80vh; }
+      .hero-left { padding: 0 24px 48px; }
+
+      .hero-quote { display: none; }
+      .hero-watermark { display: none; }
+      .story-inner { grid-template-columns: 1fr; }
+      .story-aside { display: none; }
+      .values-grid { grid-template-columns: 1fr; }
+      .company-inner { grid-template-columns: 1fr; }
+      .company-img-panel { min-height: 320px; }
+      .company-text-panel { padding: 48px 32px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 20px; }
+      .hero-left { padding: 120px 20px 48px; }
+      .promise-inner .cta-group { flex-direction: column; align-items: center; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .company-img-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="home.html" class="nav-logo">Jan Furnishings</a>
+  <ul class="nav-links">
+    <li><a href="products.html">Our Products</a></li>
+    <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="help.html">Help</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta">Book a Free Visit</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="help.html" onclick="toggleMenu()">Help</a>
+  <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────────── -->
+<section id="hero">
+  <img class="hero-bg-img" src="assets/images/pexels-artbovich-5998120.jpg" alt="Elegant curtains in a Dubai villa" />
+  <div class="hero-left">
+    <div class="hero-watermark">J</div>
+    <div class="hero-left-content">
+      <div class="hero-eyebrow">Our Story</div>
+      <h1 class="hero-h1">
+        Built for people<br>who just want it
+        <em>done right.</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">Jan Furnishings was born from a simple frustration — finding good curtains in Dubai shouldn't be this hard. So we made it easy.</p>
+      <div class="hero-founded">
+        <div class="hero-year">2021</div>
+        <div class="hero-founded-text">
+          <strong>Founded in Dubai, UAE</strong>
+          A sister company of Al Hadeeqa Contracting Co LLC
+        </div>
+      </div>
+      <div class="hero-quote">
+        <p>"Finding good curtains in Dubai shouldn't require three visits, unclear pricing, and crossed fingers."</p>
+        <cite>— The idea behind Jan Furnishings</cite>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ── ORIGIN STORY ────────────────────────────────────── -->
+<section id="story">
+  <div class="container">
+    <div class="story-inner">
+
+      <!-- Sticky image -->
+      <div class="story-aside" data-aos="fade-right">
+        <img class="story-aside-img" src="assets/images/pexels-artbovich-7214461.jpg" alt="Curtain installation in a Dubai home" />
+        <div class="story-aside-caption">
+          <span>Dubai, UAE — 2021</span>
+        </div>
+      </div>
+
+      <!-- Story chapters -->
+      <div class="story-body">
+
+        <div class="story-chapter" data-aos="fade-up">
+          <div class="chapter-num">Chapter 01</div>
+          <h2>It started with a <em>different idea.</em></h2>
+          <p>Al Hadeeqa was founded in 2021 with a simple goal: make furnishing a home in the UAE easier, clearer, and far less stressful. We helped people get furniture without the usual confusion — no unreliable middlemen, no surprise costs, no waiting weeks for updates.</p>
+          <p>But early on, we kept hearing the same question from customers: <em>"Can you also help with curtains and blinds?"</em></p>
+          <p>At first, we paused. Then we listened.</p>
+        </div>
+
+        <div class="story-chapter" data-aos="fade-up">
+          <div class="chapter-num">Chapter 02</div>
+          <h2>We saw the <em>problem clearly.</em></h2>
+          <p>Finding curtains in Dubai is harder than it should be. Too many options with no real guidance. Prices that change between the showroom and the invoice. Installers who don't show up on time, or worse — who measure wrong and leave you starting over.</p>
+
+          <div class="pull-quote">
+            <p>"We've seen it happen — homes ending up with curtains that don't match the space, the light, or the lifestyle."</p>
+          </div>
+
+          <p>So we asked ourselves a simple question: what if choosing curtains could be as straightforward as it actually should be? That's when Jan Furnishings found its direction.</p>
+        </div>
+
+        <div class="story-chapter" data-aos="fade-up">
+          <div class="chapter-num">Chapter 03</div>
+          <h2>Same values. <em>Clearer purpose.</em></h2>
+          <p>We brought everything that made Al Hadeeqa work — transparency, reliability, genuine customer care — and applied it specifically to curtains and blinds. We curated a focused range of products, built a clear pricing system, and trained our team to give honest advice, not just close a sale.</p>
+          <p>Today, Jan Furnishings handles everything from the first consultation to the final install. You don't have to chase anyone. You don't have to guess at the price. You just book, we come, it gets done.</p>
+          <a href="book.html" class="btn-primary" style="margin-top: 8px;">
+            Book a Free Visit
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ──────────────────────────────────────────── -->
+<section id="values">
+  <div class="container">
+    <div class="values-header" data-aos="fade-up">
+      <div class="tag">What We Stand For</div>
+      <h2>Three things we never compromise on.</h2>
+    </div>
+    <div class="values-grid">
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="value-num">01</div>
+        <div class="value-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <h3>Simplicity</h3>
+        <p>Clear choices, honest advice, zero jargon. From the first estimate to the final invoice, everything should be easy to understand. We don't complicate things — we un-complicate them.</p>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-num">02</div>
+        <div class="value-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Elegance</h3>
+        <p>Beautiful products that suit modern UAE living. We don't just sell curtains — we help you create spaces that feel considered and complete. Every fabric, every finish, chosen with that in mind.</p>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-num">03</div>
+        <div class="value-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Reliability</h3>
+        <p>We show up when we say we will. We install what we measured. We answer when you call. In a market full of unreliable contractors, reliability isn't a bonus — it's our baseline.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPANY ─────────────────────────────────────────── -->
+<section id="company">
+  <div class="container">
+    <div class="company-inner" data-aos="fade-up">
+
+      <div class="company-img-panel">
+        <img src="assets/images/pexels-artbovich-6492384.jpg" alt="Jan Furnishings team at work in Dubai" />
+        <div class="company-img-overlay"></div>
+        <div class="company-img-stats">
+          <div class="img-stat">
+            <div class="img-stat-num">500+</div>
+            <div class="img-stat-label">Windows Fitted</div>
+          </div>
+          <div class="img-stat">
+            <div class="img-stat-num">48hr</div>
+            <div class="img-stat-label">Avg. Turnaround</div>
+          </div>
+          <div class="img-stat">
+            <div class="img-stat-num">5★</div>
+            <div class="img-stat-label">Google Rated</div>
+          </div>
+          <div class="img-stat">
+            <div class="img-stat-num">12mo</div>
+            <div class="img-stat-label">Warranty</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="company-text-panel">
+        <div class="tag">The Company</div>
+        <h2>Part of something bigger.</h2>
+        <p>Jan Furnishings is a product of Al Hadeeqa Contracting Co LLC, a UAE-based furnishing company founded in 2021. We launched the curtains division after seeing how many of our customers were struggling with an outdated, fragmented market.</p>
+        <p>We're based in Dubai — specifically at In5 Tech, near Al Sufouh — and we service homes across the city. Small apartments, large villas, newly built developments, and everything in between.</p>
+        <p>Every measurement is taken by our own team. Every curtain is installed by our own team. We don't outsource the parts that matter.</p>
+        <div class="company-links">
+          <div class="company-link">
+            <span>Registered Company</span>
+            <div>
+              <div class="company-link-label">Al Hadeeqa Contracting Co LLC</div>
+            </div>
+          </div>
+          <div class="company-link">
+            <span>Location</span>
+            <div>
+              <div class="company-link-label">In5 Tech, Dubai, UAE</div>
+            </div>
+          </div>
+          <div class="company-link">
+            <span>Service Area</span>
+            <div>
+              <div class="company-link-label">All of Dubai</div>
+            </div>
+          </div>
+          <div class="company-link">
+            <span>Warranty</span>
+            <div>
+              <div class="company-link-label">12 Months on All Products</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROMISE ─────────────────────────────────────────── -->
+<section id="promise">
+  <div class="promise-bg"></div>
+  <div class="container">
+    <div class="promise-inner" data-aos="fade-up">
+      <div class="tag">Our Promise</div>
+      <h2>Your curtain journey,<br><em>made effortless.</em></h2>
+      <p>From your first consultation to the final installation, everything is handled with care, clarity, and professionalism. You'll never be left wondering what's happening with your order, when someone is coming, or what you'll be charged.</p>
+      <p>That's not a marketing line. It's just how we work.</p>
+      <div class="cta-group">
+        <a href="book.html" class="btn-primary">
+          Book a Free Visit
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="products.html" class="btn-outline">Explore Our Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
+          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
+          <li><a href="book.html">Book a Free Visit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Float ──────────────────────────────────── -->
+<a href="https://wa.me/971508806292" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp Us
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 60 });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+</script>
+</body>
+</html>

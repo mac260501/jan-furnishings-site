@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Free Visit — Jan Furnishings Dubai</title>
+  <meta name="description" content="Book your free curtain and blinds consultation in Dubai. We come to you with samples, take measurements, and give you a no-obligation quote on the spot." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal:   #1A1A1A;
+      --charcoal-2: #232323;
+      --charcoal-3: #2B2B2B;
+      --gold:       #C9A96E;
+      --gold-light: #E8D5B0;
+      --text:       #F0EDE8;
+      --text-muted: #9A9590;
+      --error:      #e07070;
+      --success:    #6fcf97;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; min-height: 100vh; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
+    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: #fff; transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    nav.scrolled .nav-logo { color: var(--gold); text-shadow: none; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
+    .nav-cta:hover { background: #fff; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: #fff; }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--charcoal); z-index: 99; padding: 100px 32px 48px; flex-direction: column; align-items: flex-start; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--text); transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta { margin-top: 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--charcoal); padding: 14px 28px; }
+
+    /* ─── PAGE LAYOUT ───────────────────────────────── */
+    .page-wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ─── LEFT PANEL — full-bleed image + info ──────── */
+    .left-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .left-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .left-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(26,26,26,0.3) 0%,
+        rgba(26,26,26,0.15) 60%,
+        rgba(26,26,26,0.35) 100%
+      );
+    }
+    .left-content {
+      position: relative; z-index: 2;
+      padding: 140px 40px 56px;
+      height: 100%;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .left-tag {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .left-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+    .left-content h1 {
+      font-size: clamp(36px, 3.5vw, 52px);
+      font-weight: 300; line-height: 1.1; margin-bottom: 20px;
+    }
+    .left-content h1 em { font-style: italic; color: var(--gold); display: block; }
+    .left-content p {
+      font-size: 15px; color: rgba(240,237,232,0.7); line-height: 1.8;
+      max-width: 380px; margin-bottom: 48px;
+    }
+
+    /* What's included */
+    .included-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+    .included-item { display: flex; align-items: flex-start; gap: 14px; }
+    .included-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(201,169,110,0.1);
+      border: 1px solid rgba(201,169,110,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .included-item-text strong { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .included-item-text span { font-size: 12px; color: var(--text-muted); }
+
+    /* Stats strip */
+    .left-glass {
+      background: rgba(26,26,26,0.52);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 32px 36px;
+      max-width: 420px;
+    }
+    .left-stats { display: flex; gap: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .left-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); line-height: 1; }
+    .left-stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+
+    /* ─── RIGHT PANEL — form ────────────────────────── */
+    .right-panel {
+      background: var(--charcoal-2);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 64px 72px;
+      min-height: 100vh;
+    }
+
+    /* Progress stepper */
+    .stepper {
+      display: flex; align-items: center; gap: 0;
+      margin-bottom: 48px;
+    }
+    .step-dot {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      position: relative; flex: 1;
+    }
+    .step-dot:not(:last-child)::after {
+      content: '';
+      position: absolute; top: 13px; left: 50%; width: 100%; height: 1px;
+      background: rgba(255,255,255,0.1); z-index: 0;
+    }
+    .step-dot.done:not(:last-child)::after { background: var(--gold); }
+    .dot-circle {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--text-muted);
+      background: var(--charcoal-2); z-index: 1; position: relative;
+      transition: all 0.3s;
+    }
+    .step-dot.active .dot-circle { border-color: var(--gold); color: var(--gold); }
+    .step-dot.done .dot-circle { border-color: var(--gold); background: var(--gold); color: var(--charcoal); font-weight: 600; }
+    .dot-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+    .step-dot.active .dot-label, .step-dot.done .dot-label { color: var(--gold); }
+
+    /* Form steps */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+
+    .step-heading { margin-bottom: 32px; }
+    .step-heading h2 { font-size: clamp(28px, 2.5vw, 40px); margin-bottom: 8px; }
+    .step-heading p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* Form fields */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 0; }
+    .field label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .field label .req { color: var(--error); margin-left: 2px; }
+    .field input, .field select, .field textarea {
+      background: var(--charcoal-3); border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 300;
+      padding: 14px 16px; outline: none; transition: border-color 0.3s;
+      width: 100%; -webkit-appearance: none; appearance: none;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
+    .field input.error, .field select.error, .field textarea.error { border-color: var(--error); }
+    .field .field-error { font-size: 11px; color: var(--error); display: none; }
+    .field.has-error .field-error { display: block; }
+    .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9590' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+    .field select option { background: var(--charcoal-3); color: var(--text); }
+    .field textarea { resize: vertical; min-height: 90px; }
+
+    /* Phone prefix row */
+    .phone-row { display: grid; grid-template-columns: 80px 1fr; gap: 0; }
+    .phone-prefix { background: var(--charcoal-3); border: 1px solid rgba(255,255,255,0.08); border-right: none; padding: 14px 12px; font-size: 15px; color: var(--text-muted); display: flex; align-items: center; white-space: nowrap; }
+
+    /* Day selector */
+    .day-selector { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 16px; }
+    .day-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 10px 4px;
+      background: var(--charcoal-3); border: 1.5px solid transparent;
+      cursor: pointer; transition: all 0.2s; font-family: inherit;
+      color: var(--text-muted);
+    }
+    .day-btn:hover:not(:disabled) { border-color: rgba(201,169,110,0.3); color: var(--text); }
+    .day-btn.selected { border-color: var(--gold); background: rgba(201,169,110,0.08); color: var(--gold); }
+    .day-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .day-name { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .day-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; line-height: 1; }
+    .day-month { font-size: 9px; color: var(--text-muted); }
+    .day-btn.selected .day-month { color: rgba(201,169,110,0.7); }
+
+    /* Time slots */
+    .time-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 24px; }
+    .time-btn {
+      padding: 11px 8px; text-align: center;
+      background: var(--charcoal-3); border: 1.5px solid transparent;
+      font-size: 13px; color: var(--text-muted); cursor: pointer;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .time-btn:hover { border-color: rgba(201,169,110,0.3); color: var(--text); }
+    .time-btn.selected { border-color: var(--gold); background: rgba(201,169,110,0.08); color: var(--gold); }
+
+    /* Windows selector */
+    .windows-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .win-btn {
+      padding: 10px 18px; background: var(--charcoal-3);
+      border: 1.5px solid transparent; color: var(--text-muted);
+      font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .win-btn:hover { border-color: rgba(201,169,110,0.3); color: var(--text); }
+    .win-btn.selected { border-color: var(--gold); background: rgba(201,169,110,0.08); color: var(--gold); }
+
+    /* Nav buttons */
+    .form-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 32px; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.12);
+      color: var(--text-muted); padding: 14px 24px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .btn-back:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
+    .btn-next {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--charcoal);
+      padding: 15px 32px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all 0.3s; flex: 1; justify-content: center;
+      max-width: 260px;
+    }
+    .btn-next:hover { background: var(--gold-light); }
+    .btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-next svg { width: 17px; height: 17px; transition: transform 0.2s; }
+    .btn-next:hover svg { transform: translateX(3px); }
+
+    /* Summary box (step 3 review) */
+    .summary-box { background: var(--charcoal-3); border: 1px solid rgba(255,255,255,0.06); padding: 28px 32px; margin-bottom: 24px; }
+    .summary-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 14px; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row-label { color: var(--text-muted); }
+    .summary-row-val { color: var(--text); text-align: right; }
+    .summary-edit { font-size: 11px; color: var(--gold); cursor: pointer; margin-left: 12px; text-decoration: underline; text-underline-offset: 2px; }
+    .summary-edit:hover { color: var(--gold-light); }
+
+    /* WhatsApp consent */
+    .consent-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; cursor: pointer; }
+    .consent-check { width: 18px; height: 18px; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.15); background: var(--charcoal-3); display: flex; align-items: center; justify-content: center; margin-top: 1px; transition: all 0.2s; }
+    .consent-check.checked { background: var(--gold); border-color: var(--gold); }
+    .consent-check svg { width: 10px; height: 10px; color: var(--charcoal); display: none; }
+    .consent-check.checked svg { display: block; }
+    .consent-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Submit btn */
+    .btn-submit {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--gold); color: var(--charcoal);
+      padding: 18px 32px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all 0.3s; margin-top: 24px;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-submit.loading { pointer-events: none; }
+    .spinner { width: 18px; height: 18px; border: 2px solid rgba(26,26,26,0.3); border-top-color: var(--charcoal); border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .submit-label { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── CONFIRMATION SCREEN ───────────────────────── */
+    .confirmation { display: none; text-align: center; padding: 40px 0; }
+    .confirmation.active { display: block; }
+    .confirm-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(111,207,151,0.12); border: 1px solid rgba(111,207,151,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; color: var(--success);
+    }
+    .confirmation h2 { font-size: 36px; margin-bottom: 12px; }
+    .confirmation p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 400px; margin: 0 auto 32px; }
+    .confirm-details {
+      background: var(--charcoal-3); border: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 32px; margin-bottom: 32px; text-align: left;
+    }
+    .confirm-detail-row { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 14px; }
+    .confirm-detail-row:last-child { border-bottom: none; }
+    .confirm-detail-label { color: var(--text-muted); width: 100px; flex-shrink: 0; }
+    .confirm-detail-val { color: var(--text); }
+    .confirm-wa {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #25D366; color: #fff; width: 100%;
+      padding: 16px; font-size: 14px; font-weight: 500; letter-spacing: 0.06em;
+      border: none; cursor: pointer; font-family: inherit; transition: background 0.3s;
+      margin-bottom: 12px;
+    }
+    .confirm-wa:hover { background: #1fba58; }
+    .confirm-wa svg { width: 18px; height: 18px; }
+    .confirm-home { display: block; font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 8px; transition: color 0.3s; }
+    .confirm-home:hover { color: var(--gold); }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: #fff; display: flex; align-items: center; gap: 10px; padding: 14px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.2s ease; }
+    .wa-float:hover { transform: translateY(-2px); }
+    .wa-float svg { width: 20px; height: 20px; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .right-panel { padding: 120px 48px 72px; }
+      .left-content { padding: 120px 44px 60px; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .page-wrap { grid-template-columns: 1fr; }
+      .left-panel { display: none; }
+      .right-panel { padding: 100px 28px 60px; min-height: 100vh; }
+      .time-slots { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .right-panel { padding: 90px 20px 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .day-selector { grid-template-columns: repeat(4, 1fr); }
+      .time-slots { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr; }
+      .summary-box { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="home.html" class="nav-logo">Jan Furnishings</a>
+  <ul class="nav-links">
+    <li><a href="products.html">Our Products</a></li>
+    <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="help.html">Help</a></li>
+  </ul>
+  <a href="book.html" class="nav-cta" style="opacity:0.4;pointer-events:none;">Book a Free Visit</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="help.html" onclick="toggleMenu()">Help</a>
+</div>
+
+<!-- ── PAGE WRAP ───────────────────────────────────────── -->
+<div class="page-wrap">
+
+  <!-- ── LEFT PANEL ─────────────────────────────────── -->
+  <div class="left-panel">
+    <img class="left-bg" src="assets/images/pexels-artbovich-6492384.jpg" alt="Curtain installation in a Dubai home" />
+    <div class="left-overlay"></div>
+    <div class="left-content">
+    <div class="left-glass">
+      <div class="left-tag">Free Home Visit</div>
+      <h1>We come to you.<br><em>No cost, no pressure.</em></h1>
+      <p>One of our team arrives at your home with fabric samples, takes precise measurements, and gives you a clear quote on the spot. You decide if you'd like to go ahead — no obligation.</p>
+
+      <div class="included-list">
+        <div class="included-item">
+          <div class="included-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <div class="included-item-text">
+            <strong>Precise window measurements</strong>
+            <span>Custom-made to your exact dimensions</span>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <div class="included-item-text">
+            <strong>100+ fabric samples</strong>
+            <span>See colours and textures in your own light</span>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="included-item-text">
+            <strong>Transparent quote on the spot</strong>
+            <span>No hidden fees, no follow-up pressure</span>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="included-item-text">
+            <strong>30–45 minutes, your schedule</strong>
+            <span>Morning, afternoon, or evening slots available</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="left-stats">
+        <div>
+          <div class="left-stat-num">500+</div>
+          <div class="left-stat-label">Windows Fitted</div>
+        </div>
+        <div>
+          <div class="left-stat-num">48hr</div>
+          <div class="left-stat-label">Avg. Install</div>
+        </div>
+        <div>
+          <div class="left-stat-num">5★</div>
+          <div class="left-stat-label">Google Rated</div>
+        </div>
+      </div>
+    </div><!-- /left-glass -->
+  </div><!-- /left-content -->
+  </div><!-- /left-panel -->
+
+  <!-- ── RIGHT PANEL — Form ──────────────────────────── -->
+  <div class="right-panel">
+
+    <!-- Progress stepper -->
+    <div class="stepper" id="stepper">
+      <div class="step-dot active" id="sdot-1">
+        <div class="dot-circle">1</div>
+        <div class="dot-label">Schedule</div>
+      </div>
+      <div class="step-dot" id="sdot-2">
+        <div class="dot-circle">2</div>
+        <div class="dot-label">Details</div>
+      </div>
+      <div class="step-dot" id="sdot-3">
+        <div class="dot-circle">3</div>
+        <div class="dot-label">Confirm</div>
+      </div>
+    </div>
+
+    <!-- ── STEP 1: Schedule ──────────────────────────── -->
+    <div class="form-step active" id="step-1">
+      <div class="step-heading">
+        <h2>Pick a date &amp; time.</h2>
+        <p>Choose any day in the next two weeks. Morning, afternoon, and evening slots are available.</p>
+      </div>
+
+      <div class="field" style="margin-bottom:20px;">
+        <label>Area <span class="req">*</span></label>
+        <select id="area" onchange="validateStep1()">
+          <option value="" disabled selected>Select your area…</option>
+          <option>Downtown Dubai</option>
+          <option>Dubai Marina &amp; JBR</option>
+          <option>Jumeirah</option>
+          <option>Dubai Hills &amp; Al Barsha</option>
+          <option>Mirdif &amp; Rashidiya</option>
+          <option>Deira &amp; Bur Dubai</option>
+          <option>Business Bay</option>
+          <option>Palm Jumeirah</option>
+          <option>Other (Dubai)</option>
+        </select>
+      </div>
+
+      <label class="time-label">Select a Date</label>
+      <div class="day-selector" id="day-selector"></div>
+
+      <label class="time-label">Select a Time</label>
+      <div class="time-slots" id="time-slots">
+        <button class="time-btn" onclick="selectTime(this)">9:00 AM</button>
+        <button class="time-btn" onclick="selectTime(this)">10:00 AM</button>
+        <button class="time-btn" onclick="selectTime(this)">11:00 AM</button>
+        <button class="time-btn" onclick="selectTime(this)">12:00 PM</button>
+        <button class="time-btn" onclick="selectTime(this)">2:00 PM</button>
+        <button class="time-btn" onclick="selectTime(this)">3:00 PM</button>
+        <button class="time-btn" onclick="selectTime(this)">4:00 PM</button>
+        <button class="time-btn" onclick="selectTime(this)">6:00 PM</button>
+      </div>
+
+      <div class="form-nav">
+        <div></div>
+        <button class="btn-next" id="next-1" onclick="goStep(2)" disabled>
+          Continue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: Details ───────────────────────────── -->
+    <div class="form-step" id="step-2">
+      <div class="step-heading">
+        <h2>Tell us about yourself.</h2>
+        <p>We'll use these details to confirm your visit and send you a reminder.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="field" id="field-fname">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" id="fname" placeholder="Sarah" oninput="clearError('field-fname')" />
+          <span class="field-error">Please enter your first name</span>
+        </div>
+        <div class="field" id="field-lname">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" id="lname" placeholder="Al Mansouri" oninput="clearError('field-lname')" />
+          <span class="field-error">Please enter your last name</span>
+        </div>
+      </div>
+
+      <div class="form-row full" style="margin-bottom:16px;">
+        <div class="field" id="field-phone">
+          <label>Phone Number <span class="req">*</span></label>
+          <div class="phone-row">
+            <div class="phone-prefix">+971</div>
+            <input type="tel" id="phone" placeholder="50 123 4567" oninput="clearError('field-phone')" style="border-left:none;" />
+          </div>
+          <span class="field-error">Please enter a valid UAE phone number</span>
+        </div>
+      </div>
+
+      <div class="form-row full" style="margin-bottom:16px;">
+        <div class="field" id="field-email">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="sarah@example.com" oninput="clearError('field-email')" />
+          <span class="field-error">Please enter a valid email address</span>
+        </div>
+      </div>
+
+      <div class="form-row full" style="margin-bottom:16px;">
+        <div class="field" id="field-address">
+          <label>Building &amp; Apartment <span class="req">*</span></label>
+          <input type="text" id="address" placeholder="Apt 12B, Marina Gate 1, Dubai Marina" oninput="clearError('field-address')" />
+          <span class="field-error">Please enter your address</span>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:16px;">
+        <label>Approx. Number of Windows</label>
+        <div class="windows-row" id="win-row">
+          <button class="win-btn" onclick="selectWindows(this,'1–3')">1–3</button>
+          <button class="win-btn" onclick="selectWindows(this,'4–6')">4–6</button>
+          <button class="win-btn" onclick="selectWindows(this,'7–10')">7–10</button>
+          <button class="win-btn" onclick="selectWindows(this,'10+')">10+</button>
+          <button class="win-btn" onclick="selectWindows(this,'Not sure')">Not sure</button>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:4px;">
+        <label>Anything else we should know? (optional)</label>
+        <textarea id="notes" placeholder="e.g. I'm replacing existing curtains, interested in motorized options, need blackout in bedrooms…"></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" onclick="goStep(1)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="btn-next" onclick="validateAndGoStep3()">
+          Review Booking
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STEP 3: Confirm ───────────────────────────── -->
+    <div class="form-step" id="step-3">
+      <div class="step-heading">
+        <h2>Review your booking.</h2>
+        <p>Everything look right? Hit confirm and we'll be in touch to finalise the visit.</p>
+      </div>
+
+      <div class="summary-box" id="summary-box">
+        <!-- filled by JS -->
+      </div>
+
+      <div class="consent-row" onclick="toggleConsent()" id="consent-row">
+        <div class="consent-check" id="consent-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="consent-text">Send me a WhatsApp confirmation and visit reminder</div>
+      </div>
+
+      <!-- Hidden Web3Forms fields -->
+      <input type="hidden" id="wf-access-key" value="654dda09-e778-448d-8490-c522405e45d0" />
+
+      <button class="btn-submit" id="submit-btn" onclick="submitBooking()">
+        <div class="spinner"></div>
+        <span class="submit-label">Confirm Booking</span>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="submit-label"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+
+      <p style="font-size:11px;color:var(--text-muted);margin-top:16px;line-height:1.6;text-align:center;">
+        By confirming, you agree to Jan Furnishings contacting you to arrange the visit. No payment is taken at this stage.
+      </p>
+
+      <div class="form-nav" style="margin-top:16px;">
+        <button class="btn-back" onclick="goStep(2)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- ── CONFIRMATION SCREEN ───────────────────────── -->
+    <div class="confirmation" id="confirmation">
+      <div class="confirm-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Booking received!</h2>
+      <p>We'll confirm your visit via WhatsApp within the hour. See you soon.</p>
+
+      <div class="confirm-details" id="confirm-details">
+        <!-- filled by JS -->
+      </div>
+
+      <button class="confirm-wa" onclick="sendConfirmWA()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Send me a WhatsApp reminder
+      </button>
+      <a href="home.html" class="confirm-home">← Back to homepage</a>
+    </div>
+
+  </div><!-- /right-panel -->
+</div><!-- /page-wrap -->
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
+          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/971508806292" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  WhatsApp Us
+</a>
+
+<script>
+  /* ── Nav scroll ───────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+  /* ── State ────────────────────────────────────────── */
+  let selectedDate = null;
+  let selectedTime = null;
+  let selectedWindows = null;
+  let waConsent = true;
+
+  /* ── Build day selector ───────────────────────────── */
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function buildDays() {
+    const container = document.getElementById('day-selector');
+    const today = new Date();
+    for (let i = 1; i <= 14; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() + i);
+      const isFri = d.getDay() === 5; // Friday — can mark as busier if needed
+      const btn = document.createElement('button');
+      btn.className = 'day-btn';
+      btn.innerHTML = `<span class="day-name">${days[d.getDay()]}</span><span class="day-num">${d.getDate()}</span><span class="day-month">${months[d.getMonth()]}</span>`;
+      btn.onclick = () => selectDay(btn, d);
+      container.appendChild(btn);
+    }
+  }
+  buildDays();
+
+  function selectDay(btn, date) {
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedDate = date;
+    validateStep1();
+  }
+
+  function selectTime(btn) {
+    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedTime = btn.textContent;
+    validateStep1();
+  }
+
+  function selectWindows(btn, val) {
+    document.querySelectorAll('#win-row .win-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedWindows = val;
+  }
+
+  function validateStep1() {
+    const area = document.getElementById('area').value;
+    const ok = area && selectedDate && selectedTime;
+    document.getElementById('next-1').disabled = !ok;
+  }
+
+  /* ── Step navigation ──────────────────────────────── */
+  function goStep(n) {
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + n).classList.add('active');
+    updateStepper(n);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateStepper(current) {
+    [1,2,3].forEach(i => {
+      const dot = document.getElementById('sdot-' + i);
+      dot.classList.remove('active','done');
+      if (i < current) dot.classList.add('done');
+      else if (i === current) dot.classList.add('active');
+      // Update done circles to checkmark
+      const circle = dot.querySelector('.dot-circle');
+      if (i < current) circle.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+      else circle.innerHTML = i;
+    });
+  }
+
+  /* ── Step 2 validation ────────────────────────────── */
+  function validateAndGoStep3() {
+    let valid = true;
+    const fields = [
+      { id: 'fname', fieldId: 'field-fname', check: v => v.trim().length > 0 },
+      { id: 'lname', fieldId: 'field-lname', check: v => v.trim().length > 0 },
+      { id: 'phone', fieldId: 'field-phone', check: v => v.replace(/\s/g,'').length >= 7 },
+      { id: 'email', fieldId: 'field-email', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'address', fieldId: 'field-address', check: v => v.trim().length > 3 },
+    ];
+    fields.forEach(f => {
+      const val = document.getElementById(f.id).value;
+      if (!f.check(val)) {
+        document.getElementById(f.fieldId).classList.add('has-error');
+        document.getElementById(f.id).classList.add('error');
+        valid = false;
+      }
+    });
+    if (!valid) return;
+    buildSummary();
+    goStep(3);
+  }
+
+  function clearError(fieldId) {
+    const el = document.getElementById(fieldId);
+    el.classList.remove('has-error');
+    el.querySelectorAll('.error').forEach(e => e.classList.remove('error'));
+  }
+
+  /* ── Build summary ────────────────────────────────── */
+  function buildSummary() {
+    const dateStr = selectedDate ? selectedDate.toLocaleDateString('en-AE', { weekday:'long', day:'numeric', month:'long' }) : '';
+    const area = document.getElementById('area').value;
+    const fname = document.getElementById('fname').value;
+    const lname = document.getElementById('lname').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+
+    const rows = [
+      ['Date', dateStr, 1],
+      ['Time', selectedTime, 1],
+      ['Area', area, 1],
+      ['Name', `${fname} ${lname}`, 2],
+      ['Phone', `+971 ${phone}`, 2],
+      ['Email', email, 2],
+      ['Address', address, 2],
+      ['Windows', selectedWindows || 'Not specified', 2],
+    ];
+
+    document.getElementById('summary-box').innerHTML = rows.map(([label, val, step]) =>
+      `<div class="summary-row"><span class="summary-row-label">${label}</span><span class="summary-row-val">${val} <span class="summary-edit" onclick="goStep(${step})">edit</span></span></div>`
+    ).join('');
+
+    // Build confirm details (shown after submission)
+    document.getElementById('confirm-details').innerHTML = [
+      ['Date', dateStr],
+      ['Time', selectedTime],
+      ['Area', area],
+      ['Name', `${fname} ${lname}`],
+      ['Phone', `+971 ${phone}`],
+    ].map(([label, val]) =>
+      `<div class="confirm-detail-row"><span class="confirm-detail-label">${label}</span><span class="confirm-detail-val">${val}</span></div>`
+    ).join('');
+  }
+
+  function toggleConsent() {
+    waConsent = !waConsent;
+    document.getElementById('consent-check').classList.toggle('checked', waConsent);
+  }
+  // Init consent as checked
+  document.getElementById('consent-check').classList.add('checked');
+
+  /* ── Submit via Web3Forms ─────────────────────────── */
+  async function submitBooking() {
+    const btn = document.getElementById('submit-btn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    const dateStr = selectedDate ? selectedDate.toLocaleDateString('en-AE', { weekday:'long', day:'numeric', month:'long' }) : '';
+    const payload = {
+      access_key: document.getElementById('wf-access-key').value,
+      subject: `New Booking Request — ${document.getElementById('fname').value} ${document.getElementById('lname').value}`,
+      from_name: 'Jan Furnishings Website',
+      name: `${document.getElementById('fname').value} ${document.getElementById('lname').value}`,
+      email: document.getElementById('email').value,
+      phone: `+971 ${document.getElementById('phone').value}`,
+      address: document.getElementById('address').value,
+      area: document.getElementById('area').value,
+      date: dateStr,
+      time: selectedTime,
+      windows: selectedWindows || 'Not specified',
+      notes: document.getElementById('notes').value || 'None',
+      whatsapp_consent: waConsent ? 'Yes' : 'No',
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showConfirmation();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (e) {
+      // Fallback: open WhatsApp with all details
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      fallbackWhatsApp();
+    }
+  }
+
+  function showConfirmation() {
+    document.getElementById('stepper').style.display = 'none';
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('confirmation').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function fallbackWhatsApp() {
+    const dateStr = selectedDate ? selectedDate.toLocaleDateString('en-AE', { weekday:'long', day:'numeric', month:'long' }) : '';
+    const msg = `Hi Jan Furnishings! I'd like to book a free visit.\n\nName: ${document.getElementById('fname').value} ${document.getElementById('lname').value}\nPhone: +971 ${document.getElementById('phone').value}\nDate: ${dateStr}\nTime: ${selectedTime}\nArea: ${document.getElementById('area').value}\nAddress: ${document.getElementById('address').value}\nWindows: ${selectedWindows || 'Not sure'}\nNotes: ${document.getElementById('notes').value || 'None'}`;
+    window.open(`https://wa.me/971508806292?text=${encodeURIComponent(msg)}`, '_blank');
+    showConfirmation();
+  }
+
+  function sendConfirmWA() {
+    const dateStr = selectedDate ? selectedDate.toLocaleDateString('en-AE', { weekday:'long', day:'numeric', month:'long' }) : '';
+    const msg = `Hi! Just confirming my free visit booking:\n\nDate: ${dateStr}\nTime: ${selectedTime}\nAddress: ${document.getElementById('address').value}\n\nPlease let me know if you need anything else. Thanks!`;
+    window.open(`https://wa.me/971508806292?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+</script>
+</body>
+</html>

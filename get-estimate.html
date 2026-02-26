@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Estimate | Curtains and Blinds Price Calculator</title>
+  <meta name="description" content="Use the Jan Furnishings calculator to estimate curtain and blind pricing instantly before booking a free visit." />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body data-page="estimate">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Jan Furnishings<small>Custom Curtains and Blinds</small></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" data-page="home">Home</a>
+        <a href="our-products.html" data-page="products">Our Products</a>
+        <a href="get-estimate.html" data-page="estimate">Get Estimate</a>
+        <a href="about-us.html" data-page="about">About Us</a>
+        <a href="help.html" data-page="help">Help</a>
+        <a class="btn btn-primary" href="book-a-free-visit.html">Book a Free Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Get Estimate</span>
+        <h1>Estimate your curtain or blind budget in under a minute.</h1>
+        <p>Enter dimensions, product type, and room count to get a quick pricing range. Final pricing is confirmed after on-site measurement.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="thumbnail-row">
+          <img src="https://images.pexels.com/photos/7214461/pexels-photo-7214461.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Curtain installation in modern apartment" loading="lazy" />
+          <img src="https://images.pexels.com/photos/6492401/pexels-photo-6492401.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Soft layered curtains with daylight" loading="lazy" />
+          <img src="https://images.pexels.com/photos/5998127/pexels-photo-5998127.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Roller blind setup near workspace" loading="lazy" />
+          <img src="https://images.pexels.com/photos/5998132/pexels-photo-5998132.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Fabric texture and blind mechanism detail" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container estimate-layout">
+        <div class="form-shell">
+          <h2 style="margin-bottom:18px;">Estimator</h2>
+          <form id="estimateForm" class="form-grid">
+            <div class="form-group">
+              <label for="estimate-name">Full Name</label>
+              <input id="estimate-name" name="full_name" type="text" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="estimate-phone">Phone / WhatsApp</label>
+              <input id="estimate-phone" name="phone" type="tel" placeholder="+971 50 000 0000" required />
+            </div>
+            <div class="form-group full">
+              <label for="estimate-location">Location</label>
+              <input id="estimate-location" name="location" type="text" placeholder="Dubai Marina, JVC, Downtown..." required />
+            </div>
+            <div class="form-group">
+              <label for="estimate-width">Window Width (cm)</label>
+              <input id="estimate-width" name="width_cm" type="number" min="40" step="1" placeholder="200" required />
+            </div>
+            <div class="form-group">
+              <label for="estimate-height">Window Height (cm)</label>
+              <input id="estimate-height" name="height_cm" type="number" min="40" step="1" placeholder="300" required />
+            </div>
+            <div class="form-group">
+              <label for="estimate-product">Product</label>
+              <select id="estimate-product" name="product" required>
+                <option value="">Select product</option>
+                <option value="sheer_curtains">Sheer Curtains</option>
+                <option value="blackout_curtains">Blackout Curtains</option>
+                <option value="sheer_blackout_curtains">Sheer and Blackout Curtains</option>
+                <option value="blackout_roller_blinds">Blackout Roller Blinds</option>
+                <option value="premium_roller_blinds">Roller Blinds Premium</option>
+                <option value="zebra_blinds">Zebra Blinds</option>
+                <option value="wooden_blinds">Wooden Blinds</option>
+                <option value="motorized_curtains">Motorized Curtains</option>
+                <option value="motorized_blinds">Motorized Blinds</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="estimate-rooms">Number of Rooms</label>
+              <input id="estimate-rooms" name="rooms" type="number" min="1" value="1" required />
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" name="motorized" value="yes" /> Add motorized system where compatible</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" name="express_delivery" value="yes" /> Request express delivery option</label>
+            </div>
+            <div class="form-group full">
+              <label for="estimate-notes">Notes (Optional)</label>
+              <textarea id="estimate-notes" name="notes" placeholder="Example: master bedroom plus living room."></textarea>
+            </div>
+            <input type="hidden" name="estimated_total" value="" />
+            <div class="form-group full">
+              <button class="btn btn-primary" type="submit">Send Estimate to WhatsApp</button>
+              <p class="form-note">This estimate is directional. We confirm exact pricing after free measurement.</p>
+              <div id="estimateSuccess" class="success">Estimate prepared successfully. We opened WhatsApp with your estimate details.</div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="result" aria-live="polite">
+          <img src="https://images.pexels.com/photos/8082311/pexels-photo-8082311.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Showroom-style curtain presentation" style="width:100%;height:170px;object-fit:cover;border-radius:12px;border:1px solid var(--border);margin-bottom:14px;" loading="lazy" />
+          <small>Estimated total</small>
+          <strong id="estimateTotal">AED 0</strong>
+          <p id="estimateDetails" class="details">Enter dimensions and choose a product to see your estimate.</p>
+          <ul class="feature-list" style="margin-top:20px;">
+            <li>Includes standard fabrication and installation</li>
+            <li>Final quote may vary with fabric selection and mounting type</li>
+            <li>Bulk orders receive better rates</li>
+          </ul>
+          <div class="btn-row" style="margin-top:18px;">
+            <a class="btn btn-secondary" href="book-a-free-visit.html">Book a Free Visit</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section showcase">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">What happens next</span>
+          <h2>Three fast steps after your estimate</h2>
+        </div>
+        <div class="grid-3">
+          <article class="process-step">
+            <span class="step-number">1</span>
+            <h3>We review your estimate</h3>
+            <p>Our team checks your selections and responds quickly on WhatsApp if we need any details.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">2</span>
+            <h3>Free measurement visit</h3>
+            <p>We take exact dimensions and show fabric or blind samples at your location.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">3</span>
+            <h3>Final quote and installation</h3>
+            <p>Once approved, we move straight to fabrication and schedule installation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container faq-shell">
+        <div class="section-heading">
+          <span class="kicker">Estimator FAQ</span>
+          <h2>Common pricing questions</h2>
+        </div>
+
+        <article class="faq-item">
+          <button class="faq-button" type="button" aria-expanded="false">Is the estimate the final price?<span>+</span></button>
+          <div class="faq-answer"><p>The estimator gives a reliable range. Final pricing is confirmed after exact measurement and material selection.</p></div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-button" type="button" aria-expanded="false">Do you offer installment payments?<span>+</span></button>
+          <div class="faq-answer"><p>Yes. Flexible payment options are available based on order size. Ask us during consultation for the latest plans.</p></div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-button" type="button" aria-expanded="false">Can I estimate multiple windows?<span>+</span></button>
+          <div class="faq-answer"><p>Yes. Set the room count to scale your estimate quickly, then we finalize each window during the visit.</p></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">Jan Furnishings<small>Custom Curtains and Blinds</small></a>
+        <p style="margin-top:10px;">Transparent pricing starts with a quick estimate and ends with an exact in-home quote.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <div class="footer-links">
+          <a href="our-products.html">Our Products</a>
+          <a href="get-estimate.html">Get Estimate</a>
+          <a href="book-a-free-visit.html">Book a Free Visit</a>
+          <a href="help.html">Help</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="footer-links">
+          <a href="https://wa.me/971508806292" target="_blank" rel="noopener noreferrer">WhatsApp: +971 50 880 6292</a>
+          <a href="mailto:support@thejanfurniture.com">support@thejanfurniture.com</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <p style="margin-top:8px;font-size:13px;">&copy; <span data-year></span> Jan Furnishings. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971508806292" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
