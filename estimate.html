@@ -182,14 +182,21 @@
     .result-product-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 4px; }
     .result-size-display { font-size: 12px; color: var(--text-muted); margin-bottom: 32px; }
 
-    /* Price breakdown */
-    .price-breakdown { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; margin-bottom: 24px; }
-    .price-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .price-row-label { font-size: 13px; color: var(--text-muted); }
-    .price-row-val { font-size: 13px; color: var(--text); }
-    .price-row.total { border-bottom: none; padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(201,169,110,0.2); }
-    .price-row.total .price-row-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-    .price-row.total .price-row-val { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: var(--gold); line-height: 1; }
+    /* Price summary */
+    .price-summary { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; margin-bottom: 24px; }
+    .price-summary-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .price-summary-total {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+    }
 
     .result-disclaimer {
       font-size: 11px; color: var(--text-muted); line-height: 1.6;
@@ -475,23 +482,9 @@
           <div class="result-product-name" id="result-name">Sheer Curtains</div>
           <div class="result-size-display" id="result-size">200 × 280 cm · 1 window</div>
 
-          <div class="price-breakdown">
-            <div class="price-row">
-              <span class="price-row-label">Base price (per window)</span>
-              <span class="price-row-val" id="result-base">AED 533</span>
-            </div>
-            <div class="price-row">
-              <span class="price-row-label">Size adjustment</span>
-              <span class="price-row-val" id="result-adj">—</span>
-            </div>
-            <div class="price-row">
-              <span class="price-row-label">Number of windows</span>
-              <span class="price-row-val" id="result-qty">× 1</span>
-            </div>
-            <div class="price-row total">
-              <span class="price-row-label">Estimated Total</span>
-              <span class="price-row-val" id="result-total">AED 533</span>
-            </div>
+          <div class="price-summary">
+            <div class="price-summary-label">Estimated Total</div>
+            <div class="price-summary-total" id="result-total">AED 533</div>
           </div>
 
           <div class="result-disclaimer">
@@ -786,16 +779,12 @@
 
     // Price per window scales with area ratio
     const perWindow = Math.round(p.basePrice * ratio / 5) * 5; // round to nearest 5
-    const adjustment = perWindow - p.basePrice;
     const total = perWindow * numWindows;
 
     // Update UI
     document.getElementById('result-img').src = p.img;
     document.getElementById('result-name').textContent = p.name;
     document.getElementById('result-size').textContent = `${w} × ${h} cm · ${numWindows} window${numWindows !== 1 ? 's' : ''}`;
-    document.getElementById('result-base').textContent = `AED ${p.basePrice.toLocaleString()}`;
-    document.getElementById('result-adj').textContent = adjustment === 0 ? '—' : (adjustment > 0 ? `+AED ${adjustment.toLocaleString()}` : `−AED ${Math.abs(adjustment).toLocaleString()}`);
-    document.getElementById('result-qty').textContent = `× ${numWindows}`;
     document.getElementById('result-total').textContent = `AED ${total.toLocaleString()}`;
   }
 
