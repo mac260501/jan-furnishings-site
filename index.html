@@ -14,14 +14,14 @@
   <style>
     /* ─── Design Tokens ─────────────────────────────── */
     :root {
-      --charcoal:   #1A1A1A;
-      --charcoal-2: #232323;
-      --charcoal-3: #2B2B2B;
-      --gold:       #C9A96E;
-      --gold-light: #E8D5B0;
-      --gold-dim:   #D4B882;
-      --text:       #F0EDE8;
-      --text-muted: #9A9590;
+      --charcoal:   #252525;
+      --charcoal-2: #252525;
+      --charcoal-3: #252525;
+      --gold:       #FFFFFF;
+      --gold-light: #FFFFFF;
+      --gold-dim:   #FFFFFF;
+      --text:       #FFFFFF;
+      --text-muted: #FFFFFF;
       --white:      #FFFFFF;
     }
 
@@ -87,22 +87,22 @@
       padding: 24px 32px;
       display: flex; align-items: center; justify-content: space-between;
       transition: all 0.4s ease;
-      background: rgba(0,0,0,0.45);
+      background: rgba(37,37,37,0.45);
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 40px rgba(37,37,37,0.25);
     }
     nav.scrolled {
-      background: rgba(26,26,26,0.97);
+      background: rgba(37,37,37,0.97);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       padding: 16px 32px;
-      border-bottom: 1px solid rgba(201,169,110,0.15);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 1px 24px rgba(37,37,37,0.3);
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px; font-weight: 500; letter-spacing: 0.05em;
-      color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(37,37,37,0.4);
     }
     nav.scrolled .nav-logo { color: var(--gold); }
 
@@ -174,9 +174,9 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         to top,
-        rgba(26,26,26,0.6) 0%,
-        rgba(26,26,26,0.15) 50%,
-        rgba(26,26,26,0.0) 100%
+        rgba(37,37,37,0.6) 0%,
+        rgba(37,37,37,0.15) 50%,
+        rgba(37,37,37,0.0) 100%
       );
     }
     .hero-content {
@@ -190,7 +190,7 @@
     }
     /* Glass panel wrapping headline + sub + actions */
     .hero-text-glass {
-      background: rgba(26,26,26,0.52);
+      background: rgba(37,37,37,0.52);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
@@ -238,7 +238,7 @@
       color: rgba(255,255,255,0.4); writing-mode: vertical-rl;
     }
     .hero-scroll-line {
-      width: 1px; height: 48px; background: rgba(201,169,110,0.4);
+      width: 1px; height: 48px; background: rgba(255,255,255,0.4);
       animation: scrollDown 1.6s 1.8s ease-in-out infinite;
     }
     @keyframes scrollDown {
@@ -254,10 +254,10 @@
     }
     .hero-stat {
       padding: 20px 28px;
-      background: rgba(26,26,26,0.85);
+      background: rgba(37,37,37,0.85);
       backdrop-filter: blur(8px);
-      border-top: 1px solid rgba(201,169,110,0.2);
-      border-left: 1px solid rgba(201,169,110,0.1);
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-left: 1px solid rgba(255,255,255,0.1);
       text-align: center;
       min-width: 120px;
     }
@@ -338,11 +338,11 @@
       position: relative;
       transition: background 0.3s ease;
     }
-    .step-card:hover { background: #303030; }
+    .step-card:hover { background: #252525; }
     .step-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 64px; font-weight: 300; line-height: 1;
-      color: rgba(201,169,110,0.15);
+      color: rgba(255,255,255,0.15);
       margin-bottom: 24px;
     }
     .step-icon {
@@ -387,7 +387,7 @@
       font-size: 20px; color: var(--gold-light);
       display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px;
     }
-    .product-price del { font-size: 14px; color: #888; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
+    .product-price del { font-size: 14px; color: #FFFFFF; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
     .product-price strong { font-size: 22px; color: var(--gold); }
     .product-price span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--text-muted); }
     .product-link {
@@ -407,7 +407,7 @@
     .product-card.product-cta-card { min-height: 320px; }
 
     /* ─── PARTNERS ───────────────────────────────────── */
-    #partners { padding: 80px 0; background: var(--charcoal-2); border-top: 1px solid rgba(201,169,110,0.1); }
+    #partners { padding: 80px 0; background: var(--charcoal-2); border-top: 1px solid rgba(255,255,255,0.1); }
     .partners-label {
       text-align: center;
       font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -547,23 +547,23 @@
       gap: 40px; flex-wrap: wrap;
     }
     .coverage-text h2 { font-size: clamp(28px, 3vw, 40px); color: var(--charcoal); }
-    .coverage-text p { font-size: 14px; color: rgba(26,26,26,0.65); margin-top: 8px; }
+    .coverage-text p { font-size: 14px; color: rgba(37,37,37,0.65); margin-top: 8px; }
     .coverage-cities {
       display: flex; gap: 2px;
     }
     .coverage-city {
-      background: rgba(26,26,26,0.12); color: var(--charcoal);
+      background: rgba(37,37,37,0.12); color: var(--charcoal);
       padding: 16px 28px;
       font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
       transition: background 0.3s;
     }
-    .coverage-city:hover { background: rgba(26,26,26,0.22); }
+    .coverage-city:hover { background: rgba(37,37,37,0.22); }
 
     /* ─── FOOTER ─────────────────────────────────────── */
     footer {
       background: var(--charcoal-2);
       padding: 80px 0 40px;
-      border-top: 1px solid rgba(201,169,110,0.1);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
     .footer-inner {
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
@@ -666,8 +666,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta">Book a Free Visit</a>
@@ -679,8 +680,9 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
 </div>
@@ -959,7 +961,7 @@
       <div class="product-card wide product-cta-card" data-aos="fade-up" data-aos-delay="200">
         <div class="product-img" style="position:relative;">
           <img src="assets/images/pexels-artbovich-5998127.jpg" alt="Book a free curtain consultation in Dubai" />
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,26,0.82) 0%,rgba(26,26,26,0.45) 100%);"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,37,37,0.82) 0%,rgba(37,37,37,0.45) 100%);"></div>
           <div style="position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;">
             <div class="tag" style="margin-bottom:16px;align-self:flex-start;">Free · No Obligation</div>
             <h3 style="font-size:clamp(24px,2.5vw,36px);color:var(--white);margin-bottom:12px;line-height:1.15;">Not sure what you need? We'll help you choose.</h3>
@@ -988,21 +990,21 @@
     <p class="partners-label">Trusted by Dubai's leading property developers & managers</p>
     <div class="partners-track">
       <div class="partners-inner">
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.35.08-1-e1770799671771.png" alt="Partner" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.41.11-1-e1770799708585.jpeg" alt="Partner" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.44.58-1.jpeg" alt="Partner" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.48.15-1.jpeg" alt="Partner" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.49.35-1.jpeg" alt="Partner" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/1000087227.jpg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="Partner" />
+        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="Partner" />
       </div>
       <!-- Duplicate for seamless loop -->
       <div class="partners-inner" aria-hidden="true">
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.35.08-1-e1770799671771.png" alt="" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.41.11-1-e1770799708585.jpeg" alt="" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.44.58-1.jpeg" alt="" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.48.15-1.jpeg" alt="" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-09-at-12.49.35-1.jpeg" alt="" />
-        <img class="partner-logo" src="https://thejanfurniture.com/wp-content/uploads/2026/02/1000087227.jpg" alt="" />
+        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="" />
+        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="" />
+        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="" />
+        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="" />
+        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="" />
+        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="" />
       </div>
     </div>
   </div>
@@ -1092,7 +1094,7 @@
     </div>
     <div class="reviews-cta" data-aos="fade-up">
       <a href="https://www.google.com/search?q=Jan+Furnishings+Reviews" target="_blank" rel="noopener" class="google-badge">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#FFFFFF"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#FFFFFF"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FFFFFF"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#FFFFFF"/></svg>
         <span><strong>5★ rated</strong> on Google — leave us a review</span>
       </a>
     </div>
@@ -1162,7 +1164,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Jan Furnishings</div>
-        <p>Custom curtains and blinds, made and installed across the UAE. Free home visit, transparent pricing, same-week turnaround.</p>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -1189,9 +1191,11 @@
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="interiors.html">Interiors</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="help.html">Help & FAQs</a></li>
-          <li><a href="book.html">Book a Free Visit</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
         </ul>
       </div>
 
@@ -1200,8 +1204,8 @@
         <div class="footer-contact">
           <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
-          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
-          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+          <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
         </div>
       </div>
     </div>

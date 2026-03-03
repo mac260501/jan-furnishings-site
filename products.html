@@ -14,13 +14,13 @@
   <style>
     /* ─── Design Tokens ─────────────────────────────── */
     :root {
-      --charcoal:   #1A1A1A;
-      --charcoal-2: #232323;
-      --charcoal-3: #2B2B2B;
-      --gold:       #C9A96E;
-      --gold-light: #E8D5B0;
-      --text:       #F0EDE8;
-      --text-muted: #9A9590;
+      --charcoal:   #252525;
+      --charcoal-2: #252525;
+      --charcoal-3: #252525;
+      --gold:       #FFFFFF;
+      --gold-light: #FFFFFF;
+      --text:       #FFFFFF;
+      --text-muted: #FFFFFF;
       --white:      #FFFFFF;
     }
 
@@ -42,12 +42,12 @@
     .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
 
     /* ─── NAV ───────────────────────────────────────── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
-    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(37,37,37,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(37,37,37,0.25); }
+    nav.scrolled { background: rgba(37,37,37,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: 0 1px 24px rgba(37,37,37,0.3); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(37,37,37,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(37,37,37,0.4); }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
     .nav-cta:hover { background: var(--white); }
@@ -63,7 +63,7 @@
     #page-hero {
       min-height: 70vh;
       background: var(--charcoal-2);
-      border-bottom: 1px solid rgba(201,169,110,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       position: relative;
       overflow: hidden;
       display: flex; align-items: flex-end;
@@ -72,14 +72,14 @@
     /* Full-bleed background image — no dim */
     .page-hero-bg {
       position: absolute; inset: 0;
-      background: url('https://thejanfurniture.com/wp-content/uploads/2026/01/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp') center/cover;
+      background: url('assets/images/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp') center/cover;
       opacity: 1;
     }
     /* Subtle bottom gradient so filter bar reads cleanly */
     .page-hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.0) 40%, rgba(26,26,26,0.55) 100%);
+      background: linear-gradient(to bottom, rgba(37,37,37,0.15) 0%, rgba(37,37,37,0.0) 40%, rgba(37,37,37,0.55) 100%);
     }
     .page-hero-inner {
       position: relative; z-index: 1;
@@ -90,7 +90,7 @@
     /* Glassmorphism text panel */
     .page-hero-text {
       max-width: 560px;
-      background: rgba(26,26,26,0.5);
+      background: rgba(37,37,37,0.5);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255,255,255,0.08);
@@ -99,9 +99,9 @@
     .page-hero-text h1 { font-size: clamp(36px, 5vw, 64px); margin: 16px 0 16px; }
     .page-hero-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 440px; }
     .page-hero-stats { display: flex; gap: 2px; flex-shrink: 0; }
-    .ph-stat { padding: 20px 28px; background: rgba(26,26,26,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); text-align: center; min-width: 110px; }
+    .ph-stat { padding: 20px 28px; background: rgba(37,37,37,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); text-align: center; min-width: 110px; }
     .ph-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); }
-    .ph-stat-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(240,237,232,0.7); margin-top: 4px; }
+    .ph-stat-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 4px; }
 
     /* ─── CATEGORY FILTER ───────────────────────────── */
     #filter-bar {
@@ -132,7 +132,7 @@
     .filter-count {
       display: inline-flex; align-items: center; justify-content: center;
       width: 18px; height: 18px; border-radius: 50%;
-      background: rgba(201,169,110,0.15); color: var(--gold);
+      background: rgba(255,255,255,0.15); color: var(--gold);
       font-size: 9px; margin-left: 6px;
     }
 
@@ -168,10 +168,10 @@
     .product-badge {
       position: absolute; top: 12px; left: 12px;
       font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
-      background: rgba(26,26,26,0.8); color: var(--gold);
+      background: rgba(37,37,37,0.8); color: var(--gold);
       padding: 4px 10px; backdrop-filter: blur(4px);
     }
-    .product-badge.motorized { background: rgba(201,169,110,0.9); color: var(--charcoal); }
+    .product-badge.motorized { background: rgba(255,255,255,0.9); color: var(--charcoal); }
 
     .product-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
     .product-name { font-size: 20px; margin-bottom: 6px; line-height: 1.2; }
@@ -181,7 +181,7 @@
       font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold-light);
       display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin-bottom: 16px;
     }
-    .product-price del { font-size: 13px; color: #777; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
+    .product-price del { font-size: 13px; color: #FFFFFF; font-family: 'DM Sans', sans-serif; text-decoration: line-through; }
     .product-price strong { font-size: 22px; color: var(--gold); }
     .product-price span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--text-muted); }
     .product-cta {
@@ -243,7 +243,7 @@
     .bottom-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* ─── FOOTER ─────────────────────────────────────── */
-    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
     .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
     .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
@@ -301,8 +301,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html" class="active">Our Products</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta">Book a Free Visit</a>
@@ -314,8 +315,9 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
 </div>
@@ -386,7 +388,7 @@
       <!-- Sheer Curtains — FEATURED -->
       <div class="product-card featured" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-3.webp" alt="Sheer Curtains Dubai" loading="lazy" />
+          <img src="assets/images/download-3.webp" alt="Sheer Curtains Dubai" loading="lazy" />
           <div class="product-badge">Bestseller</div>
         </div>
         <div class="product-info">
@@ -408,7 +410,7 @@
       <!-- Blackout Curtains -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" loading="lazy" />
+          <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" loading="lazy" />
           <div class="product-badge">Popular</div>
         </div>
         <div class="product-info">
@@ -430,7 +432,7 @@
       <!-- Sheer & Blackout Combo -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-4.webp" alt="Sheer and Blackout Combo Curtains" loading="lazy" />
+          <img src="assets/images/sheer-blackout-combo.webp" alt="Sheer and Blackout Combo Curtains" loading="lazy" />
           <div class="product-badge">Bestseller</div>
         </div>
         <div class="product-info">
@@ -452,7 +454,7 @@
       <!-- Wave Style Sheer & Blackout -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-77.webp" alt="Wave Style Sheer and Blackout Curtains" loading="lazy" />
+          <img src="assets/images/download-77.webp" alt="Wave Style Sheer and Blackout Curtains" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-name">Wave Style Sheer &amp; Blackout</div>
@@ -472,7 +474,7 @@
       <!-- Wave Style Blackout -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/Blackout-curtains-e1707219010700.webp" alt="Wave Style Blackout Curtains" loading="lazy" />
+          <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Wave Style Blackout Curtains" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-name">Wave Style Blackout</div>
@@ -492,7 +494,7 @@
       <!-- Wave Style Sheer -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="200">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/image-17.webp" alt="Wave Style Sheer Curtains" loading="lazy" />
+          <img src="assets/images/image-17.webp" alt="Wave Style Sheer Curtains" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-name">Wave Style Sheer</div>
@@ -512,7 +514,7 @@
       <!-- Sheer Eyelet -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="0">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-11-1.webp" alt="Sheer Eyelet Curtains Dubai" loading="lazy" />
+          <img src="assets/images/download-11-1.webp" alt="Sheer Eyelet Curtains Dubai" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-name">Sheer Eyelet Curtains</div>
@@ -532,7 +534,7 @@
       <!-- Blackout Eyelet -->
       <div class="product-card" data-category="curtains" data-aos="fade-up" data-aos-delay="100">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-15.webp" alt="Blackout Eyelet Curtains Dubai" loading="lazy" />
+          <img src="assets/images/download-15.webp" alt="Blackout Eyelet Curtains Dubai" loading="lazy" />
         </div>
         <div class="product-info">
           <div class="product-name">Blackout Eyelet Curtains</div>
@@ -572,7 +574,7 @@
         <!-- Blackout Roller Blinds — FEATURED -->
         <div class="product-card featured" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-5.webp" alt="Blackout Roller Blinds Dubai" loading="lazy" />
+            <img src="assets/images/download-5.webp" alt="Blackout Roller Blinds Dubai" loading="lazy" />
             <div class="product-badge">Bestseller</div>
           </div>
           <div class="product-info">
@@ -594,7 +596,7 @@
         <!-- Roller Blinds Premium -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-6.webp" alt="Roller Blinds Premium Dubai" loading="lazy" />
+            <img src="assets/images/download-6.webp" alt="Roller Blinds Premium Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Roller Blinds Premium</div>
@@ -614,7 +616,7 @@
         <!-- Wooden Blinds -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-10.webp" alt="Wooden Blinds Dubai" loading="lazy" />
+            <img src="assets/images/download-10.webp" alt="Wooden Blinds Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Wooden Blinds</div>
@@ -635,7 +637,7 @@
         <!-- Zebra Blinds -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp" alt="Zebra Blinds Dubai" loading="lazy" />
+            <img src="assets/images/FIFT-0079_Alberta-Jet_Cameo-1_Original_1x.webp" alt="Zebra Blinds Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Zebra Blinds</div>
@@ -655,7 +657,7 @@
         <!-- Roman Blinds Sheer -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-12.webp" alt="Roman Blinds Sheer Dubai" loading="lazy" />
+            <img src="assets/images/download-12.webp" alt="Roman Blinds Sheer Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Roman Blinds — Sheer</div>
@@ -675,7 +677,7 @@
         <!-- Roman Blinds Blackout -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="200">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-11.webp" alt="Roman Blinds Blackout Dubai" loading="lazy" />
+            <img src="assets/images/download-11.webp" alt="Roman Blinds Blackout Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Roman Blinds — Blackout</div>
@@ -695,7 +697,7 @@
         <!-- Aluminum Venetian -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="0">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-13.webp" alt="Aluminum Venetian Blind Dubai" loading="lazy" />
+            <img src="assets/images/download-13.webp" alt="Aluminum Venetian Blind Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Aluminium Venetian Blinds</div>
@@ -715,7 +717,7 @@
         <!-- Fabric Vertical Blinds -->
         <div class="product-card" data-category="blinds" data-aos="fade-up" data-aos-delay="100">
           <div class="product-thumb">
-            <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-14.webp" alt="Fabric Vertical Blinds Dubai" loading="lazy" />
+            <img src="assets/images/download-14.webp" alt="Fabric Vertical Blinds Dubai" loading="lazy" />
           </div>
           <div class="product-info">
             <div class="product-name">Fabric Vertical Blinds</div>
@@ -753,7 +755,7 @@
     <!-- Smart home banner -->
     <div class="motor-banner" data-aos="fade-up">
       <div class="motor-banner-img">
-        <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
+        <img src="assets/images/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
       </div>
       <div class="motor-banner-text">
         <div class="tag">Smart Living</div>
@@ -776,7 +778,7 @@
       <!-- Motorized Curtains -->
       <div class="product-card featured" data-category="motorized" data-aos="fade-up" data-aos-delay="0">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
+          <img src="assets/images/download-8.webp" alt="Motorized Curtains Dubai" loading="lazy" />
           <div class="product-badge motorized">Motorized</div>
         </div>
         <div class="product-info">
@@ -798,7 +800,7 @@
       <!-- Motorized Blinds -->
       <div class="product-card featured" data-category="motorized" data-aos="fade-up" data-aos-delay="100">
         <div class="product-thumb">
-          <img src="https://thejanfurniture.com/wp-content/uploads/2026/01/download-9.webp" alt="Motorized Blinds Dubai" loading="lazy" />
+          <img src="assets/images/download-9.webp" alt="Motorized Blinds Dubai" loading="lazy" />
           <div class="product-badge motorized">Motorized</div>
         </div>
         <div class="product-info">
@@ -843,7 +845,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Jan Furnishings</div>
-        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -867,9 +869,11 @@
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="interiors.html">Interiors</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="help.html">Help &amp; FAQs</a></li>
-          <li><a href="book.html">Book a Free Visit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -877,8 +881,8 @@
         <div class="footer-contact">
           <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
-          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
-          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+          <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
         </div>
       </div>
     </div>
