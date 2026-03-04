@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Help & FAQs — Jan Furnishings Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Answers to common questions about Jan Furnishings curtains and blinds in Dubai — bookings, products, installation, pricing, warranty, and motorization." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,13 +15,13 @@
 
   <style>
     :root {
-      --charcoal:   #1A1A1A;
-      --charcoal-2: #232323;
-      --charcoal-3: #2B2B2B;
-      --gold:       #C9A96E;
-      --gold-light: #E8D5B0;
-      --text:       #F0EDE8;
-      --text-muted: #9A9590;
+      --charcoal:   #252525;
+      --charcoal-2: #252525;
+      --charcoal-3: #252525;
+      --gold:       #FFFFFF;
+      --gold-light: #FFFFFF;
+      --text:       #FFFFFF;
+      --text-muted: #FFFFFF;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -37,8 +39,8 @@
     .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
 
     /* ─── NAV ───────────────────────────────────────── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
-    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: #252525; border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+    nav.scrolled { background: #252525; padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: #fff; transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); text-shadow: none; }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
@@ -100,9 +102,9 @@
       transition: all 0.25s;
     }
     .cat-nav-item a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
-    .cat-nav-item a.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,169,110,0.05); }
+    .cat-nav-item a.active { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.05); }
     .cat-count { margin-left: auto; font-size: 10px; color: var(--text-muted); background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 10px; }
-    .cat-nav-item a.active .cat-count { background: rgba(201,169,110,0.15); color: var(--gold); }
+    .cat-nav-item a.active .cat-count { background: rgba(255,255,255,0.15); color: var(--gold); }
 
     /* Contact card below nav */
     .help-contact-card { margin-top: 32px; background: var(--charcoal-3); padding: 24px; border: 1px solid rgba(255,255,255,0.06); }
@@ -116,6 +118,7 @@
     .faq-content { }
     .faq-section { margin-bottom: 64px; }
     .faq-section:last-child { margin-bottom: 0; }
+    .faq-content .faq-section:last-of-type { margin-bottom: 0; }
     .section-head {
       display: flex; align-items: center; gap: 16px;
       margin-bottom: 24px; padding-bottom: 20px;
@@ -160,7 +163,7 @@
     .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* ─── FOOTER ─────────────────────────────────────── */
-    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
     .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
     .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
@@ -201,6 +204,13 @@
       .container { padding: 0 20px; }
       .hero-glass { padding: 32px 24px; }
       .cta-actions { flex-direction: column; align-items: center; }
+      #page-hero { min-height: 50vh; }
+      .hero-inner { padding: 0 20px 40px; }
+      #search-bar { padding: 28px 0; }
+      #faq-main { padding: 56px 0; }
+      .faq-section { margin-bottom: 40px; }
+      #bottom-cta { padding: 64px 0 72px; }
+      .bottom-cta-inner p { margin-bottom: 28px; }
       .footer-inner { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
     }
@@ -213,8 +223,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="help.html" class="active">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta">Book a Free Visit</a>
@@ -224,9 +235,9 @@
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
 </div>
@@ -294,7 +305,7 @@
             <span class="section-head-count">8 questions</span>
           </div>
 
-          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Who is behind Jan Furnishings?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We are a team of furnishing enthusiasts who launched Al Hadeeqa in 2021 in the UAE — a furnishing service designed to help you furnish your home without hassle. After recognising the challenges with curtain installations, we launched Jan Furnishings as a sister company of Al Hadeeqa to offer a seamless, transparent, and stress-free curtains and blinds experience. <a href="about.html">Read our full story here.</a></div></div>
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Who is behind Jan Furnishings?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We are a team of furnishing enthusiasts who launched Al Hadeeqa in 2021 in Dubai — a furnishing service designed to help you furnish your home without hassle. After recognising the challenges with curtain installations, we launched Jan Furnishings as a sister company of Al Hadeeqa to offer a seamless, transparent, and stress-free curtains and blinds experience. <a href="about.html">Read our full story here.</a></div></div>
 
           <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you have a showroom?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We don't operate a physical showroom — but that's intentional. We bring the showroom to you. Book a free home visit and our expert will arrive with fabric samples, swatches, and style options. You get to see everything in your own space, with your own light and furniture, before committing to anything.</div></div>
 
@@ -344,7 +355,7 @@
 
           <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do curtains come with accessories?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. Curtains include the necessary tracks, rails, and fixing hardware. Optional accessories such as tie-backs, pelmet boxes, and moving sticks are available and can be discussed during your home visit.</div></div>
 
-          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long do your curtains and blinds last?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">With proper care, our curtains and blinds are built to last several years. We select fabrics for durability and UAE climate resilience. Direct, intense sunlight over many years may cause some gradual fading — our team can advise on the best fabrics for sun-facing windows during your visit.</div></div>
+          <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long do your curtains and blinds last?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">With proper care, our curtains and blinds are built to last several years. We select fabrics for durability and Dubai climate resilience. Direct, intense sunlight over many years may cause some gradual fading — our team can advise on the best fabrics for sun-facing windows during your visit.</div></div>
 
           <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many fabric options are available?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We carry 100+ fabric options across our curtain and blind range — varying in colour, texture, opacity, and material. Your consultant will bring a curated selection to your home visit based on your space and preferences.</div></div>
 
@@ -440,7 +451,7 @@
       <h2>We're a WhatsApp message away.</h2>
       <p>Our team responds within the hour, seven days a week. Whether you have a quick question or want to talk through your whole project, we're happy to help.</p>
       <div class="cta-actions">
-        <a href="https://wa.me/971508806292" target="_blank" class="btn-primary">
+        <a href="https://wa.me/971508806292" target="_blank" class="btn-primary" style="background:#25D366;color:#fff;border-color:#25D366;">
           Chat on WhatsApp
           <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -456,7 +467,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Jan Furnishings</div>
-        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -468,15 +479,18 @@
         <ul>
           <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
           <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
-          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+          <li><a href="products.html#motorized">Motorized</a></li>
+          <li><a href="products.html">All Products</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="interiors.html">Interiors</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="help.html">Help &amp; FAQs</a></li>
-          <li><a href="book.html">Book a Free Visit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -484,8 +498,8 @@
         <div class="footer-contact">
           <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
-          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
-          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+          <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
         </div>
       </div>
     </div>
@@ -582,5 +596,6 @@
     });
   });
 </script>
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>

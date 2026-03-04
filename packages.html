@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages — Jan Furnishings</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
+  <meta name="description" content="Premium villa packages by Jan Furnishings — curtains, blinds, wall panels, wallpaper and full renovation packages for Dubai villas and residences." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal:    #1A1A1A;
+      --charcoal-2:  #232323;
+      --charcoal-3:  #2B2B2B;
+      --gold:        #C9A96E;
+      --gold-light:  #E8D5B0;
+      --gold-dim:    rgba(201,169,110,0.12);
+      --gold-border: rgba(201,169,110,0.25);
+      --text:        #F0EDE8;
+      --text-muted:  #9A9590;
+      --white:       #FFFFFF;
+      --nav-offset: 78px;
+      --hero-strip-height: 48px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--charcoal);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #1A1A1A;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; letter-spacing: 0.05em; color: var(--gold);
+    }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 26px; }
+    .nav-links a {
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(240,237,232,0.8); transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--charcoal);
+      padding: 10px 22px; font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none;
+    }
+    .nav-hamburger span { width: 24px; height: 1.5px; background: var(--white); display: block; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: var(--charcoal); z-index: 99;
+      padding: 100px 32px 48px; flex-direction: column; gap: 28px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--text); transition: color 0.2s; }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mob-cta {
+      margin-top: 8px; display: inline-flex; width: fit-content;
+      background: var(--gold); color: var(--charcoal);
+      padding: 14px 28px; font-size: 13px; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── SHARED ── */
+    .eyebrow {
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+    .btn-primary {
+      background: var(--gold); color: var(--charcoal);
+      padding: 16px 36px; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid rgba(201,169,110,0.5); color: var(--gold);
+      padding: 15px 36px; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { background: var(--gold); color: var(--charcoal); }
+    .btn-whatsapp {
+      background: #25D366 !important;
+      border-color: #25D366 !important;
+      color: #FFFFFF !important;
+    }
+    .pkg-btn-whatsapp {
+      background: #25D366 !important;
+      border-color: #25D366 !important;
+      color: #FFFFFF !important;
+    }
+    .btn-whatsapp:hover {
+      background: #1FBA58 !important;
+      border-color: #1FBA58 !important;
+      color: #FFFFFF !important;
+      opacity: 1 !important;
+    }
+    .pkg-btn-whatsapp:hover {
+      background: #1FBA58 !important;
+      border-color: #1FBA58 !important;
+      color: #FFFFFF !important;
+      opacity: 1 !important;
+    }
+
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: calc(100vh - var(--nav-offset) - var(--hero-strip-height));
+      min-height: 700px;
+      margin-top: var(--nav-offset);
+      display: flex; align-items: flex-start; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/images/aalo-lens-LqGf5UvHCZ8-unsplash.jpg');
+      background-size: cover; background-position: center 20%;
+      transform: scale(1.05);
+      animation: heroZoom 10s ease-out forwards;
+    }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.0); } }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(37,37,37,0.6) 0%, rgba(37,37,37,0.15) 50%, rgba(37,37,37,0.0) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 26px 64px 72px;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    .hero-text-glass {
+      background: rgba(37,37,37,0.52);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 44px 52px 48px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero-text-glass { padding: 28px 24px 32px; }
+    }
+    .hero-text-glass .eyebrow {
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s ease forwards;
+    }
+    .hero-text-glass .eyebrow::before { display: none; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 100px); font-weight: 300;
+      line-height: 0.95; color: var(--white); margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s ease forwards;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: 15px; line-height: 1.75; color: rgba(240,237,232,0.72);
+      margin-bottom: 32px; max-width: 460px;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.7s ease forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.9s ease forwards;
+    }
+
+    /* ── HERO STRIP ── */
+    .hero-strip {
+      background: var(--gold);
+      color: var(--charcoal);
+      overflow: hidden;
+      height: var(--hero-strip-height);
+      border-top: 1px solid rgba(26,26,26,0.14);
+      border-bottom: 1px solid rgba(26,26,26,0.14);
+    }
+
+    .hero-strip-track {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: max-content;
+      white-space: nowrap;
+      animation: heroStripMarquee 30s linear infinite;
+    }
+
+    .hero-strip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      height: 100%;
+      padding: 0 30px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .hero-strip-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(26,26,26,0.35);
+    }
+
+    @keyframes heroStripMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      padding: 80px 64px 92px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 30px 56px;
+      align-items: start;
+      border-bottom: 1px solid var(--gold-border);
+      background: var(--charcoal-2);
+    }
+    .intro-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 54px); font-weight: 400;
+      color: var(--white); line-height: 1.1;
+    }
+    .intro-band h2 em { font-style: italic; color: var(--gold-light); }
+    .intro-band p {
+      max-width: none; font-size: 15px; line-height: 1.85;
+      color: rgba(240,237,232,0.65);
+    }
+    .intro-stats {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .intro-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .intro-stat-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 6px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      padding: 72px 64px 0;
+    }
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 72px); font-weight: 400;
+      color: var(--white); line-height: 1.05; margin-bottom: 16px;
+    }
+    .section-title h2 em { font-style: italic; color: var(--gold-light); }
+    .section-title p {
+      font-size: 15px; line-height: 1.8; color: rgba(240,237,232,0.6);
+      max-width: 520px;
+    }
+    .section-divider {
+      width: 60px; height: 1px; background: var(--gold);
+      margin: 24px 0; opacity: 0.6;
+    }
+
+    /* ── PACKAGE CARDS ── */
+    .packages-grid {
+      padding: 48px 64px 56px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      background: transparent;
+    }
+
+    .pkg-card {
+      background: var(--charcoal-2);
+      padding: 52px 44px 48px;
+      display: flex; flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,169,110,0.2);
+      transition: background 0.3s;
+    }
+    .pkg-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .pkg-card:hover { background: #272727; }
+    .pkg-card:hover::before { opacity: 1; }
+
+    /* Featured card */
+    .pkg-card.featured { background: var(--charcoal-3); border-color: rgba(201,169,110,0.35); }
+    .pkg-card.featured::before { opacity: 1; }
+    .pkg-featured-badge {
+      position: absolute; top: 18px; right: 18px;
+      background: var(--gold); color: var(--charcoal);
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 7px 16px; font-weight: 500;
+    }
+
+    .pkg-tier {
+      font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px; font-weight: 400; color: var(--white);
+      line-height: 1.1; margin-bottom: 8px;
+    }
+    .pkg-tagline {
+      font-size: 13px; color: rgba(240,237,232,0.55);
+      margin-bottom: 36px; line-height: 1.6;
+    }
+    .pkg-price {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+    }
+    .pkg-price-from {
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 4px;
+    }
+    .pkg-price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 300; color: var(--gold);
+      line-height: 1;
+    }
+    .pkg-price-amount span {
+      font-size: 18px; font-weight: 400; color: var(--text-muted);
+      vertical-align: super; font-family: 'DM Sans', sans-serif;
+    }
+    .pkg-price-note {
+      font-size: 11px; color: var(--text-muted); margin-top: 6px;
+    }
+
+    .pkg-includes {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 16px;
+    }
+    .pkg-features {
+      list-style: none; flex: 1;
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 40px;
+    }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 13px; line-height: 1.5; color: rgba(240,237,232,0.75);
+    }
+    .pkg-features li::before {
+      content: '';
+      width: 16px; height: 1px; background: var(--gold);
+      flex-shrink: 0; margin-top: 9px;
+    }
+    .pkg-features li.highlight {
+      color: var(--gold-light); font-weight: 500;
+    }
+    .pkg-features li.highlight::before { background: var(--gold); width: 20px; }
+
+    .pkg-cta {
+      display: flex; flex-direction: column; gap: 10px; margin-top: auto;
+    }
+    .pkg-btn-primary {
+      background: var(--gold); color: var(--charcoal);
+      padding: 14px 28px; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; text-align: center;
+      transition: opacity 0.2s;
+    }
+    .pkg-btn-primary:hover { opacity: 0.88; }
+    .pkg-btn-ghost {
+      border: 1px solid rgba(201,169,110,0.3); color: rgba(201,169,110,0.7);
+      padding: 13px 28px; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+      text-align: center; transition: border-color 0.2s, color 0.2s;
+    }
+    .pkg-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── BUNDLE SECTION ── */
+    .bundle-section {
+      padding: 22px 64px 100px;
+    }
+
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      background: transparent;
+    }
+
+    .bundle-card {
+      position: relative; overflow: hidden;
+      min-height: 520px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      border: 1px solid rgba(201,169,110,0.24);
+    }
+    .bundle-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .bundle-card:hover img { transform: scale(1.05); }
+    .bundle-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.5) 55%, rgba(8,8,8,0.2) 100%);
+    }
+    .bundle-card-content {
+      position: relative; z-index: 2;
+      padding: 48px 48px 52px;
+      margin: 24px 24px 24px;
+      max-width: 620px;
+      background: rgba(14,14,14,0.55);
+      border: 1px solid rgba(201,169,110,0.28);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+    .section-title#villa-bundles p { margin-bottom: 24px; }
+    .bundle-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold); font-size: 9px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 6px 14px; margin-bottom: 20px;
+    }
+    .bundle-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4vw, 58px); font-weight: 300;
+      color: var(--white); line-height: 1.0; margin-bottom: 8px;
+    }
+    .bundle-name em { font-style: italic; color: var(--gold-light); }
+    .bundle-desc {
+      font-size: 14px; line-height: 1.75;
+      color: rgba(240,237,232,0.65); max-width: 380px; margin-bottom: 28px;
+    }
+    .bundle-price-row {
+      display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px;
+      padding-bottom: 28px; border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+    .bundle-from { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+    .bundle-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .bundle-price span { font-size: 16px; font-family: 'DM Sans', sans-serif; color: var(--text-muted); }
+    .bundle-features {
+      list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px;
+    }
+    .bundle-features li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; color: rgba(240,237,232,0.7); line-height: 1.4;
+    }
+    .bundle-features li::before {
+      content: ''; width: 14px; height: 1px; background: var(--gold);
+      flex-shrink: 0; margin-top: 8px;
+    }
+    .bundle-cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-section {
+      background: var(--charcoal-2);
+      padding: 100px 64px;
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px; margin-top: 60px;
+    }
+    .included-item {}
+    .included-icon {
+      width: 48px; height: 48px; margin-bottom: 20px;
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .included-icon svg { color: var(--gold); }
+    .included-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--white);
+      margin-bottom: 10px;
+    }
+    .included-item p {
+      font-size: 13px; line-height: 1.75; color: rgba(240,237,232,0.55);
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .comparison {
+      padding: 100px 64px;
+    }
+    .table-wrap {
+      margin-top: 56px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      min-width: 700px;
+    }
+    thead tr { border-bottom: 1px solid var(--gold-border); }
+    thead th {
+      padding: 24px 28px 24px;
+      text-align: left; font-weight: 400;
+    }
+    thead th:first-child { width: 32%; }
+    thead th .th-tier {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin: 8px 0 6px;
+    }
+    thead th .th-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; color: var(--white);
+    }
+    thead th.featured-col { background: rgba(201,169,110,0.06); padding-top: 38px; }
+    thead th.featured-col .th-tier { margin-top: 12px; }
+    tbody tr {
+      border-bottom: 1px solid rgba(201,169,110,0.07);
+      transition: background 0.2s;
+    }
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+    tbody td {
+      padding: 18px 28px; font-size: 13px;
+      color: rgba(240,237,232,0.65);
+    }
+    tbody td:first-child { color: rgba(240,237,232,0.85); }
+    tbody td.featured-col { background: rgba(201,169,110,0.04); }
+    .check { color: var(--gold); font-size: 16px; }
+    .dash { color: rgba(154,149,144,0.35); font-size: 18px; }
+    .check-text { color: var(--gold-light); font-size: 12px; }
+
+    /* ── PROCESS ── */
+    .process-section {
+      padding: 100px 64px;
+      background: #141414;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 60px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 28px; right: 28px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-border), var(--gold-border), transparent);
+    }
+    .process-step {
+      padding: 0 20px;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .step-circle {
+      width: 56px; height: 56px;
+      border: 1px solid var(--gold-border);
+      background: #141414;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; position: relative; z-index: 1;
+    }
+    .step-circle span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; color: var(--gold);
+    }
+    .process-step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 12px; line-height: 1.7; color: rgba(240,237,232,0.5);
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      position: relative; overflow: hidden;
+      padding: 120px 64px; text-align: center;
+    }
+    .cta-bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/images/muhittin-kubat-r2uCvfUiT8k-unsplash.jpg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.2);
+    }
+    .cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    .cta-content .eyebrow { justify-content: center; }
+    .cta-content .eyebrow::before { display: none; }
+    .cta-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 88px); font-weight: 300;
+      color: var(--white); line-height: 0.95; margin-bottom: 24px;
+    }
+    .cta-content h2 em { font-style: italic; color: var(--gold-light); }
+    .cta-content p {
+      font-size: 15px; line-height: 1.8; color: rgba(240,237,232,0.65); margin-bottom: 44px;
+    }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal-2);
+      padding: 80px 64px 40px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .f-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .social-btn-whatsapp { border-color: #25D366; color: #25D366; }
+    .social-btn-whatsapp:hover { background: #25D366; color: #FFFFFF; border-color: #25D366; }
+    .footer-col h4 {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-muted); transition: color 0.3s; }
+    .footer-col ul a:hover { color: var(--text); }
+    .footer-contact { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(201,169,110,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--gold); }
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.2s ease;
+    }
+    .wa-float:hover { transform: translateY(-2px); }
+    .wa-float svg { width: 18px; height: 18px; }
+
+    /* ── BACK TO NAV ── */
+    .back-to-nav {
+      padding: 20px 64px 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .back-to-nav a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid rgba(201,169,110,0.15);
+      padding: 10px 20px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-to-nav a:hover { color: var(--gold); border-color: rgba(201,169,110,0.4); }
+    .back-to-nav a svg { transition: transform 0.2s; }
+    .back-to-nav a:hover svg { transform: translateY(-2px); }
+
+    /* ── PACKAGE NAV ── */
+    .pkg-nav {
+      padding: 0 64px 80px;
+      background: var(--charcoal);
+    }
+    .pkg-nav-label {
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 20px;
+      padding-top: 48px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .pkg-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      background: transparent;
+    }
+    .pkg-nav-card {
+      background: var(--charcoal-2);
+      padding: 36px 36px 32px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,169,110,0.2);
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .pkg-nav-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pkg-nav-card:hover { background: #272727; }
+    .pkg-nav-card:hover::after { opacity: 1; }
+    .pkg-nav-card--featured {
+      background: var(--charcoal-3);
+    }
+    .pkg-nav-card--featured::after { opacity: 0.6; }
+    .pkg-nav-card--featured:hover::after { opacity: 1; }
+
+    .pkg-nav-icon {
+      color: var(--gold);
+      width: 44px; height: 44px;
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pkg-nav-info {}
+    .pkg-nav-category {
+      font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .pkg-nav-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 400; color: var(--white);
+      line-height: 1.1; margin-bottom: 6px;
+    }
+    .pkg-nav-range {
+      font-size: 12px; color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .pkg-nav-packages {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      align-self: end;
+    }
+    .pkg-nav-packages span {
+      border: 1px solid rgba(201,169,110,0.2);
+      color: rgba(240,237,232,0.55);
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 12px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pkg-nav-card:hover .pkg-nav-packages span {
+      border-color: rgba(201,169,110,0.4);
+      color: rgba(240,237,232,0.8);
+    }
+    .pkg-nav-card--featured .pkg-nav-packages span {
+      border-color: rgba(201,169,110,0.35);
+      color: rgba(240,237,232,0.7);
+    }
+    .pkg-nav-arrow {
+      position: absolute; top: 36px; right: 36px;
+      color: var(--gold); opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .pkg-nav-card:hover .pkg-nav-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .packages-grid { grid-template-columns: 1fr 1fr; }
+      .packages-grid .pkg-card:last-child { grid-column: 1 / -1; }
+      .comparison { display: none; } /* simplify on tablet */
+      .included-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .process-steps::before { display: none; }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      :root { --nav-offset: 74px; }
+      .hero { min-height: 680px; }
+      .hero-content { padding: 20px 32px 56px; }
+      .intro-band { padding: 60px 32px 72px; grid-template-columns: 1fr; gap: 24px; }
+      .intro-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .pkg-nav { padding: 0 32px 64px; }
+      .pkg-nav-grid { grid-template-columns: 1fr; }
+      .pkg-nav-card { grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 20px; row-gap: 12px; padding: 28px 28px 24px; }
+      .pkg-nav-packages { grid-column: 1 / -1; }
+      .section-title { padding: 72px 32px 0; }
+      .back-to-nav { padding: 16px 32px 0; }
+      .packages-grid { padding: 40px 32px 64px; grid-template-columns: 1fr; }
+      .packages-grid .pkg-card:last-child { grid-column: auto; }
+      .bundle-section { padding: 0 32px 72px; }
+      .bundle-grid { grid-template-columns: 1fr; }
+      .included-section { padding: 72px 32px; }
+      .included-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-section { padding: 72px 32px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .cta-band { padding: 80px 32px; }
+      footer { padding: 56px 32px 32px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px 32px; margin-bottom: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      :root { --nav-offset: 70px; }
+      .hero { min-height: 620px; }
+      .hero-content { padding: 18px 24px 48px; }
+      .hero-text-glass { padding: 36px 28px 36px; }
+      .section-title, .packages-grid, .bundle-section, .included-section, .process-section, .cta-band { padding-left: 24px; padding-right: 24px; }
+      .pkg-nav { padding: 0 24px 56px; }
+      .back-to-nav { padding: 14px 24px 0; }
+      footer { padding: 48px 24px 26px; }
+      .intro-band { padding: 48px 24px 56px; }
+      .included-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .bundle-card { min-height: 420px; }
+      .bundle-card-content { padding: 32px 28px 36px; margin: 0 14px 14px; }
+      .intro-stats { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .wa-float { right: 16px; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Jan Furnishings</a>
+    <ul class="nav-links">
+      <li><a href="products.html">Our Products</a></li>
+      <li><a href="interiors.html">Interiors</a></li>
+      <li><a href="estimate.html">Get Estimate</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="help.html">Help</a></li>
+    </ul>
+    <a href="book.html" class="nav-cta">Book a Free Visit</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="products.html" onclick="toggleMenu()">Our Products</a>
+    <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
+    <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+    <a href="about.html" onclick="toggleMenu()">About Us</a>
+    <a href="help.html" onclick="toggleMenu()">Help</a>
+    <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text-glass">
+        <div class="eyebrow" style="margin-bottom:18px;"><span>Curated Villa Packages</span></div>
+        <h1>Everything<br />Your Villa<br /><em>Deserves</em></h1>
+        <p class="hero-sub">Complete curtain, blind and interiors packages designed for Dubai's finest residences. One team, one vision, one exceptional result.</p>
+        <div class="hero-actions">
+          <a href="#curtains-packages" class="btn-primary">
+            View Packages
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="book.html" class="btn-ghost">Book Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-strip" aria-hidden="true">
+    <div class="hero-strip-track">
+      <span class="hero-strip-item">Curated Villa Packages <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Curtains &amp; Drapes <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Blinds &amp; Shades <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Premium Interiors <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">End-to-End Installation <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Curated Villa Packages <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Curtains &amp; Drapes <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Blinds &amp; Shades <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Premium Interiors <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">End-to-End Installation <span class="hero-strip-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- INTRO BAND -->
+  <div class="intro-band reveal">
+    <div>
+      <h2>Bespoke Packages for<br /><em>Discerning Residences</em></h2>
+    </div>
+    <p>Every package is tailored to your villa's exact dimensions, your personal aesthetic, and your timeline. Our in-home consultants handle every detail — from material selection to final installation — so you don't have to.</p>
+    <div class="intro-stats">
+      <div>
+        <div class="intro-stat-num">500+</div>
+        <div class="intro-stat-label">Villas Completed</div>
+      </div>
+      <div>
+        <div class="intro-stat-num">48h</div>
+        <div class="intro-stat-label">Avg. Turnaround</div>
+      </div>
+      <div>
+        <div class="intro-stat-num">5★</div>
+        <div class="intro-stat-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGE NAV -->
+  <section class="pkg-nav" id="pkg-nav-anchor">
+    <div class="pkg-nav-label">Jump to a package</div>
+    <div class="pkg-nav-grid">
+
+      <a href="#curtains-packages" class="pkg-nav-card">
+        <div class="pkg-nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 3h16M4 3v18M20 3v18M8 3v18M16 3v18M4 8h4M16 8h4M4 13h4M16 13h4M4 18h4M16 18h4"/></svg>
+        </div>
+        <div class="pkg-nav-info">
+          <div class="pkg-nav-category">Window Treatments</div>
+          <div class="pkg-nav-title">Curtains &amp; Blinds</div>
+          <div class="pkg-nav-range">AED 3,500 – 14,000</div>
+        </div>
+        <div class="pkg-nav-packages">
+          <span>Residence</span>
+          <span>Estate</span>
+          <span>Signature</span>
+        </div>
+        <div class="pkg-nav-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="#interiors-packages" class="pkg-nav-card">
+        <div class="pkg-nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M2 9h20M9 9v12"/></svg>
+        </div>
+        <div class="pkg-nav-info">
+          <div class="pkg-nav-category">Interior Design</div>
+          <div class="pkg-nav-title">Interiors</div>
+          <div class="pkg-nav-range">AED 8,000 – 35,000</div>
+        </div>
+        <div class="pkg-nav-packages">
+          <span>Canvas</span>
+          <span>Transformation</span>
+          <span>Masterwork</span>
+        </div>
+        <div class="pkg-nav-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="#villa-bundles" class="pkg-nav-card pkg-nav-card--featured">
+        <div class="pkg-nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="pkg-nav-info">
+          <div class="pkg-nav-category">Best Value</div>
+          <div class="pkg-nav-title">Full Villa Bundles</div>
+          <div class="pkg-nav-range">AED 22,000 – 45,000+</div>
+        </div>
+        <div class="pkg-nav-packages">
+          <span>Villa Complete</span>
+          <span>Villa Prestige</span>
+        </div>
+        <div class="pkg-nav-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CURTAINS & BLINDS PACKAGES
+  ════════════════════════════════════════ -->
+  <div class="section-title reveal" id="curtains-packages">
+    <div class="eyebrow">Window Treatments</div>
+    <h2>Curtains &amp; Blinds<br /><em>Packages</em></h2>
+    <div class="section-divider"></div>
+    <p>Custom-made curtains and blinds for every window in your villa. All packages include a free in-home measurement, professional installation, and removal of existing fittings.</p>
+  </div>
+
+  <div class="packages-grid">
+
+    <!-- RESIDENCE -->
+    <div class="pkg-card reveal">
+      <div class="pkg-tier">The Residence</div>
+      <div class="pkg-name">Residence<br />Package</div>
+      <div class="pkg-tagline">For apartments &amp; townhouses up to 3 bedrooms</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>3,500</div>
+        <div class="pkg-price-note">Price varies by room count &amp; fabric selection</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li>Up to 3 bedrooms + living room</li>
+        <li>Choice of sheer, blackout, or dual-layer curtains</li>
+        <li>150+ premium fabric options</li>
+        <li>Made-to-measure for every window</li>
+        <li>Professional installation by certified fitters</li>
+        <li>Old curtains removed &amp; disposed</li>
+        <li>Free in-home measurement &amp; consultation</li>
+        <li>12-month workmanship warranty</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Get a Quote</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+    <!-- ESTATE — FEATURED -->
+    <div class="pkg-card featured reveal reveal-delay-1">
+      <div class="pkg-featured-badge">Most Popular</div>
+      <div class="pkg-tier">The Estate</div>
+      <div class="pkg-name">Estate<br />Package</div>
+      <div class="pkg-tagline">For full villas up to 5 bedrooms, all rooms covered</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>7,500</div>
+        <div class="pkg-price-note">Includes curtains or blinds for every room</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li class="highlight">Every room in the villa — no exceptions</li>
+        <li>Sheer, blackout, roller or wooden blinds</li>
+        <li>300+ premium &amp; imported fabric options</li>
+        <li>Dedicated design consultant assigned</li>
+        <li>All windows measured &amp; custom-made</li>
+        <li>Priority installation within 5 working days</li>
+        <li>Old fittings removed at no charge</li>
+        <li>Free motorisation upgrade on 2 rooms</li>
+        <li>Lifetime workmanship warranty</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Get a Quote</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="pkg-card reveal reveal-delay-2">
+      <div class="pkg-tier">The Signature</div>
+      <div class="pkg-name">Signature<br />Package</div>
+      <div class="pkg-tagline">Fully motorized, fully bespoke — the pinnacle of window dressing</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>14,000</div>
+        <div class="pkg-price-note">For 5–8 bedroom villas &amp; penthouses</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li class="highlight">Full villa — every room fully motorized</li>
+        <li>Smart home integration (Alexa, Google, app control)</li>
+        <li>Imported European &amp; Japanese fabrics</li>
+        <li>Senior design consultant — 2 in-home sessions</li>
+        <li>3D room visualisation before production</li>
+        <li>Kevlar blackout options available</li>
+        <li>Installation within 7 working days</li>
+        <li>White-glove post-installation care kit</li>
+        <li>Lifetime warranty — parts &amp; workmanship</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Enquire Now</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+  </div><!-- /packages-grid -->
+
+  <div class="back-to-nav">
+    <a href="#pkg-nav-anchor">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 11V2M2 6l4.5-4.5L11 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to all packages
+    </a>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       INTERIORS PACKAGES
+  ════════════════════════════════════════ -->
+  <div class="section-title reveal" id="interiors-packages">
+    <div class="eyebrow">Interiors</div>
+    <h2>Interior Design<br /><em>Packages</em></h2>
+    <div class="section-divider"></div>
+    <p>Wall panels, luxury wallpaper, premium painting and full renovation packages. All packages include design consultation, material sourcing and professional installation.</p>
+  </div>
+
+  <div class="packages-grid">
+
+    <!-- THE CANVAS -->
+    <div class="pkg-card reveal">
+      <div class="pkg-tier">The Canvas</div>
+      <div class="pkg-name">Canvas<br />Package</div>
+      <div class="pkg-tagline">Feature walls &amp; accent rooms for immediate impact</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>8,000</div>
+        <div class="pkg-price-note">Covers up to 2 feature walls or accent rooms</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li>Up to 2 feature walls — any room</li>
+        <li>Choice of fluted panels, wallpaper or limewash paint</li>
+        <li>In-home material &amp; colour consultation</li>
+        <li>Supply &amp; professional installation</li>
+        <li>Premium surface preparation included</li>
+        <li>LED channel integration available</li>
+        <li>2-year installation warranty</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Get a Quote</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+    <!-- THE TRANSFORMATION — FEATURED -->
+    <div class="pkg-card featured reveal reveal-delay-1">
+      <div class="pkg-featured-badge">Most Popular</div>
+      <div class="pkg-tier">The Transformation</div>
+      <div class="pkg-name">Transformation<br />Package</div>
+      <div class="pkg-tagline">Full interior refresh — panels, wallpaper &amp; painting throughout</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>18,500</div>
+        <div class="pkg-price-note">For villas up to 4 bedrooms</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li class="highlight">All living areas, bedrooms &amp; hallways</li>
+        <li>Feature wall panels in key rooms</li>
+        <li>Luxury wallpaper in 2 rooms of choice</li>
+        <li>Full villa premium paint — walls &amp; ceilings</li>
+        <li>Dedicated senior interior consultant</li>
+        <li>Mood board &amp; material sign-off before work begins</li>
+        <li>All trades coordinated under one contract</li>
+        <li>Completion within 10–14 working days</li>
+        <li>3-year installation warranty</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Get a Quote</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+    <!-- THE MASTERWORK -->
+    <div class="pkg-card reveal reveal-delay-2">
+      <div class="pkg-tier">The Masterwork</div>
+      <div class="pkg-name">Masterwork<br />Package</div>
+      <div class="pkg-tagline">Complete villa renovation — design-led, white-glove, uncompromising</div>
+      <div class="pkg-price">
+        <div class="pkg-price-from">Starting from</div>
+        <div class="pkg-price-amount"><span>AED </span>35,000</div>
+        <div class="pkg-price-note">Bespoke pricing — scoped to your villa</div>
+      </div>
+      <div class="pkg-includes">What's included</div>
+      <ul class="pkg-features">
+        <li class="highlight">Full villa — every surface, every room</li>
+        <li>Bespoke wall panel design &amp; fabrication</li>
+        <li>European imported wallpapers — full installation</li>
+        <li>Venetian plaster or limewash feature finishes</li>
+        <li>Full structural painting — all surfaces</li>
+        <li>Lead designer with 2 briefing sessions</li>
+        <li>3D render of all rooms before production</li>
+        <li>Project manager on-site throughout</li>
+        <li>White-glove completion &amp; handover report</li>
+        <li>5-year comprehensive warranty</li>
+      </ul>
+      <div class="pkg-cta">
+        <a href="https://wa.me/971508806292" class="pkg-btn-primary pkg-btn-whatsapp">Enquire Now</a>
+        <a href="book.html" class="pkg-btn-ghost">Book a Free Visit</a>
+      </div>
+    </div>
+
+  </div><!-- /packages-grid interiors -->
+
+  <div class="back-to-nav">
+    <a href="#pkg-nav-anchor">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 11V2M2 6l4.5-4.5L11 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to all packages
+    </a>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       FULL VILLA BUNDLES
+  ════════════════════════════════════════ -->
+  <div class="section-title reveal" id="villa-bundles">
+    <div class="eyebrow">Complete Villa Solutions</div>
+    <h2>Full Villa<br /><em>Bundles</em></h2>
+    <div class="section-divider"></div>
+    <p>Combine curtains, blinds and interiors into one seamless project. One team, one timeline, one point of contact — and significant savings versus booking separately.</p>
+  </div>
+
+  <div class="bundle-section">
+    <div class="bundle-grid">
+
+      <!-- VILLA COMPLETE -->
+      <div class="bundle-card reveal">
+        <img src="assets/images/aalo-lens-LqGf5UvHCZ8-unsplash.jpg" alt="Villa Complete Package" loading="lazy" />
+        <div class="bundle-card-overlay"></div>
+        <div class="bundle-card-content">
+          <div class="bundle-badge">Bundle &amp; Save</div>
+          <div class="bundle-name">Villa<br /><em>Complete</em></div>
+          <p class="bundle-desc">Our most popular full-home bundle. Premium curtains or blinds for every window, plus a complete interior refresh — panels, paint and wallpaper. Everything done in one visit sequence.</p>
+          <div class="bundle-price-row">
+            <span class="bundle-from">From</span>
+            <div class="bundle-price"><span>AED </span>22,000</div>
+          </div>
+          <ul class="bundle-features">
+            <li>Estate curtains/blinds package (all rooms)</li>
+            <li>Transformation interiors package</li>
+            <li>One dedicated project coordinator</li>
+            <li>Priority scheduling — completed within 3 weeks</li>
+            <li>Save up to AED 4,000 vs. booking separately</li>
+          </ul>
+          <div class="bundle-cta">
+            <a href="https://wa.me/971508806292" class="btn-primary btn-whatsapp">
+              WhatsApp to Enquire
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="book.html" class="btn-ghost">Book Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VILLA PRESTIGE -->
+      <div class="bundle-card reveal reveal-delay-2">
+        <img src="assets/images/mina-rad-WvYzage2ApA-unsplash.jpg" alt="Villa Prestige Package" loading="lazy" />
+        <div class="bundle-card-overlay"></div>
+        <div class="bundle-card-content">
+          <div class="bundle-badge">White Glove</div>
+          <div class="bundle-name">Villa<br /><em>Prestige</em></div>
+          <p class="bundle-desc">The ultimate villa transformation. Our Signature motorized window package combined with the Masterwork interiors renovation — designed for those who accept nothing less than extraordinary.</p>
+          <div class="bundle-price-row">
+            <span class="bundle-from">From</span>
+            <div class="bundle-price"><span>AED </span>45,000</div>
+          </div>
+          <ul class="bundle-features">
+            <li>Signature motorized curtains/blinds (full villa)</li>
+            <li>Masterwork complete interiors renovation</li>
+            <li>Lead designer + project manager throughout</li>
+            <li>3D renders &amp; mood board sign-off</li>
+            <li>White-glove handover with 5-year warranty</li>
+          </ul>
+          <div class="bundle-cta">
+            <a href="https://wa.me/971508806292" class="btn-primary btn-whatsapp">
+              WhatsApp to Enquire
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="book.html" class="btn-ghost">Book Consultation</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHAT'S ALWAYS INCLUDED -->
+  <section class="included-section">
+    <div class="section-title reveal" style="padding: 0; margin-bottom: 0;">
+      <div class="eyebrow">Every Package, Every Time</div>
+      <h2>What's Always<br /><em>Included</em></h2>
+    </div>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="included-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Free Home Visit</h3>
+        <p>A senior consultant visits your villa at no charge to measure, assess and advise — before you commit to anything.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Material Samples</h3>
+        <p>We bring samples directly to your home so you can see fabrics, panel finishes and wallpapers in your own lighting and space.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>On-Time Guarantee</h3>
+        <p>We commit to an installation date and stick to it. If we're delayed through our fault, we offer a compensation credit.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-3">
+        <div class="included-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Warranty Included</h3>
+        <p>All packages include a workmanship warranty — from 12 months on entry packages up to a full 5-year warranty on Masterwork and Prestige.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison reveal">
+    <div class="section-title" style="padding: 0; margin-bottom: 0;">
+      <div class="eyebrow">Compare</div>
+      <h2>Curtains &amp; Blinds<br /><em>Package Comparison</em></h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <div class="th-tier">Entry</div>
+              <div class="th-name">Residence</div>
+            </th>
+            <th class="featured-col">
+              <div class="th-tier">Popular</div>
+              <div class="th-name">Estate</div>
+            </th>
+            <th>
+              <div class="th-tier">Premium</div>
+              <div class="th-name">Signature</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Starting price</td><td>AED 3,500</td><td class="featured-col">AED 7,500</td><td>AED 14,000</td></tr>
+          <tr><td>Rooms covered</td><td>Up to 4</td><td class="featured-col">Full villa</td><td>Full villa</td></tr>
+          <tr><td>Fabric library</td><td>150+ options</td><td class="featured-col">300+ options</td><td>Imported &amp; bespoke</td></tr>
+          <tr><td>Motorization</td><td class="dash">—</td><td class="featured-col"><span class="check-text">2 rooms free</span></td><td><span class="check">✦</span> All rooms</td></tr>
+          <tr><td>Smart home integration</td><td class="dash">—</td><td class="featured-col"><span class="check-text">On request</span></td><td><span class="check">✦</span> Included</td></tr>
+          <tr><td>Dedicated design consultant</td><td class="dash">—</td><td class="featured-col"><span class="check">✦</span></td><td><span class="check">✦</span></td></tr>
+          <tr><td>3D room visualisation</td><td class="dash">—</td><td class="featured-col"><span class="check-text">On request</span></td><td><span class="check">✦</span> Included</td></tr>
+          <tr><td>Old fittings removed</td><td><span class="check">✦</span></td><td class="featured-col"><span class="check">✦</span></td><td><span class="check">✦</span></td></tr>
+          <tr><td>Installation timeline</td><td>7–10 days</td><td class="featured-col">5 days priority</td><td>7 days priority</td></tr>
+          <tr><td>Warranty</td><td>12 months</td><td class="featured-col">Lifetime</td><td>Lifetime</td></tr>
+          <tr><td>Kevlar blackout options</td><td class="dash">—</td><td class="featured-col"><span class="check-text">On request</span></td><td><span class="check">✦</span> Available</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-title reveal" style="padding: 0;">
+      <div class="eyebrow">How It Works</div>
+      <h2>From First Call to<br /><em>Finished Villa</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-circle"><span>01</span></div>
+        <h3>Book Your Visit</h3>
+        <p>Call, WhatsApp or fill in the form. We schedule a free in-home consultation at your convenience — same day available.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-circle"><span>02</span></div>
+        <h3>Consult &amp; Measure</h3>
+        <p>Our consultant measures every window and wall, brings samples, and helps you choose the perfect finishes for your space.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-circle"><span>03</span></div>
+        <h3>Receive Your Quote</h3>
+        <p>A detailed, itemised quote arrives within 24 hours. No hidden costs. No surprises. You approve everything before we start.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-circle"><span>04</span></div>
+        <h3>Custom Production</h3>
+        <p>Your order is custom-made in our workshop. Curtains cut to your exact windows. Panels fabricated to your specifications.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-circle"><span>05</span></div>
+        <h3>White-Glove Install</h3>
+        <p>Our team arrives on the agreed date, installs everything with care, removes all packaging and old fittings, and leaves your villa spotless.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-bg"></div>
+    <div class="cta-content reveal">
+      <div class="eyebrow">Ready to Begin?</div>
+      <h2>Let's Transform<br /><em>Your Villa</em></h2>
+      <p>Book a free in-home consultation and we'll bring everything to you — samples, ideas, and a detailed quote with no obligation.</p>
+      <div class="cta-actions">
+        <a href="book.html" class="btn-primary">
+          Book a Free Visit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/971508806292" class="btn-ghost btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Jan Furnishings</div>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/971508806292" target="_blank" class="social-btn social-btn-whatsapp" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
+          <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
+          <li><a href="products.html#motorized">Motorized</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="interiors.html">Interiors</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="help.html">Help &amp; FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
+          <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
+          <p style="margin-top:12px;color:rgba(240,237,232,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(240,237,232,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Jan Furnishings. All rights reserved.</span>
+      <div style="display:flex;gap:24px;">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971508806292" target="_blank" class="wa-float" aria-label="Chat on WhatsApp" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp Us
+  </a>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = '#1A1A1A';
+    });
+
+    // Mobile menu
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    function toggleMenu() {
+      mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(mobileMenu.classList.contains('open')));
+    }
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script type="module" src="/src/layout-react.jsx"></script>
+</body>
+</html>

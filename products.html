@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Products — Jan Furnishings Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Custom curtains and blinds in Dubai. Sheer, blackout, roller, wooden, motorized and more — all made to measure and professionally installed." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +44,8 @@
     .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
 
     /* ─── NAV ───────────────────────────────────────── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(37,37,37,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(37,37,37,0.25); }
-    nav.scrolled { background: rgba(37,37,37,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: 0 1px 24px rgba(37,37,37,0.3); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: #252525; border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+    nav.scrolled { background: #252525; padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(37,37,37,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
@@ -291,6 +293,17 @@
       .footer-inner { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
       .bottom-cta-actions { flex-direction: column; align-items: center; }
+      #page-hero { min-height: 62vh; }
+      .page-hero-inner { padding: 72px 20px 40px; gap: 24px; }
+      .page-hero-text { padding: 28px 24px; }
+      .products-section { padding: 56px 0; }
+      .cat-divider { padding: 0 0 48px; }
+      .cat-divider-inner { padding-top: 48px; }
+      .section-label { margin-bottom: 32px; gap: 16px; }
+      #motorized-highlight { padding: 56px 0; }
+      .motor-banner-text { padding: 32px 24px; }
+      #bottom-cta { padding: 64px 0 72px; }
+      .bottom-cta-inner p { margin-bottom: 28px; }
     }
   </style>
 </head>
@@ -980,5 +993,6 @@
   });
 </script>
 
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>

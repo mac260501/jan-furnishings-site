@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Free Visit — Jan Furnishings Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Book your free curtain and blinds consultation in Dubai. We come to you with samples, take measurements, and give you a no-obligation quote on the spot." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,8 +32,8 @@
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
 
     /* ─── NAV ───────────────────────────────────────── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
-    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: #252525; border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+    nav.scrolled { background: #252525; padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: #fff; transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); text-shadow: none; }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
@@ -371,8 +373,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta" style="opacity:0.4;pointer-events:none;">Book a Free Visit</a>
@@ -382,8 +385,9 @@
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
 </div>
 
@@ -550,7 +554,7 @@
             <div class="phone-prefix">+971</div>
             <input type="tel" id="phone" placeholder="50 123 4567" oninput="clearError('field-phone')" style="border-left:none;" />
           </div>
-          <span class="field-error">Please enter a valid UAE phone number</span>
+          <span class="field-error">Please enter a valid Dubai phone number</span>
         </div>
       </div>
 
@@ -923,5 +927,6 @@
     window.open(`https://wa.me/971508806292?text=${encodeURIComponent(msg)}`, '_blank');
   }
 </script>
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>

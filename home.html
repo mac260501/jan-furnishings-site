@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jan Furnishings — Custom Curtains & Blinds in Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Premium custom curtains and blinds in Dubai. Free home visit, same-week installation, 500+ windows fitted. Book your free consultation today." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -87,17 +89,15 @@
       padding: 24px 32px;
       display: flex; align-items: center; justify-content: space-between;
       transition: all 0.4s ease;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      background: #252525;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 40px rgba(0,0,0,0.25);
+      box-shadow: none;
     }
     nav.scrolled {
-      background: rgba(26,26,26,0.97);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: #252525;
       padding: 16px 32px;
-      border-bottom: 1px solid rgba(201,169,110,0.15);
-      box-shadow: 0 1px 24px rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: none;
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
@@ -666,8 +666,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta">Book a Free Visit</a>
@@ -679,8 +680,9 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
 </div>
@@ -832,7 +834,7 @@
         <div class="step-num">03</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         <h3>Custom Manufacturing</h3>
-        <p>Your curtains or blinds are made to your exact measurements. We use quality fabrics built to last in UAE conditions.</p>
+        <p>Your curtains or blinds are made to your exact measurements. We use quality fabrics built to last in Dubai conditions.</p>
         <div class="step-connector"></div>
       </div>
       <div class="step-card" data-aos="fade-up" data-aos-delay="300">
@@ -1046,7 +1048,7 @@
     <div class="section-header" data-aos="fade-up">
       <div class="tag">Customer Reviews</div>
       <h2>What our customers say.</h2>
-      <p>Real reviews from real homes across Dubai and the UAE.</p>
+      <p>Real reviews from real homes across Dubai.</p>
     </div>
     <div class="reviews-grid">
 
@@ -1114,7 +1116,7 @@
         <div class="tag">Our Story</div>
         <h2>Built for people who just want it done right.</h2>
         <p>Jan Furnishings was born from a simple frustration — finding good curtains in Dubai shouldn't require three separate visits, unclear pricing, and crossed fingers. We set out to create a service that's clear, reliable, and actually enjoyable to use.</p>
-        <p>We're a sister company of Al Hadeeqa, a UAE furnishing company founded in 2021. The same values run through everything we do: keep it simple, keep it elegant, and always respect your time.</p>
+        <p>We're a sister company of Al Hadeeqa, a Dubai furnishing company founded in 2021. The same values run through everything we do: keep it simple, keep it elegant, and always respect your time.</p>
         <div class="about-values">
           <div class="about-value">
             <strong>Simple</strong>
@@ -1122,7 +1124,7 @@
           </div>
           <div class="about-value">
             <strong>Elegant</strong>
-            <span>Designs made for modern UAE living.</span>
+            <span>Designs made for modern Dubai living.</span>
           </div>
           <div class="about-value">
             <strong>Reliable</strong>
@@ -1162,7 +1164,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Jan Furnishings</div>
-        <p>Custom curtains and blinds, made and installed across the UAE. Free home visit, transparent pricing, same-week turnaround.</p>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -1240,5 +1242,6 @@
 
 </script>
 
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>

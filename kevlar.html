@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kevlar Curtains — Jan Furnishings Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Custom curtains crafted with aramid kevlar fabric. Designed, measured and installed by Jan Furnishings, Dubai. By request only." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,15 +43,15 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 24px 40px;
       display: flex; align-items: center; justify-content: space-between;
-      background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      background: #252525;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 2px 40px rgba(0,0,0,0.25);
+      box-shadow: none;
       transition: all 0.4s ease;
     }
     nav.scrolled {
-      background: rgba(20,20,20,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: #252525;
       padding: 16px 40px;
-      border-bottom: 1px solid rgba(201,169,110,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500;
@@ -486,6 +488,7 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="help.html">Help</a></li>
@@ -497,6 +500,7 @@
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
   <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
@@ -731,5 +735,6 @@
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 </script>
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>

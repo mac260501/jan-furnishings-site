@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us — Jan Furnishings Dubai</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
   <meta name="description" content="Jan Furnishings was built to make curtains and blinds in Dubai simple, transparent, and stress-free. Learn our story." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,13 +15,13 @@
 
   <style>
     :root {
-      --charcoal:   #1A1A1A;
-      --charcoal-2: #232323;
-      --charcoal-3: #2B2B2B;
-      --gold:       #C9A96E;
-      --gold-light: #E8D5B0;
-      --text:       #F0EDE8;
-      --text-muted: #9A9590;
+      --charcoal:   #252525;
+      --charcoal-2: #252525;
+      --charcoal-3: #252525;
+      --gold:       #FFFFFF;
+      --gold-light: #FFFFFF;
+      --text:       #FFFFFF;
+      --text-muted: #FFFFFF;
       --white:      #FFFFFF;
     }
 
@@ -40,8 +42,8 @@
     .btn-outline:hover { background: var(--gold); color: var(--charcoal); }
 
     /* ─── NAV ───────────────────────────────────────── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: rgba(0,0,0,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: 0 2px 40px rgba(0,0,0,0.25); }
-    nav.scrolled { background: rgba(26,26,26,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 16px 32px; border-bottom: 1px solid rgba(201,169,110,0.15); box-shadow: 0 1px 24px rgba(0,0,0,0.3); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; background: #252525; border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
+    nav.scrolled { background: #252525; padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: var(--white); transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
@@ -87,7 +89,7 @@
       position: absolute; top: 60px; right: 20px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 220px; font-weight: 300; line-height: 1;
-      color: rgba(201,169,110,0.05);
+      color: rgba(255,255,255,0.05);
       pointer-events: none; user-select: none; z-index: 1;
       opacity: 0; animation: fadeIn 1.2s 0.2s ease forwards;
     }
@@ -115,7 +117,7 @@
     }
     .hero-h1 em { font-style: italic; color: var(--gold); display: block; }
     .hero-divider {
-      width: 60px; height: 1px; background: rgba(201,169,110,0.4);
+      width: 60px; height: 1px; background: rgba(255,255,255,0.4);
       margin: 32px 0;
       opacity: 0; animation: fadeIn 0.8s 0.8s ease forwards;
     }
@@ -140,14 +142,14 @@
     .hero-quote {
       position: relative;
       margin-top: 32px;
-      border-left: 3px solid rgba(201,169,110,0.6);
+      border-left: 3px solid rgba(255,255,255,0.6);
       padding: 0 0 0 20px;
       opacity: 0; animation: fadeUp 1s 1.3s ease forwards;
     }
     .hero-quote p {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px; font-style: italic; font-weight: 300;
-      line-height: 1.6; color: rgba(240,237,232,0.7);
+      line-height: 1.6; color: rgba(255,255,255,0.7);
     }
     .hero-quote cite {
       display: block; margin-top: 8px;
@@ -164,11 +166,16 @@
     #story { padding: 140px 0; background: var(--charcoal); }
     .story-inner {
       display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+      align-items: start;
     }
-    .story-aside { position: relative; }
+    .story-aside {
+      position: sticky;
+      top: 104px;
+      align-self: start;
+      z-index: 1;
+    }
     .story-aside-img {
       width: 100%; aspect-ratio: 3/4; object-fit: cover;
-      position: sticky; top: 100px;
     }
     .story-aside-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
@@ -200,7 +207,7 @@
     .story-chapter h2 em { font-style: italic; color: var(--gold); }
     .story-chapter p {
       font-size: 17px; line-height: 1.9;
-      color: rgba(240,237,232,0.75);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 20px;
     }
     .story-chapter p:last-child { margin-bottom: 0; }
@@ -209,7 +216,7 @@
       margin: 40px 0;
       padding: 32px 40px;
       border-left: 3px solid var(--gold);
-      background: rgba(201,169,110,0.04);
+      background: rgba(255,255,255,0.04);
     }
     .pull-quote p {
       font-family: 'Cormorant Garamond', serif;
@@ -251,7 +258,7 @@
     .value-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 80px; font-weight: 300; line-height: 1;
-      color: rgba(201,169,110,0.08);
+      color: rgba(255,255,255,0.08);
       position: absolute; top: 20px; right: 24px;
     }
     .value-icon { color: var(--gold); margin-bottom: 24px; }
@@ -276,7 +283,7 @@
     .company-img-stats {
       position: absolute; bottom: 0; left: 0; right: 0;
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: rgba(201,169,110,0.1);
+      gap: 1px; background: rgba(255,255,255,0.1);
     }
     .img-stat {
       background: rgba(26,26,26,0.85);
@@ -318,7 +325,7 @@
     }
     .promise-bg {
       position: absolute; inset: 0;
-      background: url('assets/images/lowell-so-Bn8eOJmZXtc-unsplash.jpg') center/cover;
+      background: url('assets/images/optimized/about-promise-1800.jpg') center/cover;
       opacity: 0.07;
     }
     .promise-inner {
@@ -338,7 +345,7 @@
     .promise-inner .cta-group { margin-top: 48px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     /* ─── FOOTER ─────────────────────────────────────── */
-    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(201,169,110,0.1); }
+    footer { background: var(--charcoal-2); padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
     .footer-brand .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 16px; }
     .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 260px; margin-bottom: 24px; }
@@ -370,6 +377,10 @@
       .nav-hamburger { display: flex; }
       #hero { min-height: 80vh; }
       .hero-left { padding: 0 24px 48px; }
+      .promise-bg { background-image: url('assets/images/optimized/about-promise-1200.jpg'); }
+      #values { padding: 0 0 72px; }
+      .values-header { padding: 0 0 48px; }
+      #company { padding: 72px 0; }
 
       .hero-quote { display: none; }
       .hero-watermark { display: none; }
@@ -377,7 +388,7 @@
       .story-aside { display: none; }
       .values-grid { grid-template-columns: 1fr; }
       .company-inner { grid-template-columns: 1fr; }
-      .company-img-panel { min-height: 320px; }
+      .company-img-panel { min-height: 420px; }
       .company-text-panel { padding: 48px 32px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: span 2; }
@@ -385,6 +396,11 @@
     @media (max-width: 560px) {
       .container { padding: 0 20px; }
       .hero-left { padding: 120px 20px 48px; }
+      #values { padding: 0 0 48px; }
+      .values-header { padding: 0 0 32px; }
+      .value-card { padding: 40px 28px; }
+      #company { padding: 48px 0; }
+      .company-img-panel { min-height: 460px; }
       .promise-inner .cta-group { flex-direction: column; align-items: center; }
       .footer-inner { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
@@ -399,8 +415,9 @@
   <a href="index.html" class="nav-logo">Jan Furnishings</a>
   <ul class="nav-links">
     <li><a href="products.html">Our Products</a></li>
-    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="interiors.html">Interiors</a></li>
     <li><a href="estimate.html">Get Estimate</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
     <li><a href="help.html">Help</a></li>
   </ul>
   <a href="book.html" class="nav-cta">Book a Free Visit</a>
@@ -411,15 +428,26 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="products.html" onclick="toggleMenu()">Our Products</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="interiors.html" onclick="toggleMenu()">Interiors</a>
   <a href="estimate.html" onclick="toggleMenu()">Get Estimate</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
   <a href="help.html" onclick="toggleMenu()">Help</a>
   <a href="book.html" class="mob-cta" onclick="toggleMenu()">Book a Free Visit</a>
 </div>
 
 <!-- ── HERO ───────────────────────────────────────────── -->
 <section id="hero">
-  <img class="hero-bg-img" src="assets/images/pexels-artbovich-5998120.jpg" alt="Elegant curtains in a Dubai villa" />
+  <img
+    class="hero-bg-img"
+    src="assets/images/optimized/about-hero-1920.jpg"
+    srcset="assets/images/optimized/about-hero-960.jpg 960w, assets/images/optimized/about-hero-1920.jpg 1920w"
+    sizes="100vw"
+    width="1920"
+    height="1280"
+    fetchpriority="high"
+    decoding="async"
+    alt="Elegant curtains in a Dubai villa"
+  />
   <div class="hero-left">
     <div class="hero-watermark">J</div>
     <div class="hero-left-content">
@@ -433,7 +461,7 @@
       <div class="hero-founded">
         <div class="hero-year">2021</div>
         <div class="hero-founded-text">
-          <strong>Founded in Dubai, UAE</strong>
+          <strong>Founded in Dubai</strong>
           A sister company of Al Hadeeqa Contracting Co LLC
         </div>
       </div>
@@ -453,10 +481,20 @@
     <div class="story-inner">
 
       <!-- Sticky image -->
-      <div class="story-aside" data-aos="fade-right">
-        <img class="story-aside-img" src="assets/images/pexels-artbovich-7214461.jpg" alt="Curtain installation in a Dubai home" />
+      <div class="story-aside">
+        <img
+          class="story-aside-img"
+          src="assets/images/optimized/about-story-1400.jpg"
+          srcset="assets/images/optimized/about-story-900.jpg 900w, assets/images/optimized/about-story-1400.jpg 1400w"
+          sizes="(max-width: 1200px) 33vw, 360px"
+          width="1400"
+          height="934"
+          loading="lazy"
+          decoding="async"
+          alt="Curtain installation in a Dubai home"
+        />
         <div class="story-aside-caption">
-          <span>Dubai, UAE — 2021</span>
+          <span>Dubai — 2021</span>
         </div>
       </div>
 
@@ -466,7 +504,7 @@
         <div class="story-chapter" data-aos="fade-up">
           <div class="chapter-num">Chapter 01</div>
           <h2>It started with a <em>different idea.</em></h2>
-          <p>Al Hadeeqa was founded in 2021 with a simple goal: make furnishing a home in the UAE easier, clearer, and far less stressful. We helped people get furniture without the usual confusion — no unreliable middlemen, no surprise costs, no waiting weeks for updates.</p>
+          <p>Al Hadeeqa was founded in 2021 with a simple goal: make furnishing a home in Dubai easier, clearer, and far less stressful. We helped people get furniture without the usual confusion — no unreliable middlemen, no surprise costs, no waiting weeks for updates.</p>
           <p>But early on, we kept hearing the same question from customers: <em>"Can you also help with curtains and blinds?"</em></p>
           <p>At first, we paused. Then we listened.</p>
         </div>
@@ -519,7 +557,7 @@
         <p>Clear choices, honest advice, zero jargon. From the first estimate to the final invoice, everything should be easy to understand. We don't complicate things — we un-complicate them.</p>
       </div>
 
-      <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
         <div class="value-num">02</div>
         <div class="value-icon">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -527,10 +565,10 @@
           </svg>
         </div>
         <h3>Elegance</h3>
-        <p>Beautiful products that suit modern UAE living. We don't just sell curtains — we help you create spaces that feel considered and complete. Every fabric, every finish, chosen with that in mind.</p>
+        <p>Beautiful products that suit modern Dubai living. We don't just sell curtains — we help you create spaces that feel considered and complete. Every fabric, every finish, chosen with that in mind.</p>
       </div>
 
-      <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
         <div class="value-num">03</div>
         <div class="value-icon">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -551,7 +589,16 @@
     <div class="company-inner" data-aos="fade-up">
 
       <div class="company-img-panel">
-        <img src="assets/images/pexels-artbovich-6492384.jpg" alt="Jan Furnishings team at work in Dubai" />
+        <img
+          src="assets/images/optimized/about-company-1800.jpg"
+          srcset="assets/images/optimized/about-company-1000.jpg 1000w, assets/images/optimized/about-company-1800.jpg 1800w"
+          sizes="(max-width: 900px) 100vw, 50vw"
+          width="1800"
+          height="1336"
+          loading="lazy"
+          decoding="async"
+          alt="Jan Furnishings team at work in Dubai"
+        />
         <div class="company-img-overlay"></div>
         <div class="company-img-stats">
           <div class="img-stat">
@@ -576,7 +623,7 @@
       <div class="company-text-panel">
         <div class="tag">The Company</div>
         <h2>Part of something bigger.</h2>
-        <p>Jan Furnishings is a product of Al Hadeeqa Contracting Co LLC, a UAE-based furnishing company founded in 2021. We launched the curtains division after seeing how many of our customers were struggling with an outdated, fragmented market.</p>
+        <p>Jan Furnishings is a product of Al Hadeeqa Contracting Co LLC, a Dubai-based furnishing company founded in 2021. We launched the curtains division after seeing how many of our customers were struggling with an outdated, fragmented market.</p>
         <p>We're based in Dubai — specifically at In5 Tech, near Al Sufouh — and we service homes across the city. Small apartments, large villas, newly built developments, and everything in between.</p>
         <p>Every measurement is taken by our own team. Every curtain is installed by our own team. We don't outsource the parts that matter.</p>
         <div class="company-links">
@@ -589,7 +636,7 @@
           <div class="company-link">
             <span>Location</span>
             <div>
-              <div class="company-link-label">In5 Tech, Dubai, UAE</div>
+              <div class="company-link-label">In5 Tech, Dubai</div>
             </div>
           </div>
           <div class="company-link">
@@ -637,7 +684,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Jan Furnishings</div>
-        <p>Custom curtains and blinds, made and installed across Dubai. Free home visit, transparent pricing, same-week turnaround.</p>
+        <p>Custom curtains, blinds, and luxury interior services across Dubai only. Free home visit, transparent pricing, same-week turnaround.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/share/17wgL3YqqS/" target="_blank" class="social-btn" aria-label="Facebook">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -655,15 +702,18 @@
         <ul>
           <li><a href="products.html#curtains">Curtains &amp; Drapes</a></li>
           <li><a href="products.html#blinds">Blinds &amp; Shades</a></li>
-          <li><a href="products.html#motorized-highlight">Motorized</a></li>
+          <li><a href="products.html#motorized">Motorized</a></li>
+          <li><a href="products.html">All Products</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="interiors.html">Interiors</a></li>
+          <li><a href="estimate.html">Get Estimate</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="help.html">Help &amp; FAQs</a></li>
-          <li><a href="book.html">Book a Free Visit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -671,8 +721,8 @@
         <div class="footer-contact">
           <p><a href="https://wa.me/971508806292">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
-          <p style="margin-top:12px;color:rgba(154,149,144,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
-          <p style="margin-top:8px;color:rgba(154,149,144,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
+          <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
+          <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
         </div>
       </div>
     </div>
@@ -694,10 +744,11 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 700, once: true, offset: 60 });
+  AOS.init({ duration: 560, once: true, offset: 40 });
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 </script>
+  <script type="module" src="/src/layout-react.jsx"></script>
 </body>
 </html>
