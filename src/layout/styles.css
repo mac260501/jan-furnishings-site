@@ -1,3 +1,7 @@
+:root {
+  --brand-bar-offset: 36px;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -49,12 +53,96 @@ body[data-page="interiors"] .hero h1 {
   line-height: 0.95 !important;
 }
 
-#layout-react-header-root #nav {
+body[data-layout-variant="luxury"] #hero,
+body[data-layout-variant="luxury"] .hero,
+body[data-layout-variant="luxury"] #page-hero {
+  margin-top: var(--nav-offset, 78px) !important;
+}
+
+#layout-react-header-root .brand-bar {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 100 !important;
+  z-index: 102 !important;
+  height: var(--brand-bar-offset, 36px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 0 24px !important;
+  background: #111111 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+#layout-react-header-root .brand-bar.brand-bar-gold {
+  border-bottom-color: rgba(201, 169, 110, 0.2) !important;
+}
+
+#layout-react-header-root .brand-bar-left {
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  white-space: nowrap !important;
+}
+
+#layout-react-header-root .brand-bar-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+
+#layout-react-header-root .brand-bar-links::-webkit-scrollbar {
+  display: none !important;
+}
+
+#layout-react-header-root .brand-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  height: 26px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  transition: all 0.2s ease !important;
+}
+
+#layout-react-header-root .brand-pill:hover {
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.26) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+#layout-react-header-root .brand-pill.brand-pill-active {
+  color: #C9A96E !important;
+  border-color: rgba(201, 169, 110, 0.32) !important;
+  background: rgba(201, 169, 110, 0.12) !important;
+}
+
+#layout-react-header-root .brand-pill-dot {
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+#layout-react-header-root #nav {
+  position: fixed !important;
+  top: var(--brand-bar-offset, 36px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 101 !important;
   padding: 24px 32px !important;
   min-height: 78px !important;
   box-sizing: border-box !important;
@@ -82,17 +170,17 @@ body[data-page="interiors"] .hero h1 {
   color: #FFFFFF !important;
   transition: color 0.4s ease !important;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) !important;
+  white-space: nowrap !important;
 }
 
 #layout-react-header-root #nav.scrolled .nav-logo {
   color: #FFFFFF !important;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) !important;
 }
 
 #layout-react-header-root .nav-links {
   display: flex !important;
   align-items: center !important;
-  gap: 36px !important;
+  gap: 30px !important;
   list-style: none !important;
 }
 
@@ -102,7 +190,7 @@ body[data-page="interiors"] .hero h1 {
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: rgba(255, 255, 255, 0.85) !important;
-  transition: color 0.3s ease !important;
+  transition: color 0.25s ease !important;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
 }
 
@@ -123,6 +211,7 @@ body[data-page="interiors"] .hero h1 {
   cursor: pointer !important;
   transition: all 0.3s ease !important;
   font-family: "DM Sans", sans-serif !important;
+  white-space: nowrap !important;
 }
 
 #layout-react-header-root .nav-cta:hover {
@@ -131,12 +220,155 @@ body[data-page="interiors"] .hero h1 {
   opacity: 1 !important;
 }
 
+#layout-react-header-root .nav-brands-trigger {
+  position: relative !important;
+}
+
+#layout-react-header-root .nav-brands-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+
+#layout-react-header-root .nav-brands-button:hover,
+#layout-react-header-root .nav-brands-trigger.open .nav-brands-button {
+  color: #C9A96E !important;
+}
+
+#layout-react-header-root .brands-chevron {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  transition: transform 0.25s ease, color 0.25s ease !important;
+}
+
+#layout-react-header-root .nav-brands-button:hover .brands-chevron,
+#layout-react-header-root .nav-brands-trigger.open .brands-chevron {
+  color: #C9A96E !important;
+}
+
+#layout-react-header-root .nav-brands-trigger.open .brands-chevron {
+  transform: rotate(180deg) !important;
+}
+
+#layout-react-header-root .brands-mega {
+  position: absolute !important;
+  top: calc(100% + 18px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-8px) !important;
+  width: 500px !important;
+  background: #151515 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.58) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.22s ease, transform 0.22s ease !important;
+  z-index: 240 !important;
+}
+
+#layout-react-header-root .nav-brands-trigger.open .brands-mega {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+#layout-react-header-root .brands-mega-header {
+  padding: 18px 22px 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.23em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+}
+
+#layout-react-header-root .brands-mega-cards {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#layout-react-header-root .brand-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  padding: 20px 22px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: background 0.2s ease !important;
+}
+
+#layout-react-header-root .brand-card:last-child {
+  border-bottom: none !important;
+}
+
+#layout-react-header-root .brand-card:hover {
+  background: rgba(201, 169, 110, 0.08) !important;
+}
+
+#layout-react-header-root .brand-card-icon {
+  width: 44px !important;
+  height: 44px !important;
+  border: 1px solid rgba(201, 169, 110, 0.25) !important;
+  color: #C9A96E !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+#layout-react-header-root .brand-card-info {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+#layout-react-header-root .brand-card-name {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 21px !important;
+  line-height: 1.1 !important;
+  color: #FFFFFF !important;
+  margin-bottom: 4px !important;
+}
+
+#layout-react-header-root .brand-card-desc {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
+#layout-react-header-root .brand-card-current {
+  font-size: 9px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #C9A96E !important;
+  border: 1px solid rgba(201, 169, 110, 0.35) !important;
+  padding: 3px 10px !important;
+  white-space: nowrap !important;
+}
+
+#layout-react-header-root .brand-card-arrow {
+  color: rgba(201, 169, 110, 0.5) !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+}
+
+#layout-react-header-root .brand-card:hover .brand-card-arrow {
+  color: #C9A96E !important;
+  transform: translateX(3px) !important;
+}
+
 #layout-react-header-root #nav.nav-gold-trim {
-  border-bottom-color: rgba(201, 169, 110, 0.22) !important;
+  border-bottom-color: rgba(201, 169, 110, 0.25) !important;
 }
 
 #layout-react-header-root #nav.nav-gold-trim.scrolled {
-  border-bottom-color: rgba(201, 169, 110, 0.35) !important;
+  border-bottom-color: rgba(201, 169, 110, 0.36) !important;
 }
 
 #layout-react-header-root #nav.nav-gold-trim .nav-logo,
@@ -185,40 +417,42 @@ body[data-page="interiors"] .hero h1 {
   right: 0 !important;
   bottom: 0 !important;
   background: #1A1A1A !important;
-  z-index: 99 !important;
-  padding: 100px 32px 48px !important;
+  z-index: 100 !important;
+  padding: calc(var(--nav-offset, 112px) + 18px) 32px 44px !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  gap: 32px !important;
+  gap: 24px !important;
+  overflow-y: auto !important;
 }
 
 #layout-react-header-root .mobile-menu.open {
   display: flex !important;
 }
 
-#layout-react-header-root .mobile-menu a {
+#layout-react-header-root .mobile-menu > a {
   font-family: "Cormorant Garamond", serif !important;
-  font-size: 36px !important;
+  font-size: 34px !important;
   font-weight: 300 !important;
   color: #F0EDE8 !important;
   letter-spacing: 0.02em !important;
-  transition: color 0.3s !important;
+  line-height: 1.05 !important;
+  transition: color 0.2s !important;
 }
 
-#layout-react-header-root .mobile-menu a:hover,
-#layout-react-header-root .mobile-menu a.active {
+#layout-react-header-root .mobile-menu > a:hover,
+#layout-react-header-root .mobile-menu > a.active {
   color: #FFFFFF !important;
 }
 
-#layout-react-header-root .mobile-menu.mobile-menu-gold a:hover,
-#layout-react-header-root .mobile-menu.mobile-menu-gold a.active {
+#layout-react-header-root .mobile-menu.mobile-menu-gold > a:hover,
+#layout-react-header-root .mobile-menu.mobile-menu-gold > a.active {
   color: #C9A96E !important;
 }
 
 #layout-react-header-root .mobile-menu .mob-cta {
-  margin-top: 16px !important;
+  margin-top: 8px !important;
   font-family: "DM Sans", sans-serif !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
@@ -231,21 +465,199 @@ body[data-page="interiors"] .hero h1 {
   background: #C9A96E !important;
 }
 
-@media (max-width: 900px) {
-  #layout-react-header-root #nav,
-  #layout-react-header-root #nav.scrolled {
-    padding: 20px 24px !important;
-    min-height: 74px !important;
-  }
+#layout-react-header-root .mobile-brands-section {
+  margin-top: 6px !important;
+  padding-top: 18px !important;
+  border-top: 1px solid rgba(201, 169, 110, 0.18) !important;
+  width: 100% !important;
+}
 
-  #layout-react-header-root .nav-links,
-  #layout-react-header-root .nav-cta {
-    display: none !important;
-  }
+#layout-react-header-root .mobile-brands-label {
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.52) !important;
+  margin-bottom: 10px !important;
+}
 
-  #layout-react-header-root .nav-hamburger {
-    display: flex !important;
-  }
+#layout-react-header-root .mobile-brand-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 24px !important;
+  color: #F0EDE8 !important;
+  line-height: 1.1 !important;
+}
+
+#layout-react-header-root .mobile-brand-link:last-child {
+  border-bottom: none !important;
+}
+
+#layout-react-header-root .mobile-brand-link:hover {
+  color: #C9A96E !important;
+}
+
+#layout-react-header-root .mob-brand-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border: 1px solid rgba(201, 169, 110, 0.25) !important;
+  color: #C9A96E !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+#layout-react-header-root .mobile-brand-badge {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 8px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #C9A96E !important;
+  border: 1px solid rgba(201, 169, 110, 0.35) !important;
+  padding: 2px 8px !important;
+  margin-left: auto !important;
+}
+
+.footer-brands-family {
+  padding: 36px 64px 56px !important;
+  margin-bottom: 0 !important;
+  background: #111111 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.footer-brands-family + .container {
+  padding-top: 60px !important;
+}
+
+footer.layout-react-luxury-footer {
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+.footer-brands-family.footer-brands-family-gold {
+  border-top-color: rgba(201, 169, 110, 0.18) !important;
+}
+
+.footer-brands-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 18px !important;
+}
+
+.footer-brands-label {
+  font-size: 10px !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.56) !important;
+}
+
+.footer-brands-sub {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+}
+
+.footer-brands-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 2px !important;
+  background: rgba(201, 169, 110, 0.08) !important;
+}
+
+.footer-brand-card {
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 13px !important;
+  background: #171717 !important;
+  padding: 30px 30px 26px !important;
+  min-height: 250px !important;
+  transition: background 0.25s ease !important;
+}
+
+.footer-brand-card::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(to right, transparent, #C9A96E, transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.25s ease !important;
+}
+
+.footer-brand-card:hover {
+  background: #1F1F1F !important;
+}
+
+.footer-brand-card:hover::after {
+  opacity: 1 !important;
+}
+
+.footer-brand-card.current-brand {
+  background: rgba(201, 169, 110, 0.08) !important;
+}
+
+.footer-brand-card.current-brand::after {
+  opacity: 0.55 !important;
+}
+
+.footer-brand-icon {
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(201, 169, 110, 0.28) !important;
+  color: #C9A96E !important;
+}
+
+.footer-brand-name {
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: 22px !important;
+  color: #FFFFFF !important;
+}
+
+.footer-brand-desc {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  flex: 1 !important;
+}
+
+.footer-brand-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #C9A96E !important;
+  opacity: 0.75 !important;
+}
+
+.footer-brand-card:hover .footer-brand-link {
+  opacity: 1 !important;
+}
+
+.footer-brand-current-badge {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  font-size: 8px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #C9A96E !important;
+  border: 1px solid rgba(201, 169, 110, 0.36) !important;
+  padding: 3px 10px !important;
 }
 
 .wa-float {
@@ -288,6 +700,63 @@ body[data-page="interiors"] .hero h1 {
   display: inline-block !important;
 }
 
+@media (max-width: 1120px) {
+  #layout-react-header-root .nav-links {
+    gap: 22px !important;
+  }
+
+  #layout-react-header-root .brands-mega {
+    width: 460px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #layout-react-header-root #nav,
+  #layout-react-header-root #nav.scrolled {
+    padding: 20px 24px !important;
+    min-height: 74px !important;
+  }
+
+  #layout-react-header-root .nav-links,
+  #layout-react-header-root .nav-cta {
+    display: none !important;
+  }
+
+  #layout-react-header-root .nav-hamburger {
+    display: flex !important;
+  }
+
+  #layout-react-header-root .brand-bar {
+    padding: 0 16px !important;
+  }
+
+  #layout-react-header-root .brand-bar-left {
+    display: none !important;
+  }
+
+  #layout-react-header-root .brand-bar-links {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .footer-brands-family {
+    padding: 30px 32px 44px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .footer-brands-family + .container {
+    padding-top: 46px !important;
+  }
+
+  .footer-brands-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-brand-card {
+    min-height: 0 !important;
+  }
+}
+
 @media (max-width: 700px) {
   body[data-page="interiors"] .hero-text-glass,
   body[data-page="packages"] .hero-text-glass {
@@ -320,20 +789,38 @@ body[data-page="interiors"] .hero h1 {
     min-height: 70px !important;
   }
 
-  #layout-react-header-root .mobile-menu {
-    padding: 100px 24px 40px !important;
-    gap: 28px !important;
+  #layout-react-header-root .brand-pill {
+    padding: 0 10px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.12em !important;
   }
 
-  #layout-react-header-root .mobile-menu a {
+  #layout-react-header-root .mobile-menu {
+    padding: calc(var(--nav-offset, 108px) + 10px) 24px 32px !important;
+    gap: 22px !important;
+  }
+
+  #layout-react-header-root .mobile-menu > a {
     font-size: 32px !important;
-    line-height: 1.05 !important;
   }
 
   #layout-react-header-root .mobile-menu .mob-cta {
-    margin-top: 12px !important;
+    margin-top: 8px !important;
     padding: 12px 22px !important;
     font-size: 12px !important;
+  }
+
+  #layout-react-header-root .mobile-brand-link {
+    font-size: 22px !important;
+  }
+
+  .footer-brands-family {
+    padding: 24px 24px 34px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .footer-brands-family + .container {
+    padding-top: 34px !important;
   }
 }
 
@@ -344,11 +831,24 @@ body[data-page="interiors"] .hero h1 {
     min-height: 70px !important;
   }
 
-  #layout-react-header-root .mobile-menu {
-    padding: 92px 20px 32px !important;
+  #layout-react-header-root .brand-bar {
+    padding: 0 10px !important;
   }
 
-  #layout-react-header-root .mobile-menu a {
+  #layout-react-header-root .brand-pill {
+    padding: 0 8px !important;
+    gap: 5px !important;
+  }
+
+  #layout-react-header-root .brand-pill-dot {
+    display: none !important;
+  }
+
+  #layout-react-header-root .mobile-menu {
+    padding: calc(var(--nav-offset, 104px) + 8px) 20px 28px !important;
+  }
+
+  #layout-react-header-root .mobile-menu > a {
     font-size: 30px !important;
   }
 }

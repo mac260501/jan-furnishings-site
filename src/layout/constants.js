@@ -24,7 +24,7 @@ export const PAGE_KEY_BY_FILE = {
 export const SITE_NAV_LINKS = [
   { key: 'home', href: 'index.html', label: 'Home' },
   { key: 'products', href: 'our-products.html', label: 'Our Products' },
-  { key: 'interiors', href: 'interiors.html', label: 'Interiors' },
+  { key: 'interiors', href: '/interiors/', label: 'Interiors' },
   { key: 'packages', href: 'packages.html', label: 'Packages' },
   { key: 'estimate', href: 'get-estimate.html', label: 'Get Estimate' },
   { key: 'about', href: 'about-us.html', label: 'About Us' },
@@ -34,7 +34,7 @@ export const SITE_NAV_LINKS = [
 export const LUXURY_NAV_LINKS = [
   { key: 'home', href: 'index.html', label: 'Home' },
   { key: 'products', href: 'products.html', label: 'Our Products' },
-  { key: 'interiors', href: 'interiors.html', label: 'Interiors' },
+  { key: 'interiors', href: '/interiors/', label: 'Interiors' },
   { key: 'packages', href: 'packages.html', label: 'Packages' },
   { key: 'estimate', href: 'estimate.html', label: 'Get Estimate' },
   { key: 'about', href: 'about.html', label: 'About Us' },

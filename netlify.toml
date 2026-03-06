@@ -4,3 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Jan Interiors sub-site routing
+# Ensures /interiors (no trailing slash) redirects cleanly to /interiors/
+[[redirects]]
+  from = "/interiors"
+  to = "/interiors/"
+  status = 301

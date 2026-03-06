@@ -22,6 +22,7 @@
       --gold-light: #FFFFFF;
       --text:       #FFFFFF;
       --text-muted: #FFFFFF;
+      --nav-offset: 114px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -43,7 +44,7 @@
     nav.scrolled { background: #252525; padding: 16px 32px; border-bottom: 1px solid rgba(255,255,255,0.15); box-shadow: none; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.05em; color: #fff; transition: color 0.4s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
     nav.scrolled .nav-logo { color: var(--gold); text-shadow: none; }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
     .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.92); transition: color 0.3s ease; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
     .nav-cta { background: var(--gold); color: var(--charcoal); padding: 10px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s ease; font-family: 'DM Sans', sans-serif; }
@@ -187,9 +188,12 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 900px) {
+      :root { --nav-offset: 110px; }
       nav { padding: 20px 24px; }
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
+      #page-hero { align-items: flex-start; }
+      .hero-inner { padding-top: 26px; }
       .faq-layout { grid-template-columns: 1fr; }
       .cat-nav { position: static; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 40px; }
       .cat-nav-title { display: none; }
@@ -204,8 +208,8 @@
       .container { padding: 0 20px; }
       .hero-glass { padding: 32px 24px; }
       .cta-actions { flex-direction: column; align-items: center; }
-      #page-hero { min-height: 50vh; }
-      .hero-inner { padding: 0 20px 40px; }
+      :root { --nav-offset: 106px; }
+      .hero-inner { padding: 18px 20px 40px; }
       #search-bar { padding: 28px 0; }
       #faq-main { padding: 56px 0; }
       .faq-section { margin-bottom: 40px; }

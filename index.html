@@ -25,6 +25,8 @@
       --text:       #FFFFFF;
       --text-muted: #FFFFFF;
       --white:      #FFFFFF;
+      --nav-offset: 114px;
+      --hero-strip-height: 48px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -107,7 +109,7 @@
     nav.scrolled .nav-logo { color: var(--gold); }
 
     .nav-links {
-      display: flex; align-items: center; gap: 36px;
+      display: flex; align-items: center; gap: 30px;
       list-style: none;
     }
     .nav-links a {
@@ -157,9 +159,12 @@
 
     /* ─── HERO ──────────────────────────────────────── */
     #hero {
-      position: relative; height: 100vh; min-height: 680px;
-      display: flex; align-items: stretch;
+      position: relative;
+      height: calc(100vh - var(--nav-offset) - var(--hero-strip-height));
+      min-height: 700px;
+      display: flex; align-items: flex-start;
       overflow: hidden;
+      margin-top: var(--nav-offset);
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -181,12 +186,8 @@
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: 100px 32px 80px;
-      max-width: 680px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      padding: 26px 64px 72px;
+      max-width: 860px;
     }
     /* Glass panel wrapping headline + sub + actions */
     .hero-text-glass {
@@ -626,10 +627,11 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 900px) {
+      :root { --nav-offset: 110px; }
       nav { padding: 20px 24px; }
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-      .hero-content { padding: 80px 20px 48px; min-height: auto; justify-content: flex-start; }
+      .hero-content { padding: 20px 32px 56px; }
       .hero-stats { display: none; }
       .hero-scroll { display: none; }
       .intro-inner, .motorized-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -648,9 +650,10 @@
       .products-intro p { text-align: left; }
     }
     @media (max-width: 560px) {
+      :root { --nav-offset: 106px; }
       .container { padding: 0 20px; }
-      #hero { height: calc(100vh - 48px); min-height: 620px; }
-      .hero-content { min-height: auto; padding: 98px 20px 48px; justify-content: flex-start; }
+      #hero { min-height: 620px; }
+      .hero-content { padding: 18px 24px 48px; }
       .steps-grid { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr; }
       .est-row { grid-template-columns: 1fr; }

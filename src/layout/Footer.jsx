@@ -1,5 +1,65 @@
 import { CONTACT, FOOTER_COPY, SOCIAL_LINKS, WHATSAPP_BASE_URL } from './constants.js';
 
+const INTERIORS_BRAND_PAGES = new Set(['interiors']);
+const BRAND_FAMILY = [
+  {
+    key: 'furnishings',
+    name: 'Jan Furnishings',
+    href: 'index.html',
+    description: 'Custom curtains, blinds and premium window treatments across Dubai only.'
+  },
+  {
+    key: 'interiors',
+    name: 'Jan Interiors',
+    href: 'interiors.html',
+    description: 'Wall panels, wallpaper, painting, renovation and curated interior package solutions.'
+  },
+  {
+    key: 'construction',
+    name: 'Al Hadeeqa Construction',
+    href: 'https://alhadeeqacontracting.com',
+    description: 'Premium construction and bespoke contracting for luxury residential and commercial projects.',
+    external: true
+  }
+];
+
+function classNames(...values) {
+  return values.filter(Boolean).join(' ');
+}
+
+function resolveCurrentBrand(pageKey) {
+  return INTERIORS_BRAND_PAGES.has(pageKey) ? 'interiors' : 'furnishings';
+}
+
+function BrandIcon({ brandKey }) {
+  if (brandKey === 'furnishings') {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    );
+  }
+
+  if (brandKey === 'interiors') {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+        <rect x="2" y="3" width="20" height="18" rx="1"></rect>
+        <path d="M2 9h20M9 9v12"></path>
+      </svg>
+    );
+  }
+
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <polygon points="12 2 2 7 2 17 12 22 22 17 22 7"></polygon>
+      <line x1="12" y1="2" x2="12" y2="22"></line>
+      <line x1="2" y1="7" x2="22" y2="7"></line>
+      <line x1="2" y1="17" x2="22" y2="17"></line>
+    </svg>
+  );
+}
+
 function FooterLink({ href, label }) {
   return (
     <li>
@@ -77,67 +137,104 @@ export function SiteFooter({ year }) {
   );
 }
 
-export function LuxuryFooter({ year, variant }) {
+export function LuxuryFooter({ year, variant, pageKey }) {
   const productBase = variant === 'site' ? 'our-products.html' : 'products.html';
   const estimatePage = variant === 'site' ? 'get-estimate.html' : 'estimate.html';
   const aboutPage = variant === 'site' ? 'about-us.html' : 'about.html';
+  const currentBrand = resolveCurrentBrand(pageKey);
+  const hasGoldTrim = currentBrand === 'interiors';
 
   return (
-    <div className="container">
-      <div className="footer-inner">
-        <div className="footer-brand">
-          <div className="f-logo">Jan Furnishings</div>
-          <p>{FOOTER_COPY}</p>
-
-          <div className="footer-social">
-            <SocialLink href={SOCIAL_LINKS.facebook} label="Facebook" />
-            <SocialLink href={SOCIAL_LINKS.instagram} label="Instagram" />
-            <SocialLink href={SOCIAL_LINKS.whatsapp} label="WhatsApp" className="social-btn social-btn-whatsapp" />
-          </div>
+    <>
+      <div className={classNames('footer-brands-family', hasGoldTrim && 'footer-brands-family-gold')}>
+        <div className="footer-brands-header">
+          <div className="footer-brands-label">Part of the Jan Group</div>
+          <div className="footer-brands-sub">Three specialised brands. One standard of excellence.</div>
         </div>
-
-        <div className="footer-col">
-          <h4>Products</h4>
-          <ul>
-            <FooterLink href={`${productBase}#curtains`} label="Curtains & Drapes" />
-            <FooterLink href={`${productBase}#blinds`} label="Blinds & Shades" />
-            <FooterLink href={`${productBase}#motorized`} label="Motorized" />
-            <FooterLink href={productBase} label="All Products" />
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <FooterLink href="index.html" label="Home" />
-            <FooterLink href={productBase} label="Our Products" />
-            <FooterLink href="interiors.html" label="Interiors" />
-            <FooterLink href="packages.html" label="Packages" />
-            <FooterLink href={estimatePage} label="Get Estimate" />
-            <FooterLink href={aboutPage} label="About Us" />
-            <FooterLink href="help.html" label="Help & FAQs" />
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>Contact</h4>
-          <div className="footer-contact">
-            <p><a href={CONTACT.phoneHref} target="_blank" rel="noopener noreferrer">{CONTACT.phoneLabel}</a></p>
-            <p><a href={CONTACT.emailHref}>{CONTACT.emailLabel}</a></p>
-            <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.address}</p>
-            <p style={{ marginTop: '8px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.companyNote}</p>
-          </div>
+        <div className="footer-brands-grid">
+          {BRAND_FAMILY.map((brand) => {
+            const isCurrent = currentBrand === brand.key;
+            return (
+              <a
+                key={brand.key}
+                href={brand.href}
+                className={classNames('footer-brand-card', isCurrent && 'current-brand')}
+                {...(brand.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {isCurrent ? <div className="footer-brand-current-badge">You are here</div> : null}
+                <div className="footer-brand-icon">
+                  <BrandIcon brandKey={brand.key} />
+                </div>
+                <div className="footer-brand-name">{brand.name}</div>
+                <div className="footer-brand-desc">{brand.description}</div>
+                <div className="footer-brand-link">
+                  Visit site
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <span>© {year} Jan Furnishings. All rights reserved.</span>
-        <div style={{ display: 'flex', gap: '24px' }}>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-use.html">Terms of Use</a>
+      <div className="container">
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <div className="f-logo">{hasGoldTrim ? 'Jan Interiors' : 'Jan Furnishings'}</div>
+            <p>{FOOTER_COPY}</p>
+
+            <div className="footer-social">
+              <SocialLink href={SOCIAL_LINKS.facebook} label="Facebook" />
+              <SocialLink href={SOCIAL_LINKS.instagram} label="Instagram" />
+              <SocialLink href={SOCIAL_LINKS.whatsapp} label="WhatsApp" className="social-btn social-btn-whatsapp" />
+            </div>
+          </div>
+
+          <div className="footer-col">
+            <h4>Products</h4>
+            <ul>
+              <FooterLink href={`${productBase}#curtains`} label="Curtains & Drapes" />
+              <FooterLink href={`${productBase}#blinds`} label="Blinds & Shades" />
+              <FooterLink href={`${productBase}#motorized`} label="Motorized" />
+              <FooterLink href={productBase} label="All Products" />
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <FooterLink href="index.html" label="Home" />
+              <FooterLink href={productBase} label="Our Products" />
+              <FooterLink href="interiors.html" label="Interiors" />
+              <FooterLink href="packages.html" label="Packages" />
+              <FooterLink href={estimatePage} label="Get Estimate" />
+              <FooterLink href={aboutPage} label="About Us" />
+              <FooterLink href="help.html" label="Help & FAQs" />
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Contact</h4>
+            <div className="footer-contact">
+              <p><a href={CONTACT.phoneHref} target="_blank" rel="noopener noreferrer">{CONTACT.phoneLabel}</a></p>
+              <p><a href={CONTACT.emailHref}>{CONTACT.emailLabel}</a></p>
+              <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.address}</p>
+              <p style={{ marginTop: '8px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.companyNote}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <span>© {year} Jan Furnishings. All rights reserved.</span>
+          <div style={{ display: 'flex', gap: '24px' }}>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

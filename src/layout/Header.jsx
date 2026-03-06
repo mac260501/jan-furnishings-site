@@ -5,10 +5,85 @@ import {
   WHATSAPP_BASE_URL
 } from './constants.js';
 
-const GOLD_TRIM_PAGES = new Set(['interiors', 'packages']);
+const GOLD_TRIM_PAGES = new Set(['interiors']);
+const INTERIORS_BRAND_PAGES = new Set(['interiors']);
+const GROUP_BRANDS = [
+  {
+    key: 'furnishings',
+    name: 'Jan Furnishings',
+    href: 'index.html',
+    description: 'Custom curtains, blinds and window treatments across Dubai only.'
+  },
+  {
+    key: 'interiors',
+    name: 'Jan Interiors',
+    href: '/interiors/',
+    description: 'Wall panels, wallpapers, painting, renovation and curated package solutions.'
+  },
+  {
+    key: 'construction',
+    name: 'Al Hadeeqa Construction',
+    href: 'https://alhadeeqacontracting.com',
+    description: 'Premium construction and bespoke contracting for high-end residential projects.',
+    external: true
+  }
+];
 
 function classNames(...values) {
   return values.filter(Boolean).join(' ');
+}
+
+function isInteriorsBrandPage(pageKey) {
+  return INTERIORS_BRAND_PAGES.has(pageKey);
+}
+
+function resolveCurrentBrand(pageKey) {
+  return isInteriorsBrandPage(pageKey) ? 'interiors' : 'furnishings';
+}
+
+function resolveBrandLogo(pageKey) {
+  if (isInteriorsBrandPage(pageKey)) {
+    return { label: 'Jan Interiors', href: '/interiors/' };
+  }
+
+  return { label: 'Jan Furnishings', href: 'index.html' };
+}
+
+function BrandIcon({ brandKey, size = 18 }) {
+  if (brandKey === 'furnishings') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    );
+  }
+
+  if (brandKey === 'interiors') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+        <rect x="2" y="3" width="20" height="18" rx="1"></rect>
+        <path d="M2 9h20M9 9v12"></path>
+      </svg>
+    );
+  }
+
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <polygon points="12 2 2 7 2 17 12 22 22 17 22 7"></polygon>
+      <line x1="12" y1="2" x2="12" y2="22"></line>
+      <line x1="2" y1="7" x2="22" y2="7"></line>
+      <line x1="2" y1="17" x2="22" y2="17"></line>
+    </svg>
+  );
+}
+
+function ArrowIcon({ size = 14 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 14 14" fill="none">
+      <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
+    </svg>
+  );
 }
 
 function fallbackToggleMenu(forceOpen) {
@@ -99,6 +174,8 @@ export function SiteHeader({ pageKey }) {
 export function LuxuryHeader({ pageKey }) {
   const cta = resolveLuxuryCta(pageKey);
   const hasGoldTrim = GOLD_TRIM_PAGES.has(pageKey);
+  const currentBrand = resolveCurrentBrand(pageKey);
+  const logo = resolveBrandLogo(pageKey);
 
   const onHamburgerClick = (event) => {
     event.preventDefault();
@@ -113,8 +190,25 @@ export function LuxuryHeader({ pageKey }) {
 
   return (
     <>
+      <div id="brandBar" className={classNames('brand-bar', hasGoldTrim && 'brand-bar-gold')}>
+        <span className="brand-bar-left">Part of the Jan Group</span>
+        <div className="brand-bar-links">
+          {GROUP_BRANDS.map((brand) => (
+            <a
+              key={brand.key}
+              href={brand.href}
+              className={classNames('brand-pill', currentBrand === brand.key && 'brand-pill-active')}
+              {...(brand.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {currentBrand === brand.key ? <span className="brand-pill-dot"></span> : null}
+              {brand.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
       <nav id="nav" className={classNames(hasGoldTrim && 'nav-gold-trim')}>
-        <a href="index.html" className="nav-logo">Jan Furnishings</a>
+        <a href={logo.href} className="nav-logo">{logo.label}</a>
 
         <ul className="nav-links">
           {LUXURY_NAV_LINKS.map((link) => (
@@ -124,6 +218,55 @@ export function LuxuryHeader({ pageKey }) {
               </a>
             </li>
           ))}
+
+          <li className="nav-brands-trigger" id="brandsTrigger">
+            <button
+              type="button"
+              id="brandsToggle"
+              className="nav-brands-button"
+              aria-expanded="false"
+              aria-controls="brandsMega"
+            >
+              <span>Our Brands</span>
+              <span className="brands-chevron">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                  <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+              </span>
+            </button>
+
+            <div className="brands-mega" id="brandsMega">
+              <div className="brands-mega-header">Part of the Jan Group</div>
+              <div className="brands-mega-cards">
+                {GROUP_BRANDS.map((brand) => {
+                  const isCurrent = currentBrand === brand.key;
+                  return (
+                    <a
+                      key={brand.key}
+                      href={brand.href}
+                      className="brand-card"
+                      {...(brand.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
+                      <div className="brand-card-icon">
+                        <BrandIcon brandKey={brand.key} />
+                      </div>
+                      <div className="brand-card-info">
+                        <div className="brand-card-name">{brand.name}</div>
+                        <div className="brand-card-desc">{brand.description}</div>
+                      </div>
+                      {isCurrent ? (
+                        <span className="brand-card-current">Current</span>
+                      ) : (
+                        <div className="brand-card-arrow">
+                          <ArrowIcon />
+                        </div>
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
         </ul>
 
         <a href={cta.href} className={classNames('nav-cta', pageKey === 'booking' && 'active')}>
@@ -159,6 +302,28 @@ export function LuxuryHeader({ pageKey }) {
         <a href={cta.href} className="mob-cta" onClick={() => triggerToggleMenu(false)}>
           {cta.label}
         </a>
+
+        <div className="mobile-brands-section">
+          <div className="mobile-brands-label">Part of the Jan Group</div>
+          {GROUP_BRANDS.map((brand) => {
+            const isCurrent = currentBrand === brand.key;
+            return (
+              <a
+                key={brand.key}
+                href={brand.href}
+                className="mobile-brand-link"
+                {...(brand.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                onClick={() => triggerToggleMenu(false)}
+              >
+                <span className="mob-brand-icon">
+                  <BrandIcon brandKey={brand.key} size={16} />
+                </span>
+                {brand.name}
+                {isCurrent ? <span className="mobile-brand-badge">Current</span> : null}
+              </a>
+            );
+          })}
+        </div>
       </div>
     </>
   );

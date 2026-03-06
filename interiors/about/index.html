@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Jan Interiors Dubai</title>
+  <meta name="description" content="The story behind Jan Interiors — a specialist interior design division born from 10+ years of home transformation in Dubai. Wall panels, wallpaper, painting and full renovation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="/interiors/brand-bar.js" defer></script>
+  <style>
+    :root {
+      --ink:         #141412;
+      --ink-2:       #1e1e1b;
+      --ink-3:       #272723;
+      --stone-light: #f2ede6;
+      --stone-mid:   #e0d8cc;
+      --gold:        #C9A96E;
+      --gold-light:  #E8D5B0;
+      --gold-border: rgba(201,169,110,0.22);
+      --text:        #EDE9E3;
+      --text-muted:  #8A857D;
+      --white:       #fff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--ink); color: var(--text); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    em { font-style: italic; }
+
+    /* ── NAV ── */
+    .site-nav { position: fixed; top: 34px; left: 0; right: 0; z-index: 100; height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(20,20,18,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(201,169,110,0.12); }
+    .nav-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); line-height: 1; }
+    .nav-brand-sub { font-size: 8px; letter-spacing: .22em; text-transform: uppercase; color: rgba(201,169,110,0.45); margin-top: 3px; }
+    .nav-links { list-style: none; display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(237,233,227,0.65); transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold-border); color: var(--gold); padding: 10px 24px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-family: 'Jost', sans-serif; cursor: pointer; transition: background .2s, color .2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--ink); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .nav-hamburger span { width: 22px; height: 1px; background: var(--text); display: block; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--ink-2); padding: 120px 40px 56px; flex-direction: column; gap: 0; overflow-y: auto; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: var(--text); border-bottom: 1px solid rgba(201,169,110,0.08); padding: 18px 0; transition: color .2s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mob-cta-link { margin-top: 24px; display: inline-flex !important; width: fit-content; border: 1px solid var(--gold-border) !important; color: var(--gold) !important; padding: 14px 32px; font-family: 'Jost', sans-serif !important; font-size: 11px !important; letter-spacing: .16em; text-transform: uppercase; }
+    .offset { height: calc(34px + 68px); }
+
+    /* ── HERO — full bleed split ── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+    .hero-left {
+      background: var(--ink-2);
+      padding: 100px 64px 80px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      position: relative;
+    }
+    /* Thin vertical gold rule on right edge */
+    .hero-left::after {
+      content: '';
+      position: absolute; top: 120px; bottom: 80px; right: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
+    }
+    .hero-chapter {
+      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); opacity: .7;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-chapter::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .6; }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 5.5vw, 88px);
+      font-weight: 300; line-height: .93;
+      color: var(--white); margin-bottom: 32px;
+    }
+    .hero-h1 em { color: var(--gold-light); }
+    .hero-rule { width: 44px; height: 1px; background: var(--gold); opacity: .4; margin-bottom: 28px; }
+    .hero-sub {
+      font-size: 15px; line-height: 1.9;
+      color: rgba(237,233,227,0.55);
+      max-width: 400px; margin-bottom: 52px; font-weight: 300;
+    }
+    /* Founded tag */
+    .hero-founded {
+      display: flex; align-items: center; gap: 24px;
+      padding: 24px 0; border-top: 1px solid rgba(201,169,110,0.1);
+      margin-bottom: 36px;
+    }
+    .founded-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .founded-meta { display: flex; flex-direction: column; gap: 4px; }
+    .founded-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--text-muted); }
+    .founded-value { font-size: 13px; color: rgba(237,233,227,0.65); }
+    /* Pull quote */
+    .hero-quote {
+      border-left: 2px solid var(--gold);
+      padding: 0 0 0 20px;
+      margin-top: 8px;
+    }
+    .hero-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 300; font-style: italic;
+      color: rgba(237,233,227,0.65); line-height: 1.6; margin-bottom: 10px;
+    }
+    .hero-quote-attr {
+      font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(201,169,110,0.5);
+    }
+
+    /* Right — image */
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.04);
+      animation: heroZoom 14s ease-out forwards;
+    }
+    @keyframes heroZoom { to { transform: scale(1.0); } }
+    .hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(30,30,27,0.3) 0%, transparent 60%);
+    }
+    /* Floating stat badge */
+    .hero-float {
+      position: absolute; bottom: 48px; right: 36px;
+      background: rgba(20,20,18,0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,169,110,0.2);
+      padding: 20px 24px; min-width: 180px;
+    }
+    .hero-float-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .hero-float-label {
+      font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 6px;
+    }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      background: #0d0d0b;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+    }
+    .stat-cell {
+      padding: 44px 40px;
+      border-right: 1px solid rgba(201,169,110,0.07);
+      transition: background .25s;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { background: rgba(201,169,110,0.03); }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 8px;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section-eyebrow {
+      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); opacity: .6; }
+    .section-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 60px); font-weight: 300;
+      color: var(--white); line-height: 1.05;
+    }
+    .section-h2 em { color: var(--gold-light); }
+
+    /* ── STORY CHAPTERS ── */
+    .story-section { padding: 120px 64px; background: var(--ink-2); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      margin-top: 72px;
+    }
+    /* Chapter TOC on left */
+    .story-toc {
+      display: flex; flex-direction: column; gap: 0;
+      position: sticky; top: calc(34px + 68px + 40px);
+      align-self: start;
+    }
+    .toc-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+      display: flex; align-items: flex-start; gap: 16px;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .toc-item:hover { opacity: .75; }
+    .toc-num {
+      font-size: 9px; letter-spacing: .16em;
+      color: rgba(201,169,110,0.4); flex-shrink: 0; padding-top: 3px;
+    }
+    .toc-title { font-size: 12px; letter-spacing: .06em; color: rgba(237,233,227,0.5); line-height: 1.5; }
+    .toc-title.active { color: var(--gold); }
+
+    /* Chapter content */
+    .story-chapters { display: flex; flex-direction: column; gap: 80px; }
+    .chapter { padding-bottom: 80px; border-bottom: 1px solid rgba(201,169,110,0.07); }
+    .chapter:last-child { border-bottom: none; padding-bottom: 0; }
+    .chapter-num {
+      font-size: 9px; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); opacity: .6;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .chapter-num::before { content: ''; width: 20px; height: 1px; background: var(--gold); opacity: .6; }
+    .chapter-h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 48px); font-weight: 300;
+      color: var(--white); line-height: 1.05; margin-bottom: 24px;
+    }
+    .chapter-h3 em { color: var(--gold-light); }
+    .chapter-body {
+      font-size: 15px; line-height: 1.95;
+      color: rgba(237,233,227,0.58); font-weight: 300;
+      max-width: 620px;
+    }
+    .chapter-body p + p { margin-top: 20px; }
+    /* Inline pull quote inside chapters */
+    .chapter-pullquote {
+      border-left: 2px solid var(--gold);
+      padding: 16px 0 16px 24px;
+      margin: 32px 0;
+    }
+    .chapter-pullquote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 300; font-style: italic;
+      color: rgba(237,233,227,0.75); line-height: 1.5;
+    }
+
+    /* ── VALUES ── */
+    .values-section { background: var(--stone-light); padding: 120px 64px; }
+    .values-section .section-eyebrow { color: var(--ink); }
+    .values-section .section-eyebrow::before { background: var(--ink); opacity: .3; }
+    .values-section .section-h2 { color: var(--ink); }
+    .values-section .section-h2 em { color: #8B6832; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 64px; background: var(--stone-mid);
+    }
+    .value-card {
+      background: var(--stone-light); padding: 52px 40px;
+      transition: background .25s; position: relative; overflow: hidden;
+    }
+    .value-card:hover { background: #ede8e0; }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, #C9A96E, transparent);
+      opacity: 0; transition: opacity .4s;
+    }
+    .value-card:hover::before { opacity: 1; }
+    .value-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px; font-weight: 300;
+      color: rgba(139,104,50,0.15); line-height: 1; margin-bottom: 20px;
+    }
+    .value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400; color: var(--ink); margin-bottom: 14px;
+    }
+    .value-desc { font-size: 13px; line-height: 1.85; color: rgba(30,20,10,0.55); }
+
+    /* ── APPROACH ── */
+    .approach-section {
+      background: var(--ink-3); padding: 120px 64px;
+    }
+    .approach-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-top: 64px; background: rgba(201,169,110,0.07);
+    }
+    .approach-card {
+      background: var(--ink-3); padding: 52px 44px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: background .25s;
+    }
+    .approach-card:hover { background: var(--ink-2); }
+    .approach-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+    }
+    .approach-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400; color: var(--white);
+    }
+    .approach-desc { font-size: 13px; line-height: 1.85; color: var(--text-muted); }
+
+    /* ── JAN GROUP CONNECTION ── */
+    .group-section {
+      background: var(--ink-2); padding: 120px 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .group-left { }
+    .group-right {
+      display: flex; flex-direction: column; gap: 2px;
+      background: rgba(201,169,110,0.07);
+    }
+    .group-brand-card {
+      background: var(--ink-2); padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative; transition: background .25s;
+    }
+    .group-brand-card:hover { background: var(--ink-3); }
+    .group-brand-card.current { background: rgba(201,169,110,0.05); border-left: 2px solid var(--gold); }
+    .gbc-badge {
+      position: absolute; top: 14px; right: 16px;
+      font-size: 7px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold-border); padding: 3px 8px;
+    }
+    .gbc-icon {
+      width: 32px; height: 32px; border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center; color: var(--gold);
+    }
+    .gbc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; color: var(--white);
+    }
+    .gbc-desc { font-size: 12px; line-height: 1.65; color: var(--text-muted); }
+    .gbc-link {
+      font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(201,169,110,0.4); display: flex; align-items: center; gap: 6px;
+      transition: color .2s;
+    }
+    .group-brand-card:hover .gbc-link { color: var(--gold); }
+    .group-text { font-size: 15px; line-height: 1.9; color: rgba(237,233,227,0.55); font-weight: 300; }
+    .group-text p + p { margin-top: 20px; }
+    .group-detail-row {
+      display: flex; flex-direction: column; gap: 14px; margin-top: 36px;
+      padding-top: 36px; border-top: 1px solid rgba(201,169,110,0.1);
+    }
+    .group-detail {
+      display: flex; gap: 20px; font-size: 12px;
+    }
+    .gd-label {
+      font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-muted); width: 120px; flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .gd-value { color: rgba(237,233,227,0.65); line-height: 1.6; }
+
+    /* ── CTA BAND ── */
+    .cta-band { position: relative; overflow: hidden; padding: 140px 64px; }
+    .cta-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=80');
+      background-size: cover; background-position: center;
+    }
+    .cta-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(14,14,12,0.97) 0%, rgba(14,14,12,0.80) 55%, rgba(14,14,12,0.55) 100%);
+    }
+    .cta-content { position: relative; z-index: 2; max-width: 600px; }
+    .cta-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 84px); font-weight: 300;
+      color: var(--white); line-height: .93; margin-bottom: 28px;
+    }
+    .cta-h2 em { color: var(--gold-light); }
+    .cta-sub {
+      font-size: 15px; line-height: 1.85; color: rgba(237,233,227,0.55);
+      margin-bottom: 48px; font-weight: 300; max-width: 460px;
+    }
+    .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--ink); padding: 16px 36px;
+      font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      font-family: 'Jost', sans-serif; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid rgba(201,169,110,0.3); color: rgba(201,169,110,0.75);
+      padding: 15px 36px; font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; font-family: 'Jost', sans-serif;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER BRANDS ── */
+    .footer-brands { background: #0d0d0b; padding: 72px 64px 0; border-top: 1px solid rgba(201,169,110,0.08); }
+    .footer-brands-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+    .footer-brands-heading { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--white); }
+    .footer-brands-heading em { color: var(--gold-light); }
+    .footer-brands-sub { font-size: 11px; color: rgba(237,233,227,0.3); }
+    .footer-brands-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,110,0.07); }
+    .fb-card { background: #0d0d0b; padding: 26px 22px; display: flex; flex-direction: column; gap: 8px; position: relative; transition: background .25s; }
+    .fb-card:hover { background: #131310; }
+    .fb-card.current { background: rgba(201,169,110,0.05); }
+    .fb-you-are-here { position: absolute; top: 12px; right: 14px; font-size: 7px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-border); padding: 3px 8px; }
+    .fb-icon { width: 30px; height: 30px; border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; color: var(--gold); }
+    .fb-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--white); }
+    .fb-desc { font-size: 11px; line-height: 1.6; color: rgba(237,233,227,0.3); flex: 1; }
+    .fb-link { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(201,169,110,0.4); transition: color .2s; }
+    .fb-card:hover .fb-link { color: var(--gold); }
+    .site-footer { background: #0d0d0b; padding: 34px 64px; border-top: 1px solid rgba(201,169,110,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); }
+    .footer-logo span { font-size: 10px; color: rgba(201,169,110,0.4); display: block; letter-spacing: .18em; text-transform: uppercase; margin-top: 2px; }
+    .footer-links { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(237,233,227,0.28); transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 10px; color: rgba(237,233,227,0.18); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .1s; }
+    .reveal-d2 { transition-delay: .2s; }
+    .reveal-d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-toc { display: none; }
+      .group-section { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .about-hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 72px 32px 64px; }
+      .hero-left::after { display: none; }
+      .hero-right { min-height: 55vw; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+      .story-section, .values-section, .approach-section, .group-section, .cta-band, .footer-brands, .site-footer { padding-left: 32px; padding-right: 32px; }
+      .site-nav { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero-left { padding: 52px 24px 52px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-float { display: none; }
+      .story-section, .values-section, .approach-section, .group-section, .cta-band, .footer-brands, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .footer-brands-grid { grid-template-columns: 1fr; }
+      .site-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div>
+      <div class="nav-brand-name">Jan Interiors</div>
+      <div class="nav-brand-sub">by Jan Furnishings</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/interiors/">Home</a></li>
+      <li><a href="/interiors/services/">Services</a></li>
+      <li><a href="/interiors/portfolio/">Portfolio</a></li>
+      <li><a href="/interiors/packages/">Packages</a></li>
+      <li><a href="/interiors/about/" class="active">About</a></li>
+    </ul>
+    <a href="/interiors/book/" class="nav-cta">Book a Consultation</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/interiors/">Home</a>
+    <a href="/interiors/services/">Services</a>
+    <a href="/interiors/portfolio/">Portfolio</a>
+    <a href="/interiors/packages/">Packages</a>
+    <a href="/interiors/about/">About</a>
+    <a href="/interiors/book/" class="mob-cta-link">Book a Consultation</a>
+  </div>
+
+  <div class="offset"></div>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="about-hero">
+    <div class="hero-left">
+      <div class="hero-chapter">Our Story</div>
+      <h1 class="hero-h1">
+        Built for spaces<br />
+        that deserve to be<br />
+        <em>truly considered.</em>
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Jan Interiors was created because the gap between a beautiful idea and a beautifully executed space is where most design projects fall apart. We exist to close that gap.</p>
+      <div class="hero-founded">
+        <div class="founded-year">2021</div>
+        <div class="founded-meta">
+          <div class="founded-label">Founded</div>
+          <div class="founded-value">Dubai, UAE</div>
+          <div class="founded-label" style="margin-top:8px">Part of</div>
+          <div class="founded-value">Al Hadeeqa Contracting Co LLC</div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <div class="hero-quote-text">"A beautiful room isn't the result of expensive materials. It's the result of considered choices, executed without compromise."</div>
+        <div class="hero-quote-attr">— The thinking behind Jan Interiors</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1400&q=80" alt="Jan Interiors bespoke wall panels Dubai" />
+      <div class="hero-right-overlay"></div>
+      <div class="hero-float">
+        <div class="hero-float-num">500+</div>
+        <div class="hero-float-label">Rooms Transformed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS ROW -->
+  <div class="stats-row">
+    <div class="stat-cell reveal">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years in Dubai</div>
+    </div>
+    <div class="stat-cell reveal reveal-d1">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Rooms Transformed</div>
+    </div>
+    <div class="stat-cell reveal reveal-d2">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-cell reveal reveal-d3">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Quote Turnaround</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       STORY CHAPTERS
+  ══════════════════════════════════════ -->
+  <section class="story-section">
+    <div class="section-eyebrow reveal">The Story</div>
+    <h2 class="section-h2 reveal">How Jan Interiors<br /><em>Came to Be</em></h2>
+
+    <div class="story-grid">
+      <!-- Table of contents (sticky, desktop only) -->
+      <div class="story-toc">
+        <div class="toc-item" onclick="scrollToChapter('ch1')">
+          <span class="toc-num">01</span>
+          <span class="toc-title active" id="toc-1">It started with Jan Furnishings</span>
+        </div>
+        <div class="toc-item" onclick="scrollToChapter('ch2')">
+          <span class="toc-num">02</span>
+          <span class="toc-title" id="toc-2">A recurring problem</span>
+        </div>
+        <div class="toc-item" onclick="scrollToChapter('ch3')">
+          <span class="toc-num">03</span>
+          <span class="toc-title" id="toc-3">The specialist decision</span>
+        </div>
+        <div class="toc-item" onclick="scrollToChapter('ch4')">
+          <span class="toc-num">04</span>
+          <span class="toc-title" id="toc-4">What we stand for today</span>
+        </div>
+      </div>
+
+      <!-- Chapters -->
+      <div class="story-chapters">
+
+        <div class="chapter reveal" id="ch1">
+          <div class="chapter-num">Chapter 01</div>
+          <h3 class="chapter-h3">It started with<br /><em>Jan Furnishings.</em></h3>
+          <div class="chapter-body">
+            <p>Al Hadeeqa Contracting was founded in 2021 with a clear purpose: make it easier for people in Dubai to get their homes done properly. From that foundation, Jan Furnishings grew — bringing the same values of transparency, reliability and genuine craftsmanship specifically to curtains and blinds.</p>
+            <p>Over the following years, Jan Furnishings earned its reputation by doing exactly what it promised. Same-week turnarounds. Honest pricing. Installers who showed up when they said they would. The kind of service Dubai homeowners had come to expect from every other professional — but rarely found when it came to window treatments.</p>
+          </div>
+          <div class="chapter-pullquote">
+            <div class="chapter-pullquote-text">"Every visit told us the same thing: the walls mattered just as much as the windows."</div>
+          </div>
+          <div class="chapter-body">
+            <p>But as the team spent more time inside clients' homes, something became clear. The curtains could be perfect. The blinds could be impeccable. And still, the room didn't feel finished — because the walls hadn't been touched in years, or the paint was the wrong tone, or the space lacked the texture and depth that separates a house from a home.</p>
+          </div>
+        </div>
+
+        <div class="chapter reveal" id="ch2">
+          <div class="chapter-num">Chapter 02</div>
+          <h3 class="chapter-h3">A recurring<br /><em>problem.</em></h3>
+          <div class="chapter-body">
+            <p>Dubai has no shortage of interior design firms. It also has no shortage of contractors who'll turn up, paint a wall, and leave before the client has noticed what's wrong. The problem isn't finding someone to do the work. It's finding someone who takes the work seriously enough to do it right.</p>
+            <p>Time and again, the team saw the same pattern. A client would commission a beautiful set of curtains — then struggle for months to find a panel installer who matched the quality. Or they'd have a vision for a feature wall and end up with something close but not right. The vision existed. The execution fell short. The gap between the two was where the frustration lived.</p>
+          </div>
+          <div class="chapter-pullquote">
+            <div class="chapter-pullquote-text">"We kept being asked: 'Do you know anyone good for the walls?' We realised the answer should be us."</div>
+          </div>
+          <div class="chapter-body">
+            <p>Interiors work — real interiors work — requires a specific kind of attention. You can't rush a Venetian plaster finish. A wallpaper seam either disappears or it doesn't. A fluted panel installation is precise to the millimetre or it shows. This isn't a market where good enough is acceptable. It's a market where the best practitioners are quietly in demand and hard to find.</p>
+          </div>
+        </div>
+
+        <div class="chapter reveal" id="ch3">
+          <div class="chapter-num">Chapter 03</div>
+          <h3 class="chapter-h3">The specialist<br /><em>decision.</em></h3>
+          <div class="chapter-body">
+            <p>The decision to launch Jan Interiors as a distinct brand wasn't about expansion for its own sake. It was about being honest with clients and with ourselves. Curtains and interiors require different expertise, different materials, different teams, different timelines. Doing both under one roof is only worth doing if both are done to the same level of excellence.</p>
+            <p>So we built Jan Interiors properly. A dedicated design team. Craftspeople trained specifically in wall panels, decorative plaster, professional wallpaper installation and premium painting. A process that mirrors what made Jan Furnishings work: in-home consultation first, physical samples brought to you, nothing approved without your sign-off, nothing started without a detailed written quote.</p>
+          </div>
+          <div class="chapter-pullquote">
+            <div class="chapter-pullquote-text">"If we were going to do interiors, we were going to do interiors. Not as a side offering — as a specialism."</div>
+          </div>
+          <div class="chapter-body">
+            <p>Jan Interiors isn't a rebrand. It isn't Jan Furnishings with a wallpaper catalogue added on. It is a specialist division — staffed differently, scoped differently, and held to the same uncompromising standard that built the group's reputation across more than 500 Dubai homes.</p>
+          </div>
+        </div>
+
+        <div class="chapter reveal" id="ch4">
+          <div class="chapter-num">Chapter 04</div>
+          <h3 class="chapter-h3">What we stand<br /><em>for today.</em></h3>
+          <div class="chapter-body">
+            <p>Jan Interiors handles wall panels, luxury wallpaper, premium painting and full villa renovation — all under one contract, with one team, and one project coordinator who answers when you call. We work across all Dubai areas, and our consultants come to you, not the other way around.</p>
+            <p>We believe the best interior work is invisible in the sense that it doesn't announce itself. It simply makes a room feel like it could never have been any other way. The fluted panels look like they grew from the architecture. The limewash finish has a depth that paint alone never achieves. The room is quiet, considered and complete.</p>
+          </div>
+          <div class="chapter-pullquote">
+            <div class="chapter-pullquote-text">"We don't just want the room to look finished. We want it to feel inevitable."</div>
+          </div>
+          <div class="chapter-body">
+            <p>That's what we're building toward with every project. Not just a satisfied client — though that matters deeply — but a space that exceeds what the client imagined was possible when they first reached out.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VALUES
+  ══════════════════════════════════════ -->
+  <section class="values-section">
+    <div class="section-eyebrow reveal">What We Stand For</div>
+    <h2 class="section-h2 reveal" style="color:var(--ink)">Three Things We<br /><em style="color:#8B6832">Never Compromise On</em></h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">01</div>
+        <div class="value-title">Craft</div>
+        <div class="value-desc">Every finish we apply is one our team has been trained to execute properly. We don't cut corners on surface preparation. We don't rush wallpaper seams. We don't let a panel installation leave until the lines are straight. The craft either meets our standard or we do it again.</div>
+      </div>
+      <div class="value-card reveal reveal-d1">
+        <div class="value-num">02</div>
+        <div class="value-title">Transparency</div>
+        <div class="value-desc">Clear pricing. Itemised quotes. No vague estimates that expand after you've agreed. You'll see exactly what you're paying for before any work begins — materials, labour, timeline. And if something changes, we tell you immediately. No surprises at invoice.</div>
+      </div>
+      <div class="value-card reveal reveal-d2">
+        <div class="value-num">03</div>
+        <div class="value-title">Reliability</div>
+        <div class="value-desc">We commit to a date. We arrive on it. We complete the work on time, or we call you in advance. In a market where contractors routinely disappear between quote and installation, reliability is the simplest thing we can offer — and the rarest. We protect it fiercely.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       HOW WE WORK
+  ══════════════════════════════════════ -->
+  <section class="approach-section">
+    <div class="section-eyebrow reveal">How We Work</div>
+    <h2 class="section-h2 reveal">The Approach That<br /><em>Defines Every Project</em></h2>
+    <div class="approach-grid">
+      <div class="approach-card reveal">
+        <div class="approach-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="approach-title">We Come to You</div>
+        <div class="approach-desc">Every project starts with a free in-home consultation. We don't ask you to come to a showroom. We come to your space — because your space is where the decisions need to be made. Lighting, dimensions, existing finishes: these only make sense in context.</div>
+      </div>
+      <div class="approach-card reveal reveal-d1">
+        <div class="approach-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>
+        </div>
+        <div class="approach-title">You Approve Everything</div>
+        <div class="approach-desc">No work begins without your written approval of the quote, the materials and the design direction. We prepare mood boards, bring physical samples and, for larger projects, produce 3D renders. What gets installed is exactly what you agreed to — no improvised decisions on site.</div>
+      </div>
+      <div class="approach-card reveal">
+        <div class="approach-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="approach-title">One Team, One Contract</div>
+        <div class="approach-desc">We don't subcontract the parts that matter. The same team who consults with you coordinates the installation. For larger renovation projects, a dedicated project manager is your single point of contact from first visit through to handover. No broken telephone. No accountability gaps.</div>
+      </div>
+      <div class="approach-card reveal reveal-d1">
+        <div class="approach-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="approach-title">Warranted Work</div>
+        <div class="approach-desc">Every project carries a warranty — 2 years on Canvas-level work, 3 years on Transformation, and 5 years on Masterwork renovation projects. If something isn't right, we return and make it right. No charge. No argument. This isn't a marketing promise; it's written into every quote we issue.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       JAN GROUP CONNECTION
+  ══════════════════════════════════════ -->
+  <section class="group-section">
+    <div class="group-left reveal">
+      <div class="section-eyebrow">Part of the Jan Group</div>
+      <h2 class="section-h2">Three Brands.<br /><em>One Standard.</em></h2>
+      <div class="group-text" style="margin-top:28px">
+        <p>Jan Interiors is a specialist division of Al Hadeeqa Contracting Co LLC — the same company behind Jan Furnishings, one of Dubai's most trusted names in custom curtains and blinds.</p>
+        <p>The Jan Group exists because a home is more than any single element. Windows, walls, structure — they work together. When the same trusted team handles more of a home, the result is more coherent, more considered, and far less stressful to coordinate.</p>
+        <p>Each brand in the group is a genuine specialism — not a catch-all contractor trying to do everything. Jan Furnishings focuses entirely on window treatments. Jan Interiors focuses entirely on wall finishes and interior renovation. Jan Construction handles construction, pergolas, carports and structural contracting. Specialists working alongside specialists.</p>
+      </div>
+      <div class="group-detail-row">
+        <div class="group-detail">
+          <div class="gd-label">Registered As</div>
+          <div class="gd-value">Al Hadeeqa Contracting Co LLC</div>
+        </div>
+        <div class="group-detail">
+          <div class="gd-label">Founded</div>
+          <div class="gd-value">2021, Dubai UAE</div>
+        </div>
+        <div class="group-detail">
+          <div class="gd-label">Location</div>
+          <div class="gd-value">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</div>
+        </div>
+        <div class="group-detail">
+          <div class="gd-label">Service Area</div>
+          <div class="gd-value">All of Dubai — in-home consultations, same day available</div>
+        </div>
+        <div class="group-detail">
+          <div class="gd-label">Contact</div>
+          <div class="gd-value"><a href="tel:+971508806292" style="color:var(--gold)">+971 50 880 6292</a> · <a href="mailto:janfurniture.ae@gmail.com" style="color:var(--gold)">janfurniture.ae@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group-right reveal reveal-d1">
+      <a href="https://thejanfurniture.com" class="group-brand-card">
+        <div class="gbc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3h16M4 3v18M20 3v18M8 3v18M16 3v18"/></svg></div>
+        <div class="gbc-name">Jan Furnishings</div>
+        <div class="gbc-desc">Custom curtains, blinds and motorized window treatments — made to measure, installed same week.</div>
+        <div class="gbc-link">Visit site <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5h8M5 1l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <div class="group-brand-card current">
+        <div class="gbc-badge">You are here</div>
+        <div class="gbc-icon" style="border-color:var(--gold)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M2 9h20M9 9v12"/></svg></div>
+        <div class="gbc-name">Jan Interiors</div>
+        <div class="gbc-desc">Wall panels, luxury wallpaper, premium painting and full villa renovation across Dubai.</div>
+        <div class="gbc-link" style="color:rgba(201,169,110,0.25);cursor:default;">Currently viewing</div>
+      </div>
+      <a href="https://alhadeeqacontracting.com" target="_blank" rel="noopener" class="group-brand-card">
+        <div class="gbc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="2" y1="17" x2="22" y2="17"/></svg></div>
+        <div class="gbc-name">Jan Construction</div>
+        <div class="gbc-desc">Premium construction, luxury pergolas, supercar carports and bespoke contracting across the UAE.</div>
+        <div class="gbc-link">Visit site <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5h8M5 1l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA
+  ══════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="cta-bg"></div>
+    <div class="cta-bg-overlay"></div>
+    <div class="cta-content reveal">
+      <div class="section-eyebrow">Begin Your Project</div>
+      <h2 class="cta-h2">Let's Transform<br />Your <em>Home</em></h2>
+      <p class="cta-sub">A senior consultant will visit your home at no charge — bringing samples, assessing your space, and putting together a detailed proposal. No obligation, no pressure.</p>
+      <div class="cta-actions">
+        <a href="/interiors/book/" class="btn-primary">
+          Book a Free Consultation
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/971508806292" class="btn-ghost" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER BRANDS -->
+  <div class="footer-brands">
+    <div class="footer-brands-top">
+      <div class="footer-brands-heading">The Jan Group — <em>One standard of excellence</em></div>
+      <div class="footer-brands-sub">Three specialist brands. One accountable team.</div>
+    </div>
+    <div class="footer-brands-grid">
+      <a href="https://thejanfurniture.com" class="fb-card">
+        <div class="fb-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3h16M4 3v18M20 3v18M8 3v18M16 3v18"/></svg></div>
+        <div class="fb-name">Jan Furnishings</div>
+        <div class="fb-desc">Custom curtains, blinds and window treatments across Dubai, Abu Dhabi and Sharjah.</div>
+        <div class="fb-link">Visit site →</div>
+      </a>
+      <div class="fb-card current">
+        <div class="fb-you-are-here">You are here</div>
+        <div class="fb-icon" style="border-color:var(--gold)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M2 9h20M9 9v12"/></svg></div>
+        <div class="fb-name">Jan Interiors</div>
+        <div class="fb-desc">Wall panels, luxury wallpaper, premium painting and full villa renovation across the UAE.</div>
+        <div class="fb-link" style="color:rgba(201,169,110,0.25);cursor:default;">Currently viewing</div>
+      </div>
+      <a href="https://alhadeeqacontracting.com" target="_blank" rel="noopener" class="fb-card">
+        <div class="fb-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="2" y1="17" x2="22" y2="17"/></svg></div>
+        <div class="fb-name">Jan Construction</div>
+        <div class="fb-desc">Premium construction, luxury pergolas, supercar carports and bespoke contracting.</div>
+        <div class="fb-link">Visit site →</div>
+      </a>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-logo">Jan Interiors <span>by Jan Furnishings · Dubai, UAE</span></div>
+    <ul class="footer-links">
+      <li><a href="/interiors/services/">Services</a></li>
+      <li><a href="/interiors/portfolio/">Portfolio</a></li>
+      <li><a href="/interiors/packages/">Packages</a></li>
+      <li><a href="/interiors/about/">About</a></li>
+      <li><a href="https://wa.me/971508806292">WhatsApp</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Jan Interiors. All rights reserved.</span>
+  </footer>
+
+  <script>
+    // Nav hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Chapter TOC scroll
+    function scrollToChapter(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // TOC active state on scroll
+    const chapters = ['ch1','ch2','ch3','ch4'];
+    const tocItems = ['toc-1','toc-2','toc-3','toc-4'];
+    const chapterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = chapters.indexOf(e.target.id);
+          tocItems.forEach((t, i) => {
+            document.getElementById(t)?.classList.toggle('active', i === idx);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    chapters.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) chapterObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

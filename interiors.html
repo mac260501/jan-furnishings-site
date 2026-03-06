@@ -23,7 +23,7 @@
       --text: #F0EDE8;
       --text-muted: #9A9590;
       --white: #FFFFFF;
-      --nav-offset: 78px;
+      --nav-offset: 114px;
       --hero-strip-height: 48px;
     }
 
@@ -49,9 +49,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #1A1A1A;
-      border-bottom: 1px solid rgba(201,169,110,0.2);
-      transition: background 0.3s;
+      background: #252525;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.4s ease;
+    }
+    nav.scrolled {
+      background: #252525;
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .nav-logo {
@@ -65,7 +70,7 @@
       list-style: none;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 30px;
     }
 
     .nav-links a {
@@ -1112,7 +1117,7 @@
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-      :root { --nav-offset: 74px; }
+      :root { --nav-offset: 110px; }
       .hero { min-height: 680px; }
       .hero-content { padding: 20px 32px 56px; }
       .hero-scroll { right: 32px; }
@@ -1141,7 +1146,7 @@
 
     @media (max-width: 640px) {
       nav { padding: 20px 24px; }
-      :root { --nav-offset: 70px; }
+      :root { --nav-offset: 106px; }
       .hero { min-height: 620px; }
       .hero-content { padding: 18px 24px 48px; }
       .services-intro, .services, .wallpaper-showcase, .process, .gallery, .cta-band { padding-left: 24px; padding-right: 24px; }

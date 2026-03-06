@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jan Interiors — Bespoke Interior Design, Dubai</title>
+  <meta name="description" content="Jan Interiors — wall panels, luxury wallpaper, premium painting and full villa renovation across Dubai, Abu Dhabi and Sharjah." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── DESIGN TOKENS ─────────────────────────────────────────
+       Jan Interiors: Same charcoal/gold DNA as Jan Furnishings
+       but shifted — warmer stone tones, architectural spacing,
+       Jost (geometric) body font instead of DM Sans, and a
+       cool-white accent surface that JF never uses.
+    ─────────────────────────────────────────────────────────── */
+    :root {
+      --ink:          #141412;   /* deeper than JF charcoal */
+      --ink-2:        #1e1e1b;
+      --ink-3:        #272723;
+      --stone:        #2e2d28;   /* warm dark — JF has nothing like this */
+      --stone-light:  #f2ede6;   /* warm off-white surface — key differentiator */
+      --stone-mid:    #e0d8cc;
+      --gold:         #C9A96E;   /* same gold as JF — brand family tie */
+      --gold-light:   #E8D5B0;
+      --gold-dim:     rgba(201,169,110,0.1);
+      --gold-border:  rgba(201,169,110,0.22);
+      --text:         #EDE9E3;   /* warmer white than JF */
+      --text-muted:   #8A857D;
+      --white:        #FFFFFF;
+
+      /* Interiors-specific accent — cool slate, never used in JF */
+      --slate:        #4a5568;
+      --slate-light:  rgba(74,85,104,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--ink);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    em { font-style: italic; }
+
+    /* ── BRAND TOP BAR ───────────────────────────── */
+    .brand-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 34px;
+      background: #0d0d0b;
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    .brand-bar-label {
+      font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(237,233,227,0.3);
+    }
+    .brand-bar-links {
+      display: flex; align-items: stretch; height: 34px;
+    }
+    .bb-link {
+      display: flex; align-items: center; gap: 7px;
+      padding: 0 16px;
+      font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(237,233,227,0.4);
+      border-left: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .bb-link:hover { color: rgba(237,233,227,0.85); }
+    .bb-link.active {
+      color: var(--gold);
+      background: rgba(201,169,110,0.06);
+    }
+    .bb-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+    /* ── MAIN NAV ────────────────────────────────── */
+    .site-nav {
+      position: fixed; top: 34px; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(20,20,18,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,169,110,0.12);
+      transition: background 0.3s;
+    }
+    .nav-brand {
+      display: flex; flex-direction: column;
+    }
+    .nav-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; letter-spacing: 0.04em;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .nav-brand-sub {
+      font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(201,169,110,0.45); margin-top: 3px;
+    }
+    .nav-links {
+      list-style: none; display: flex; align-items: center; gap: 36px;
+    }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(237,233,227,0.65); transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      padding: 10px 24px;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--ink); }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+    }
+    .nav-hamburger span { width: 22px; height: 1px; background: var(--text); display: block; }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: var(--ink-2);
+      padding: 120px 40px 56px;
+      flex-direction: column; gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px; font-weight: 300;
+      color: var(--text); border-bottom: 1px solid rgba(201,169,110,0.08);
+      padding: 18px 0; transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mob-cta-link {
+      margin-top: 24px;
+      display: inline-flex; width: fit-content;
+      border: 1px solid var(--gold-border); color: var(--gold) !important;
+      padding: 14px 32px;
+      font-family: 'Jost', sans-serif !important;
+      font-size: 11px !important; letter-spacing: 0.16em;
+      text-transform: uppercase; border-bottom: 1px solid var(--gold-border) !important;
+    }
+    .mob-brands {
+      margin-top: 24px; padding-top: 20px;
+      border-top: 1px solid rgba(201,169,110,0.12);
+    }
+    .mob-brands-label {
+      font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 12px;
+    }
+    .mob-brand-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .mob-brand-icon {
+      width: 30px; height: 30px; border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); flex-shrink: 0;
+    }
+    .mob-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; color: var(--text); flex: 1;
+    }
+    .mob-brand-badge {
+      font-size: 7px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold-border); padding: 2px 7px;
+    }
+
+    /* ── PAGE OFFSET ─────────────────────────────── */
+    .offset { height: calc(34px + 68px); }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* Left — content */
+    .hero-left {
+      background: var(--ink-2);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 64px 80px 64px;
+      position: relative; z-index: 2;
+    }
+    /* Vertical rule line — architectural detail */
+    .hero-left::before {
+      content: '';
+      position: absolute; top: 120px; bottom: 80px; right: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 32px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 32px; height: 1px; background: var(--gold); opacity: 0.6;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 5.5vw, 88px);
+      font-weight: 300; line-height: 0.93;
+      color: var(--white); margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .hero-h1 em { color: var(--gold-light); font-weight: 300; }
+    .hero-rule { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; margin-bottom: 28px; }
+    .hero-sub {
+      font-size: 14px; line-height: 1.85; color: rgba(237,233,227,0.58);
+      max-width: 380px; margin-bottom: 48px; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      background: var(--gold); color: var(--ink);
+      padding: 16px 36px; font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid rgba(201,169,110,0.3); color: rgba(201,169,110,0.75);
+      padding: 15px 36px; font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; font-family: 'Jost', sans-serif;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero counters */
+    .hero-counters {
+      display: flex; gap: 0; margin-top: 64px;
+      border-top: 1px solid rgba(201,169,110,0.1);
+      padding-top: 32px;
+    }
+    .hero-counter { flex: 1; padding-right: 32px; }
+    .hero-counter + .hero-counter {
+      padding-left: 32px; padding-right: 0;
+      border-left: 1px solid rgba(201,169,110,0.1);
+    }
+    .counter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .counter-label {
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 6px;
+    }
+
+    /* Right — full-bleed image with overlay grid */
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.04);
+      animation: heroZoom 12s ease-out forwards;
+    }
+    @keyframes heroZoom { to { transform: scale(1.0); } }
+    .hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(20,20,18,0.35) 0%, transparent 50%);
+    }
+    /* Floating service badge on image */
+    .hero-float-badge {
+      position: absolute; bottom: 48px; left: 36px;
+      background: rgba(20,20,18,0.82);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,169,110,0.2);
+      padding: 20px 24px;
+      max-width: 220px;
+    }
+    .hero-float-label {
+      font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .hero-float-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400; color: var(--white); line-height: 1.3;
+    }
+
+    /* ── SERVICES ────────────────────────────────── */
+    .services-section {
+      background: var(--ink-2);
+      padding: 120px 64px;
+    }
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 72px; flex-wrap: wrap; gap: 24px;
+    }
+    .section-eyebrow {
+      font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); opacity: 0.6; }
+    .section-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 60px); font-weight: 300;
+      color: var(--white); line-height: 1.05;
+    }
+    .section-h2 em { color: var(--gold-light); }
+    .section-link {
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.7;
+      display: flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, gap 0.2s;
+      flex-shrink: 0; align-self: flex-end; margin-bottom: 6px;
+    }
+    .section-link:hover { opacity: 1; gap: 12px; }
+
+    /* Services — asymmetric grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2px;
+    }
+    .svc-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/2;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      cursor: pointer;
+    }
+    .svc-card.tall { aspect-ratio: unset; grid-row: span 2; }
+    .svc-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .svc-card:hover img { transform: scale(1.06); }
+    .svc-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,14,12,0.92) 0%, rgba(14,14,12,0.2) 55%, transparent 100%);
+      transition: background 0.4s;
+    }
+    .svc-card:hover .svc-card-overlay {
+      background: linear-gradient(to top, rgba(14,14,12,0.96) 0%, rgba(14,14,12,0.4) 60%, transparent 100%);
+    }
+    .svc-card-content {
+      position: relative; z-index: 2; padding: 28px 32px;
+    }
+    .svc-num {
+      font-size: 9px; letter-spacing: 0.2em; color: var(--gold); opacity: 0.7; margin-bottom: 8px;
+    }
+    .svc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400; color: var(--white); line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .svc-card.tall .svc-name { font-size: 32px; }
+    .svc-desc {
+      font-size: 12px; color: rgba(237,233,227,0.55); line-height: 1.6;
+      max-width: 280px;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s;
+      opacity: 0;
+    }
+    .svc-card:hover .svc-desc { max-height: 80px; opacity: 1; }
+    .svc-arrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-top: 14px;
+      opacity: 0; transform: translateX(-6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .svc-card:hover .svc-arrow { opacity: 1; transform: none; }
+
+    /* ── PACKAGES ────────────────────────────────── */
+    .packages-section {
+      background: var(--stone-light);
+      padding: 120px 64px;
+    }
+    .packages-section .section-eyebrow { color: var(--ink); }
+    .packages-section .section-eyebrow::before { background: var(--ink); opacity: 0.3; }
+    .packages-section .section-h2 { color: var(--ink); }
+    .packages-section .section-h2 em { color: #8B6832; }
+    .packages-section .section-link { color: #8B6832; }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 0;
+      background: var(--stone-mid);
+    }
+    .pkg-card {
+      background: var(--stone-light);
+      padding: 48px 40px 44px;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .pkg-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, #C9A96E, transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .pkg-card:hover { background: #ede8e0; }
+    .pkg-card:hover::before { opacity: 1; }
+    .pkg-card.featured { background: var(--ink-2); }
+    .pkg-card.featured:hover { background: var(--ink-3); }
+    .pkg-featured-label {
+      position: absolute; top: 0; right: 0;
+      background: var(--gold); color: var(--ink);
+      font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 6px 14px; font-weight: 500;
+    }
+    .pkg-tier {
+      font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: #8B6832; margin-bottom: 14px;
+    }
+    .pkg-card.featured .pkg-tier { color: var(--gold); }
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 400; line-height: 1.05;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .pkg-card.featured .pkg-name { color: var(--white); }
+    .pkg-tagline {
+      font-size: 12px; color: rgba(30,20,10,0.45); margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .pkg-card.featured .pkg-tagline { color: rgba(237,233,227,0.45); }
+    .pkg-price-block {
+      padding-bottom: 24px; margin-bottom: 24px;
+      border-bottom: 1px solid rgba(30,20,10,0.08);
+    }
+    .pkg-card.featured .pkg-price-block { border-color: rgba(201,169,110,0.15); }
+    .pkg-from { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #8B6832; margin-bottom: 4px; }
+    .pkg-card.featured .pkg-from { color: var(--gold); opacity: 0.65; }
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 300; color: var(--ink); line-height: 1;
+    }
+    .pkg-card.featured .pkg-price { color: var(--gold); }
+    .pkg-price span { font-size: 16px; font-family: 'Jost', sans-serif; color: #8B6832; }
+    .pkg-card.featured .pkg-price span { color: rgba(201,169,110,0.5); }
+    .pkg-note { font-size: 11px; color: rgba(30,20,10,0.4); margin-top: 4px; }
+    .pkg-card.featured .pkg-note { color: rgba(237,233,227,0.3); }
+    .pkg-features {
+      list-style: none; flex: 1;
+      display: flex; flex-direction: column; gap: 11px; margin-bottom: 36px;
+    }
+    .pkg-features li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 12px; line-height: 1.5; color: rgba(30,20,10,0.65);
+    }
+    .pkg-card.featured .pkg-features li { color: rgba(237,233,227,0.65); }
+    .pkg-features li::before {
+      content: ''; width: 14px; height: 1px; background: #C9A96E;
+      flex-shrink: 0; margin-top: 8px; opacity: 0.6;
+    }
+    .pkg-features li.highlight { color: var(--ink); font-weight: 500; }
+    .pkg-card.featured .pkg-features li.highlight { color: var(--gold-light); }
+    .pkg-features li.highlight::before { opacity: 1; }
+    .pkg-btn {
+      display: block; text-align: center;
+      padding: 14px 24px; font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; font-family: 'Jost', sans-serif;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      margin-top: auto;
+    }
+    .pkg-btn-outline {
+      border: 1px solid rgba(139,104,50,0.35); color: #8B6832;
+    }
+    .pkg-btn-outline:hover { background: var(--ink); color: var(--gold); border-color: var(--gold); }
+    .pkg-btn-gold {
+      background: var(--gold); color: var(--ink); border: 1px solid var(--gold);
+    }
+    .pkg-btn-gold:hover { opacity: 0.88; }
+
+    /* ── PROCESS STRIP ───────────────────────────── */
+    .process-strip {
+      background: var(--ink-3);
+      padding: 100px 64px;
+      border-top: 1px solid rgba(201,169,110,0.08);
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0; margin-top: 64px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 22px; left: 44px; right: 44px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-border), var(--gold-border), transparent);
+    }
+    .process-step { padding: 0 24px; display: flex; flex-direction: column; align-items: flex-start; }
+    .step-num {
+      width: 44px; height: 44px;
+      border: 1px solid var(--gold-border);
+      background: var(--ink-3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; position: relative; z-index: 1;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; color: var(--gold);
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-weight: 400; color: var(--white); margin-bottom: 8px;
+    }
+    .step-desc { font-size: 11px; line-height: 1.7; color: var(--text-muted); }
+
+    /* ── CTA BAND ────────────────────────────────── */
+    .cta-band {
+      position: relative; overflow: hidden; padding: 140px 64px;
+    }
+    .cta-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=80');
+      background-size: cover; background-position: center;
+    }
+    .cta-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(14,14,12,0.95) 0%, rgba(14,14,12,0.75) 60%, rgba(14,14,12,0.5) 100%);
+    }
+    .cta-content {
+      position: relative; z-index: 2; max-width: 640px;
+    }
+    .cta-content .section-eyebrow { margin-bottom: 20px; }
+    .cta-h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 88px); font-weight: 300;
+      color: var(--white); line-height: 0.95; margin-bottom: 28px;
+    }
+    .cta-h2 em { color: var(--gold-light); }
+    .cta-sub {
+      font-size: 15px; line-height: 1.8; color: rgba(237,233,227,0.58);
+      margin-bottom: 48px; font-weight: 300; max-width: 460px;
+    }
+    .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FOOTER BRAND FAMILY ─────────────────────── */
+    .footer-brands {
+      background: #0d0d0b;
+      padding: 80px 64px 0;
+      border-top: 1px solid rgba(201,169,110,0.08);
+    }
+    .footer-brands-top {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-brands-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 300; color: var(--white);
+    }
+    .footer-brands-heading em { color: var(--gold-light); }
+    .footer-brands-sub {
+      font-size: 11px; color: rgba(237,233,227,0.3); letter-spacing: 0.04em;
+    }
+    .footer-brands-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(201,169,110,0.07);
+    }
+    .fb-card {
+      background: #0d0d0b; padding: 32px 28px 28px;
+      display: flex; flex-direction: column; gap: 10px;
+      position: relative; overflow: hidden;
+      transition: background 0.25s; cursor: pointer;
+    }
+    .fb-card:hover { background: #131310; }
+    .fb-card.current { background: rgba(201,169,110,0.05); }
+    .fb-card-you-are-here {
+      position: absolute; top: 14px; right: 16px;
+      font-size: 7px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold-border); padding: 3px 8px;
+    }
+    .fb-icon {
+      width: 34px; height: 34px; border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center; color: var(--gold);
+    }
+    .fb-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 400; color: var(--white);
+    }
+    .fb-desc {
+      font-size: 11px; line-height: 1.65; color: rgba(237,233,227,0.35); flex: 1;
+    }
+    .fb-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(201,169,110,0.45); transition: color 0.2s;
+    }
+    .fb-card:hover .fb-link { color: var(--gold); }
+
+    /* ── MAIN FOOTER ─────────────────────────────── */
+    .site-footer {
+      background: #0d0d0b;
+      padding: 40px 64px 40px;
+      border-top: 1px solid rgba(201,169,110,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; color: var(--gold); letter-spacing: 0.04em;
+    }
+    .footer-logo span { font-size: 11px; color: rgba(201,169,110,0.4); display: block; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2px; }
+    .footer-links { list-style: none; display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(237,233,227,0.28); transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 10px; color: rgba(237,233,227,0.18); }
+
+    /* ── REVEAL ──────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .svc-card.tall { grid-row: span 1; aspect-ratio: 3/2; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .pkg-card.featured { order: -1; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .process-steps::before { display: none; }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 32px 60px; }
+      .hero-left::before { display: none; }
+      .hero-right { min-height: 55vw; }
+      .services-section { padding: 80px 32px; }
+      .packages-section { padding: 80px 32px; }
+      .process-strip { padding: 72px 32px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .cta-band { padding: 100px 32px; }
+      .footer-brands { padding: 60px 32px 0; }
+      .footer-brands-grid { grid-template-columns: 1fr; }
+      .site-footer { padding: 36px 32px; flex-direction: column; align-items: flex-start; }
+      .brand-bar { padding: 0 20px; }
+      .brand-bar-label { display: none; }
+      .site-nav { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero-left { padding: 48px 24px 52px; }
+      .hero-counters { flex-direction: column; gap: 20px; }
+      .hero-counter + .hero-counter { border-left: none; border-top: 1px solid rgba(201,169,110,0.1); padding-left: 0; padding-top: 20px; }
+      .services-section, .packages-section, .process-strip, .cta-band, .footer-brands, .site-footer { padding-left: 24px; padding-right: 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-right { min-height: 70vw; }
+      .hero-float-badge { display: none; }
+      .bb-link { padding: 0 10px; font-size: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── BRAND TOP BAR ── -->
+  <div class="brand-bar">
+    <span class="brand-bar-label">The Jan Group</span>
+    <div class="brand-bar-links">
+      <a class="bb-link" href="https://thejanfurniture.com">Jan Furnishings</a>
+      <a class="bb-link active" href="/interiors">
+        <span class="bb-dot"></span>Jan Interiors
+      </a>
+      <a class="bb-link" href="https://alhadeeqacontracting.com" target="_blank" rel="noopener">Al Hadeeqa</a>
+    </div>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-brand">
+      <div class="nav-brand-name">Jan Interiors</div>
+      <div class="nav-brand-sub">by Jan Furnishings</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/interiors/" class="active">Home</a></li>
+      <li><a href="/interiors/services">Services</a></li>
+      <li><a href="/interiors/portfolio">Portfolio</a></li>
+      <li><a href="/interiors/packages">Packages</a></li>
+      <li><a href="/interiors/about">About</a></li>
+    </ul>
+    <a href="/interiors/book" class="nav-cta">Book a Consultation</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/interiors/" onclick="closeMob()">Home</a>
+    <a href="/interiors/services" onclick="closeMob()">Services</a>
+    <a href="/interiors/portfolio" onclick="closeMob()">Portfolio</a>
+    <a href="/interiors/packages" onclick="closeMob()">Packages</a>
+    <a href="/interiors/about" onclick="closeMob()">About</a>
+    <a href="/interiors/book" class="mob-cta-link" onclick="closeMob()">Book a Consultation</a>
+    <div class="mob-brands">
+      <div class="mob-brands-label">The Jan Group</div>
+      <a href="https://thejanfurniture.com" class="mob-brand-row" onclick="closeMob()">
+        <div class="mob-brand-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3h16M4 3v18M20 3v18M8 3v18M16 3v18"/></svg></div>
+        <div class="mob-brand-text">Jan Furnishings</div>
+      </a>
+      <div class="mob-brand-row">
+        <div class="mob-brand-icon" style="background:rgba(201,169,110,0.1);border-color:var(--gold)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M2 9h20M9 9v12"/></svg></div>
+        <div class="mob-brand-text" style="color:var(--gold)">Jan Interiors</div>
+        <div class="mob-brand-badge">Current</div>
+      </div>
+      <a href="https://alhadeeqacontracting.com" target="_blank" class="mob-brand-row" onclick="closeMob()">
+        <div class="mob-brand-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="2" y1="17" x2="22" y2="17"/></svg></div>
+        <div class="mob-brand-text">Al Hadeeqa</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="offset"></div>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Bespoke Interior Design — Dubai</div>
+      <h1 class="hero-h1">
+        Spaces That<br />
+        <em>Tell Your</em><br />
+        Story
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Wall panels, luxury wallpaper, premium painting and full villa renovation — designed around you, installed by craftsmen.</p>
+      <div class="hero-actions">
+        <a href="/interiors/book" class="btn-primary">
+          Book a Free Consultation
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/interiors/portfolio" class="btn-ghost">View Portfolio →</a>
+      </div>
+      <div class="hero-counters">
+        <div class="hero-counter">
+          <div class="counter-num">500+</div>
+          <div class="counter-label">Rooms Transformed</div>
+        </div>
+        <div class="hero-counter">
+          <div class="counter-num">48h</div>
+          <div class="counter-label">Consultation Response</div>
+        </div>
+        <div class="hero-counter">
+          <div class="counter-num">5★</div>
+          <div class="counter-label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1400&q=80" alt="Bespoke interior design Dubai" />
+      <div class="hero-right-overlay"></div>
+      <div class="hero-float-badge">
+        <div class="hero-float-label">Featured Work</div>
+        <div class="hero-float-text">Villa Renovation<br />— Palm Jumeirah</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════════ -->
+  <section class="services-section">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-h2">Four Ways We<br /><em>Transform a Space</em></h2>
+      </div>
+      <a href="/interiors/services" class="section-link">
+        All Services
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="services-grid">
+      <!-- Wall Panels — tall featured card -->
+      <div class="svc-card tall reveal">
+        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&q=80" alt="Bespoke wall panels" loading="lazy" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <div class="svc-num">01</div>
+          <div class="svc-name">Bespoke<br />Wall Panels</div>
+          <div class="svc-desc">Fluted MDF, wood veneer slats, 3D relief and acoustic panels — custom fabricated and installed for your exact space.</div>
+          <div class="svc-arrow">Explore <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <!-- Wallpaper -->
+      <div class="svc-card reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=900&q=80" alt="Luxury wallpaper" loading="lazy" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <div class="svc-num">02</div>
+          <div class="svc-name">Luxury Wallpaper</div>
+          <div class="svc-desc">Curated from European and regional collections. Professional installation with flawless seams.</div>
+          <div class="svc-arrow">Explore <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <!-- Painting -->
+      <div class="svc-card reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80" alt="Premium painting" loading="lazy" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <div class="svc-num">03</div>
+          <div class="svc-name">Premium Painting</div>
+          <div class="svc-desc">Limewash, Venetian plaster, geometric feature walls — applied by experienced finishing tradespeople.</div>
+          <div class="svc-arrow">Explore <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <!-- Renovation -->
+      <div class="svc-card reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Full renovation" loading="lazy" />
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <div class="svc-num">04</div>
+          <div class="svc-name">Full Renovation</div>
+          <div class="svc-desc">Every surface, every room — coordinated under one contract with a dedicated project manager.</div>
+          <div class="svc-arrow">Explore <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PACKAGES
+  ══════════════════════════════════════════ -->
+  <section class="packages-section">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-eyebrow">Pricing</div>
+        <h2 class="section-h2">Clear Packages.<br /><em>No Surprises.</em></h2>
+      </div>
+      <a href="/interiors/packages" class="section-link">
+        All Packages
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Canvas -->
+      <div class="pkg-card reveal">
+        <div class="pkg-tier">The Canvas</div>
+        <div class="pkg-name">Canvas<br />Package</div>
+        <div class="pkg-tagline">Feature walls & accent rooms</div>
+        <div class="pkg-price-block">
+          <div class="pkg-from">From</div>
+          <div class="pkg-price"><span>AED </span>8,000</div>
+          <div class="pkg-note">Up to 2 feature walls</div>
+        </div>
+        <ul class="pkg-features">
+          <li>Wall panels, wallpaper or limewash — your choice</li>
+          <li>In-home material consultation</li>
+          <li>Supply & professional installation</li>
+          <li>LED channel integration available</li>
+          <li>2-year installation warranty</li>
+        </ul>
+        <a href="/interiors/book" class="pkg-btn pkg-btn-outline">Get a Quote</a>
+      </div>
+
+      <!-- Transformation — featured -->
+      <div class="pkg-card featured reveal reveal-d1">
+        <div class="pkg-featured-label">Most Popular</div>
+        <div class="pkg-tier">The Transformation</div>
+        <div class="pkg-name">Transformation<br />Package</div>
+        <div class="pkg-tagline">Full interior refresh — all rooms</div>
+        <div class="pkg-price-block">
+          <div class="pkg-from">From</div>
+          <div class="pkg-price"><span>AED </span>18,500</div>
+          <div class="pkg-note">For villas up to 4 bedrooms</div>
+        </div>
+        <ul class="pkg-features">
+          <li class="highlight">All living areas, bedrooms & hallways</li>
+          <li>Feature wall panels in key rooms</li>
+          <li>Luxury wallpaper in 2 rooms of choice</li>
+          <li>Full villa premium paint</li>
+          <li>Dedicated senior design consultant</li>
+          <li>Mood board sign-off before work begins</li>
+          <li>3-year installation warranty</li>
+        </ul>
+        <a href="/interiors/book" class="pkg-btn pkg-btn-gold">Get a Quote</a>
+      </div>
+
+      <!-- Masterwork -->
+      <div class="pkg-card reveal reveal-d2">
+        <div class="pkg-tier">The Masterwork</div>
+        <div class="pkg-name">Masterwork<br />Package</div>
+        <div class="pkg-tagline">Complete villa renovation</div>
+        <div class="pkg-price-block">
+          <div class="pkg-from">From</div>
+          <div class="pkg-price"><span>AED </span>35,000</div>
+          <div class="pkg-note">Bespoke scoping — every villa unique</div>
+        </div>
+        <ul class="pkg-features">
+          <li class="highlight">Full villa — every surface, every room</li>
+          <li>Bespoke panel design & fabrication</li>
+          <li>European imported wallpapers</li>
+          <li>Venetian plaster feature finishes</li>
+          <li>Lead designer — 2 briefing sessions</li>
+          <li>3D room renders before production</li>
+          <li>5-year comprehensive warranty</li>
+        </ul>
+        <a href="/interiors/book" class="pkg-btn pkg-btn-outline">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROCESS
+  ══════════════════════════════════════════ -->
+  <section class="process-strip">
+    <div class="section-header reveal" style="margin-bottom:0">
+      <div>
+        <div class="section-eyebrow">How It Works</div>
+        <h2 class="section-h2">Five Steps to Your<br /><em>Dream Interior</em></h2>
+      </div>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Book a Consultation</div>
+        <div class="step-desc">Schedule a free in-home visit. We come to you — same day available across Dubai.</div>
+      </div>
+      <div class="process-step reveal reveal-d1">
+        <div class="step-num">02</div>
+        <div class="step-title">Design Briefing</div>
+        <div class="step-desc">Your designer reviews the space, brings material samples and listens to your vision.</div>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="step-num">03</div>
+        <div class="step-title">Mood Board & Quote</div>
+        <div class="step-desc">A detailed mood board and itemised quote within 48 hours. You approve everything first.</div>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="step-num">04</div>
+        <div class="step-title">Crafting & Production</div>
+        <div class="step-desc">Panels fabricated, wallpaper sourced, finishes prepared — all to your exact specification.</div>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="step-num">05</div>
+        <div class="step-title">Installation & Handover</div>
+        <div class="step-desc">Our team arrives on the agreed date, installs with care and leaves your space spotless.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BAND
+  ══════════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="cta-bg"></div>
+    <div class="cta-bg-overlay"></div>
+    <div class="cta-content reveal">
+      <div class="section-eyebrow">Ready to Begin?</div>
+      <h2 class="cta-h2">Let's Design<br />Your <em>Space</em></h2>
+      <p class="cta-sub">Book a free in-home consultation — we'll bring material samples, a fresh perspective, and a detailed quote with no obligation.</p>
+      <div class="cta-actions">
+        <a href="/interiors/book" class="btn-primary">
+          Book a Free Consultation
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/971508806292" class="btn-ghost" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER BRAND FAMILY
+  ══════════════════════════════════════════ -->
+  <div class="footer-brands">
+    <div class="footer-brands-top">
+      <div class="footer-brands-heading">The Jan Group — <em>One standard of excellence</em></div>
+      <div class="footer-brands-sub">Three specialist brands. One accountable team.</div>
+    </div>
+    <div class="footer-brands-grid">
+      <a href="https://thejanfurniture.com" class="fb-card">
+        <div class="fb-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3h16M4 3v18M20 3v18M8 3v18M16 3v18"/></svg></div>
+        <div class="fb-name">Jan Furnishings</div>
+        <div class="fb-desc">Custom curtains, blinds and premium window treatments across Dubai, Abu Dhabi and Sharjah.</div>
+        <div class="fb-link">Visit site <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5h8M5 1l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+      <div class="fb-card current">
+        <div class="fb-card-you-are-here">You are here</div>
+        <div class="fb-icon" style="border-color:var(--gold);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="1"/><path d="M2 9h20M9 9v12"/></svg></div>
+        <div class="fb-name">Jan Interiors</div>
+        <div class="fb-desc">Wall panels, luxury wallpaper, premium painting and full villa renovation across the UAE.</div>
+        <div class="fb-link" style="color:rgba(201,169,110,0.25);cursor:default;">Currently viewing</div>
+      </div>
+      <a href="https://alhadeeqacontracting.com" target="_blank" rel="noopener" class="fb-card">
+        <div class="fb-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="2" y1="17" x2="22" y2="17"/></svg></div>
+        <div class="fb-name">Al Hadeeqa</div>
+        <div class="fb-desc">Premium construction, luxury pergolas, supercar carports and bespoke contracting across the UAE.</div>
+        <div class="fb-link">Visit site <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5h8M5 1l4 4-4 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main footer -->
+  <footer class="site-footer">
+    <div class="footer-logo">
+      Jan Interiors
+      <span>by Jan Furnishings · Dubai, UAE</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/interiors/services">Services</a></li>
+      <li><a href="/interiors/portfolio">Portfolio</a></li>
+      <li><a href="/interiors/packages">Packages</a></li>
+      <li><a href="/interiors/about">About</a></li>
+      <li><a href="https://wa.me/971508806292">WhatsApp</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Jan Interiors. All rights reserved.</span>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 20
+        ? 'rgba(14,14,12,0.98)'
+        : 'rgba(20,20,18,0.92)';
+    });
+
+    // Mobile menu
+    const mob = document.getElementById('mobileMenu');
+    document.getElementById('hamburger').addEventListener('click', () => mob.classList.toggle('open'));
+    function closeMob() { mob.classList.remove('open'); }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

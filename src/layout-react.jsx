@@ -89,6 +89,48 @@ function installGlobalToggleMenu() {
   };
 }
 
+function installLuxuryBrandMenu() {
+  const trigger = document.getElementById('brandsTrigger');
+  const toggle = document.getElementById('brandsToggle');
+  const panel = document.getElementById('brandsMega');
+  if (!trigger || !toggle || !panel) return;
+
+  const closeMenu = () => {
+    trigger.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const openMenu = () => {
+    trigger.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+
+  toggle.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (trigger.classList.contains('open')) {
+      closeMenu();
+      return;
+    }
+
+    openMenu();
+  });
+
+  panel.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+
+  document.addEventListener('click', () => {
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    closeMenu();
+  });
+}
+
 function installLuxuryNavScroll() {
   const syncScrolledState = () => {
     const nav = document.getElementById('nav');
@@ -110,7 +152,11 @@ function syncLuxuryNavOffset() {
     const navHeight = Math.ceil(nav.getBoundingClientRect().height);
     if (!Number.isFinite(navHeight) || navHeight <= 0) return;
 
-    document.documentElement.style.setProperty('--nav-offset', `${navHeight}px`);
+    const brandBar = document.getElementById('brandBar');
+    const brandBarHeight = brandBar ? Math.ceil(brandBar.getBoundingClientRect().height) : 0;
+
+    document.documentElement.style.setProperty('--brand-bar-offset', `${brandBarHeight}px`);
+    document.documentElement.style.setProperty('--nav-offset', `${navHeight + brandBarHeight}px`);
   };
 
   applyOffset();
@@ -119,13 +165,14 @@ function syncLuxuryNavOffset() {
   window.addEventListener('load', applyOffset, { once: true });
 }
 
-function renderFooter(variant) {
+function renderFooter(variant, pageKey) {
   const year = new Date().getFullYear();
 
   if (variant === 'site') {
     const footer = document.querySelector('footer.site-footer');
     if (!footer) return;
 
+    footer.classList.remove('layout-react-luxury-footer');
     renderInto(footer, <SiteFooter year={year} />);
     return;
   }
@@ -135,7 +182,8 @@ function renderFooter(variant) {
   const footer = document.querySelector('footer');
   if (!footer) return;
 
-  renderInto(footer, <LuxuryFooter year={year} variant={variant} />);
+  footer.classList.add('layout-react-luxury-footer');
+  renderInto(footer, <LuxuryFooter year={year} variant={variant} pageKey={pageKey} />);
 }
 
 function getExistingWhatsappHref() {
@@ -176,16 +224,21 @@ function init() {
     document.body.setAttribute('data-page', pageKey);
   }
 
+  if (document.body) {
+    document.body.setAttribute('data-layout-variant', variant);
+  }
+
   if (variant !== 'none') {
     renderHeader(variant, pageKey);
 
     if (variant === 'luxury') {
       installGlobalToggleMenu();
       installLuxuryNavScroll();
+      installLuxuryBrandMenu();
       syncLuxuryNavOffset();
     }
 
-    renderFooter(variant);
+    renderFooter(variant, pageKey);
   }
 
   renderWhatsappFloat();
