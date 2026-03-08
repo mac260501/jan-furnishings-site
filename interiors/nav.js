@@ -187,7 +187,7 @@
         '<a href="https://alhadeeqacontracting.com" class="mob-brand-row"' +
           ' target="_blank" rel="noopener noreferrer">' +
           '<div class="mob-brand-icon">' + iconConstruction + '</div>' +
-          '<div class="mob-brand-text">Al Hadeeqa Construction</div>' +
+          '<div class="mob-brand-text">Jan Construction</div>' +
         '</a>' +
       '</div>' +
     '</div>' +

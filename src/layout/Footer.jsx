@@ -16,7 +16,7 @@ const BRAND_FAMILY = [
   },
   {
     key: 'construction',
-    name: 'Al Hadeeqa Construction',
+    name: 'Jan Construction',
     href: 'https://alhadeeqacontracting.com',
     description: 'Premium construction and bespoke contracting for luxury residential and commercial projects.',
     external: true

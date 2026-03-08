@@ -22,7 +22,7 @@ const GROUP_BRANDS = [
   },
   {
     key: 'construction',
-    name: 'Al Hadeeqa Construction',
+    name: 'Jan Construction',
     href: 'https://alhadeeqacontracting.com',
     description: 'Premium construction and bespoke contracting for high-end residential projects.',
     external: true
