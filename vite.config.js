@@ -1,4 +1,4 @@
-import { readdirSync, existsSync, copyFileSync, mkdirSync } from 'node:fs';
+import { readdirSync, existsSync, copyFileSync, mkdirSync, cpSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -25,21 +25,37 @@ function scanHtmlDir(dir, prefix) {
 
 scanHtmlDir(resolve(process.cwd(), 'interiors'), 'interiors');
 
-// Build plugin: copy plain JS scripts (non-module) from interiors/ → dist/interiors/
-// These are IIFE scripts referenced via <script src="/interiors/..."> — Vite won't
-// bundle them automatically, so we copy them verbatim after the build.
+// Build plugin: copy static assets that Vite doesn't process automatically.
+//
+// 1. Plain IIFE scripts in interiors/ (referenced via <script src="/interiors/...">)
+//    Vite only bundles type="module" scripts, so these must be copied verbatim.
+//
+// 2. The entire assets/images/ directory → dist/assets/images/
+//    Images referenced as absolute URLs inside JS string literals (e.g. in
+//    villa-bundles.js) are invisible to Vite's asset pipeline and never get
+//    hashed/copied. Mirroring the folder ensures they resolve correctly on Netlify.
 const copyInteriorsScripts = {
   name: 'copy-interiors-scripts',
   closeBundle() {
-    const srcDir = resolve(process.cwd(), 'interiors');
-    const destDir = join(process.cwd(), 'dist', 'interiors');
+    const root = process.cwd();
+
+    // 1 — interiors IIFE scripts
+    const scriptsSrc = resolve(root, 'interiors');
+    const scriptsDest = join(root, 'dist', 'interiors');
     const files = ['brand-bar.js', 'nav.js', 'wa-button.js', 'villa-bundles.js'];
-    mkdirSync(destDir, { recursive: true });
+    mkdirSync(scriptsDest, { recursive: true });
     files.forEach((file) => {
-      try {
-        copyFileSync(join(srcDir, file), join(destDir, file));
-      } catch (_) {}
+      try { copyFileSync(join(scriptsSrc, file), join(scriptsDest, file)); } catch (_) {}
     });
+
+    // 2 — assets/images → dist/assets/images  (for JS-string image references)
+    try {
+      cpSync(
+        join(root, 'assets', 'images'),
+        join(root, 'dist', 'assets', 'images'),
+        { recursive: true }
+      );
+    } catch (_) {}
   }
 };
 
