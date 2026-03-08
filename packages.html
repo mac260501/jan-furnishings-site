@@ -110,13 +110,14 @@
     }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-ghost {
-      border: 1px solid rgba(255,255,255,0.5); color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.9); color: var(--charcoal);
+      background: rgba(255,255,255,0.92);
       padding: 15px 36px; font-size: 12px; letter-spacing: 0.14em;
       text-transform: uppercase; font-family: 'DM Sans', sans-serif;
       display: inline-flex; align-items: center; gap: 10px;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.85); color: var(--white); }
+    .btn-ghost:hover { background: var(--white); border-color: var(--white); color: var(--charcoal); }
     .btn-whatsapp {
       background: #25D366 !important;
       border-color: #25D366 !important;
@@ -157,7 +158,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('assets/images/aalo-lens-LqGf5UvHCZ8-unsplash.jpg');
+      background-image: url('assets/images/furnishings-packages-hero.jpg');
       background-size: cover; background-position: center 20%;
       transform: scale(1.05);
       animation: heroZoom 10s ease-out forwards;
@@ -212,12 +213,12 @@
 
     /* ── HERO STRIP ── */
     .hero-strip {
-      background: var(--gold);
+      background: var(--white);
       color: var(--charcoal);
       overflow: hidden;
       height: var(--hero-strip-height);
-      border-top: 1px solid rgba(26,26,26,0.14);
-      border-bottom: 1px solid rgba(26,26,26,0.14);
+      border-top: 1px solid rgba(26,26,26,0.1);
+      border-bottom: 1px solid rgba(26,26,26,0.1);
     }
 
     .hero-strip-track {
@@ -226,7 +227,8 @@
       height: 100%;
       width: max-content;
       white-space: nowrap;
-      animation: heroStripMarquee 30s linear infinite;
+      animation: heroStripMarquee 36s linear infinite;
+      will-change: transform;
     }
 
     .hero-strip-item {
@@ -246,12 +248,12 @@
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: rgba(26,26,26,0.35);
+      background: rgba(26,26,26,0.3);
     }
 
     @keyframes heroStripMarquee {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to { transform: translateX(-33.333%); }
     }
 
     /* ── INTRO BAND ── */
@@ -546,7 +548,7 @@
     }
     .cta-bg {
       position: absolute; inset: 0;
-      background-image: url('assets/images/muhittin-kubat-r2uCvfUiT8k-unsplash.jpg');
+      background-image: url('assets/images/furnishings-packages-footer-hero.jpg');
       background-size: cover; background-position: center;
       filter: brightness(0.2);
     }
@@ -863,6 +865,11 @@
 
   <div class="hero-strip" aria-hidden="true">
     <div class="hero-strip-track">
+      <span class="hero-strip-item">Curated Villa Packages <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Curtains &amp; Drapes <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Blinds &amp; Shades <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">Bespoke Fabrication <span class="hero-strip-dot"></span></span>
+      <span class="hero-strip-item">End-to-End Installation <span class="hero-strip-dot"></span></span>
       <span class="hero-strip-item">Curated Villa Packages <span class="hero-strip-dot"></span></span>
       <span class="hero-strip-item">Curtains &amp; Drapes <span class="hero-strip-dot"></span></span>
       <span class="hero-strip-item">Blinds &amp; Shades <span class="hero-strip-dot"></span></span>

@@ -118,7 +118,7 @@
 
         /* VILLA COMPLETE */
         '<div class="jvb-bundle-card">' +
-          '<img src="/assets/images/aalo-lens-LqGf5UvHCZ8-unsplash.jpg" ' +
+          '<img src="/assets/images/villa-complete.jpg" ' +
             'alt="Villa Complete Package" loading="lazy">' +
           '<div class="jvb-overlay"></div>' +
           '<div class="jvb-content">' +
@@ -149,7 +149,7 @@
 
         /* VILLA PRESTIGE */
         '<div class="jvb-bundle-card">' +
-          '<img src="/assets/images/mina-rad-WvYzage2ApA-unsplash.jpg" ' +
+          '<img src="/assets/images/villa-prestige.jpg" ' +
             'alt="Villa Prestige Package" loading="lazy">' +
           '<div class="jvb-overlay"></div>' +
           '<div class="jvb-content">' +

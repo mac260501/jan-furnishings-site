@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — Jan Interiors Dubai</title>
   <meta name="description" content="Browse Jan Interiors' completed projects across Dubai — wall panels, luxury wallpaper, premium painting and full villa renovations." />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-interiors.svg" />
+  <link rel="shortcut icon" href="/assets/images/favicon-interiors.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="/interiors/brand-bar.js" defer></script>
+  <script src="/interiors/nav.js" defer></script>
+  <script src="/interiors/wa-button.js" defer></script>
   <style>
     :root{--ink:#141412;--ink-2:#1e1e1b;--ink-3:#272723;--stone-light:#f2ede6;--stone-mid:#e0d8cc;--gold:#C9A96E;--gold-light:#E8D5B0;--gold-dim:rgba(201,169,110,0.10);--gold-border:rgba(201,169,110,0.22);--text:#EDE9E3;--text-muted:#8A857D;--white:#fff;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -16,25 +20,19 @@
     body{font-family:'Jost',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;}
     a{color:inherit;text-decoration:none;}em{font-style:italic;}
 
-    .site-nav{position:fixed;top:34px;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(20,20,18,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,169,110,0.12);}
-    .nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);line-height:1;}
-    .nav-brand-sub{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,169,110,0.45);margin-top:3px;}
-    .nav-links{list-style:none;display:flex;align-items:center;gap:36px;}
-    .nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,233,227,0.65);transition:color .2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-    .nav-cta{background:transparent;border:1px solid var(--gold-border);color:var(--gold);padding:10px 24px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s,color .2s;}
-    .nav-cta:hover{background:var(--gold);color:var(--ink);}
-    .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
-    .nav-hamburger span{width:22px;height:1px;background:var(--text);display:block;}
-    .mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--ink-2);padding:120px 40px 56px;flex-direction:column;gap:0;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--text);border-bottom:1px solid rgba(201,169,110,0.08);padding:18px 0;transition:color .2s;}
-    .mobile-menu a:hover{color:var(--gold);}
-    .mob-cta-link{margin-top:24px;display:inline-flex !important;width:fit-content;border:1px solid var(--gold-border) !important;color:var(--gold) !important;padding:14px 32px;font-family:'Jost',sans-serif !important;font-size:11px !important;letter-spacing:.16em;text-transform:uppercase;}
     .offset{height:calc(34px + 68px);}
 
     /* ── PAGE HERO ── */
-    .page-hero{background:var(--ink-2);padding:100px 64px 80px;border-bottom:1px solid rgba(201,169,110,0.08);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+    .page-hero{
+      position:relative;overflow:hidden;
+      padding:160px 64px 80px;
+      min-height:65vh;
+      border-bottom:1px solid rgba(201,169,110,0.08);
+      display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;
+      background:
+        linear-gradient(to right, rgba(14,14,12,0.90) 0%, rgba(14,14,12,0.70) 50%, rgba(14,14,12,0.40) 100%),
+        url('/assets/images/full-renovation-project-2.jpg') center / cover no-repeat;
+    }
     .hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
     .hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);opacity:.6;}
     .page-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,88px);font-weight:300;line-height:.95;color:var(--white);margin-bottom:24px;}
@@ -68,7 +66,7 @@
     .spotlight{background:var(--ink-3);padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:620px;}
     .spotlight-image{position:relative;overflow:hidden;}
     .spotlight-image img{width:100%;height:100%;object-fit:cover;}
-    .spotlight-content{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;}
+    .spotlight-content{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;}
     .spotlight-eyebrow{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
     .spotlight-eyebrow::before{content:'';width:20px;height:1px;background:var(--gold);opacity:.6;}
     .spotlight-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,3.5vw,52px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:20px;}
@@ -104,7 +102,7 @@
 
     /* ── CTA BAND ── */
     .cta-band{position:relative;overflow:hidden;padding:120px 64px;}
-    .cta-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1800&q=80');background-size:cover;background-position:center;}
+    .cta-bg{position:absolute;inset:0;background-image:url('/assets/images/interiors-portfolio-footer-hero.jpg');background-size:cover;background-position:center;}
     .cta-bg-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,14,12,.96) 0%,rgba(14,14,12,.78) 60%,rgba(14,14,12,.5) 100%);}
     .cta-content{position:relative;z-index:2;max-width:580px;}
     .cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,80px);font-weight:300;color:var(--white);line-height:.95;margin-bottom:24px;}
@@ -140,43 +138,21 @@
     .reveal.visible{opacity:1;transform:none;}
     .reveal-d1{transition-delay:.1s;}.reveal-d2{transition-delay:.2s;}.reveal-d3{transition-delay:.3s;}
 
-    @media(max-width:1000px){.portfolio-grid{columns:2;}.testimonials-grid{grid-template-columns:1fr;}.page-hero{grid-template-columns:1fr;gap:40px;}.hero-right-stats{border-left:none;border-top:1px solid rgba(201,169,110,0.12);padding-left:0;padding-top:28px;flex-direction:row;gap:28px;}.spotlight{grid-template-columns:1fr;}.spotlight-image{min-height:360px;}}
-    @media(max-width:768px){.nav-links,.nav-cta{display:none;}.nav-hamburger{display:flex;}.portfolio-grid{columns:1;}.page-hero,.portfolio-section,.testimonials-section,.cta-band,.footer-brands,.site-footer{padding-left:28px;padding-right:28px;}.filter-bar{padding:0 28px;}.spotlight-content{padding:52px 28px;}.site-nav{padding:0 20px;}}
+    @media(max-width:1000px){.portfolio-grid{columns:2;}.testimonials-grid{grid-template-columns:1fr;}.page-hero{grid-template-columns:1fr;gap:40px;padding-top:120px;}.hero-right-stats{border-left:none;border-top:1px solid rgba(201,169,110,0.12);padding-left:0;padding-top:28px;flex-direction:row;gap:28px;}.spotlight{grid-template-columns:1fr;}.spotlight-image{min-height:360px;}}
+    @media(max-width:768px){.portfolio-grid{columns:1;}.page-hero,.portfolio-section,.testimonials-section,.cta-band,.footer-brands,.site-footer{padding-left:28px;padding-right:28px;}.page-hero{padding-top:120px;min-height:50vh;}.filter-bar{padding:0 28px;}.spotlight-content{padding:52px 28px;}}
     @media(max-width:600px){.footer-brands-grid{grid-template-columns:1fr;}.hero-right-stats{flex-direction:column;}.site-footer{flex-direction:column;align-items:flex-start;}}
   </style>
 </head>
 <body>
 
-  <nav class="site-nav">
-    <div><div class="nav-brand-name">Jan Interiors</div><div class="nav-brand-sub">by Jan Furnishings</div></div>
-    <ul class="nav-links">
-      <li><a href="/interiors/">Home</a></li>
-      <li><a href="/interiors/services/">Services</a></li>
-      <li><a href="/interiors/portfolio/" class="active">Portfolio</a></li>
-      <li><a href="/interiors/packages/">Packages</a></li>
-      <li><a href="/interiors/about/">About</a></li>
-    </ul>
-    <a href="/interiors/book/" class="nav-cta">Book a Consultation</a>
-    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/interiors/">Home</a>
-    <a href="/interiors/services/">Services</a>
-    <a href="/interiors/portfolio/">Portfolio</a>
-    <a href="/interiors/packages/">Packages</a>
-    <a href="/interiors/about/">About</a>
-    <a href="/interiors/book/" class="mob-cta-link">Book a Consultation</a>
-  </div>
-
-  <div class="offset"></div>
+  <div id="interiors-nav-root"></div>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div>
       <div class="hero-eyebrow">Our Work</div>
       <h1 class="page-h1">Spaces We've<br /><em>Transformed</em></h1>
-      <p class="page-hero-sub">Every project here was someone's home — and every detail was considered, approved and installed by our team. Stock photos are placeholders until Jan's real project photography is added.</p>
+      <p class="page-hero-sub">Every project here was someone's home — and every detail was considered, approved and installed by our team.</p>
     </div>
     <div class="hero-right-stats">
       <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Rooms Transformed</div></div>
@@ -199,92 +175,152 @@
     <div class="portfolio-grid" id="portfolioGrid">
 
       <div class="portfolio-item" data-category="panels">
-        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80" alt="Fluted wall panels Dubai villa" loading="lazy" />
+        <img src="/assets/images/wall-panel-project-1.jpg" alt="Bespoke wall panels Dubai villa" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Wall Panels</div>
-          <div class="portfolio-item-title">Fluted Panel Feature Wall</div>
+          <div class="portfolio-item-title">Fluted Feature Wall</div>
           <div class="portfolio-item-loc">Dubai Hills — Living Room</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="wallpaper">
-        <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=700&q=80" alt="Luxury wallpaper master bedroom" loading="lazy" />
+        <img src="/assets/images/wallpaper-project-1.jpg" alt="Luxury wallpaper master bedroom Dubai" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Luxury Wallpaper</div>
-          <div class="portfolio-item-title">Botanical Statement Wall</div>
+          <div class="portfolio-item-title">Statement Wall Installation</div>
           <div class="portfolio-item-loc">Palm Jumeirah — Master Bedroom</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="renovation">
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80" alt="Full villa renovation Dubai" loading="lazy" />
+        <img src="/assets/images/full-renovation-project-3.jpg" alt="Full villa renovation Dubai" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Full Renovation</div>
-          <div class="portfolio-item-title">Masterwork Villa Transformation</div>
-          <div class="portfolio-item-loc">Emirates Hills — Full Villa</div>
+          <div class="portfolio-item-title">Complete Villa Transformation</div>
+          <div class="portfolio-item-loc">Arabian Ranches — Full Villa</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="painting">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80" alt="Venetian plaster feature wall" loading="lazy" />
+        <img src="/assets/images/premium-painting-project-1.jpg" alt="Premium interior painting Dubai" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Premium Painting</div>
-          <div class="portfolio-item-title">Venetian Plaster Dining Room</div>
+          <div class="portfolio-item-title">Venetian Plaster Finish</div>
           <div class="portfolio-item-loc">Jumeirah Bay — Dining Room</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="panels">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Wood veneer slat panels" loading="lazy" />
+        <img src="/assets/images/wall-panel-project-2.jpg" alt="Slat wall panels master bedroom Dubai" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Wall Panels</div>
-          <div class="portfolio-item-title">Oak Veneer Slat Headboard Wall</div>
+          <div class="portfolio-item-title">Slat Panel Headboard Wall</div>
           <div class="portfolio-item-loc">Business Bay — Master Bedroom</div>
         </div>
       </div>
 
-      <div class="portfolio-item" data-category="wallpaper">
-        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80" alt="Geometric wallpaper hallway" loading="lazy" />
+      <div class="portfolio-item" data-category="renovation">
+        <img src="/assets/images/full-renovation-project-2.jpg" alt="Masterwork villa renovation Emirates Hills" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
-          <div class="portfolio-item-tag">Luxury Wallpaper</div>
-          <div class="portfolio-item-title">Geometric Hallway Installation</div>
-          <div class="portfolio-item-loc">Arabian Ranches — Hallway</div>
+          <div class="portfolio-item-tag">Full Renovation</div>
+          <div class="portfolio-item-title">Masterwork Villa Package</div>
+          <div class="portfolio-item-loc">Emirates Hills — Full Villa</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="painting">
-        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=700&q=80" alt="Limewash accent wall" loading="lazy" />
+        <img src="/assets/images/premium-painting-project-2.jpg" alt="Limewash feature wall Dubai" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Premium Painting</div>
-          <div class="portfolio-item-title">Limewash Accent Wall</div>
-          <div class="portfolio-item-loc">Downtown Dubai — Living Room</div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="renovation">
-        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80" alt="Full interior renovation Dubai" loading="lazy" />
-        <div class="portfolio-item-overlay"></div>
-        <div class="portfolio-item-info">
-          <div class="portfolio-item-tag">Full Renovation</div>
-          <div class="portfolio-item-title">Transformation Package — 4 Bed Villa</div>
-          <div class="portfolio-item-loc">Meadows — All Rooms</div>
+          <div class="portfolio-item-title">Limewash Feature Wall</div>
+          <div class="portfolio-item-loc">Meadows — Living Room</div>
         </div>
       </div>
 
       <div class="portfolio-item" data-category="panels">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="3D relief wall panels" loading="lazy" />
+        <img src="/assets/images/wall-panel-project-3.jpg" alt="Textured wall panels Dubai home" loading="lazy" />
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-info">
           <div class="portfolio-item-tag">Wall Panels</div>
-          <div class="portfolio-item-title">3D Geometric Relief Panel</div>
+          <div class="portfolio-item-title">Textured Panel Feature Wall</div>
           <div class="portfolio-item-loc">JVC — Feature Wall</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="panels">
+        <img src="/assets/images/wall-panel-project-4.jpg" alt="Bespoke panelling system Dubai villa" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Wall Panels</div>
+          <div class="portfolio-item-title">Bespoke Panelling System</div>
+          <div class="portfolio-item-loc">Downtown Dubai — Study</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="renovation">
+        <img src="/assets/images/full-renovation-project-1.jpg" alt="Full villa renovation Jumeirah Dubai" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Full Renovation</div>
+          <div class="portfolio-item-title">Full Villa Transformation</div>
+          <div class="portfolio-item-loc">Jumeirah — Full Villa</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="wallpaper">
+        <img src="/assets/images/wallpaper-project-2.jpg" alt="Luxury wallpaper installation Dubai" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Luxury Wallpaper</div>
+          <div class="portfolio-item-title">Bespoke Wallpaper Feature</div>
+          <div class="portfolio-item-loc">DIFC — Guest Bedroom</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="painting">
+        <img src="/assets/images/premium-painting-project-3.jpg" alt="Premium painting Dubai interior" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Premium Painting</div>
+          <div class="portfolio-item-title">Textured Finish Accent Wall</div>
+          <div class="portfolio-item-loc">Al Safa — Living Room</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="wallpaper">
+        <img src="/assets/images/wallpaper-project-3.jpg" alt="Designer wallpaper Dubai villa" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Luxury Wallpaper</div>
+          <div class="portfolio-item-title">Luxury Print Installation</div>
+          <div class="portfolio-item-loc">Al Barsha — Master Bedroom</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="painting">
+        <img src="/assets/images/premium-painting-project-4.jpg" alt="Decorative painting Dubai home" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Premium Painting</div>
+          <div class="portfolio-item-title">Decorative Wall Treatment</div>
+          <div class="portfolio-item-loc">Jumeirah Golf Estates — Master Suite</div>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="wallpaper">
+        <img src="/assets/images/wallpaper-project-4.jpg" alt="Premium wallpaper hallway Dubai" loading="lazy" />
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-info">
+          <div class="portfolio-item-tag">Luxury Wallpaper</div>
+          <div class="portfolio-item-title">Hallway Wallpaper Feature</div>
+          <div class="portfolio-item-loc">The Springs — Hallway</div>
         </div>
       </div>
 
@@ -294,7 +330,7 @@
   <!-- FEATURED SPOTLIGHT -->
   <section class="spotlight reveal">
     <div class="spotlight-image">
-      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1000&q=80" alt="Featured project — Emirates Hills villa renovation" />
+      <img src="/assets/images/emirates-hills-masterwork.jpg" alt="Featured project — Emirates Hills villa renovation" />
     </div>
     <div class="spotlight-content">
       <div class="spotlight-eyebrow">Featured Project</div>
@@ -350,7 +386,10 @@
       <p class="cta-sub">Book a free in-home consultation — we'll visit your space, bring samples, and put together a detailed proposal with no obligation.</p>
       <div class="cta-actions">
         <a href="/interiors/book/" class="btn-primary">Book a Free Consultation <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://wa.me/971508806292" class="btn-ghost" target="_blank">WhatsApp Us</a>
+        <a href="https://wa.me/971508806292" class="btn-wa" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
       </div>
     </div>
   </section>
@@ -370,7 +409,6 @@
   </footer>
 
   <script>
-    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
     const observer=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:.08,rootMargin:'0px 0px -50px 0px'});
     document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 

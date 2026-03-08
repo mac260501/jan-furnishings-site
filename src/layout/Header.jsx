@@ -219,54 +219,6 @@ export function LuxuryHeader({ pageKey }) {
             </li>
           ))}
 
-          <li className="nav-brands-trigger" id="brandsTrigger">
-            <button
-              type="button"
-              id="brandsToggle"
-              className="nav-brands-button"
-              aria-expanded="false"
-              aria-controls="brandsMega"
-            >
-              <span>Our Brands</span>
-              <span className="brands-chevron">
-                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                  <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-              </span>
-            </button>
-
-            <div className="brands-mega" id="brandsMega">
-              <div className="brands-mega-header">Part of the Jan Group</div>
-              <div className="brands-mega-cards">
-                {GROUP_BRANDS.map((brand) => {
-                  const isCurrent = currentBrand === brand.key;
-                  return (
-                    <a
-                      key={brand.key}
-                      href={brand.href}
-                      className="brand-card"
-                      {...(brand.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    >
-                      <div className="brand-card-icon">
-                        <BrandIcon brandKey={brand.key} />
-                      </div>
-                      <div className="brand-card-info">
-                        <div className="brand-card-name">{brand.name}</div>
-                        <div className="brand-card-desc">{brand.description}</div>
-                      </div>
-                      {isCurrent ? (
-                        <span className="brand-card-current">Current</span>
-                      ) : (
-                        <div className="brand-card-arrow">
-                          <ArrowIcon />
-                        </div>
-                      )}
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </li>
         </ul>
 
         <a href={cta.href} className={classNames('nav-cta', pageKey === 'booking' && 'active')}>
