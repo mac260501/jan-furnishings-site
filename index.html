@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jan Furnishings — Custom Curtains & Blinds in Dubai</title>
+  <title>Custom Curtains &amp; Blinds Dubai — Jan Furnishings | Free Home Visit</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="shortcut icon" href="assets/images/favicon.svg" />
-  <meta name="description" content="Premium custom curtains and blinds in Dubai. Free home visit, same-week installation, 500+ windows fitted. Book your free consultation today." />
+  <meta name="description" content="Dubai's custom curtain and blind specialists. Free home consultation, professional installation, packages from AED 3,500. 500+ homes fitted. WhatsApp us for a free quote." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -636,13 +636,17 @@
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
       .hero-content { padding: 20px 32px 56px; }
-      .hero-stats { display: none; }
+      .hero-stats { display: flex; position: absolute; bottom: 0; left: 0; right: 0; }
+      .hero-stat { flex: 1; min-width: 0; padding: 14px 10px; }
+      .hero-stat-num { font-size: 22px; }
+      .hero-stat-label { font-size: 8px; }
       .hero-scroll { display: none; }
       .intro-inner, .motorized-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .intro-img-accent { bottom: -24px; right: -16px; }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .products-grid { grid-template-columns: 1fr 1fr; }
       .product-card.wide { grid-column: span 1; }
+      .cta-card-content { justify-content: flex-start !important; padding: 28px !important; }
       .reviews-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: span 2; }
@@ -674,6 +678,71 @@
       .about-values { margin: 24px 0 32px; }
     }
   </style>
+
+  <link rel="canonical" href="https://thejanfurniture.com/" />
+  <meta property="og:title" content="Custom Curtains &amp; Blinds Dubai — Jan Furnishings | Free Home Visit" />
+  <meta property="og:description" content="Dubai's custom curtain and blind specialists. Free home consultation, professional installation, packages from AED 3,500. 500+ homes fitted. WhatsApp us for a free quote." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thejanfurniture.com/" />
+  <meta property="og:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
+  <meta property="og:site_name" content="Jan Furnishings" />
+  <meta property="og:locale" content="en_AE" />
+  <link rel="alternate" type="text/plain" href="https://thejanfurniture.com/llms.txt" title="LLM-readable site summary" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://thejanfurniture.com/#organization",
+    "name": "Jan Furnishings",
+    "alternateName": ["Jan Furniture", "The Jan Furniture"],
+    "url": "https://thejanfurniture.com",
+    "logo": "https://thejanfurniture.com/assets/images/jan-furnishings-logo.png",
+    "description": "Dubai's custom curtain and blind specialists. Free home consultation, professional measurement, and same-week installation across Dubai, Abu Dhabi, and Sharjah.",
+    "telephone": "+971508806292",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "addressCountry": "AE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.2048,
+      "longitude": 55.2708
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Dubai"},
+      {"@type": "City", "name": "Abu Dhabi"},
+      {"@type": "City", "name": "Sharjah"}
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    },
+    "sameAs": [
+      "https://maps.app.goo.gl/etJY1YDiJ8i8XH1C6"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Curtain & Blind Services",
+      "itemListElement": [
+        {"@type": "Service", "name": "Custom Curtains"},
+        {"@type": "Service", "name": "Custom Blinds"},
+        {"@type": "Service", "name": "Motorized Window Treatments"},
+        {"@type": "Service", "name": "Free Home Consultation"},
+        {"@type": "Service", "name": "Professional Installation"}
+      ]
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Jan Group",
+      "url": "https://thejanfurniture.com"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -724,6 +793,7 @@
       </a>
     </div>
   </div>
+</div><!-- /.hero-content -->
 
   <!-- Stats bar -->
   <div class="hero-stats">
@@ -863,9 +933,9 @@
       <!-- Wide CTA card — fills the bottom-right 2 cols -->
       <div class="product-card wide product-cta-card" data-aos="fade-up" data-aos-delay="200">
         <div class="product-img" style="position:relative;">
-          <img src="assets/images/pexels-artbovich-5998127.jpg" alt="Book a free curtain consultation in Dubai" />
+          <img src="assets/images/pexels-artbovich-6492384.jpg" alt="Book a free curtain consultation in Dubai" />
           <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,37,37,0.82) 0%,rgba(37,37,37,0.45) 100%);"></div>
-          <div style="position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="cta-card-content" style="position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;">
             <div class="tag" style="margin-bottom:16px;align-self:flex-start;">Free · No Obligation</div>
             <h3 style="font-size:clamp(24px,2.5vw,36px);color:var(--white);margin-bottom:12px;line-height:1.15;">Not sure what you need? We'll help you choose.</h3>
             <p style="font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px;max-width:380px;">Our expert visits your home with fabric samples, takes measurements, and gives you honest advice — all for free, with no commitment.</p>
@@ -1141,7 +1211,7 @@
   <div class="container">
     <div class="about-inner">
       <div class="about-img-wrap" data-aos="fade-right">
-        <img class="about-img-main" src="assets/images/pexels-artbovich-5998120.jpg" alt="Elegant curtains in a Dubai villa" />
+        <img class="about-img-main" src="assets/images/newhome-bg.jpg" alt="Elegant curtains in a Dubai villa" />
         <div class="about-badge">
           <div class="about-badge-num">500+</div>
           <div class="about-badge-label">Windows Fitted</div>

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "jan-furnishings-site",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "/Users/mohammedchaudhry/.nvm/versions/node/v22.12.0/bin/node",
+      "runtimeArgs": ["/Users/mohammedchaudhry/Desktop/Projects/jan-furnishings-site/node_modules/.bin/vite"],
       "port": 5173
     }
   ]

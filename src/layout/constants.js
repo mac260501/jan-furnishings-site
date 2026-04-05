@@ -18,7 +18,11 @@ export const PAGE_KEY_BY_FILE = {
   'privacy-policy.html': 'legal',
   'terms-of-use.html': 'legal',
   'kevlar.html': 'kevlar',
-  'kevlar-post.html': 'kevlar'
+  'kevlar-post.html': 'kevlar',
+  'curtains.html': 'curtains',
+  'blinds.html': 'blinds',
+  'motorized.html': 'motorized',
+  'faq.html': 'faq'
 };
 
 export const SITE_NAV_LINKS = [
