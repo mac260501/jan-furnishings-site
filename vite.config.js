@@ -56,6 +56,11 @@ const copyInteriorsScripts = {
         { recursive: true }
       );
     } catch (_) {}
+
+    // 3 — root-level static files that must be served at / on Netlify
+    ['robots.txt', 'sitemap.xml', 'llms.txt', '_redirects'].forEach((file) => {
+      try { copyFileSync(join(root, file), join(root, 'dist', file)); } catch (_) {}
+    });
   }
 };
 
