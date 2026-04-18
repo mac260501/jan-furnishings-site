@@ -180,6 +180,57 @@
     .story-aside-img {
       width: 100%; aspect-ratio: 3/4; object-fit: cover;
     }
+    /* Full-width team photo section beneath hero */
+    #team-banner {
+      position: relative; overflow: hidden;
+      background: var(--charcoal-2);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    #team-banner img {
+      width: 100%; display: block;
+      height: 320px; object-fit: cover; object-position: center 30%;
+    }
+    /* About strip */
+    #about-strip {
+      background: var(--white);
+      overflow: hidden;
+      height: 46px;
+      border-top: 1px solid rgba(26,26,26,0.08);
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+    }
+    #about-strip .strip-track {
+      display: flex; align-items: center;
+      height: 100%; width: max-content;
+      white-space: nowrap;
+      animation: aboutStripMarquee 36s linear infinite;
+    }
+    #about-strip .strip-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 0 28px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #1A1A1A;
+      flex-shrink: 0;
+    }
+    #about-strip .strip-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(26,26,26,0.3); flex-shrink: 0;
+    }
+    @keyframes aboutStripMarquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    #team-banner .team-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 48px 24px;
+      background: linear-gradient(to top, rgba(26,26,26,0.7), transparent);
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 900px) {
+      #team-banner img { height: 220px; }
+      #team-banner .team-caption { padding: 32px 24px 16px; }
+    }
     .story-aside-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(to top, rgba(26,26,26,0.9), transparent);
@@ -277,7 +328,7 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
       overflow: hidden;
     }
-    .company-img-panel { position: relative; min-height: 560px; }
+    .company-img-panel { position: relative; min-height: 380px; }
     .company-img-panel img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .company-img-overlay {
       position: absolute; inset: 0;
@@ -392,7 +443,7 @@
       .story-aside { display: none; }
       .values-grid { grid-template-columns: 1fr; }
       .company-inner { grid-template-columns: 1fr; }
-      .company-img-panel { min-height: 420px; }
+      .company-img-panel { min-height: 440px; }
       .company-text-panel { padding: 48px 32px; }
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: span 2; }
@@ -406,7 +457,7 @@
       .values-header { padding: 0 0 32px; }
       .value-card { padding: 40px 28px; }
       #company { padding: 48px 0; }
-      .company-img-panel { min-height: 460px; }
+      .company-img-panel { min-height: 400px; }
       .promise-inner .cta-group { flex-direction: column; align-items: center; }
       .footer-inner { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
@@ -557,6 +608,37 @@
 
 </section>
 
+<!-- ── ABOUT STRIP ─────────────────────────────────────── -->
+<div id="about-strip" aria-hidden="true">
+  <div class="strip-track">
+    <span class="strip-item">Founded in Dubai <span class="strip-dot"></span></span>
+    <span class="strip-item">500+ Homes Fitted <span class="strip-dot"></span></span>
+    <span class="strip-item">Free Home Visit <span class="strip-dot"></span></span>
+    <span class="strip-item">Same-Week Installation <span class="strip-dot"></span></span>
+    <span class="strip-item">5★ Google Rated <span class="strip-dot"></span></span>
+    <span class="strip-item">12-Month Warranty <span class="strip-dot"></span></span>
+    <span class="strip-item">Transparent Pricing <span class="strip-dot"></span></span>
+    <span class="strip-item">Founded in Dubai <span class="strip-dot"></span></span>
+    <span class="strip-item">500+ Homes Fitted <span class="strip-dot"></span></span>
+    <span class="strip-item">Free Home Visit <span class="strip-dot"></span></span>
+    <span class="strip-item">Same-Week Installation <span class="strip-dot"></span></span>
+    <span class="strip-item">5★ Google Rated <span class="strip-dot"></span></span>
+    <span class="strip-item">12-Month Warranty <span class="strip-dot"></span></span>
+    <span class="strip-item">Transparent Pricing <span class="strip-dot"></span></span>
+  </div>
+</div>
+
+<!-- ── TEAM BANNER ─────────────────────────────────────── -->
+<section id="team-banner">
+  <img
+    src="assets/images/jan-team.jpeg"
+    loading="eager"
+    decoding="async"
+    alt="The Jan Furnishings team in Dubai"
+  />
+  <div class="team-caption">Our Team</div>
+</section>
+
 <!-- ── ORIGIN STORY ────────────────────────────────────── -->
 <section id="story">
   <div class="container">
@@ -668,14 +750,11 @@
 
       <div class="company-img-panel">
         <img
-          src="assets/images/optimized/about-company-1800.jpg"
-          srcset="assets/images/optimized/about-company-1000.jpg 1000w, assets/images/optimized/about-company-1800.jpg 1800w"
+          src="assets/images/jan-storefront.jpeg"
           sizes="(max-width: 900px) 100vw, 50vw"
-          width="1800"
-          height="1336"
           loading="lazy"
           decoding="async"
-          alt="Jan Furnishings team at work in Dubai"
+          alt="Jan Furnishings showroom in Dubai"
         />
         <div class="company-img-overlay"></div>
         <div class="company-img-stats">
