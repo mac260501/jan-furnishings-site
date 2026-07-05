@@ -1,6 +1,34 @@
 export const WHATSAPP_NUMBER = '971508806292';
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
+export const PAGE_LABEL_BY_KEY = {
+  home: 'Home Page',
+  products: 'Products Page',
+  interiors: 'Interiors Page',
+  packages: 'Packages Page',
+  estimate: 'Estimate Page',
+  about: 'About Page',
+  help: 'Help Page',
+  booking: 'Booking Page',
+  legal: 'Legal Page',
+  kevlar: 'Kevlar Page',
+  curtains: 'Curtains Page',
+  blinds: 'Blinds Page',
+  motorized: 'Motorized Page',
+  faq: 'FAQ Page'
+};
+
+// Appends a lead-source tag so every WhatsApp CTA identifies which page it came from.
+export function appendSource(message, pageKey) {
+  const label = PAGE_LABEL_BY_KEY[pageKey] || 'Website';
+  const separator = message.includes('\n') ? '\n\n' : ' ';
+  return `${message}${separator}..via ${label}`;
+}
+
+export function whatsappHrefWithSource(message, pageKey) {
+  return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(appendSource(message, pageKey))}`;
+}
+
 export const PAGE_KEY_BY_FILE = {
   'index.html': 'home',
   'home.html': 'home',

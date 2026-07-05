@@ -15,6 +15,13 @@
   var isInteriors = window.location.pathname.indexOf('/interiors') === 0;
   var bookUrl     = isInteriors ? '/interiors/book/' : 'book.html';
   var waUrl       = 'https://wa.me/971508806292';
+  var pageLabel   = isInteriors ? 'Interiors Packages Page' : 'Packages Page';
+  var brandName   = isInteriors ? 'Jan Interiors' : 'Jan Furnishings';
+
+  function waHrefFor(bundleName) {
+    var message = 'Hi ' + brandName + ', I would like to enquire about the ' + bundleName + ' bundle. ..via ' + pageLabel;
+    return waUrl + '?text=' + encodeURIComponent(message);
+  }
 
   /* ── CANONICAL CSS ────────────────────────────────────────────────── */
   var CSS =
@@ -139,7 +146,7 @@
               '<li>Save up to AED 4,000 vs. booking separately</li>' +
             '</ul>' +
             '<div class="jvb-cta">' +
-              '<a href="' + waUrl + '" class="jvb-btn-wa" target="_blank" rel="noopener noreferrer">' +
+              '<a href="' + waHrefFor('Villa Complete') + '" class="jvb-btn-wa" target="_blank" rel="noopener noreferrer">' +
                 'WhatsApp to Enquire ' + arrowSvg +
               '</a>' +
               '<a href="' + bookUrl + '" class="jvb-btn-ghost">Book Consultation</a>' +
@@ -170,7 +177,7 @@
               '<li>White-glove handover with 5-year warranty</li>' +
             '</ul>' +
             '<div class="jvb-cta">' +
-              '<a href="' + waUrl + '" class="jvb-btn-wa" target="_blank" rel="noopener noreferrer">' +
+              '<a href="' + waHrefFor('Villa Prestige') + '" class="jvb-btn-wa" target="_blank" rel="noopener noreferrer">' +
                 'WhatsApp to Enquire ' + arrowSvg +
               '</a>' +
               '<a href="' + bookUrl + '" class="jvb-btn-ghost">Book Consultation</a>' +

@@ -8,6 +8,25 @@
 
   var WA_URL = 'https://wa.me/971508806292';
 
+  var PAGE_LABEL_BY_PATH = {
+    '/interiors': 'Interiors Home Page',
+    '/interiors/about': 'Interiors About Page',
+    '/interiors/packages': 'Interiors Packages Page',
+    '/interiors/portfolio': 'Interiors Portfolio Page',
+    '/interiors/services': 'Interiors Services Page',
+    '/interiors/book': 'Interiors Book Page'
+  };
+
+  function currentPageLabel() {
+    var path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '') || '/interiors';
+    return PAGE_LABEL_BY_PATH[path] || 'Interiors Page';
+  }
+
+  function waHrefWithSource() {
+    var message = "Hi Jan Interiors, I'd like to know more. ..via " + currentPageLabel();
+    return WA_URL + '?text=' + encodeURIComponent(message);
+  }
+
   var WA_ICON =
     '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
       '<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15' +
@@ -77,7 +96,7 @@
     /* Create floating button */
     var btn = document.createElement('a');
     btn.id = 'interiors-wa-float';
-    btn.href = WA_URL;
+    btn.href = waHrefWithSource();
     btn.target = '_blank';
     btn.rel = 'noopener noreferrer';
     btn.setAttribute('aria-label', 'Chat on WhatsApp');

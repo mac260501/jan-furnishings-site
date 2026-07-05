@@ -2,7 +2,7 @@ import {
   BOOK_LINK,
   LUXURY_NAV_LINKS,
   SITE_NAV_LINKS,
-  WHATSAPP_BASE_URL
+  whatsappHrefWithSource
 } from './constants.js';
 
 const GOLD_TRIM_PAGES = new Set(['interiors']);
@@ -124,9 +124,8 @@ function resolveLuxuryCta(pageKey) {
     return BOOK_LINK.luxury;
   }
 
-  const message = encodeURIComponent("Hi, I'd like to enquire about your Kevlar curtains.");
   return {
-    href: `${WHATSAPP_BASE_URL}?text=${message}`,
+    href: whatsappHrefWithSource("Hi, I'd like to enquire about your Kevlar curtains.", pageKey),
     label: 'Request Consultation'
   };
 }
