@@ -1,3 +1,5 @@
+import { appendSource } from '../src/layout/constants.js';
+
 const WHATSAPP_NUMBER = '971508806292';
 
 const ESTIMATE_RATES = {
@@ -20,8 +22,12 @@ function formatAed(amount) {
   }).format(amount);
 }
 
+function currentPageKey() {
+  return document.body?.getAttribute('data-page') || 'home';
+}
+
 function openWhatsapp(message) {
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(appendSource(message, currentPageKey()))}`;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 

@@ -1,4 +1,6 @@
-import { CONTACT, FOOTER_COPY, SOCIAL_LINKS, WHATSAPP_BASE_URL } from './constants.js';
+import { CONTACT, FOOTER_COPY, SOCIAL_LINKS, WHATSAPP_BASE_URL, whatsappHrefWithSource } from './constants.js';
+
+const FOOTER_WA_MESSAGE = "Hi Jan Furnishings, I'd like to know more.";
 
 const INTERIORS_BRAND_PAGES = new Set(['interiors']);
 const BRAND_FAMILY = [
@@ -97,7 +99,9 @@ function SocialLink({ href, label, className }) {
   );
 }
 
-export function SiteFooter({ year }) {
+export function SiteFooter({ year, pageKey }) {
+  const waHref = whatsappHrefWithSource(FOOTER_WA_MESSAGE, pageKey);
+
   return (
     <div className="container footer-grid">
       <div>
@@ -126,7 +130,7 @@ export function SiteFooter({ year }) {
       <div>
         <h3>Contact</h3>
         <div className="footer-links">
-          <a href={CONTACT.phoneHref} target="_blank" rel="noopener noreferrer">WhatsApp: {CONTACT.phoneLabel}</a>
+          <a href={waHref} target="_blank" rel="noopener noreferrer">WhatsApp: {CONTACT.phoneLabel}</a>
           <a href={CONTACT.emailHref}>{CONTACT.emailLabel}</a>
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="terms-of-use.html">Terms of Use</a>
@@ -143,6 +147,7 @@ export function LuxuryFooter({ year, variant, pageKey }) {
   const aboutPage = variant === 'site' ? 'about-us.html' : 'about.html';
   const currentBrand = resolveCurrentBrand(pageKey);
   const hasGoldTrim = currentBrand === 'interiors';
+  const waHref = whatsappHrefWithSource(FOOTER_WA_MESSAGE, pageKey);
 
   return (
     <>
@@ -188,7 +193,7 @@ export function LuxuryFooter({ year, variant, pageKey }) {
             <div className="footer-social">
               <SocialLink href={SOCIAL_LINKS.facebook} label="Facebook" />
               <SocialLink href={SOCIAL_LINKS.instagram} label="Instagram" />
-              <SocialLink href={SOCIAL_LINKS.whatsapp} label="WhatsApp" className="social-btn social-btn-whatsapp" />
+              <SocialLink href={waHref} label="WhatsApp" className="social-btn social-btn-whatsapp" />
             </div>
           </div>
 
@@ -218,7 +223,7 @@ export function LuxuryFooter({ year, variant, pageKey }) {
           <div className="footer-col">
             <h4>Contact</h4>
             <div className="footer-contact">
-              <p><a href={CONTACT.phoneHref} target="_blank" rel="noopener noreferrer">{CONTACT.phoneLabel}</a></p>
+              <p><a href={waHref} target="_blank" rel="noopener noreferrer">{CONTACT.phoneLabel}</a></p>
               <p><a href={CONTACT.emailHref}>{CONTACT.emailLabel}</a></p>
               <p style={{ marginTop: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.address}</p>
               <p style={{ marginTop: '8px', color: 'rgba(255,255,255,0.6)', fontSize: '12px' }}>{CONTACT.companyNote}</p>

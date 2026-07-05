@@ -173,7 +173,7 @@ function renderFooter(variant, pageKey) {
     if (!footer) return;
 
     footer.classList.remove('layout-react-luxury-footer');
-    renderInto(footer, <SiteFooter year={year} />);
+    renderInto(footer, <SiteFooter year={year} pageKey={pageKey} />);
     return;
   }
 
