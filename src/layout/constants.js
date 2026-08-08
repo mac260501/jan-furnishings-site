@@ -29,40 +29,26 @@ export function whatsappHrefWithSource(message, pageKey) {
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(appendSource(message, pageKey))}`;
 }
 
+export const INTERIORS_URL = '/interiors/';
+
 export const PAGE_KEY_BY_FILE = {
   'index.html': 'home',
-  'home.html': 'home',
   'products.html': 'products',
-  'our-products.html': 'products',
-  'interiors.html': 'interiors',
   'packages.html': 'packages',
   'estimate.html': 'estimate',
-  'get-estimate.html': 'estimate',
   'about.html': 'about',
-  'about-us.html': 'about',
   'help.html': 'help',
   'book.html': 'booking',
-  'book-a-free-visit.html': 'booking',
   'privacy-policy.html': 'legal',
   'terms-of-use.html': 'legal',
   'kevlar.html': 'kevlar',
-  'kevlar-post.html': 'kevlar',
   'curtains.html': 'curtains',
   'blinds.html': 'blinds',
   'motorized.html': 'motorized',
   'faq.html': 'faq'
 };
 
-export const SITE_NAV_LINKS = [
-  { key: 'home', href: 'index.html', label: 'Home' },
-  { key: 'products', href: 'our-products.html', label: 'Our Products' },
-  { key: 'packages', href: 'packages.html', label: 'Packages' },
-  { key: 'estimate', href: 'get-estimate.html', label: 'Get Estimate' },
-  { key: 'about', href: 'about-us.html', label: 'About Us' },
-  { key: 'help', href: 'help.html', label: 'Help' }
-];
-
-export const LUXURY_NAV_LINKS = [
+export const NAV_LINKS = [
   { key: 'home', href: 'index.html', label: 'Home' },
   { key: 'products', href: 'products.html', label: 'Our Products' },
   { key: 'packages', href: 'packages.html', label: 'Packages' },
@@ -71,10 +57,7 @@ export const LUXURY_NAV_LINKS = [
   { key: 'help', href: 'help.html', label: 'Help' }
 ];
 
-export const BOOK_LINK = {
-  site: { href: 'book-a-free-visit.html', label: 'Book a Free Visit' },
-  luxury: { href: 'book.html', label: 'Book a Free Visit' }
-};
+export const BOOK_LINK = { href: 'book.html', label: 'Book a Free Visit' };
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/share/17wgL3YqqS/',

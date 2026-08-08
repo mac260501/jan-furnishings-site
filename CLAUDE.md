@@ -48,7 +48,7 @@ backdrop-filter: blur(18px);
 border: 1px solid rgba(255,255,255,0.07);
 padding: 44px 52px 48px;
 ```
-Applied on hero sections of: `home.html`, `about.html`, `interiors.html`, `packages.html`
+Applied on hero sections of: `index.html`, `about.html`, `interiors/index.html`, `packages.html`
 
 ### Nav Pattern
 ```css
@@ -61,19 +61,31 @@ border-bottom: 1px solid rgba(201,169,110,0.2);
 On scroll past 20px → background becomes `rgba(26,26,26,0.97)`
 
 ### File Structure (main site)
+
+Full layout and conventions: **[STRUCTURE.md](STRUCTURE.md)**. Summary:
+
 ```
 thejanfurniture.com/
-├── index.html
-├── about.html
-├── products.html       (curtains & blinds product pages)
-├── interiors.html      (wall panels, wallpaper, painting, renovation)
-├── packages.html       (villa packages — curtains/blinds + interiors)
-├── estimate.html
-├── book.html
-├── help.html
+├── index.html          (root .html filenames ARE live URLs — do not move them)
+├── about.html · products.html · curtains.html · blinds.html · motorized.html
+├── packages.html · estimate.html · book.html · help.html · faq.html · kevlar.html
+├── privacy-policy.html · terms-of-use.html
+├── interiors/          (Jan Interiors sub-site — directory-per-page, /interiors/…)
+├── src/                (shared React header/footer island — nav lives in constants.js)
+├── scripts/            (submit-indexnow.sh, verify-deploy.sh)
+├── docs/               (project docs — not deployed)
+├── marketing/          (off-site assets — not deployed)
 └── assets/
+    ├── site.css · site.js
     └── images/         (ALL images are local — never use external URLs)
+        ├── brand/ · clients/ · partners/ · heroes/
+        ├── products/{curtains,blinds,motorized}/
+        ├── kevlar/ · interiors/{services,projects,packages}/
+        └── optimized/  (responsive derivatives)
 ```
+
+Navigation links are defined once, in `src/layout/constants.js` (`NAV_LINKS`,
+`BOOK_LINK`, `PAGE_KEY_BY_FILE`) — edit them there, not in the page HTML.
 
 ### Campaign Landing Pages (`offers.thejanfurniture.com`)
 ```
@@ -201,7 +213,7 @@ Hamburger menu includes "The Jan Group" section at the bottom showing all 3 bran
 ### Brand URLs
 ```
 Jan Furnishings:  https://thejanfurniture.com
-Jan Interiors:    https://thejanfurniture.com/interiors  (or /interiors.html)
+Jan Interiors:    https://thejanfurniture.com/interiors/  (trailing slash — it is a directory)
 Al Hadeeqa:       https://alhadeeqacontracting.com
 ```
 
