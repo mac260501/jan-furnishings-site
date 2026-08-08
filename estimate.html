@@ -36,7 +36,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--text); overflow-x: hidden; font-weight: 300; }
-    img { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
@@ -397,8 +397,16 @@
       "opens": "09:00",
       "closes": "21:00"
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "27",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "sameAs": [
-      "https://maps.app.goo.gl/etJY1YDiJ8i8XH1C6"
+      "https://maps.app.goo.gl/etJY1YDiJ8i8XH1C6",
+      "https://www.instagram.com/janfurnishings/"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -459,7 +467,7 @@
 
 <!-- ── PAGE HERO ───────────────────────────────────────── -->
 <section id="page-hero">
-  <img class="hero-bg-img" src="assets/images/furnishings-estimate-hero.jpg" alt="Curtains in a Dubai home" />
+  <img class="hero-bg-img" src="assets/images/furnishings-estimate-hero.jpg" alt="Curtains in a Dubai home" width="1920" height="1281" />
   <div class="hero-bg-gradient"></div>
   <div class="hero-inner">
     <div class="hero-glass" data-aos="fade-up">
@@ -529,7 +537,7 @@
         <div class="product-cards">
 
           <div class="prod-card selected" onclick="selectProduct(this,'sheer')" data-product="sheer">
-            <img src="assets/images/u9325394949_sheer_curtains_in_a_premium_contemporary_villa_sh_31030354-1ce3-4f27-b8d1-917a10109ad1_0.webp" alt="Sheer Curtains" />
+            <img src="assets/images/u9325394949_sheer_curtains_in_a_premium_contemporary_villa_sh_31030354-1ce3-4f27-b8d1-917a10109ad1_0.webp" alt="Sheer Curtains" width="1080" height="893" />
             <div>
               <div class="prod-card-name">Sheer Curtains</div>
               <div class="prod-card-price">from AED 533</div>
@@ -538,7 +546,7 @@
           </div>
 
           <div class="prod-card" onclick="selectProduct(this,'blackout')" data-product="blackout">
-            <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains" />
+            <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains" width="741" height="600" />
             <div>
               <div class="prod-card-name">Blackout Curtains</div>
               <div class="prod-card-price">from AED 599</div>
@@ -547,7 +555,7 @@
           </div>
 
           <div class="prod-card" onclick="selectProduct(this,'combo')" data-product="combo">
-            <img src="assets/images/sheer-blackout-combo.webp" alt="Sheer and Blackout Combo" />
+            <img src="assets/images/sheer-blackout-combo.webp" alt="Sheer and Blackout Combo" width="1944" height="1141" />
             <div>
               <div class="prod-card-name">Sheer &amp; Blackout Combo</div>
               <div class="prod-card-price">from AED 999</div>
@@ -556,7 +564,7 @@
           </div>
 
           <div class="prod-card" onclick="selectProduct(this,'roller')" data-product="roller">
-            <img src="assets/images/download-5.webp" alt="Roller Blinds" />
+            <img src="assets/images/download-5.webp" alt="Roller Blinds" width="741" height="600" />
             <div>
               <div class="prod-card-name">Blackout Roller Blinds</div>
               <div class="prod-card-price">from AED 393</div>
@@ -577,7 +585,7 @@
         <div class="result-top">
           <img id="result-img" class="result-product-preview"
             src="assets/images/u9325394949_sheer_curtains_in_a_premium_contemporary_villa_sh_31030354-1ce3-4f27-b8d1-917a10109ad1_0.webp"
-            alt="Selected product" />
+            alt="Selected product" width="1080" height="893" />
 
           <div class="result-label">Your Estimate</div>
           <div class="result-product-name" id="result-name">Sheer Curtains</div>
@@ -682,7 +690,7 @@
         <div class="tag" style="margin-bottom:20px;">FAQ</div>
         <h3>Common questions about pricing &amp; the process.</h3>
         <p>Can't find what you're looking for? WhatsApp us and we'll answer within the hour.</p>
-        <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page" class="btn-outline" target="_blank" style="background:#25D366;color:#fff;border-color:#25D366;">Ask on WhatsApp</a>
+        <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D" class="btn-outline" target="_blank" style="background:#25D366;color:#fff;border-color:#25D366;">Ask on WhatsApp</a>
       </div>
 
       <div class="faq-list" data-aos="fade-up">
@@ -781,7 +789,7 @@
           <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page" target="_blank" class="social-btn" aria-label="WhatsApp">
+          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D" target="_blank" class="social-btn" aria-label="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
         </div>
@@ -807,7 +815,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-contact">
-          <p><a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page">+971 50 880 6292</a></p>
+          <p><a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
           <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
           <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
@@ -825,7 +833,7 @@
 </footer>
 
 <!-- ── WhatsApp Float ──────────────────────────────────── -->
-<a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   WhatsApp Us
 </a>
@@ -896,7 +904,7 @@
     const w = document.getElementById('width').value;
     const h = document.getElementById('height').value;
     const total = document.getElementById('result-total').textContent;
-    const msg = `Hi Jan Furnishings! I used the price calculator on your website.\n\nProduct: ${p.name}\nWindow size: ${w} × ${h} cm\nWindows: ${numWindows}\nEstimate: ${total}\n\nCould you confirm this price and help me book a visit?\n\n..via Estimate Page`;
+    const msg = `Hi Jan Furnishings! I used the price calculator on your website.\n\nProduct: ${p.name}\nWindow size: ${w} × ${h} cm\nWindows: ${numWindows}\nEstimate: ${total}\n\nCould you confirm this price and help me book a visit?\n\n[via Estimate Page]`;
     gtag('event', 'whatsapp_click', { page_path: window.location.pathname });
     window.open(`https://wa.me/971508806292?text=${encodeURIComponent(msg)}`, '_blank');
   }

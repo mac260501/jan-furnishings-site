@@ -47,7 +47,7 @@
       overflow-x: hidden;
       font-weight: 300;
     }
-    img { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
 
@@ -735,8 +735,36 @@
       "opens": "09:00",
       "closes": "21:00"
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "27",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "sameAs": [
-      "https://maps.app.goo.gl/etJY1YDiJ8i8XH1C6"
+      "https://maps.app.goo.gl/etJY1YDiJ8i8XH1C6",
+      "https://www.instagram.com/janfurnishings/"
+    ],
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mohammad Chaudhry" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Got my curtains done for my kids' bedroom and master suite. The quality is fantastic — I'm genuinely impressed, from the initial consultation through to the final installation."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Usman Khawar" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Got curtains done for my villa in Jumeirah — excellent experience from start to finish. Very professional, great fabric advice, and the pricing was very reasonable for the quality. Installation was fast, neat, and on time. Didn't have to step out of my home once."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrea Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Professional, personalized service. Easy to reach for any questions, and they were punctual throughout. Honestly one of the smoothest home service experiences I've had in Dubai."
+      }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -754,6 +782,19 @@
       "name": "Jan Group",
       "url": "https://thejanfurniture.com"
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://thejanfurniture.com/#website",
+    "url": "https://thejanfurniture.com/",
+    "name": "Jan Furnishings",
+    "description": "Dubai's custom curtain and blind specialists.",
+    "publisher": { "@id": "https://thejanfurniture.com/#organization" },
+    "inLanguage": "en-AE"
   }
   </script>
 </head>
@@ -881,7 +922,7 @@
       <!-- Wide card: Sheer & Blackout Combo -->
       <div class="product-card wide" data-aos="fade-up" data-aos-delay="0">
         <div class="product-img">
-          <img src="assets/images/sheer-blackout-combo.webp" alt="Sheer and Blackout Curtain Combo" />
+          <img src="assets/images/sheer-blackout-combo.webp" alt="Sheer and Blackout Curtain Combo" width="1944" height="1141" loading="lazy" decoding="async" />
         </div>
         <div class="product-info">
           <div class="product-name">Sheer & Blackout Combo</div>
@@ -901,7 +942,7 @@
       <!-- Sheer Curtains -->
       <div class="product-card" data-aos="fade-up" data-aos-delay="0">
         <div class="product-img">
-          <img src="assets/images/u9325394949_sheer_curtains_in_a_premium_contemporary_villa_sh_31030354-1ce3-4f27-b8d1-917a10109ad1_0.webp" alt="Sheer Curtains Dubai" />
+          <img src="assets/images/u9325394949_sheer_curtains_in_a_premium_contemporary_villa_sh_31030354-1ce3-4f27-b8d1-917a10109ad1_0.webp" alt="Sheer Curtains Dubai" width="1080" height="893" loading="lazy" decoding="async" />
         </div>
         <div class="product-info">
           <div class="product-name">Sheer Curtains</div>
@@ -921,7 +962,7 @@
       <!-- Blackout Curtains -->
       <div class="product-card" data-aos="fade-up" data-aos-delay="100">
         <div class="product-img">
-          <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" />
+          <img src="assets/images/Blackout-curtains-e1707219010700.webp" alt="Blackout Curtains Dubai" width="741" height="600" loading="lazy" decoding="async" />
         </div>
         <div class="product-info">
           <div class="product-name">Blackout Curtains</div>
@@ -941,7 +982,7 @@
       <!-- Roller Blinds -->
       <div class="product-card" data-aos="fade-up" data-aos-delay="0">
         <div class="product-img">
-          <img src="assets/images/download-5.webp" alt="Roller Blinds Dubai" />
+          <img src="assets/images/download-5.webp" alt="Roller Blinds Dubai" width="741" height="600" loading="lazy" decoding="async" />
         </div>
         <div class="product-info">
           <div class="product-name">Roller Blinds</div>
@@ -961,7 +1002,7 @@
       <!-- Wooden Blinds -->
       <div class="product-card" data-aos="fade-up" data-aos-delay="100">
         <div class="product-img">
-          <img src="assets/images/download-10.webp" alt="Wooden Blinds Dubai" />
+          <img src="assets/images/download-10.webp" alt="Wooden Blinds Dubai" width="741" height="600" loading="lazy" decoding="async" />
         </div>
         <div class="product-info">
           <div class="product-name">Wooden Blinds</div>
@@ -981,7 +1022,7 @@
       <!-- Wide CTA card — fills the bottom-right 2 cols -->
       <div class="product-card wide product-cta-card" data-aos="fade-up" data-aos-delay="200">
         <div class="product-img" style="position:relative;">
-          <img src="assets/images/pexels-artbovich-6492384.jpg" alt="Book a free curtain consultation in Dubai" />
+          <img src="assets/images/pexels-artbovich-6492384.jpg" alt="Book a free curtain consultation in Dubai" width="1920" height="1425" loading="lazy" decoding="async" />
           <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,37,37,0.82) 0%,rgba(37,37,37,0.45) 100%);"></div>
           <div class="cta-card-content" style="position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:flex-end;">
             <div class="tag" style="margin-bottom:16px;align-self:flex-start;">Free · No Obligation</div>
@@ -1031,8 +1072,8 @@
   <div class="container">
     <div class="intro-inner">
       <div class="intro-images" data-aos="fade-right">
-        <img class="intro-img-main" src="assets/images/pexels-artbovich-7214461.jpg" alt="Elegant sheer curtains in a modern Dubai living room" />
-        <img class="intro-img-accent" src="assets/images/vitalijs-barilo-azMZaQCUyV8-unsplash.jpg" alt="Premium fabric collection" />
+        <img class="intro-img-main" src="assets/images/pexels-artbovich-7214461.jpg" alt="Elegant sheer curtains in a modern Dubai living room" width="1920" height="1281" loading="lazy" decoding="async" />
+        <img class="intro-img-accent" src="assets/images/vitalijs-barilo-azMZaQCUyV8-unsplash.jpg" alt="Premium fabric collection" width="675" height="900" loading="lazy" decoding="async" />
       </div>
       <div class="intro-text" data-aos="fade-left" data-aos-delay="100">
         <div class="tag">Why Jan Furnishings</div>
@@ -1125,40 +1166,40 @@
     <p class="partners-label">Trusted by our clients across Dubai</p>
     <div class="partners-track">
       <div class="partners-inner">
-        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="Generaltec" />
-        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="Engines World" />
-        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="Saudi German Hospital" />
-        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="Ox Interior" />
-        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="Decent Engineering" />
-        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="Al Hadeeqa" />
+        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="Generaltec" width="788" height="389" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="Engines World" width="610" height="351" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="Saudi German Hospital" width="900" height="600" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="Ox Interior" width="207" height="65" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="Decent Engineering" width="427" height="66" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="Al Hadeeqa" width="1080" height="1080" loading="lazy" decoding="async" />
       </div>
       <!-- Duplicate for seamless loop -->
       <div class="partners-inner" aria-hidden="true">
-        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="" />
-        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="" />
-        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="" />
-        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="" />
-        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="" />
-        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="" />
+        <img class="partner-logo" src="assets/images/generaltec.jpg" alt="" width="788" height="389" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/engines-world.jpeg" alt="" width="610" height="351" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/saudi-german-hospital.jpeg" alt="" width="900" height="600" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/ox-interior.jpeg" alt="" width="207" height="65" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/decent-engineering.jpeg" alt="" width="427" height="66" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/al-hadeeqa.jpeg" alt="" width="1080" height="1080" loading="lazy" decoding="async" />
       </div>
     </div>
 
     <p class="partners-label partners-label--section">Property developers &amp; managers we work with</p>
     <div class="partners-track">
       <div class="partners-inner">
-        <img class="partner-logo" src="assets/images/partner-cordova.jpg" alt="Cordova Property Management" />
-        <img class="partner-logo" src="assets/images/partner-bhomes.png" alt="Betterhomes" />
-        <img class="partner-logo" src="assets/images/partner-gulfland.webp" alt="Gulfland Property" />
-        <img class="partner-logo" src="assets/images/partner-imtiaz.svg" alt="Imtiaz Developments" />
-        <img class="partner-logo" src="assets/images/partner-riva.png" alt="Riva Maison" />
+        <img class="partner-logo" src="assets/images/partner-cordova.jpg" alt="Cordova Property Management" width="800" height="272" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-bhomes.png" alt="Betterhomes" width="849" height="150" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-gulfland.webp" alt="Gulfland Property" width="2000" height="1659" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-imtiaz.svg" alt="Imtiaz Developments" width="1092" height="299" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-riva.png" alt="Riva Maison" width="120" height="55" loading="lazy" decoding="async" />
       </div>
       <!-- Duplicate for seamless loop -->
       <div class="partners-inner" aria-hidden="true">
-        <img class="partner-logo" src="assets/images/partner-cordova.jpg" alt="" />
-        <img class="partner-logo" src="assets/images/partner-bhomes.png" alt="" />
-        <img class="partner-logo" src="assets/images/partner-gulfland.webp" alt="" />
-        <img class="partner-logo" src="assets/images/partner-imtiaz.svg" alt="" />
-        <img class="partner-logo" src="assets/images/partner-riva.png" alt="" />
+        <img class="partner-logo" src="assets/images/partner-cordova.jpg" alt="" width="800" height="272" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-bhomes.png" alt="" width="849" height="150" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-gulfland.webp" alt="" width="2000" height="1659" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-imtiaz.svg" alt="" width="1092" height="299" loading="lazy" decoding="async" />
+        <img class="partner-logo" src="assets/images/partner-riva.png" alt="" width="120" height="55" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>
@@ -1186,7 +1227,7 @@
         </a>
       </div>
       <div class="motorized-img" data-aos="fade-left" data-aos-delay="100">
-        <img src="assets/images/download-9.webp" alt="Motorized curtain remote control" />
+        <img src="assets/images/download-9.webp" alt="Motorized curtain remote control" width="741" height="600" loading="lazy" decoding="async" />
         <div class="motorized-price-badge">
           <div class="badge-label">Starting from</div>
           <div class="badge-price">AED 1,000</div>
@@ -1260,7 +1301,7 @@
   <div class="container">
     <div class="about-inner">
       <div class="about-img-wrap" data-aos="fade-right">
-        <img class="about-img-main" src="assets/images/jan-team.jpeg" alt="The Jan Furnishings team in Dubai" />
+        <img class="about-img-main" src="assets/images/jan-team.jpeg" alt="The Jan Furnishings team in Dubai" width="1574" height="353" loading="lazy" decoding="async" />
         <div class="about-badge">
           <div class="about-badge-num">500+</div>
           <div class="about-badge-label">Windows Fitted</div>
@@ -1326,7 +1367,7 @@
           <a href="https://www.instagram.com/janfurnishings" target="_blank" class="social-btn" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Home%20Page" target="_blank" class="social-btn" aria-label="WhatsApp">
+          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Home%20Page%5D" target="_blank" class="social-btn" aria-label="WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           </a>
         </div>
@@ -1356,7 +1397,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-contact">
-          <p><a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Home%20Page">+971 50 880 6292</a></p>
+          <p><a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Home%20Page%5D">+971 50 880 6292</a></p>
           <p><a href="mailto:janfurniture.ae@gmail.com">janfurniture.ae@gmail.com</a></p>
           <p style="margin-top:12px;color:rgba(255,255,255,0.6);font-size:12px;">In5 Tech, King Salman Bin Abdulaziz Al Saud St, Dubai</p>
           <p style="margin-top:8px;color:rgba(255,255,255,0.6);font-size:12px;">A product of Al Hadeeqa Contracting Co LLC</p>
@@ -1375,7 +1416,7 @@
 </footer>
 
 <!-- ── WhatsApp Float ──────────────────────────────────── -->
-<a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Home%20Page" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Home%20Page%5D" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   WhatsApp Us
 </a>
@@ -1399,6 +1440,44 @@
 </script>
 
   <script type="module" src="/src/layout-react.jsx"></script>
+
+<!-- ?src= source tagging — rewrites the [via …] tag on every WhatsApp link.
+     e.g. /?src=ChatGPT produces "…I'd like to know more. [via ChatGPT]" -->
+<script>
+  (function () {
+    var raw = new URLSearchParams(window.location.search).get('src');
+    if (!raw) return;
+    var src = raw.replace(/[^a-zA-Z0-9 _-]/g, '').trim();
+    if (!src) return;
+
+    function retag(a) {
+      var u;
+      try { u = new URL(a.href); } catch (_) { return; }
+      var text = u.searchParams.get('text');
+      if (!text || text.indexOf('[via ') === -1) return;
+      text = text.replace(/\[via [^\]]*\]/, '[via ' + src + ']');
+      // Build manually so spaces stay %20 — WhatsApp mangles '+'.
+      a.href = u.origin + u.pathname + '?text=' + encodeURIComponent(text);
+    }
+
+    function retagAll() {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(retag);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', retagAll);
+    } else {
+      retagAll();
+    }
+    // The React header/footer/float mount after DOMContentLoaded.
+    window.addEventListener('load', retagAll);
+    // Final safety net — retag at click time, before the browser follows the link.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (a) retag(a);
+    }, true);
+  })();
+</script>
 
 <!-- WhatsApp click tracking -->
 <script>

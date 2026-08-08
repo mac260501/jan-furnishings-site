@@ -24,3 +24,8 @@ for a crawl.
 
 The key is published at `https://thejanfurniture.com/2f27756be4974a51948c2aa285fb06d1.txt`
 and must stay live for submissions to be accepted.
+
+## Post-deploy verification
+
+`./scripts/verify.sh` checks page status codes, GA4 presence on every page, the
+key root files, pricing consistency, and the legacy Shopify redirects in one pass.

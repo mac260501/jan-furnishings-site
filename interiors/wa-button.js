@@ -23,7 +23,7 @@
   }
 
   function waHrefWithSource() {
-    var message = "Hi Jan Interiors, I'd like to know more. ..via " + currentPageLabel();
+    var message = "Hi Jan Interiors, I'd like to know more. [via " + currentPageLabel() + "]";
     return WA_URL + '?text=' + encodeURIComponent(message);
   }
 
