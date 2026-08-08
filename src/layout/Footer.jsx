@@ -13,7 +13,7 @@ const BRAND_FAMILY = [
   {
     key: 'interiors',
     name: 'Jan Interiors',
-    href: 'interiors.html',
+    href: '/interiors/',
     description: 'Wall panels, wallpaper, painting, renovation and curated interior package solutions.'
   },
   {
@@ -117,13 +117,13 @@ export function SiteFooter({ year, pageKey }) {
       <div>
         <h3>Explore</h3>
         <div className="footer-links">
-          <a href="our-products.html">Our Products</a>
-          <a href="interiors.html">Interiors</a>
+          <a href="products.html">Our Products</a>
+          <a href="/interiors/">Interiors</a>
           <a href="packages.html">Packages</a>
-          <a href="get-estimate.html">Get Estimate</a>
-          <a href="about-us.html">About Us</a>
+          <a href="estimate.html">Get Estimate</a>
+          <a href="about.html">About Us</a>
           <a href="help.html">Help</a>
-          <a href="book-a-free-visit.html">Book a Free Visit</a>
+          <a href="book.html">Book a Free Visit</a>
         </div>
       </div>
 
@@ -141,10 +141,10 @@ export function SiteFooter({ year, pageKey }) {
   );
 }
 
-export function LuxuryFooter({ year, variant, pageKey }) {
-  const productBase = variant === 'site' ? 'our-products.html' : 'products.html';
-  const estimatePage = variant === 'site' ? 'get-estimate.html' : 'estimate.html';
-  const aboutPage = variant === 'site' ? 'about-us.html' : 'about.html';
+export function LuxuryFooter({ year, pageKey }) {
+  const productBase = 'products.html';
+  const estimatePage = 'estimate.html';
+  const aboutPage = 'about.html';
   const currentBrand = resolveCurrentBrand(pageKey);
   const hasGoldTrim = currentBrand === 'interiors';
   const waHref = whatsappHrefWithSource(FOOTER_WA_MESSAGE, pageKey);
@@ -212,7 +212,7 @@ export function LuxuryFooter({ year, variant, pageKey }) {
             <ul>
               <FooterLink href="index.html" label="Home" />
               <FooterLink href={productBase} label="Our Products" />
-              <FooterLink href="interiors.html" label="Interiors" />
+              <FooterLink href="/interiors/" label="Interiors" />
               <FooterLink href="packages.html" label="Packages" />
               <FooterLink href={estimatePage} label="Get Estimate" />
               <FooterLink href={aboutPage} label="About Us" />

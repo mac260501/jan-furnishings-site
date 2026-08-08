@@ -8,6 +8,21 @@
 /estimate       /estimate.html      200
 /book           /book.html          200
 /help           /help.html          200
+/kevlar         /kevlar.html        200
+
+# ── Retired duplicate pages → current equivalents ────────
+# These .html files were removed during the Aug 2026 cleanup. They were older
+# duplicates of the pages above; the redirects keep any indexed URL alive.
+/home.html                     /                301!
+/home                          /                301!
+/about-us.html                 /about           301!
+/about-us                      /about           301!
+/our-products.html             /products        301!
+/our-products                  /products        301!
+/get-estimate.html             /estimate        301!
+/get-estimate                  /estimate        301!
+/book-a-free-visit.html        /book            301!
+/book-a-free-visit             /book            301!
 
 # ── Legacy Shopify structure → current pages ─────────────
 # Ordered after the explicit /products rule above so /products itself stays 200.

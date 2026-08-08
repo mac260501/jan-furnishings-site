@@ -20,17 +20,13 @@ function resolvePageKey(file) {
   return 'home';
 }
 
-function detectLayoutVariant(file) {
+function detectLayoutVariant() {
   if (document.querySelector('header.site-header')) {
     return 'site';
   }
 
   if (document.getElementById('nav') || document.querySelector('.nav-links')) {
     return 'luxury';
-  }
-
-  if (file === 'kevlar-post.html') {
-    return 'none';
   }
 
   return 'site';
@@ -183,7 +179,7 @@ function renderFooter(variant, pageKey) {
   if (!footer) return;
 
   footer.classList.add('layout-react-luxury-footer');
-  renderInto(footer, <LuxuryFooter year={year} variant={variant} pageKey={pageKey} />);
+  renderInto(footer, <LuxuryFooter year={year} pageKey={pageKey} />);
 }
 
 function getExistingWhatsappHref() {
@@ -218,7 +214,7 @@ function renderWhatsappFloat() {
 function init() {
   const file = getCurrentFile();
   const pageKey = resolvePageKey(file);
-  const variant = detectLayoutVariant(file);
+  const variant = detectLayoutVariant();
 
   if (document.body && !document.body.getAttribute('data-page')) {
     document.body.setAttribute('data-page', pageKey);

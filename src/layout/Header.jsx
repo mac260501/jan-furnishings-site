@@ -1,7 +1,6 @@
 import {
   BOOK_LINK,
-  LUXURY_NAV_LINKS,
-  SITE_NAV_LINKS,
+  NAV_LINKS,
   whatsappHrefWithSource
 } from './constants.js';
 
@@ -121,7 +120,7 @@ function triggerToggleMenu(forceOpen) {
 
 function resolveLuxuryCta(pageKey) {
   if (pageKey !== 'kevlar') {
-    return BOOK_LINK.luxury;
+    return BOOK_LINK;
   }
 
   return {
@@ -148,7 +147,7 @@ export function SiteHeader({ pageKey }) {
       </button>
 
       <nav className="nav" aria-label="Main navigation">
-        {SITE_NAV_LINKS.map((link) => (
+        {NAV_LINKS.map((link) => (
           <a
             key={link.key}
             href={link.href}
@@ -161,9 +160,9 @@ export function SiteHeader({ pageKey }) {
 
         <a
           className={classNames('btn', 'btn-primary', pageKey === 'booking' && 'active')}
-          href={BOOK_LINK.site.href}
+          href={BOOK_LINK.href}
         >
-          {BOOK_LINK.site.label}
+          {BOOK_LINK.label}
         </a>
       </nav>
     </div>
@@ -210,7 +209,7 @@ export function LuxuryHeader({ pageKey }) {
         <a href={logo.href} className="nav-logo">{logo.label}</a>
 
         <ul className="nav-links">
-          {LUXURY_NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.key}>
               <a href={link.href} className={classNames(pageKey === link.key && 'active')}>
                 {link.label}
@@ -239,7 +238,7 @@ export function LuxuryHeader({ pageKey }) {
       </nav>
 
       <div className={classNames('mobile-menu', hasGoldTrim && 'mobile-menu-gold')} id="mobileMenu">
-        {LUXURY_NAV_LINKS.map((link) => (
+        {NAV_LINKS.map((link) => (
           <a
             key={link.key}
             href={link.href}
