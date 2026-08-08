@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M73BX8Z0R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M73BX8Z0R8');
+  </script>
   <title>About Us — Jan Interiors Dubai</title>
   <meta name="description" content="The story behind Jan Interiors — a specialist interior design division born from 10+ years of home transformation in Dubai. Wall panels, wallpaper, painting and full renovation." />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-interiors.svg" />
@@ -809,5 +818,17 @@
       if (el) chapterObserver.observe(el);
     });
   </script>
+
+<!-- WhatsApp click tracking -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'whatsapp_click', {
+      link_url: a.href,
+      page_path: window.location.pathname
+    });
+  });
+</script>
 </body>
 </html>

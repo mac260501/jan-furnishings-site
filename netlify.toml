@@ -11,3 +11,9 @@
   from = "/interiors"
   to = "/interiors/"
   status = 301
+
+# IndexNow key file must be served as plain text
+[[headers]]
+  for = "/2f27756be4974a51948c2aa285fb06d1.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

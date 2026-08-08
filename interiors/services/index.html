@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M73BX8Z0R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M73BX8Z0R8');
+  </script>
   <title>Our Services — Jan Interiors Dubai</title>
   <meta name="description" content="Wall panels, luxury wallpaper, premium painting and full villa renovation services across Dubai. Jan Interiors — bespoke interiors for discerning homes." />
 
@@ -10,6 +19,11 @@
   <meta property="og:title" content="Our Services — Jan Interiors Dubai" />
   <meta property="og:description" content="Wall panels, luxury wallpaper, premium painting and full villa renovation services across Dubai. Jan Interiors — bespoke interiors for discerning homes." />
   <meta property="og:url" content="https://thejanfurniture.com/interiors/services/" />
+  <meta property="og:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Services — Jan Interiors Dubai" />
+  <meta name="twitter:description" content="Wall panels, luxury wallpaper, premium painting and full villa renovation services across Dubai. Jan Interiors — bespoke interiors for discerning homes." />
+  <meta name="twitter:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
   <link rel="alternate" type="text/plain" href="https://thejanfurniture.com/llms.txt" title="LLM-readable site summary" />
 
   <script type="application/ld+json">
@@ -515,5 +529,17 @@
     const observer = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);} }), {threshold:.08,rootMargin:'0px 0px -50px 0px'});
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
+<!-- WhatsApp click tracking -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'whatsapp_click', {
+      link_url: a.href,
+      page_path: window.location.pathname
+    });
+  });
+</script>
 </body>
 </html>

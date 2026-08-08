@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M73BX8Z0R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M73BX8Z0R8');
+  </script>
   <title>Book a Consultation — Jan Interiors Dubai</title>
   <meta name="description" content="Book a free in-home design consultation with Jan Interiors. We come to you across all Dubai areas — same day available." />
 
@@ -10,6 +19,11 @@
   <meta property="og:title" content="Book a Consultation — Jan Interiors Dubai" />
   <meta property="og:description" content="Book a free in-home design consultation with Jan Interiors. We come to you across all Dubai areas — same day available." />
   <meta property="og:url" content="https://thejanfurniture.com/interiors/book/" />
+  <meta property="og:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a Consultation — Jan Interiors Dubai" />
+  <meta name="twitter:description" content="Book a free in-home design consultation with Jan Interiors. We come to you across all Dubai areas — same day available." />
+  <meta name="twitter:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
   <link rel="alternate" type="text/plain" href="https://thejanfurniture.com/llms.txt" title="LLM-readable site summary" />
 
   <script type="application/ld+json">
@@ -354,6 +368,7 @@
         (comments ? `\n\nComments: ${comments}` : '') +
         `\n\n..via Interiors Book Page`
       );
+      gtag('event', 'whatsapp_click', { page_path: window.location.pathname });
       window.open(`https://wa.me/971508806292?text=${msg}`, '_blank');
 
       // Show success state
@@ -376,5 +391,17 @@
       }).catch(() => {});
     }
   </script>
+
+<!-- WhatsApp click tracking -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'whatsapp_click', {
+      link_url: a.href,
+      page_path: window.location.pathname
+    });
+  });
+</script>
 </body>
 </html>

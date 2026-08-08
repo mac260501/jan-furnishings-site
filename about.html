@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M73BX8Z0R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M73BX8Z0R8');
+  </script>
   <title>About Jan Furnishings — Dubai's Trusted Curtain &amp; Blind Company</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="shortcut icon" href="assets/images/favicon.svg" />
@@ -473,6 +482,10 @@
   <meta property="og:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
   <meta property="og:site_name" content="Jan Furnishings" />
   <meta property="og:locale" content="en_AE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Jan Furnishings — Dubai's Trusted Curtain &amp; Blind Company" />
+  <meta name="twitter:description" content="Part of the Jan Group. 500+ homes fitted across Dubai with custom curtains and blinds. Meet the team behind Dubai's most trusted window treatment specialists." />
+  <meta name="twitter:image" content="https://thejanfurniture.com/assets/images/og-image.jpg" />
   <link rel="alternate" type="text/plain" href="https://thejanfurniture.com/llms.txt" title="LLM-readable site summary" />
 
   <script type="application/ld+json">
@@ -907,5 +920,17 @@
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 </script>
   <script type="module" src="/src/layout-react.jsx"></script>
+
+<!-- WhatsApp click tracking -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'whatsapp_click', {
+      link_url: a.href,
+      page_path: window.location.pathname
+    });
+  });
+</script>
 </body>
 </html>
