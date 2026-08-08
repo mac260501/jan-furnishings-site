@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M73BX8Z0R8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M73BX8Z0R8');
+  </script>
   <title>Get Estimate | Curtains and Blinds Price Calculator</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="shortcut icon" href="assets/images/favicon.svg" />
@@ -194,7 +203,7 @@
       <div>
         <h3>Contact</h3>
         <div class="footer-links">
-          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page" target="_blank" rel="noopener noreferrer">WhatsApp: +971 50 880 6292</a>
+          <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D" target="_blank" rel="noopener noreferrer">WhatsApp: +971 50 880 6292</a>
           <a href="mailto:support@thejanfurniture.com">support@thejanfurniture.com</a>
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="terms-of-use.html">Terms of Use</a>
@@ -204,9 +213,21 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20..via%20Estimate%20Page" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
+  <a href="https://wa.me/971508806292?text=Hi%20Jan%20Furnishings%2C%20I'd%20like%20to%20know%20more.%20%5Bvia%20Estimate%20Page%5D" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">W</a>
 
   <script type="module" src="/assets/site.js"></script>
   <script type="module" src="/src/layout-react.jsx"></script>
+
+<!-- WhatsApp click tracking -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    gtag('event', 'whatsapp_click', {
+      link_url: a.href,
+      page_path: window.location.pathname
+    });
+  });
+</script>
 </body>
 </html>

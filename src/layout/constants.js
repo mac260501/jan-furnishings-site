@@ -22,7 +22,7 @@ export const PAGE_LABEL_BY_KEY = {
 export function appendSource(message, pageKey) {
   const label = PAGE_LABEL_BY_KEY[pageKey] || 'Website';
   const separator = message.includes('\n') ? '\n\n' : ' ';
-  return `${message}${separator}..via ${label}`;
+  return `${message}${separator}[via ${label}]`;
 }
 
 export function whatsappHrefWithSource(message, pageKey) {

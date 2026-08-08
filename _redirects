@@ -8,3 +8,20 @@
 /estimate       /estimate.html      200
 /book           /book.html          200
 /help           /help.html          200
+
+# ── Legacy Shopify structure → current pages ─────────────
+# Ordered after the explicit /products rule above so /products itself stays 200.
+/collections/curtains          /curtains        301!
+/collections/blinds            /blinds          301!
+/collections/motorized         /motorized       301!
+/collections/all               /products        301!
+/collections/*                 /products        301!
+/products/*                    /products        301!
+/pages/about                   /about           301!
+/pages/contact                 /book            301!
+/pages/faq                     /faq             301!
+/pages/*                       /                301!
+/cart                          /                301!
+/account                       /                301!
+/blogs/*                       /                301!
+/apps/*                        /                301!

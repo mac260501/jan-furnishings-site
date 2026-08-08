@@ -19,7 +19,7 @@
   var brandName   = isInteriors ? 'Jan Interiors' : 'Jan Furnishings';
 
   function waHrefFor(bundleName) {
-    var message = 'Hi ' + brandName + ', I would like to enquire about the ' + bundleName + ' bundle. ..via ' + pageLabel;
+    var message = 'Hi ' + brandName + ', I would like to enquire about the ' + bundleName + ' bundle. [via ' + pageLabel + ']';
     return waUrl + '?text=' + encodeURIComponent(message);
   }
 
